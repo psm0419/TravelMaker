@@ -93,11 +93,19 @@
 			</div>
 	
 			<div class="mySlideDiv fade">
-				<img src="/images/라이프클락1.jpg">
+				<img src="/images/예시이미지2.jpg">
 			</div>
 	
 			<div class="mySlideDiv fade">
-				<img src="/images/예시이미지.jpg">
+				<img src="/images/유채꽃축제.jpg">
+			</div>
+			
+			<div class="mySlideDiv fade">
+				<img src="/images/유채꽃축제2.jpg">
+			</div>
+			
+			<div class="mySlideDiv fade">
+				<img src="/images/유채꽃축제3.jpg">
 			</div>
 	
 			<a class="prev" onclick="prevSlide()">&#10094;</a> <a class="next"
