@@ -26,6 +26,12 @@ create Table attraction_info (
   hubRank varchar2(12)
 );
 
+CREATE SEQUENCE attraction_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
 create Table festival (
   festival_id number primary key,
   festival_name varchar2(64),
@@ -38,6 +44,11 @@ create Table festival (
   tel varchar2(16),
   festival_host varchar2(64)
 );
+CREATE SEQUENCE festival_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create Table posts (
   post_id number primary key,
@@ -54,6 +65,11 @@ create Table posts (
   authentication_admin varchar2(16),
   authentication_time timestamp
 );
+CREATE SEQUENCE post_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create Table comments (
   comments_id number primary key,
@@ -62,6 +78,11 @@ create Table comments (
   user_id number,
   created_at timestamp
 );
+CREATE SEQUENCE comments_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create Table authentication_page(
   authentication_id varchar2(16),
@@ -70,6 +91,11 @@ create Table authentication_page(
   authentication_image BLOB,
   authentication_status varchar2(32)
 );
+CREATE SEQUENCE authentication_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create Table search_record(
   search_id number primary key,
@@ -77,12 +103,22 @@ create Table search_record(
   search_word varchar2(32),
   created_at timestamp
 );
+CREATE SEQUENCE search_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create Table badge(
   badge_id number primary key,
   badge_title varchar2(32) unique,
   count number
 );
+CREATE SEQUENCE badge_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create Table festival_rating( 
  authentication_id varchar2(32),
@@ -112,3 +148,9 @@ create Table user_festival_badge(
 create Table board(
   board_id number primary key
 );
+
+CREATE SEQUENCE comments_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
