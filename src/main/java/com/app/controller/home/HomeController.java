@@ -8,6 +8,12 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home() {
-		return "home";
+		return "mainpage/MainPage";
 	}
+	
+	@GetMapping("/header")
+	public String header() {
+		return "header/Header";
+	}
+	
 }
