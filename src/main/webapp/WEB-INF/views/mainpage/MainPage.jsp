@@ -47,25 +47,14 @@
 	animation-duration: 1.5s;
 }
 
-@
--webkit-keyframes fade {from { opacity:.4;
-	
+@-webkit-keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
 }
 
-to {
-	opacity: 1;
-}
-
-}
-@
-keyframes fade {from { opacity:.4;
-	
-}
-
-to {
-	opacity: 1;
-}
-
+@keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
 }
 
 /* Next & previous buttons */
