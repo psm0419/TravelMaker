@@ -8,6 +8,6 @@
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 	<typeAliases>
-		
+		<typeAlias type="com.app.dto.festival.Festival" alias="Festival"/>
 	</typeAliases>
 </configuration>

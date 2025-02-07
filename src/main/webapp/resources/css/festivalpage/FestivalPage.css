@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #f8f8f8;
+	margin: 0;
+	padding: 20px;
+}
+
+.container {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.search-box {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+}
+
+.search_btn {
+	padding: 10px;
+	font-size: 16px;
+	margin-right: 100px;
+	border-radius: 6px;
+}
+.select_box {
+	width: 200px;
+	padding-left: 20px;	
+	font-size: 16px;
+	margin-right:20px;
+	border-radius: 6px;
+}
+
+.festival-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.festival-card {
+	width: calc(33% - 80px);
+	background: white;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.festival-card:hover {
+	transform: translateY(-5px);
+}
+
+.festival-card img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.festival-content {
+	padding: 15px;
+}
+
+.festival-content h3 {
+	margin: 10px 0;
+	font-size: 18px;
+}
+
+.festival-content .date, .festival-content .location {
+	font-size: 14px;
+	color: #666;
+}
+.festival-sort {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+
+.festival-sort span {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #eee;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.festival-sort span.active {
+    background: #7a45e5;
+    color: white;
+}
