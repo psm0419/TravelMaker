@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,7 @@ body {
 	padding: 0 30px;
 	position: fixed;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	z-index: 300;
 }
 
 /* 로고 */
@@ -69,6 +71,8 @@ body {
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
+	z-index: 300;
+	background-color : rgb(255,255,255); opacity : 0.9;
 }
 
 /* 드롭다운 내부 항목 */
@@ -125,9 +129,15 @@ body {
 			</div>
 		</div>
 
-		<!-- 오른쪽 메뉴 -->
+		<!-- 오른쪽 메뉴 로그인 했을때 마이페이지 표시 / 안했을때 로그인 회원가입 표시 -->
 		<div class="headerRightMenu">
-			<div class="login">로그인/회원가입</div>
+			<!-- 로그인 상태 확인 -->
+			<c:if test="${empty sessionScope.user}">
+				<div>로그인/회원가입</div> <!-- 로그인 안 한 상태 -->
+			</c:if>
+			<c:if test="${not empty sessionScope.user}">
+				<div>마이페이지</div> <!-- 로그인 한 상태 -->
+			</c:if>
 		</div>
 	</div>
 

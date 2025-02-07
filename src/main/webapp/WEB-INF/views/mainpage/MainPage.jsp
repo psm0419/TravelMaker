@@ -13,11 +13,15 @@
 	box-sizing: border-box;
 }
 
+.mainHeaderContainer{
+}
+
 .slideContainer{
 	margin: auto;
-	padding: 0;
+	padding-top: 150px;
 	width: 69%;
-	height: 500px;
+	height: 100%;
+	overflow:hidden;
 }
 
 /* Slideshow container */
@@ -25,7 +29,7 @@
 	position: relative;
 	margin: 0;
 	padding: 0;
-	height: 100%;
+	height: 140%;
 }
 
 .mySlideDiv {
@@ -37,6 +41,7 @@
 	width: 100%; /* 이미지가 슬라이드 컨테이너에 맞게 조정됨 */
 	height: 100%;
 	object-fit: contain;
+	border-radius: 30px;
 }
 
 /* effect */
@@ -86,32 +91,55 @@
 
 </head>
 <body>
+	<div class=mainHeaderContainer>
+		<jsp:include page="../header/Header.jsp" />
+	</div>
+	
 	<div class="slideContainer">
-		<div class="slideshow-container">
+		<div class="slideshow-container">			<!-- 이미지크기 940x527 -->
 			<div class="mySlideDiv fade active">
-				<img src="/images/예시이미지.jpg">
+				<a href="https://www.naver.com">
+					<img src="/images/유채꽃축제.jpg">
+				</a>
 			</div>
 	
 			<div class="mySlideDiv fade">
-				<img src="/images/예시이미지2.jpg">
+				<a href="https://www.naver.com">
+					<img src="/images/유채꽃축제2.jpg">
+				</a>
 			</div>
 	
 			<div class="mySlideDiv fade">
-				<img src="/images/유채꽃축제.jpg">
+				<a href="https://www.naver.com">
+					<img src="/images/유채꽃축제.jpg">
+				</a>
 			</div>
 			
 			<div class="mySlideDiv fade">
-				<img src="/images/유채꽃축제2.jpg">
+				<a href="https://www.naver.com">
+					<img src="/images/유채꽃축제2.jpg">
+				</a>
 			</div>
 			
 			<div class="mySlideDiv fade">
-				<img src="/images/유채꽃축제3.jpg">
+				<a href="https://www.naver.com">
+					<img src="/images/유채꽃축제3.jpg">
+				</a>
 			</div>
 	
 			<a class="prev" onclick="prevSlide()">&#10094;</a> <a class="next"
 				onclick="nextSlide()">&#10095;</a>
 		</div>
 	</div>
+	
+	
+	<jsp:include page="../mainlistpage/MainList.jsp" />
+		
+	
+	
+	
+	
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".mySlideDiv").not(".active").hide(); // 첫번째 슬라이드만 보이게 설정하고 나머지는 숨김
