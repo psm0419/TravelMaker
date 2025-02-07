@@ -1,12 +1,21 @@
 package com.app.controller.admin;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.app.dto.user.User;
+import com.app.service.user.UserService;
+
 @Controller
 public class AdminController {
 
+	@Autowired
+	UserService userService;
+	
 	@GetMapping("/admin")
 	public String admin(Model model) {
 		 model.addAttribute("totalUsers", 1230);
@@ -15,10 +24,20 @@ public class AdminController {
 	     model.addAttribute("reportedPosts", 12);
 		return "admin/Admin";
 	}
+	@GetMapping("/admin/notice")
+	public String notice(Model model) {
+		return "admin/Notice";
+	}
 	
 	@GetMapping("/admin/user")
 	public String userManagement(Model model) {
 		return "admin/UserManagement";
+	}
+	@GetMapping("/admin/users")
+	public String users(Model model) {
+		List<User> userList = userService.findUserList();
+		model.addAttribute("userList", userList);
+		return "admin/Users";
 	}
 	
 	@GetMapping("/admin/content")

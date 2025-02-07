@@ -8,6 +8,6 @@
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 	<typeAliases>
-		
+		<typeAlias type="com.app.dto.user.User" alias="User"/>
 	</typeAliases>
 </configuration>

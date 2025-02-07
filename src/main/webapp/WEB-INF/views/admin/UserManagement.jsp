@@ -1,84 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>사용자 관리</title>
-<style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Arial', sans-serif;
-}
-
-body {
-	display: flex;
-	height: 100vh;
-	background-color: #f4f4f4;
-}
-
-.sidebar {
-	width: 250px;
-	background-color: #5C7285;
-	color: white;
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-}
-
-.sidebar h2 {
-	margin-bottom: 20px;
-}
-
-.sidebar a {
-	color: white;
-	text-decoration: none;
-	padding: 10px;
-	display: block;
-	margin: 5px 0;
-	border-radius: 5px;
-}
-
-.sidebar a:hover {
-	background-color: #34495e;
-}
-.main-content {
-    flex: 1;
-    padding: 20px;
-}
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>사용자 관리</title>
+    <link href="/css/admin.css" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>관리자 페이지</h2>
-        <a href="/admin">대시보드</a>
-        <a href="/admin/user">사용자 관리</a>
-        <a href="/admin/content">콘텐츠 관리</a>
-        <a href="/admin/festival">축제 정보 관리</a>
-        <a href="/admin/notify">신고 관리</a>
-        <a href="/admin/option">설정</a>
-    </div>
-    
+    <div class="container">
+        <div class="sidebar">
+            <h2>관리자 페이지</h2>
+            <ul>
+                <li><a href="/admin">대시보드</a></li>
+                <li><a href="/admin/user">사용자 관리</a></li>
+                <li><a href="/admin/content">콘텐츠 관리</a></li>
+                <li><a href="/admin/festival">축제 정보 관리</a></li>
+                <li><a href="/admin/notify">신고 관리</a></li>
+                <li><a href="/admin/option">설정</a></li>
+            </ul>
+        </div>
+    <title>사용자 관리 페이지</title>
+</head>
+<body>
     <div class="main-content">
-		<h1>사용자 관리 페이지</h1>
-		<br>
-		<div>
-			<div>
-				<h3>회원정보관리</h3>
-			</div>
-			<div>
-				<h3>권한부여</h3>
-			</div>
-			<div>
-				<h3>전체메일발송</h3>
-			</div>
-		</div>
-	</div>
+        <h1>사용자 관리 페이지</h1>
+        <div class="dashboard">
+            <div class="card">
+                <h3>회원 정보 관리</h3>
+                <div class="userlist">
+                    <c:forEach var="user" items="${userList}">
+                        <p>
+                            <a href="/admin/user/${user.userId}">
+                                ${user.userId} ${user.userName} (${user.nickName}) 
+                                ${user.email} ${user.tel} ${user.jumin}
+                                <span class="user-type">
+                                    <c:choose>
+                                        <c:when test="${user.userType == 'ADM'}">관리자</c:when>
+                                        <c:when test="${user.userType == 'CUS'}">고객사용자</c:when>
+                                    </c:choose>
+                                </span>
+                            </a>
+                        </p>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
