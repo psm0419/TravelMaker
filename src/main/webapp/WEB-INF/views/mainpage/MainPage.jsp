@@ -41,7 +41,8 @@
 	width: 100%; /* 이미지가 슬라이드 컨테이너에 맞게 조정됨 */
 	height: 100%;
 	object-fit: contain;
-	border-radius: 30px;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* effect */
@@ -133,10 +134,13 @@
 	</div>
 	
 	
-	<jsp:include page="../mainlistpage/MainList.jsp" />
+	<jsp:include page="MainList.jsp" />
+	
+	
+	<jsp:include page="MainTravelNews.jsp" />
 		
 	
-	
+	<jsp:include page="MainBottomSlide.jsp"></jsp:include>
 	
 	
 	

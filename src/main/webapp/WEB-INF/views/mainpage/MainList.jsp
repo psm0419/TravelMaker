@@ -43,7 +43,7 @@
 
 .festival-card {
 	height: 350px;
-	width: calc(33% - 80px); /* 중복된 width 제거 */
+	width: calc(33% - 80px);
 	background: white;
 	border-radius: 12px;
 	overflow: hidden;
@@ -56,11 +56,10 @@
 	transform: translateY(-5px);
 }
 
-/* 링크 스타일 초기화 */
 .festival-link {
 	text-decoration: none;
 	color: inherit;
-	display: block; /* 박스 전체가 클릭되도록 */
+	display: block;
 }
 
 .festival-card img {
