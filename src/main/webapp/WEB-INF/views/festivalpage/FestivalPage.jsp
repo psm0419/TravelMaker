@@ -30,33 +30,39 @@
 			<span id="sortByDate" class="active">축제일순</span> <span
 				id="sortByPopularity">인기순</span>
 		</div>
-<!-- 		DB에서 축제정보 가져올때 반복으로 만들기 -->
-		<div class="festival-container">
-			<c:forEach var="festival" items="${festival}">
-				<div class="festival-card" onclick="location.href='/festivalpage/FestivalDetail?id=${festival.festival_id}'">
-					 <h3>${festival.festivalName}</h3>
-	                <p>📍 ${festival.location}</p>
-	                <p>📅 ${festival.startDate} ~ ${festival.endDate}</p>
-	                <p>💰 ${festival.entranceFee}</p>
+		<!-- 		DB에서 축제정보 가져올때 반복으로 만들기 -->
+		<div class="festival-list">
+			<c:forEach var="festival" items="${festivalList}">
+				<div class="festival-card"
+					onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'">
+					<img
+						src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"
+						alt="청주시 도시농업 페스티벌">
+					<div class="festival-content">
+						<h3>${festival.festivalName}</h3>
+						<p>📅 ${festival.startDate} ~ ${festival.endDate}</p>
+						<p>📍 ${festival.location}</p>
+						<p>💰 ${festival.entranceFee}</p>
+					</div>
 				</div>
 			</c:forEach>
 		</div>
 
 		<div class="festival-list">
-			<div class="festival-card"
-				onclick="location.href='/festivalpage/FestivalDetail?id=${festival.festival_id}">
-				<img
-					src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"
-					alt="청주시 도시농업 페스티벌">
-				<div class="festival-content">
-					<h3>청주시 도시농업 페스티벌</h3>
-					<p class="date">2025.05.02 ~ 2025.05.05</p>
-					<p class="location">충청북도 청주시</p>
+			
+				<div class="festival-card">
+					<img
+						src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"
+						alt="청주시 도시농업 페스티벌">
+					<div class="festival-content">
+						<h3>청주시 도시농업 페스티벌</h3>
+						<p class="date">2025.05.02 ~ 2025.05.05</p>
+						<p class="location">충청북도 청주시</p>
+					</div>
 				</div>
-			</div>
-
+			
 			<div class="festival-card"
-				onclick="location.href='FestivalDetail.jsp?id=2';">
+				onclick="location.href='FestivalDetail/${festival.festivalId}.jsp';">
 				<img
 					src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c34e66ec-0b3d-48be-96eb-c0ffbb6436ec_1.jpg"
 					alt="영동 곶감 축제">
@@ -272,4 +278,5 @@ function sortFestivals(criteria) {
     festivals.forEach(festival => festivalList.appendChild(festival));
 }
 </script>
+
 </html>

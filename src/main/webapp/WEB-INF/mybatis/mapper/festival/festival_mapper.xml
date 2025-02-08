@@ -3,9 +3,16 @@
 
 <mapper namespace="festival_mapper">
 	
-	<select id="getFestivalById" resultType="Festival" parameterType="String">
+	<select id="getFestivalById" resultType="Festival" parameterType="int">
 		SELECT *
 		FROM festival
 		WHERE festival_id = #{festivalId}
 	</select>
+	
+	<select id="findFestivalList" resultType="Festival">
+		SELECT *
+		FROM festival
+		order by festival_id
+	</select>
+	
 </mapper>
