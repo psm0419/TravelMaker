@@ -14,13 +14,22 @@ import com.app.service.user.UserService;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	UserDAO userDAO;
+	private UserDAO userDAO;
 	
 	@Override
-	public List<User> findUserList() {
-		List<User> userList = userDAO.findUserList();
-		return userList;
+	public List<User> getUserList() {
+	    List<User> userList = userDAO.getUserList();
+	    return userList;
 	}
 
-	
+	@Override
+	public User getUserById(String userId) {
+		return userDAO.getUserById(userId);
+	}
+
+	@Override
+	public int modifyUser(User user) {
+		int result = userDAO.modifyUser(user);
+		return result;
+	}
 }

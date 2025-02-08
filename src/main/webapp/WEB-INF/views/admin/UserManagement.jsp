@@ -4,8 +4,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>사용자 관리</title>
-    <link href="/css/admin.css" rel="stylesheet">
+    <title>사용자 목록</title>
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
     <div class="container">
@@ -20,31 +20,35 @@
                 <li><a href="/admin/option">설정</a></li>
             </ul>
         </div>
-    <title>사용자 관리 페이지</title>
-</head>
-<body>
-    <div class="main-content">
-        <h1>사용자 관리 페이지</h1>
-        <div class="dashboard">
-            <div class="card">
-                <h3>회원 정보 관리</h3>
-                <div class="userlist">
-                    <c:forEach var="user" items="${userList}">
-                        <p>
-                            <a href="/admin/user/${user.userId}">
-                                ${user.userId} ${user.userName} (${user.nickName}) 
-                                ${user.email} ${user.tel} ${user.jumin}
-                                <span class="user-type">
-                                    <c:choose>
-                                        <c:when test="${user.userType == 'ADM'}">관리자</c:when>
-                                        <c:when test="${user.userType == 'CUS'}">고객사용자</c:when>
-                                    </c:choose>
-                                </span>
-                            </a>
-                        </p>
-                    </c:forEach>
+        
+        <div class="main-content">
+            <h1>사용자 목록</h1>
+            
+            <div class="dashboard">
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>아이디</th>
+                            <th>이름</th>
+                            <th>닉네임</th>
+                            <th>이메일</th>
+                            <th>전화번호</th>
+                            <th>회원 유형</th>
+                        </tr>
+                        <c:forEach var="user" items="${userList}">
+                            <tr>
+                                <td><a href="/admin/user/${user.userId}">${user.userId}</a></td>
+                                <td>${user.userName}</td>
+                                <td>${user.nickName}</td>
+                                <td>${user.email}</td>
+                                <td>${user.tel}</td>
+                                <td>${user.userType == 'ADM' ? '관리자' : '고객'}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </body>
+</html>

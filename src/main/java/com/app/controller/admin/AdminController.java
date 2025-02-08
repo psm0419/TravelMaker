@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.app.dto.user.User;
 import com.app.service.user.UserService;
@@ -14,7 +16,7 @@ import com.app.service.user.UserService;
 public class AdminController {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
 	@GetMapping("/admin")
 	public String admin(Model model) {
@@ -31,13 +33,21 @@ public class AdminController {
 	
 	@GetMapping("/admin/user")
 	public String userManagement(Model model) {
-		return "admin/UserManagement";
+	    List<User> userList = userService.getUserList();
+	    model.addAttribute("userList",userList);
+	    return "admin/UserManagement";
 	}
-	@GetMapping("/admin/users")
-	public String users(Model model) {
-		List<User> userList = userService.findUserList();
-		model.addAttribute("userList", userList);
+	
+	@GetMapping("/admin/user/{userId}")
+	public String users(@PathVariable("userId") String userId, Model model) {
+		User user = userService.getUserById(userId);
+		model.addAttribute("user",user);
 		return "admin/Users";
+	}
+	
+	@PostMapping()
+	public String bannedUser() {
+		return "redirect:/admin/user/{userId}";
 	}
 	
 	@GetMapping("/admin/content")

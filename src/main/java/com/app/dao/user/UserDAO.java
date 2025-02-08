@@ -6,5 +6,9 @@ import com.app.dto.user.User;
 
 public interface UserDAO {
 
-	List<User> findUserList();
+	List<User> getUserList();
+	
+	User getUserById(String userId);
+	
+	int modifyUser(User user);
 }

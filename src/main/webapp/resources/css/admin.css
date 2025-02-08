@@ -96,7 +96,29 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+input[type="text"], input[type="email"], input[type="tel"], select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+select {
+    background: white;
+}
+.radio-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
 
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
 .btn {
 	display: inline-block;
 	margin-top: 10px;
@@ -109,6 +131,32 @@ a {
 
 .btn:hover {
 	background: #1f6690;
+}
+.btn-admin {
+    background: #27ae60;
+}
+
+.btn-admin:hover {
+    background: #219150;
+}
+
+.btn-ban {
+    background: #c0392b;
+}
+
+.btn-ban:hover {
+    background: #a93226;
+}
+
+.btn-edit {
+	position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #2980b9;
+}
+
+.btn-edit:hover {
+    background: #1f6690;
 }
 
 .status {
@@ -147,9 +195,49 @@ a {
 	background: white;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	position:relative;
 }
 
 .user-detail p {
 	margin-bottom: 10px;
 	font-size: 16px;
+}
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+td a {
+    color: #2980b9;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
 }

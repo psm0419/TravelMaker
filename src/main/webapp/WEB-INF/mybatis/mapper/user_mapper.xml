@@ -3,7 +3,21 @@
 
 <mapper namespace="user_mapper">
 
-	<select id="findUserList" resultType="User">
-		select * from USERS
+	<select id="getUserList" resultType="User">
+		select * 
+		from users
 	</select>
+	
+	<select id="getUserById" parameterType="String" resultType="User">
+		select user_id, username, nickname, email, tel, user_type
+		from users
+		where user_Id = #{userId}
+	</select>
+	
+	<update id="modifyUser" parameterType="User">
+	UPDATE users
+	SET
+	user_type = #{userType}
+	WHERE user_id = #{userId}
+	</update>
 </mapper>
