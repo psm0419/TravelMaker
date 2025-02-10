@@ -44,7 +44,7 @@
 	
 	.bottomSlide img {
 		width: 250px;
-		height: 250px;
+		height: 350px;
 	}
 
 	.bottomSlide:nth-of-type(1), .bottomSlide:nth-of-type(2) {
@@ -67,15 +67,17 @@
 		transform: translate(calc(-50% * -2.9), -50%) translateZ(-100px);
 	}
 	
+	
 	/*버튼 */
 	.bottomSlideButtons {
 		position: relative;
 		z-index: 1;
-		bottom: 60%;
+		bottom: 50%;
 		left: 49%;
 		transform: translate(-50%);
 		display: flex;
 		justify-content: space-between;
+		width: 1150px;
 	}
 	
 	.bottomSlidePrev, .bottomSlideNext {
@@ -98,13 +100,13 @@
 
 	<div class = "bottomSlideContainer">
 		<div class="innerBottomSlideContainer">
-			<div class='bottomSlide'><img src="/images/유채꽃축제.jpg"></div>
-			<div class='bottomSlide'><img src="/images/유채꽃축제2.jpg"></div>
-			<div class='bottomSlide'><img src="/images/유채꽃축제3.jpg"></div>
-			<div class='bottomSlide'><img src="/images/유채꽃축제.jpg"></div>
-			<div class='bottomSlide'><img src="/images/유채꽃축제2.jpg"></div>
-			<div class='bottomSlide'><img src="/images/유채꽃축제3.jpg"></div>
-			<div class='bottomSlide'><img src="/images/유채꽃축제.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/c34e66ec-0b3d-48be-96eb-c0ffbb6436ec_3.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/d2f258a8-33c2-4cd9-8736-41be5c9407d7_3.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/f1083d7d-3abb-4f3e-a27b-67f8ecd01a22_3.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/3252dcb7-7b01-4e9d-84c0-bccfd010bffb_3.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/a212b550-67bf-422e-a110-7bb742e84672_3.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/b8b518b6-19c8-40b7-8da6-7dbd9f44d489_3.jpg"></div>
+			<div class='bottomSlide'><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/7d5710ef-ecff-4b71-92f7-e9a404a1f1cc_3.jpg"></div>
 		</div>
 	
 		<div class='bottomSlideButtons'>

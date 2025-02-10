@@ -93,7 +93,7 @@
 </head>
 <body>
 	<div class=mainHeaderContainer>
-		<jsp:include page="../header/Header.jsp" />
+		<%@include file="../header/Header.jsp" %>
 	</div>
 	
 	<div class="slideContainer">
@@ -134,13 +134,13 @@
 	</div>
 	
 	
-	<jsp:include page="MainList.jsp" />
+	<%@include file="MainList.jsp" %>
 	
 	
-	<jsp:include page="MainTravelNews.jsp" />
+	<%@include file="MainTravelNews.jsp" %>
+	
 		
-	
-	<jsp:include page="MainBottomSlide.jsp"></jsp:include>
+	<%@include file="MainBottomSlide.jsp" %>
 	
 	
 	

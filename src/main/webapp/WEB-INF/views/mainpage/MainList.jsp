@@ -42,7 +42,7 @@
 }
 
 .festival-card {
-	height: 350px;
+	height: 380px;
 	width: calc(33% - 80px);
 	background: white;
 	border-radius: 12px;
@@ -77,9 +77,9 @@
 	font-size: 18px;
 }
 
-.festival-content .date, .festival-content .location {
+.festival-content .date, .festival-content .location, .festival-content.fee {
 	font-size: 14px;
-	padding-bottom: 5px;
+	padding-bottom: 8px;
 	color: #666;
 }
 
@@ -109,7 +109,7 @@
 					onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'">
 					<img
 						src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"
-						alt="청주시 도시농업 페스티벌">
+						alt="${festival.festivalName}">
 					<div class="festival-content">
 						<h3>${festival.festivalName}</h3>
 						<p class="date">📅 ${festival.startDate} ~ ${festival.endDate}</p>

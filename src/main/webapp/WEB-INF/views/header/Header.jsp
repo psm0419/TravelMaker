@@ -7,103 +7,7 @@
 <meta charset="UTF-8">
 <title>Header</title>
 
-<style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	font-family: Arial, sans-serif;
-}
-
-.headerContainer {
-	width: 100%;
-	height: 90px;
-	background-color: lightblue;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 30px;
-	position: fixed;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	z-index: 300;
-}
-
-/* 로고 */
-.headerLogo {
-	font-size: 24px;
-	font-weight: bold;
-	color: #333333;
-	display: flex;
-	align-items: center;
-	cursor: pointer;
-}
-
-/* 메뉴 스타일 */
-.headerMenu {
-	display: flex;
-	gap: 50px;
-	position: relative;
-}
-
-.headerMenu>div {
-	cursor: pointer;
-	font-size: 16px;
-	font-weight: bold;
-	color: #333;
-	padding: 10px 15px;
-	position: relative;
-}
-
-/* 드롭다운 전체 박스 */
-.dropdownMenu {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	background: #ffffff;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	padding: 15px 0 15px 130px;
-	z-index: 10;
-	border-radius: 5px;
-	display: flex;
-	justify-content: center;
-	z-index: 300;
-	background-color : rgb(255,255,255); opacity : 0.9;
-}
-
-/* 드롭다운 내부 항목 */
-.dropdownMenu div {
-	min-width: 120px;
-	text-align: center;
-	font-size: 14px;
-	font-weight: bold;
-	color: #333;
-	padding: 10px 0;
-	cursor: pointer;
-	align-content: center;
-}
-
-.dropdownMenu div:hover {
-	color: green;
-	border-radius: 5px;
-}
-
-/* 오른쪽 메뉴 */
-.headerRightMenu {
-	display: flex;
-	gap: 15px;
-	align-items: center;
-}
-
-.headerRightMenu div {
-	cursor: pointer;
-	font-size: 14px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="/css/header/Header.css">
 
 </head>
 <body>
@@ -152,6 +56,9 @@ body {
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
+			// 새로고침 시 드롭다운 숨기기
+	        $(".dropdownMenu").hide();
+			
 			// 메뉴에 마우스 올리면 전체 드롭다운 표시
 			$(".headerMenu > div:not(:first-child)").mouseenter(function() {
 				$(".dropdownMenu").stop(true, true).slideDown(200);
