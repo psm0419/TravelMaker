@@ -22,14 +22,14 @@
 		padding-left: 15px;
 	}
 	
-	.container {
+	.innerBottomSlideContainer {
 		width: 100%;
 		height: 100%;
 		perspective: 500px;
 		transform-style: preserve-3d;
 	}
 	
-	.slide {
+	.bottomSlide {
 		transition: 0.5s;
 		width: 250px;
 		box-shadow: 0 5px 15px lightgray;
@@ -42,41 +42,47 @@
 		transform: translate(-50%, -50%);
 	}
 
-	.slide:nth-of-type(1), .slide:nth-of-type(2) {
+	.bottomSlide:nth-of-type(1), .bottomSlide:nth-of-type(2) {
 		transform: translate(calc(-50% * 5.1), -50%) translateZ(-100px);
 	}
 	
-	.slide:nth-of-type(3) {
+	.bottomSlide:nth-of-type(3) {
 		transform: translate(calc(-50% * 3.1), -50%) translateZ(-50px);
 	}
 	
-	.slide:nth-of-type(4) {
+	.bottomSlide:nth-of-type(4) {
 		transform: translate(calc(-50% * 1.1), -50%) translateZ(50px);
 	}
 	
-	.slide:nth-of-type(5) {
+	.bottomSlide:nth-of-type(5) {
 		transform: translate(calc(-50% * -0.9), -50%) translateZ(-50px);
 	}
 	
-	.slide:nth-of-type(6), .slide:nth-of-type(7) {
+	.bottomSlide:nth-of-type(6), .bottomSlide:nth-of-type(7) {
 		transform: translate(calc(-50% * -2.9), -50%) translateZ(-100px);
 	}
 	
 	/*버튼 */
-	.buttons {
+	.bottomSlideButtons {
 		position: relative;
 		z-index: 1;
-		bottom: 50%;
+		bottom: 60%;
 		left: 49%;
 		transform: translate(-50%);
+		display: flex;
+		justify-content: space-between;
 	}
 	
-	.prev, .next {
+	.bottomSlidePrev, .bottomSlideNext {
 		background-color: lightgray;
 		border: none;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		border-radius: 20px;
 	}
 	
-	.prev:hover, .next:hover {
+	.bottomSlidePrev:hover, .bottomSlideNext:hover {
 		background-color: lightgreen;
 	}
 	
@@ -86,19 +92,19 @@
 <body>
 
 	<div class = "bottomSlideContainer">
-		<div class="container">
-			<div class='slide'>1</div>
-			<div class='slide'>2</div>
-			<div class='slide'>3</div>
-			<div class='slide'>4</div>
-			<div class='slide'>5</div>
-			<div class='slide'>6</div>
-			<div class='slide'>7</div>
+		<div class="innerBottomSlideContainer">
+			<div class='bottomSlide'>1</div>
+			<div class='bottomSlide'>2</div>
+			<div class='bottomSlide'>3</div>
+			<div class='bottomSlide'>4</div>
+			<div class='bottomSlide'>5</div>
+			<div class='bottomSlide'>6</div>
+			<div class='bottomSlide'>7</div>
 		</div>
 	
-		<div class='buttons'>
-			<button class='prev'><</button>
-			<button class='next'>></button>
+		<div class='bottomSlideButtons'>
+			<button class='bottomSlidePrev'><</button>
+			<button class='bottomSlideNext'>></button>
 		</div>
 	</div>
 
@@ -106,18 +112,18 @@
 
 	<script>
 		
-		const container = document.querySelector('.container');
-		const prev = document.querySelector('.prev')
-		const next = document.querySelector('.next')
+		const container = document.querySelector('.innerBottomSlideContainer');
+		const prev = document.querySelector('.bottomSlidePrev')
+		const next = document.querySelector('.bottomSlideNext')
 	
 		prev.addEventListener('click',()=>{
-		  const slides = document.querySelectorAll('.slide')
+		  const slides = document.querySelectorAll('.bottomSlide')
 		  
 		  container.append(slides[0])
 		})
 	
 		next.addEventListener('click',()=>{
-		  const slides = document.querySelectorAll('.slide')
+		  const slides = document.querySelectorAll('.bottomSlide')
 		  
 		  container.prepend(slides[slides.length-1])
 		})
