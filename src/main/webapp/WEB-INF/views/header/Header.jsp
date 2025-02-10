@@ -21,7 +21,7 @@ body {
 .headerContainer {
 	width: 100%;
 	height: 90px;
-	background-color: #00d10a;
+	background-color: lightblue;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

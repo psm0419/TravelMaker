@@ -41,6 +41,11 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 	}
+	
+	.bottomSlide img {
+		width: 250px;
+		height: 250px;
+	}
 
 	.bottomSlide:nth-of-type(1), .bottomSlide:nth-of-type(2) {
 		transform: translate(calc(-50% * 5.1), -50%) translateZ(-100px);
@@ -93,13 +98,13 @@
 
 	<div class = "bottomSlideContainer">
 		<div class="innerBottomSlideContainer">
-			<div class='bottomSlide'>1</div>
-			<div class='bottomSlide'>2</div>
-			<div class='bottomSlide'>3</div>
-			<div class='bottomSlide'>4</div>
-			<div class='bottomSlide'>5</div>
-			<div class='bottomSlide'>6</div>
-			<div class='bottomSlide'>7</div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제.jpg"></div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제2.jpg"></div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제3.jpg"></div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제.jpg"></div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제2.jpg"></div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제3.jpg"></div>
+			<div class='bottomSlide'><img src="/images/유채꽃축제.jpg"></div>
 		</div>
 	
 		<div class='bottomSlideButtons'>
