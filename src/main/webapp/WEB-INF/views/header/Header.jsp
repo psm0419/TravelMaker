@@ -136,7 +136,15 @@ body {
 				<div>로그인/회원가입</div> <!-- 로그인 안 한 상태 -->
 			</c:if>
 			<c:if test="${not empty sessionScope.user}">
-				<div>마이페이지</div> <!-- 로그인 한 상태 -->
+			
+				<c:if test="${sessionScope.user.userType}.equals('CUS')">
+					<div>마이페이지</div> <!-- 로그인 한 상태 -->
+				</c:if>
+				<c:if test="${sessionScope.user.userType}.equals('ADM')">
+					<div>관리자페이지</div> <!-- 로그인 한 상태 -->
+				</c:if>
+				
+				
 			</c:if>
 		</div>
 	</div>

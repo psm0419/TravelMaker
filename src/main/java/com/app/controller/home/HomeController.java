@@ -11,9 +11,5 @@ public class HomeController {
 		return "mainpage/MainPage";
 	}
 	
-	@GetMapping("/header")
-	public String header() {
-		return "header/Header";
-	}
 	
 }

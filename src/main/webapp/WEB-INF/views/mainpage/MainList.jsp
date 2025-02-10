@@ -104,38 +104,29 @@
 		<div class="titleBar">축제 리스트</div>
 
 		<div class="mainList">
-			<c:forEach var="i" begin="1" end="12" step="1">
+			<c:forEach var="festival" items="${festivalList}">
 				<div class="festival-card"
-					data-url="https://www.example.com/festival${i}">  <!-- 페이지별 이동경로 -->
+					onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'">
 					<img
 						src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"
 						alt="청주시 도시농업 페스티벌">
 					<div class="festival-content">
-						<h3>청주시 도시농업 페스티벌 ${i}</h3>
-						<p class="date">2025.05.02 ~ 2025.05.05</p>
-						<p class="location">충청북도 청주시</p>
+						<h3>${festival.festivalName}</h3>
+						<p class="date">📅 ${festival.startDate} ~ ${festival.endDate}</p>
+						<p class="location">📍 ${festival.location}</p>
+						<p class="fee">💰 ${festival.entranceFee}</p>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
 
 	</div>
+	
 
 
 
 	<script>
-	    document.addEventListener("DOMContentLoaded", function () {
-	        const festivalCards = document.querySelectorAll(".festival-card");
-	
-	        festivalCards.forEach(card => {
-	            card.addEventListener("click", function () {
-	                const url = card.getAttribute("data-url"); // 개별 URL 가져오기
-	                if (url) {
-	                    window.location.href = url; // 해당 URL로 이동
-	                }
-	            });
-	        });
-	    });
+	    
 	</script>
 
 </body>

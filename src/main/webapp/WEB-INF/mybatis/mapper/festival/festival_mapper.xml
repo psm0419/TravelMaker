@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="festival_mapper">
+
+	
+	<insert id="saveFestival" parameterType="Festival">
+		insert into festival
+		values (
+			festival_id_seq.nextval,
+			#{festivalName},
+			#{location},
+			#{status}
+			#{startDate}
+			#{endDate}
+			#{entranceFee}
+			#{tel}
+			#{festivalHost}
+		)
+	</insert>
+	
+	<select id="findFestivalList" resultType="Festival">
+		select * from festival
+	</select>
+	
+	
+	<select id="findFestivalById" resultType="Festival" parameterType="String">
+		select *
+		FROM festival
+		WHERE festival_id = #{festivalId}	
+	</select>
+	
+	<update id="modifyFestival" parameterType="Festival">
+		UPDATE festival
+		SET start_date = #{startDate},
+			end_date = #{endDate},
+			entrance_fee = #{entranceFee},
+			tel = #{tel}
+		WHERE festival_id = #{festivalId}
+	</update>
+	
+<!-- 	<select id="findFestivalListByFestivalNameAndLocation" parameterType="FestivalSearch" resultType="Festival" > -->
+	
+<!-- 	SELECT * -->
+<!-- 	FROM festival -->
+<!-- 	<where> -->
+<!-- 		<if test="festivalName != null and festivalName != '' or location != null and location != ''"> -->
+<!-- 			( -->
+<!-- 			<if test="festivalName != null and festivalName != ''"> -->
+<!-- 				festival_name LIKE '%' || #{searchKeyword} || '%' -->
+<!-- 			</if> -->
+<!-- 			<if test="location != null and location != ''"> -->
+<!-- 				<if test="festivalName != null and festivalName != ''"> -->
+<!-- 					OR location LIKE '%' || #{searchKeyword} || '%' -->
+<!-- 				</if> -->
+<!-- 				<if test="festivalName == null or festivalName == ''"> -->
+<!-- 					location LIKE '%' || #{searchKeyword} || '%' -->
+<!-- 				</if> -->
+<!-- 			</if> -->
+<!-- 			) -->
+<!-- 		</if> -->
+<!-- 	</where> -->
+		
+<!-- 	</select> -->
+	
+
+</mapper>
+
+
+
+
+
+
