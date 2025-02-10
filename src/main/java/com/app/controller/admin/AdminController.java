@@ -1,6 +1,9 @@
 package com.app.controller.admin;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,15 +11,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.app.dto.post.Posts;
 import com.app.dto.user.User;
+import com.app.service.post.PostService;
 import com.app.service.user.UserService;
 
 @Controller
 public class AdminController {
 
 	@Autowired
-	private UserService userService;
+	UserService userService;
+	@Autowired
+	PostService postService;
 	
 	@GetMapping("/admin")
 	public String admin(Model model) {
@@ -45,7 +54,7 @@ public class AdminController {
 		return "admin/Users";
 	}
 	
-	@PostMapping()
+	@PostMapping("/admin/user/{userId}")
 	public String bannedUser() {
 		return "redirect:/admin/user/{userId}";
 	}
@@ -55,6 +64,34 @@ public class AdminController {
 		return "admin/ContentManagement";
 	}
 	
+	@GetMapping("/admin/content/questionBoard")
+	public String questionBoardManagement(Model model) {
+		List<Posts> postList = postService.postList();
+		model.addAttribute("posts", postList);
+		return "admin/content/questionBoard";
+	}
+	
+	@GetMapping("/admin/content/reviewBoard")
+	public String reviewBoardManagement(Model model) {
+		List<Posts> postList = postService.postList();
+		model.addAttribute("postlist", postList);
+		return "admin/content/reviewBoard";
+	}
+	
+	@PostMapping("/admin/removePosts")
+	@ResponseBody
+	public Map<String, Object> removePosts(@RequestBody Map<String, List<Integer>> requestBody) {
+	    List<Integer> postIds = requestBody.get("postIds");
+
+	    if (postIds == null || postIds.isEmpty()) {
+	        return Map.of("success", false, "message", "삭제할 게시물을 선택하세요.");
+	    }
+
+	    int deletedCount = postService.removePost(postIds);
+
+	    return Map.of("success", deletedCount > 0, "deletedCount", deletedCount);
+	}
+
 	@GetMapping("/admin/festival")
 	public String festivalManagement(Model model) {
 		return "admin/FestivalManagement";

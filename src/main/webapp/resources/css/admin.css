@@ -119,6 +119,9 @@ select {
     gap: 5px;
     font-size: 14px;
 }
+input[type="radio"]:disabled + label {
+    color: #aaa;
+}
 .btn {
 	display: inline-block;
 	margin-top: 10px;
@@ -146,6 +149,11 @@ select {
 
 .btn-ban:hover {
     background: #a93226;
+}
+.btn-delete{
+	position: relative;
+	left:850px;
+	cursor:pointer;
 }
 
 .btn-edit {

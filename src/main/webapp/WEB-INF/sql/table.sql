@@ -10,8 +10,7 @@ create Table users (
 );
 
 create Table attraction_info (
-  attraction_id number primary key,
-  festival_id number,
+  attraction_id number primary key,  
   baseYm varchar2(16),
   mapX varchar2(128),
   mapY varchar2(128),
@@ -34,16 +33,15 @@ NOCYCLE;
 
 create Table festival (
   festival_id number primary key,
-  festival_name varchar2(64),
+  festival_name varchar2(128),
   location varchar2(128),
-  post_number varchar2(16),
-  status varchar2(18),
   start_date varchar2(16),
   end_date varchar2(16),
-  entrance_fee varchar2(16),
-  tel varchar2(16),
-  festival_host varchar2(64)
+  entrance_fee varchar2(64),
+  tel varchar2(32),
+  festival_host varchar2(128)
 );
+
 CREATE SEQUENCE festival_id_seq
 START WITH 1
 INCREMENT BY 1
@@ -53,7 +51,7 @@ NOCYCLE;
 create Table posts (
   post_id number primary key,
   title varchar2(64),
-  content varchar2(64),
+  content varchar2(3000),
   user_id number,
   nickname varchar2(36),
   board_id number,

@@ -9,5 +9,6 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.app.dto.user.User" alias="User"/>
+		<typeAlias type="com.app.dto.post.Posts" alias="Post"/>
 	</typeAliases>
 </configuration>

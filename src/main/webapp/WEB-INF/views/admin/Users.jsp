@@ -46,12 +46,12 @@
                     <option value="CUS" ${user.userType == 'CUS' ? 'selected' : ''}>고객</option>
                 </select><br>
 
-                <label>계정 정지:</label>
+				<label>계정 정지 기간:</label>
                 <div class="radio-group">
-                	<label><input type="radio" name="banned" value="0" checked> 정상</label>
-                    <label><input type="radio" name="banned" value="7"> 7일</label>
-                    <label><input type="radio" name="banned" value="30"> 30일</label>
-                    <label><input type="radio" name="banned" value="9999"> 영구 정지</label>
+                    <input type="radio" name="banned" value="0" checked> <label>정상</label>
+                    <input type="radio" name="banned" value="7" disabled> <label>7일</label>
+                    <input type="radio" name="banned" value="30" disabled> <label>30일</label>
+                    <input type="radio" name="banned" value="9999" disabled> <label>영구 정지</label>
                 </div>
 
                 <div class="btn-group">

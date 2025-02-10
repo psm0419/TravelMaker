@@ -20,4 +20,9 @@
 	user_type = #{userType}
 	WHERE user_id = #{userId}
 	</update>
+
+<!-- 	<delete id="deleteboardList">
+		delete from users
+		where user=#{userId}
+	</delete> -->
 </mapper>

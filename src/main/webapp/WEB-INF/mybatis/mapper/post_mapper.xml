@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="post_mapper">
+
+	<select id="findPostList" resultType="Post">
+	SELECT post_id, title, nickname, user_id, board_id, created_at, post_like, post_views, status, authentication_status, authentication_admin, authentication_time
+    FROM posts
+	</select>
+	
+	<delete id="removePosts">
+    DELETE FROM posts WHERE postId IN
+    <foreach item="postId" collection="list" open="(" separator="," close=")">
+        #{postId}
+    </foreach>
+</delete>
+</mapper>

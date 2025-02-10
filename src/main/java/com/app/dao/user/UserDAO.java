@@ -11,4 +11,5 @@ public interface UserDAO {
 	User getUserById(String userId);
 	
 	int modifyUser(User user);
+	
 }
