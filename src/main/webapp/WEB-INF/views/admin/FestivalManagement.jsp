@@ -22,18 +22,19 @@
 		</div>
 		<div class="main-content">
 			<h1>축제 정보 관리</h1>
+			<div class="dashboard">
+				<div class="card">
+					<a href="/admin/festival/saveFestival"><h3>축제 등록</h3></a>
+				</div>
+				<div class="card">
+					<a href="/admin/festival/ModifyFestival"><h3>축제 상세 수정</h3></a>
+				</div>
+				<div class="card">
+					<a href="/admin/festival/removeFestival"><h3>축제 정보 삭제</h3></a>
+				</div>
+			</div>
 		</div>
-		<div class="user-list">
-			<c:forEach var="user" items="${userList}">
-				<p>
-					<a>
-					<span class="user-type"> </span>
-					</a>
-				</p>
-			</c:forEach>
-		</div>
-	</div>
-	</div>
 
+	</div>
 </body>
 </html>

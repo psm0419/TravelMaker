@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.app.dto.festival.Festival;
 import com.app.dto.post.Posts;
 import com.app.dto.user.User;
+import com.app.service.festival.FestivalService;
 import com.app.service.post.PostService;
 import com.app.service.user.UserService;
 
@@ -26,6 +28,8 @@ public class AdminController {
 	UserService userService;
 	@Autowired
 	PostService postService;
+	@Autowired
+	FestivalService festivalService;
 	
 	@GetMapping("/admin")
 	public String admin(Model model) {
@@ -67,14 +71,14 @@ public class AdminController {
 	@GetMapping("/admin/content/questionBoard")
 	public String questionBoardManagement(Model model) {
 		List<Posts> postList = postService.postList();
-		model.addAttribute("posts", postList);
+		model.addAttribute("postList", postList);
 		return "admin/content/questionBoard";
 	}
 	
 	@GetMapping("/admin/content/reviewBoard")
 	public String reviewBoardManagement(Model model) {
 		List<Posts> postList = postService.postList();
-		model.addAttribute("postlist", postList);
+		model.addAttribute("postList", postList);
 		return "admin/content/reviewBoard";
 	}
 	
@@ -95,6 +99,20 @@ public class AdminController {
 	@GetMapping("/admin/festival")
 	public String festivalManagement(Model model) {
 		return "admin/FestivalManagement";
+	}
+	
+	@GetMapping("/admin/festival/saveFestival")
+	public String saveFestival() {
+		return "admin/festival/SaveFestival";
+	}
+	@PostMapping("/admin/festival/saveFestival")
+	public String saveFestivalAction(Festival festival) {
+		int result=festivalService.saveFestival(festival);
+		if(result >0) {
+			return"redirect:/admin/festival";
+		} else {
+		return "admin/festival/SaveFestival";
+		}
 	}
 	
 	@GetMapping("/admin/notify")

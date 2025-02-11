@@ -1,6 +1,8 @@
 package com.app.dao.post.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,9 @@ public class PostDAOImpl implements PostDAO{
 	}
 	@Override
 	public int removePosts(List<Integer> postIds) {
-	    return sqlSessionTemplate.delete("post_mapper.removePosts", postIds);
+		Map<String , Object> params = new HashMap<>();
+		params.put("postIds", postIds);
+	    return sqlSessionTemplate.delete("post_mapper.removePosts", params);
 	}
 
 }

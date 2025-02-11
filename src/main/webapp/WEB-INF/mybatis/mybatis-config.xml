@@ -10,5 +10,6 @@
 	<typeAliases>
 		<typeAlias type="com.app.dto.user.User" alias="User"/>
 		<typeAlias type="com.app.dto.post.Posts" alias="Post"/>
+		<typeAlias type="com.app.dto.festival.Festival" alias="Festival"/>
 	</typeAliases>
 </configuration>

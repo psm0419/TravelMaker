@@ -28,7 +28,7 @@
 				<div class="table-container">
 					<table>
 						<colgroup>
-							<col style="width: 5%;"> 
+							<col style="width: 5%;">
 							<col style="width: 65%;">
 							<col style="width: 30%;">
 						</colgroup>
@@ -81,6 +81,7 @@
 						                location.reload();
 						            } else {
 						                alert("삭제 중 오류가 발생했습니다.");
+						                
 						            }
 						        });
 						    }

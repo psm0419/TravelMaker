@@ -4,14 +4,21 @@
 <mapper namespace="post_mapper">
 
 	<select id="findPostList" resultType="Post">
-	SELECT post_id, title, nickname, user_id, board_id, created_at, post_like, post_views, status, authentication_status, authentication_admin, authentication_time
-    FROM posts
+		SELECT post_id, title,
+		nickname, user_id, board_id, created_at, post_like,
+		post_views, status,
+		authentication_status, authentication_admin,
+		authentication_time
+		FROM
+		posts
 	</select>
-	
+
 	<delete id="removePosts">
-    DELETE FROM posts WHERE postId IN
-    <foreach item="postId" collection="list" open="(" separator="," close=")">
-        #{postId}
-    </foreach>
-</delete>
+		DELETE FROM posts WHERE post_id IN
+		<foreach item="item" collection="postIds" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
 </mapper>
