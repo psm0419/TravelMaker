@@ -9,5 +9,6 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.app.dto.festival.Festival" alias="Festival" />
+		<typeAlias type="com.app.dto.file.FileInfo" alias="FileInfo" />
 	</typeAliases>
 </configuration>

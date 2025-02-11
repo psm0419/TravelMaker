@@ -152,3 +152,10 @@ START WITH 1
 INCREMENT BY 1
 NOCACHE
 NOCYCLE;
+
+create table file_info (
+file_name VARCHAR2(256),
+original_file_name VARCHAR2(256),
+file_path VARCHAR2(256),
+url_file_path VARCHAR2(256)
+)
