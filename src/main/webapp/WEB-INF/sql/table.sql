@@ -52,16 +52,13 @@ create Table posts (
   post_id number primary key,
   title varchar2(64),
   content varchar2(3000),
-  user_id number,
+  user_id varchar2(32),
   nickname varchar2(36),
   board_id number,
   created_at timestamp,
   post_like number,
   post_views number,
-  status number,
-  authentication_status number,
-  authentication_admin varchar2(16),
-  authentication_time timestamp
+  type number
 );
 CREATE SEQUENCE post_id_seq
 START WITH 1
@@ -147,15 +144,24 @@ create Table board(
   board_id number primary key
 );
 
-CREATE SEQUENCE comments_id_seq
-START WITH 1
-INCREMENT BY 1
-NOCACHE
-NOCYCLE;
+CREATE TABLE festival_images (
+    image_id NUMBER PRIMARY KEY,
+    festival_id NUMBER,
+    file_path VARCHAR2(500),
+    file_name VARCHAR2(255),
+    mime_type VARCHAR2(100),
+    uploaded_at DATE DEFAULT SYSDATE,
+    CONSTRAINT fk_festival FOREIGN KEY (festival_id) REFERENCES festival(festival_id)
+);
 
-create table file_info (
-file_name VARCHAR2(256),
-original_file_name VARCHAR2(256),
-file_path VARCHAR2(256),
-url_file_path VARCHAR2(256)
-)
+create table file_info(
+    file_name varchar2(256),
+    original_file_name varchar2(256),
+    file_path varchar2(256),
+    url_file_path varchar2(256)
+);
+
+create table user_profile_image(
+    id varchar2(32),
+    file_name varchar2(256)   
+);

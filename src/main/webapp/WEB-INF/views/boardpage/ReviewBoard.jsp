@@ -19,42 +19,54 @@
 	margin: auto;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
-</style>
 
+.boardTitle {
+	margin-top: 50px;
+	background-color: red;
+	padding: 20px;
+	color: white;
+}
+
+.boardListBox {
+	background-color: green;
+	width: 85%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 70px;
+}
+
+.boardList {
+	width: 100%;
+	height: 40px;
+	background-color: yellow;
+	display: flex;
+	align-items: center;
+	border: 1px solid lightgray;
+	padding-left: 20px;
+}
+
+</style>
 </head>
 <body>
 
-	<%@include file="../header/Header.jsp"%>
+	<%@ include file="../header/Header.jsp"%>
 
 	<div class="boardContainer">
-
 		<div class="boardTitle">
-				<h1>후기 게시판</h1>
+			<h1>후기 게시판</h1>
 		</div>
 
 		<div class="boardListBox">
-			<p>asdasdasd</p>
+			<c:forEach var="post" items="${posts}">
+				<div class="boardList">${post.title}</div>
+			</c:forEach>
 		</div>
-
-
-
-
-
-
-
-
 	</div>
-
-
-
-
-	<script>
-		function changeBoard() {
-			var selectedBoard = document.getElementById("boardSelect").value;
-			window.location.href = "?board=" + selectedBoard; // 선택한 값으로 페이지 새로고침
-		}
-	</script>
-
+	
+	
 </body>
 </html>

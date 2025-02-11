@@ -10,5 +10,6 @@
 	<typeAliases>
 		<typeAlias type="com.app.dto.festival.Festival" alias="Festival" />
 		<typeAlias type="com.app.dto.file.FileInfo" alias="FileInfo" />
+		<typeAlias type="com.app.dto.review.Post" alias="Post" />
 	</typeAliases>
 </configuration>
