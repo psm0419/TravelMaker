@@ -1,6 +1,5 @@
 package com.app.controller.home;
 
-import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +25,11 @@ public class HomeController {
 		model.addAttribute("festivalList",festivalList);
 		
 		return "mainpage/MainPage";
+	}
+	
+	@GetMapping("/board")
+	public String board() {
+		return "boardpage/Board";
 	}
 	
 	

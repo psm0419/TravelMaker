@@ -9,8 +9,16 @@
 
 <link rel="stylesheet" type="text/css" href="/css/header/Header.css">
 
+<style>
+	.mainHeaderContainer{
+		width: 100%;
+		height: 110px;
+	}
+</style>
+
 </head>
 <body>
+<div class="mainHeaderContainer">
 	<div class="headerContainer">
 		<!-- 로고 -->
 		<div class="headerLogo">Travel Maker</div>
@@ -52,7 +60,7 @@
 			</c:if>
 		</div>
 	</div>
-
+</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
