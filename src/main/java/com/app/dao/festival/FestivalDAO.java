@@ -8,5 +8,6 @@ public interface FestivalDAO {
 
 	Festival getFestivalById(int festivalId);
 	
-	List<Festival> findFestivalList();
+	List<Festival> findFestivalList();	
+	
 }

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+.festival-detail body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.festival-detail header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #eee;
+}
+
+.festival-detail h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #d81b60;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.festival-info {
+    padding: 20px;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.festival-info p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+.poster-container{
+	display: flex;
+	flex-direction: row;
+}
+.poster {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.poster img {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.restaurants {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.restaurants h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.restaurants ul {
+    list-style: none;
+    padding: 0;
+}
+
+.restaurants li {
+    font-size: 18px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.back-btn {
+    display: block;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}

@@ -1,15 +1,16 @@
 @charset "UTF-8";
 
-body {
-	font-family: 'Arial', sans-serif;
-	background-color: #f8f8f8;
-	margin: 0;
-	padding: 20px;
+.festival-main body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-.container {
+.festival-container {	
 	max-width: 1200px;
-	margin: auto;
+	margin: auto;	
 }
 
 .search-box {
@@ -47,7 +48,7 @@ body {
 	overflow: hidden;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease-in-out;
-	cursor: pointer;
+	cursor: pointer;	
 }
 
 .festival-card:hover {
@@ -65,20 +66,21 @@ body {
 }
 
 .festival-content h3 {
-	margin: 10px 0;
-	font-size: 18px;
+	margin: 5px 0;
+	font-size: 18px;	
 }
 
-.festival-content .date, .festival-content .location {
+.festival-content .date, .location, .fee{
 	font-size: 14px;
 	color: #666;
+	padding: 5px;
 }
 .festival-sort {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-bottom: 20px;
-    margin-right: 100px;
+    margin-right: 100px;    
 }
 
 .festival-sort span {

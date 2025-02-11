@@ -9,4 +9,5 @@ public interface FestivalService {
 	Festival getFestivalById(int festivalId);
 	
 	List<Festival> findFestivalList();
+	
 }

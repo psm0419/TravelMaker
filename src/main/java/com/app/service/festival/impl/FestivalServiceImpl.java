@@ -18,12 +18,14 @@ public class FestivalServiceImpl implements FestivalService{
 	@Override
 	public Festival getFestivalById(int festivalId) {
 		Festival festival = festivalDAO.getFestivalById(festivalId);
+				
 		return festival;
 	}
 
 	@Override
 	public List<Festival> findFestivalList() {
 		List<Festival> festivalList	= festivalDAO.findFestivalList();
+				
 		return festivalList;
 	}
 

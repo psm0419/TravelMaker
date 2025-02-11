@@ -13,6 +13,18 @@
 		SELECT *
 		FROM festival
 		order by festival_id
-	</select>
+	</select>	
+	
+	<select id="findImagesByFestivalId" parameterType="int" resultType="FestivalImage">
+        SELECT 
+            image_id as imageId,
+            festival_id as festivalId,
+            file_path as filePath,
+            file_name as fileName,
+            mime_type as mimeType,
+            uploaded_at as uploadedAt
+        FROM festival_images
+        WHERE festival_id = #{festivalId}        
+    </select>
 	
 </mapper>

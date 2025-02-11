@@ -27,7 +27,8 @@ public class FestivalDAOImpl implements FestivalDAO{
 	public List<Festival> findFestivalList() {
 		
 		List<Festival> festivalList = sqlSessionTemplate.selectList("festival_mapper.findFestivalList");
+		
 		return festivalList;
 	}
-
+	
 }
