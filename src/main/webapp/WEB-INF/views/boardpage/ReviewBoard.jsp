@@ -49,6 +49,11 @@
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	transition: background-color 0.1s ease-in-out;
+}
+.goWriteReview:hover {
+	background-color: lightblue;
+	color: black;
 }
 
 .boardListBox {
@@ -133,7 +138,7 @@
 		</div>
 		<div class="boardListBox">
 			<c:forEach var="postList" items="${postList}">
-				<div class = "listBox motion motionUp">
+				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewdetail/${postList.postId}'">
 					<div class="boardListThumbnail"><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"></div>
 					<div class="boardList">
 						<p>제목 : ${postList.title}</p>

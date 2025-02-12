@@ -9,4 +9,6 @@ public interface PostDAO {
 	List<Post> findPostList();
 
 	Post findPostByUserId(String userId);
+	
+	Post findPostByPostId(int postId);
 }

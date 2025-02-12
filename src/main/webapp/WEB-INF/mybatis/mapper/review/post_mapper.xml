@@ -24,6 +24,10 @@
 		WHERE user_id = #{userId}	
 	</select>
 	
+	<select id="findPostByPostId" parameterType="int" resultType="Post">
+        SELECT * FROM posts WHERE post_id = #{postId}
+    </select>
+	
 
 </mapper>
 

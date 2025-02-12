@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.app.dto.festival.Festival;
 import com.app.dto.review.Post;
@@ -43,16 +44,27 @@ public class HomeController {
 		return "boardpage/ReviewBoard";
 	}
 	
-	@GetMapping("/reviewdetail")
-	public String reviewDetail(Model model) {
-		Post post = postService.findPostByUserId("유저아이디");
-		
-		System.out.println(post);
-		
-		model.addAttribute("postList",post);
-		
-		return "boardpage/ReviewDetail";
-	}
+//	@GetMapping("/reviewdetail")
+//	public String reviewDetail(Model model) {
+//		Post post = postService.findPostByUserId("유저아이디");
+//		
+//		System.out.println(post);
+//		
+//		model.addAttribute("postList",post);
+//		
+//		return "boardpage/ReviewDetail";
+//	}
+	
+	@GetMapping("/reviewdetail/{postId}")
+    public String getReviewDetail(@PathVariable int postId, Model model) {
+        Post post = postService.findPostByPostId(postId);
+        
+        System.out.println(post);
+        
+        model.addAttribute("postList", post);
+        return "boardpage/ReviewDetail"; // JSP 파일명
+    }
+
 	
 	
 	

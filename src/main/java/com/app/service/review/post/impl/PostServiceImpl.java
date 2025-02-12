@@ -29,4 +29,11 @@ public class PostServiceImpl implements PostService{
 		return post;
 	}
 
+	@Override
+	public Post findPostByPostId(int postId) {
+		Post post = postDAO.findPostByPostId(postId);
+		
+		return post;
+	}
+
 }

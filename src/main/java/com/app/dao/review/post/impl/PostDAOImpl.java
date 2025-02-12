@@ -28,6 +28,13 @@ public class PostDAOImpl implements PostDAO {
 		
 		return post;
 	}
+
+	@Override
+	public Post findPostByPostId(int postId) {
+		Post post = sqlSessionTemplate.selectOne("post_mapper.findPostByPostId",postId);
+		
+		return post;
+	}
 	
 	
 
