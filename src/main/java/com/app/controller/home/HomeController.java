@@ -38,6 +38,8 @@ public class HomeController {
 		
 		System.out.println(postList);
 		
+		model.addAttribute("postList",postList);
+		
 		return "boardpage/ReviewBoard";
 	}
 	

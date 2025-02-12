@@ -28,6 +28,7 @@
 
 .titleBar {
 	font-size: 40px;
+	font-weight: bold;
 	color: blue;
 	margin-bottom: 50px;
 	text-align: center;

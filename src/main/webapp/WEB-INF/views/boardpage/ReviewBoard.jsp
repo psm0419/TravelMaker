@@ -20,33 +20,96 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 100px;
 }
 
 .boardTitle {
-	margin-top: 50px;
-	background-color: red;
+	margin-top: 60px;
 	padding: 20px;
-	color: white;
+	margin-bottom: 70px;
+	font-size: 30px;
+}
+
+.goWriteReviewContainer {
+	width: 77%;
+	height: 50px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.goWriteReview {
+	border: 1px solid lightgray;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 600;
+	color: gray;
+	width: 120px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 }
 
 .boardListBox {
-	background-color: green;
 	width: 85%;
 	height: auto;
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	flex-direction: row;
 	align-items: center;
-	margin-top: 70px;
+	align-content: center;
+	margin-top: -15px;
+	flex-wrap: wrap;
+	gap:40px;
+}
+
+.listBox {
+	height: 300px;
+	width: 300px;
+	border: 1px solid lightgray;
+	border-radius: 12px;
+	overflow: hidden;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out;
+}
+
+.listBox.motion.motionUp.show:hover {
+	transform: translateY(-5px);
+}
+
+.motion {
+	opacity: 0;
+	transition: all .5s ease;
+}
+
+.motion.motionUp {
+	transform: translate(0, 10px);
+}
+
+.motion.show {
+	opacity: 1;
+	transform: none;
+}
+
+.boardListThumbnail {
+	height: 70%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.boardListThumbnail img {
+	height: 100%;
+	width: 100%;
 }
 
 .boardList {
 	width: 100%;
-	height: 40px;
-	background-color: yellow;
+	height: 30%;
 	display: flex;
 	align-items: center;
-	border: 1px solid lightgray;
-	padding-left: 20px;
+	justify-content: center;
 }
 
 </style>
@@ -59,14 +122,39 @@
 		<div class="boardTitle">
 			<h1>후기 게시판</h1>
 		</div>
-
+		<div class = "goWriteReviewContainer">
+			<div class="goWriteReview">후기 작성하기</div>
+		</div>
 		<div class="boardListBox">
-			<c:forEach var="post" items="${posts}">
-				<div class="boardList">${post.title}</div>
+			<c:forEach var="postList" items="${postList}">
+				<div class = "listBox motion motionUp">
+					<div class="boardListThumbnail"><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"></div>
+					<div class="boardList">${postList.title}</div>
+				</div>
 			</c:forEach>
 		</div>
 	</div>
 	
 	
+	
+	<%@ include file="../footer/Footer.jsp"%>
+	
+	<script>
+		const saTriggerMargin = 150;
+		const saElementList = document.querySelectorAll('.motion');
+	
+		const saFunc = function() {
+		  $.each(saElementList, function(index, element) {
+		    if (!element.classList.contains('show')) {
+		      if (window.innerHeight > element.getBoundingClientRect().top + saTriggerMargin) {
+		        element.classList.add('show');
+		      }
+		    }
+		  });
+		}
+	
+		window.addEventListener('load', saFunc);
+		window.addEventListener('scroll', saFunc);
+	</script>
 </body>
 </html>

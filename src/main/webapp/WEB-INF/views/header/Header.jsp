@@ -78,11 +78,11 @@
 			
 			// 로고버튼 클릭 시 메인화면으로 페이지 이동
 	        $(".headerLogo").click(function() {
-	            window.location.href = "/header"; //메인페이지 경로로 수정할것 (아래경로들도 맞게 수정해야함)
+	            window.location.href = "/"; //메인페이지 경로로 수정할것 (아래경로들도 맞게 수정해야함)
 	        });
 			// 홈 버튼 클릭 시 메인화면으로 페이지 이동
 	        $(".headerHome").click(function() {
-	            window.location.href = "/header"; //메인페이지 경로로 수정할것 (아래경로들도 맞게 수정해야함)
+	            window.location.href = "/"; //메인페이지 경로로 수정할것 (아래경로들도 맞게 수정해야함)
 	        });
 			 // 축제정보 페이지 이동
 	        $(".festival").click(function() {
@@ -94,7 +94,7 @@
 	        });
 	        // 후기 게시판 페이지 이동
 	        $(".reviewBoard").click(function() {
-	            window.location.href = "https://www.naver.com/";
+	            window.location.href = "/reviewboard";
 	        });
 	        // 질문 답변 게시판 페이지 이동
 	        $(".QnABoard").click(function() {
