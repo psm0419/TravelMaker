@@ -110,6 +110,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
+	font-weight: bold;
+}
+.boardList p:nth-child(2), .boardList p:nth-child(3) {
+	font-size: 12px;
+	color: gray;
 }
 
 </style>
@@ -129,7 +135,11 @@
 			<c:forEach var="postList" items="${postList}">
 				<div class = "listBox motion motionUp">
 					<div class="boardListThumbnail"><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"></div>
-					<div class="boardList">${postList.title}</div>
+					<div class="boardList">
+						<p>제목 : ${postList.title}</p>
+						<p>작성자 : ${postList.nickName}</p>
+						<p>조회수 : ${postList.postViews}</p>
+					</div>
 				</div>
 			</c:forEach>
 		</div>

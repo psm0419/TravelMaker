@@ -20,6 +20,7 @@
 .reviewDetailContainer {
 	max-width: 800px;
 	margin: auto;
+	margin-bottom: 50px;
 }
 
 .content-box {
