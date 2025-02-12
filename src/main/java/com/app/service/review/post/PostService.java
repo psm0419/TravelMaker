@@ -8,4 +8,6 @@ public interface PostService {
 
 	List<Post> findPostList();
 	
+	Post findPostByUserId(String userId);
+	
 }

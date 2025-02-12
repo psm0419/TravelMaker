@@ -14,6 +14,7 @@
 }
 
 .mainHeaderContainer{
+	margin-bottom: -100px;
 }
 
 .slideContainer{
@@ -143,6 +144,7 @@
 	<%@include file="MainBottomSlide.jsp" %>
 	
 	
+	<%@ include file="../footer/Footer.jsp"%>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {

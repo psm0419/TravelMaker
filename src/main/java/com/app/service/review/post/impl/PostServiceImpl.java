@@ -22,4 +22,11 @@ public class PostServiceImpl implements PostService{
 		return postList;
 	}
 
+	@Override
+	public Post findPostByUserId(String userId) {
+		Post post = postDAO.findPostByUserId(userId);
+		
+		return post;
+	}
+
 }

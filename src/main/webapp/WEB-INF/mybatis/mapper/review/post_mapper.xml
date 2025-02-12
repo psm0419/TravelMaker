@@ -18,11 +18,11 @@
 		select * from posts
 	</select>
 	
-<!-- 	<select id="findFileInfoByFileName" resultType="FileInfo" parameterType="String"> -->
-<!-- 		select * -->
-<!-- 		FROM file_info -->
-<!-- 		WHERE file_name = #{fileName}	 -->
-<!-- 	</select> -->
+	<select id="findPostByUserId" resultType="Post" parameterType="String">
+		select *
+		FROM posts
+		WHERE user_id = #{userId}	
+	</select>
 	
 
 </mapper>

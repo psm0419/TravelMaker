@@ -43,6 +43,17 @@ public class HomeController {
 		return "boardpage/ReviewBoard";
 	}
 	
+	@GetMapping("/reviewdetail")
+	public String reviewDetail(Model model) {
+		Post post = postService.findPostByUserId("유저아이디");
+		
+		System.out.println(post);
+		
+		model.addAttribute("postList",post);
+		
+		return "boardpage/ReviewDetail";
+	}
+	
 	
 	
 }
