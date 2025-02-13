@@ -58,7 +58,8 @@ create Table posts (
   created_at timestamp,
   post_like number,
   post_views number,
-  type number
+  type number,
+  report varchar2(12) not null
 );
 CREATE SEQUENCE post_id_seq
 START WITH 1
@@ -70,8 +71,9 @@ create Table comments (
   comments_id number primary key,
   content varchar2(3000),
   post_id number,
-  user_id number,
-  created_at timestamp
+  user_id varchar2(32),
+  created_at timestamp,
+  nick_name varchar2(36)
 );
 CREATE SEQUENCE comments_id_seq
 START WITH 1

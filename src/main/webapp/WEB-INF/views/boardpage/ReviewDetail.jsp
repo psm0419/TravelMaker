@@ -29,6 +29,10 @@
 	margin-bottom: 15px;
 }
 
+.content-box span:nth-child(3), .content-box span:nth-child(4){
+	font-size: 12px;
+}
+
 .like-button {
 	cursor: pointer;
 	color: gray;
@@ -50,7 +54,7 @@
 				width="40"> <span class="ms-2">${postList.nickName}</span> <span
 				class="ms-3 text-muted"><fmt:formatDate
 					value="${postList.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
-				class="ms-3 text-muted">조회 ${postList.postViews}</span>
+				class="ms-3 text-muted">조회수 ${postList.postViews}</span>
 		</div>
 
 		<div class="mb-4">${postList.content}</div>
@@ -64,31 +68,29 @@
 
 		<!-- 댓글 -->
 		<h5>댓글</h5>
-		<c:forEach var="comment" items="${comment}">
+		<c:forEach var="comment" items="${commentList}">
 			<div class="mb-2">
-				<strong>${comment.nickName}</strong> <small class="text-muted"><fmt:formatDate
+				<strong style="color: gray">${comment.nickName}</strong> <small class="text-muted"><fmt:formatDate
 						value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" /></small>
 				<p>${comment.content}</p>
 			</div>
 		</c:forEach>
 
 		<!-- 댓글 입력 -->
-		<form
-			action="${pageContext.request.contextPath}/reviews/${postList.userId}/comment"
-			method="post">
+		<form action="${pageContext.request.contextPath}/reviewdetail/${postList.postId}/comment" method="post">
+			<!-- 필요시 인풋 히든으로 유저닉 등 필요한정보 넘기기 -->
 			<textarea name="content" class="form-control mb-2"
 				placeholder="댓글을 입력해주세요." required></textarea>
 			<button type="submit" class="btn btn-primary">등록</button>
 		</form>
 
 		<hr>
-		<a href="/reviewboard"
-			class="btn btn-secondary">목록</a>
+		<a href="/reviewboard" class="btn btn-secondary">목록</a>
 	</div>
 
 	<%@ include file="../footer/Footer.jsp"%>
 
-	<script>
+<script>
     document.getElementById('likeBtn').addEventListener('click', function() {
         fetch('${pageContext.request.contextPath}/reviews/${postList.userId}/like', { method: 'POST' })
             .then(response => response.json())

@@ -36,6 +36,12 @@ public class PostDAOImpl implements PostDAO {
 		return post;
 	}
 	
+	public int increasePostViews(int postId) {
+		int result = sqlSessionTemplate.update("post_mapper.increasePostViews", postId);
+		
+		return result;
+	}
+	
 	
 
 }

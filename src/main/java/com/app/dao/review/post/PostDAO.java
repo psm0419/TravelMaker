@@ -11,4 +11,6 @@ public interface PostDAO {
 	Post findPostByUserId(String userId);
 	
 	Post findPostByPostId(int postId);
+
+	int increasePostViews(int postId);
 }

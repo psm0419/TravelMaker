@@ -36,4 +36,10 @@ public class PostServiceImpl implements PostService{
 		return post;
 	}
 
+	public int increasePostViews(int postId) { // 조회수 증가
+		int result = postDAO.increasePostViews(postId);
+		
+		return result;
+	}
+
 }

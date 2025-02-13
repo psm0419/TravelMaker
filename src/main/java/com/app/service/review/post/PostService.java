@@ -11,5 +11,7 @@ public interface PostService {
 	Post findPostByUserId(String userId);
 	
 	Post findPostByPostId(int postId);
+
+	int increasePostViews(int postId);
 	
 }

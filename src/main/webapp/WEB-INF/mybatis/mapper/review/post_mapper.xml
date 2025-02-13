@@ -27,6 +27,12 @@
 	<select id="findPostByPostId" parameterType="int" resultType="Post">
         SELECT * FROM posts WHERE post_id = #{postId}
     </select>
+    
+    <update id="increasePostViews" parameterType="int" >
+	    UPDATE posts
+	    SET post_views = post_views + 1 
+	    WHERE post_id = #{postId}
+	</update>
 	
 
 </mapper>

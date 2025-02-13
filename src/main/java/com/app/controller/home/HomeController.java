@@ -7,11 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.dto.festival.Festival;
+import com.app.dto.review.Comment;
 import com.app.dto.review.Post;
 import com.app.service.festival.FestivalService;
 import com.app.service.review.post.PostService;
+import com.app.service.review.reviewDetail.comment.CommentService;
 
 @Controller
 public class HomeController {
@@ -21,6 +25,9 @@ public class HomeController {
 	
 	@Autowired
 	PostService postService;
+	
+	@Autowired
+	CommentService commentService;
 
 	@GetMapping("/") // 홈 화면
 	public String home(Model model) {
@@ -57,13 +64,31 @@ public class HomeController {
 	
 	@GetMapping("/reviewdetail/{postId}")
     public String getReviewDetail(@PathVariable int postId, Model model) {
+		postService.increasePostViews(postId); // 조회수 증가
+		
         Post post = postService.findPostByPostId(postId);
         
+        List<Comment> commentList = commentService.findCommentListByPostId(postId);
+        
         System.out.println(post);
+        System.out.println(commentList);
         
         model.addAttribute("postList", post);
+        model.addAttribute("commentList",commentList);
         return "boardpage/ReviewDetail"; // JSP 파일명
     }
+	
+	@PostMapping("/reviewdetail/{postId}/comment")
+	public String saveReviewDetailComment(@PathVariable("postId") int postId, @RequestParam("content") String content) {
+		
+		int result = commentService.saveReviewDetailComment(postId, content);
+		
+		System.out.println(result);
+		
+		return "redirect:/reviewdetail/"+ postId;
+	}
+	
+
 
 	
 	
