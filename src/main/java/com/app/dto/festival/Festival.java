@@ -16,4 +16,6 @@ public class Festival {
 	String  tel;
 	String  festivalHost;
 	List<FestivalImage> images;
+	String homepageUrl;
+	String content;
 }

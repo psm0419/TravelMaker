@@ -10,6 +10,7 @@ public class Attraction {
 	  String baseYm;
 	  String mapX;
 	  String mapY;
+	  
 	  String areaCd;
 	  String areaNm;
 	  String signguCd;
@@ -19,4 +20,16 @@ public class Attraction {
 	  String hubCtgryLclsNm;
 	  String hubCtgryMclsNm;
 	  String hubRank;
+	  
+	  String tAtsNm;
+	  String rlteTatsNm;
+	  String rlteRegnCd;
+	  String rlteRegnNm;
+	  String rlteSignguCd;
+	  String rlteSignguNm;
+	  String rlteBsicAdres;
+	  String rlteCtgryLclsNm;
+	  String rlteCtgryMclsNm;
+	  String rlteCtgrySclsNm;
+	  String rlteRank;
 }

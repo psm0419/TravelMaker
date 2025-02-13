@@ -39,7 +39,8 @@ create Table festival (
   end_date varchar2(16),
   entrance_fee varchar2(64),
   tel varchar2(32),
-  festival_host varchar2(128)
+  festival_host varchar2(128),
+  homepage_url varchar2(512)
 );
 
 CREATE SEQUENCE festival_id_seq

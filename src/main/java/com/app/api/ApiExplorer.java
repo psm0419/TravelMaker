@@ -5,8 +5,8 @@ import com.app.dto.api.Attraction;
 
 public class ApiExplorer {
     public static void main(String[] args) {
-        String areaCd = "52"; // 시도 코드
-        String signguCd = "52113"; // 시군구 코드
+        String areaCd = "11"; // 시도 코드
+        String signguCd = "11110"; // 시군구 코드
 
         List<Attraction> attractionInfoList = null;
 

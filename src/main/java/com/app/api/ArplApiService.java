@@ -18,10 +18,10 @@ import com.app.dto.api.Attraction;
 public class ArplApiService {
 
 	public static String attractionInfo(String areaCd, String signguCd) throws IOException {
-		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551011/LocgoHubTarService/areaBasedList"); /*URL*/
+		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551011/TarRlteTarService/areaBasedList"); /*URL*/
 		urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=6qMx95HkwBtugOGITKFbYuVdBUh88sIitPYUMcTWCgzYjVy9Hgd7fIwU2yGAby5HmUjk7Y8egOXgwC7cm5DVQQ%3D%3D"); /*Service Key*/
 		urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-		urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
+		urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("50", "UTF-8")); /*한 페이지 결과 수*/
 		urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("WEB", "UTF-8")); /*OS 구분 : IOS (아이폰), AND (안드로이드), WEB(웹), ETC(기타)*/
 		urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("TravelMaker", "UTF-8")); /*서비스명(어플명)*/
 		urlBuilder.append("&" + URLEncoder.encode("baseYm","UTF-8") + "=" + URLEncoder.encode("202501", "UTF-8")); /*기준 날짜 조회(형식:YYYYMM)*/
@@ -81,8 +81,8 @@ public class ArplApiService {
 		        for (int i = 0; i < itemArray.size(); i++) {
 		            JSONObject item = (JSONObject) itemArray.get(i);
 		            System.out.println(">>> index: " + i);
-		            System.out.println("장소명: " + item.get("hubTatsNm"));
-		            System.out.println("주소: " + item.get("hubBsicAdres"));
+		            System.out.println("장소명: " + item.get("tAtsNm"));
+		            System.out.println("주소: " + item.get("rlteBsicAdres"));
 
 		            Attraction ai = new Attraction();
 		            ai.setBaseYm(convertValueToString(item.get("baseYm")));
@@ -92,11 +92,14 @@ public class ArplApiService {
 		            ai.setAreaNm(convertValueToString(item.get("areaNm")));
 		            ai.setSignguCd(convertValueToString(item.get("signguCd")));
 		            ai.setSignguNm(convertValueToString(item.get("signguNm")));
-		            ai.setHubTatsNm(convertValueToString(item.get("hubTatsNm")));
-		            ai.setHubBsicAdres(convertValueToString(item.get("hubBsicAdres")));
-		            ai.setHubCtgryLclsNm(convertValueToString(item.get("hubCtgryLclsNm")));
-		            ai.setHubCtgryMclsNm(convertValueToString(item.get("hubCtgryMclsNm")));
-		            ai.setHubRank(convertValueToString(item.get("hubRank")));
+		            ai.setHubTatsNm(convertValueToString(item.get("rlteTatsNm")));
+//		            ai.setHubBsicAdres(convertValueToString(item.get("hubBsicAdres")));
+//		            ai.setHubCtgryLclsNm(convertValueToString(item.get("hubCtgryLclsNm")));
+//		            ai.setHubCtgryMclsNm(convertValueToString(item.get("hubCtgryMclsNm")));
+		            ai.setHubBsicAdres(convertValueToString(item.get("rlteBsicAdres")));
+		            ai.setHubCtgryLclsNm(convertValueToString(item.get("rlteCtgryLclsNm")));
+		            ai.setHubCtgryMclsNm(convertValueToString(item.get("rlteCtgryMclsNm")));
+		            ai.setHubRank(convertValueToString(item.get("rlteRank")));
 
 		            arplList.add(ai);
 		        }

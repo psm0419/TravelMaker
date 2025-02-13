@@ -42,7 +42,7 @@ public class FestivalPageController {
 
 		Festival festival = festivalService.getFestivalById(festivalId);
 		model.addAttribute("festival", festival);
-
+		
 		return "festivalpage/FestivalDetail";
 	}
 }
