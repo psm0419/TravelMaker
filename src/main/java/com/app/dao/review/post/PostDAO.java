@@ -13,4 +13,6 @@ public interface PostDAO {
 	Post findPostByPostId(int postId);
 
 	int increasePostViews(int postId);
+	
+	int savePost(Post post);
 }

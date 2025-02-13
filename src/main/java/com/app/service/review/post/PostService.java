@@ -14,4 +14,6 @@ public interface PostService {
 
 	int increasePostViews(int postId);
 	
+	int savePost(Post post);
+	
 }

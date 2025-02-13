@@ -53,7 +53,7 @@ create Table posts (
   title varchar2(64),
   content varchar2(3000),
   user_id varchar2(32),
-  nickname varchar2(36),
+  nick_name varchar2(36),
   board_id number,
   created_at timestamp,
   post_like number,

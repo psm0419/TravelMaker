@@ -42,4 +42,11 @@ public class PostServiceImpl implements PostService{
 		return result;
 	}
 
+	@Override
+	public int savePost(Post post) {
+		int result = postDAO.savePost(post);
+		
+		return result;
+	}
+
 }

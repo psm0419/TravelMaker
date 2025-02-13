@@ -134,7 +134,7 @@
 			<h1>후기 게시판</h1>
 		</div>
 		<div class = "goWriteReviewContainer">
-			<div class="goWriteReview">후기 작성하기</div>
+			<div class="goWriteReview" onclick="location.href='/writereview'">후기 작성하기</div>
 		</div>
 		<div class="boardListBox">
 			<c:forEach var="postList" items="${postList}">

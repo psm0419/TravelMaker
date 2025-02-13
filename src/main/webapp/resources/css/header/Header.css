@@ -28,6 +28,12 @@
 	align-items: center;
 	cursor: pointer;
 }
+.headerLogo img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-right: 7px;
+}
 
 /* 메뉴 스타일 */
 .headerMenu {
@@ -54,7 +60,7 @@
 	width: 100%;
 	background: #ffffff;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	padding: 15px 0 15px 130px;
+	padding: 15px 0 15px 190px;
 	z-index: 10;
 	border-radius: 5px;
 	display: flex;

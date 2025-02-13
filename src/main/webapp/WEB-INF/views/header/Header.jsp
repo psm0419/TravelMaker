@@ -21,7 +21,7 @@
 <div class="mainHeaderContainer">
 	<div class="headerContainer">
 		<!-- 로고 -->
-		<div class="headerLogo">Travel Maker</div>
+		<div class="headerLogo"> <img src="/images/TravelMakerLogo.jpg" alt="logo"> Travel Maker</div>
 
 		<!-- 메뉴 -->
 		<div class="headerMenu">

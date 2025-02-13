@@ -17,5 +17,11 @@ public class Post {
 	int postLike; // 좋아요수
 	int postViews; // 조회수
 	int status; // 글 상태(일반글,비밀글)
+	String report; // 신고 상태 N:기본 Y:신고당함
+	String images; // 기존 이미지 경로
+    String fileName; // 랜덤으로 생성된 파일 이름
+    String originalFileName; // 원본 파일 이름
+    String filePath; // 파일 저장 경로
+    String urlFilePath; // 파일 URL 경로
 
 }

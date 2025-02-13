@@ -41,6 +41,13 @@ public class PostDAOImpl implements PostDAO {
 		
 		return result;
 	}
+
+	@Override
+	public int savePost(Post post) {
+		int result = sqlSessionTemplate.insert("post_mapper.savePost", post);
+		
+		return result;
+	}
 	
 	
 

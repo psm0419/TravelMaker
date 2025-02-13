@@ -3,37 +3,52 @@
 
 <mapper namespace="post_mapper">
 
-	
-<!-- 	<insert id="savePostInfo" parameterType="Post"> -->
-<!-- 		insert into file_info -->
-<!-- 		values ( -->
-<!-- 			#{fileName}, -->
-<!-- 			#{originalFileName}, -->
-<!-- 			#{filePath} -->
-<!-- 			#{urlFilePath} -->
-<!-- 		) -->
-<!-- 	</insert> -->
-	
+
+	<insert id="savePost" parameterType="Post">
+		insert into posts values (
+		post_id_seq.NEXTVAL,
+		#{title},
+		#{content},
+<!-- 		#{userId}, -->
+		'김유저아이디',
+<!-- 		#{nickName}, -->
+		'김유저닉네임',
+		#{boardId},
+		#{createdAt},
+		#{postLike},
+		#{postViews},
+		#{status},
+		#{report},
+		#{images},
+		#{fileName},
+		#{originalFileName},
+		#{filePath},
+		#{urlFilePath}
+		)
+	</insert>
+
 	<select id="findPostList" resultType="Post">
 		select * from posts
 	</select>
-	
-	<select id="findPostByUserId" resultType="Post" parameterType="String">
+
+	<select id="findPostByUserId" resultType="Post"
+		parameterType="String">
 		select *
 		FROM posts
-		WHERE user_id = #{userId}	
+		WHERE user_id = #{userId}
 	</select>
-	
-	<select id="findPostByPostId" parameterType="int" resultType="Post">
-        SELECT * FROM posts WHERE post_id = #{postId}
-    </select>
-    
-    <update id="increasePostViews" parameterType="int" >
-	    UPDATE posts
-	    SET post_views = post_views + 1 
-	    WHERE post_id = #{postId}
+
+	<select id="findPostByPostId" parameterType="int"
+		resultType="Post">
+		SELECT * FROM posts WHERE post_id = #{postId}
+	</select>
+
+	<update id="increasePostViews" parameterType="int">
+		UPDATE posts
+		SET post_views = post_views + 1
+		WHERE post_id = #{postId}
 	</update>
-	
+
 
 </mapper>
 
