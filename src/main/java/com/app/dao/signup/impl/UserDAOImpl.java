@@ -53,5 +53,35 @@ public class UserDAOImpl implements UserDAO{
 	List<User> userList = sqlSessionTemplate.selectList("user_mapper.getAllUsers");
 			return userList;
 	}
+
+	@Override
+	public User getUserByNickName(String nickName) {
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByNickname", nickName);
+		return user;
+	}
+
+	@Override
+	public User getUserByJumin(String jumin) {
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByJumin", jumin);
+		return user;
+	}
+
+	@Override
+	public User getUserByTel(String tel) {
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByTel", tel);
+		return user;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByEmail", email);
+		return user;
+	}
+
+	@Override
+	public User getUserByPw(String pw) {
+		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByPw", pw);
+		return user;
+	}
 	
 }
