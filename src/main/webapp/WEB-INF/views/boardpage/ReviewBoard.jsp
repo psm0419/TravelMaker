@@ -134,11 +134,11 @@
 			<h1>후기 게시판</h1>
 		</div>
 		<div class = "goWriteReviewContainer">
-			<div class="goWriteReview" onclick="location.href='/writereview'">후기 작성하기</div>
+			<div class="goWriteReview" onclick="location.href='/writeReview'">후기 작성하기</div>
 		</div>
 		<div class="boardListBox">
 			<c:forEach var="postList" items="${postList}">
-				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewdetail/${postList.postId}'">
+				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewDetail/${postList.postId}'">
 					<div class="boardListThumbnail"><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"></div>
 					<div class="boardList">
 						<p>제목 : ${postList.title}</p>

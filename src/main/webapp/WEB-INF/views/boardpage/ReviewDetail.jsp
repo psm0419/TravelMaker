@@ -51,12 +51,12 @@
 		<h4 class="fw-bold">${postList.title}</h4>
 		<div class="content-box d-flex align-items-center">
 			<img src="/images/유저이미지.jpg" alt="작성자 이미지" class="rounded-circle"
-				width="40"> <span class="ms-2">${postList.nickName}</span> <span
+				width="40"> <span class="ms-2">${userList.nickName}</span> <span
 				class="ms-3 text-muted"><fmt:formatDate
 					value="${postList.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
 				class="ms-3 text-muted">조회수 ${postList.postViews}</span>
 		</div>
-		<div style="width: 300px; height: 300px;"> <img src="/images/${postList.images}" alt="usersReviewImage" style="width: 300px; height: 300px;"> </div>
+		<div style="width: 300px; height: 300px;"> <img src="/images/${reviewImages.fileName}" alt="usersReviewImage" style="width: 300px; height: 300px;"> </div>
 		<div class="mb-4">${postList.content}</div>
 
 		<button id="likeBtn" class="btn btn-outline-danger">
@@ -77,15 +77,17 @@
 		</c:forEach>
 
 		<!-- 댓글 입력 -->
-		<form action="${pageContext.request.contextPath}/reviewdetail/${postList.postId}/comment" method="post">
+		<form action="${pageContext.request.contextPath}/reviewDetail/${postList.postId}/comment" method="post">
 			<!-- 필요시 인풋 히든으로 유저닉 등 필요한정보 넘기기 -->
+			<input type="hidden" name="userId" value="현재로그인한아이디">
+			<input type="hidden" name="nickName" value="현재로그인한닉네임">
 			<textarea name="content" class="form-control mb-2"
 				placeholder="댓글을 입력해주세요." required></textarea>
 			<button type="submit" class="btn btn-primary">등록</button>
 		</form>
 
 		<hr>
-		<a href="/reviewboard" class="btn btn-secondary">목록</a>
+		<a href="/reviewBoard" class="btn btn-secondary">목록</a>
 	</div>
 
 	<%@ include file="../footer/Footer.jsp"%>

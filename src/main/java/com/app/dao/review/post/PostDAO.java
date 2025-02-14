@@ -3,6 +3,7 @@ package com.app.dao.review.post;
 import java.util.List;
 
 import com.app.dto.review.Post;
+import com.app.dto.review.ReviewImages;
 
 public interface PostDAO {
 	
@@ -15,4 +16,10 @@ public interface PostDAO {
 	int increasePostViews(int postId);
 	
 	int savePost(Post post);
+	
+	int saveReviewImage(ReviewImages reviewImages);
+	
+	List<ReviewImages> findReviewImages();
+	
+	List<Post> findPostListByUserId(String userId);
 }

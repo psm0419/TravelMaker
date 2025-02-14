@@ -6,8 +6,10 @@ import com.app.dto.review.Comment;
 
 public interface CommentDAO {
 	
+	List<Comment> findCommentListByUserId(String userId);
+	
 	List<Comment> findCommentListByPostId(int postId);
 	
-	int saveReviewDetail(int postId, String comment);
+	int saveReviewDetailCommentByPostId(int postId, String comment, String nickName, String userId);
 
 }

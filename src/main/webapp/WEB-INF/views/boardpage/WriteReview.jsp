@@ -71,18 +71,17 @@ button:hover {
 
 		<!-- 작성자 정보 -->
 		<div class="content-box">
-			<img src="/images/TravelMakerLogo.jpg" alt="작성자 이미지"> <span>${users.nickName}</span>
-			<span class="ms-3 text-muted"> 현재시간 : <fmt:formatDate
+			<img src="/images/TravelMakerLogo.jpg" alt="작성자 이미지"> <span>작성자: 홍길동 ${users.nickName}</span>
+			<span class="ms-3 text-muted"> 현재시간: <fmt:formatDate
 					value="<%=new java.util.Date()%>" pattern="yyyy-MM-dd HH:mm" />
 			</span>
 		</div>
 
 		<!-- 게시글 작성 폼 -->
-		<form action="/savewritereview" method="post"
+		<form action="/saveWriteReview" method="post"
 			enctype="multipart/form-data">
-			<input type="hidden" name="boardId" value="1">
-			<input type="hidden" name="userId" value="${users.UserId}">
-			<input type="hidden" name="nickName" value="${users.nickName}">
+			<input type="hidden" name="userId" value="김유저아이디">
+			<input type="hidden" name="nickName" value="김유저">
 			<label for="title">제목</label>
 			<input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
 			<label for="content">내용</label>

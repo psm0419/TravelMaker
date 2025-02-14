@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.app.dao.review.post.PostDAO;
 import com.app.dto.review.Post;
+import com.app.dto.review.ReviewImages;
 
 @Repository
 public class PostDAOImpl implements PostDAO {
@@ -18,6 +19,13 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<Post> findPostList() {
 		List<Post> postList = sqlSessionTemplate.selectList("post_mapper.findPostList");
+		
+		return postList;
+	}
+	
+	@Override
+	public List<Post> findPostListByUserId(String userId) {
+		List<Post> postList = sqlSessionTemplate.selectList("post_mapper.findPostByUserId",userId);
 		
 		return postList;
 	}
@@ -47,6 +55,20 @@ public class PostDAOImpl implements PostDAO {
 		int result = sqlSessionTemplate.insert("post_mapper.savePost", post);
 		
 		return result;
+	}
+
+	@Override
+	public int saveReviewImage(ReviewImages reviewImages) {
+		int result = sqlSessionTemplate.insert("post_mapper.saveReviewImage", reviewImages);
+		
+		return result;
+	}
+
+	@Override
+	public List<ReviewImages> findReviewImages() {
+		List<ReviewImages> reviewImages = sqlSessionTemplate.selectList("post_mapper.findReviewImages");
+		
+		return reviewImages;
 	}
 	
 	

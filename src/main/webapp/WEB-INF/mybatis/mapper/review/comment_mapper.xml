@@ -5,13 +5,17 @@
 
 	
 	
-	<select id="findCommentListByPostId" resultType="Comment">
+	<select id="findCommentListByUserId" resultType="Comment" parameterType="String">
+		select * from comments where user_id = #{userId}
+	</select>
+	
+	<select id="findCommentListByPostId" resultType="Comment" parameterType="int">
 		select * from comments where post_id = #{postId}
 	</select>
 	
-	<insert id="saveReviewDetailcomment">
+	<insert id="saveReviewDetailCommentByPostId" parameterType="map">
 	    INSERT INTO COMMENTS (comments_id, content, post_id, user_id, created_at, nick_name)
-	    VALUES (comments_id_seq.NEXTVAL, #{content}, #{postId}, 'tempUserId', SYSDATE, '익명의사용자')
+	    VALUES (comments_id_seq.NEXTVAL, #{content}, #{postId}, #{userId}, SYSDATE, #{nickName})
 	</insert>
 	
 	

@@ -16,18 +16,26 @@ public class CommentServiceImpl implements CommentService {
 	CommentDAO commentDAO;
 
 	@Override
-	public List<Comment> findCommentListByPostId(int postId) {
-		List<Comment> commentList = commentDAO.findCommentListByPostId(postId);
+	public List<Comment> findCommentListByUserId(String userId) {
+		List<Comment> commentList = commentDAO.findCommentListByUserId(userId);
 		
 		return commentList;
 	}
 
 	@Override
-	public int saveReviewDetailComment(int postId, String comment) {
-		int result = commentDAO.saveReviewDetail(postId, comment);
+	public List<Comment> findCommentListByPostId(int postId) {
+		List<Comment> commentList = commentDAO.findCommentListByPostId(postId);
+		
+		return commentList;
+	}
+	
+	@Override
+	public int saveReviewDetailCommentByPostId(int postId, String comment, String nickName, String userId) {
+		int result = commentDAO.saveReviewDetailCommentByPostId(postId, comment, nickName, userId);
 		
 		return result;
 	}
+
 	
 	
 

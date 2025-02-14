@@ -18,6 +18,13 @@ public class CommentDAOImpl implements CommentDAO {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
+	public List<Comment> findCommentListByUserId(String userId) {
+		List<Comment> commentList = sqlSessionTemplate.selectList("comment_mapper.findCommentListByUserId", userId);
+		
+		return commentList;
+	}
+
+	@Override
 	public List<Comment> findCommentListByPostId(int postId) {
 		List<Comment> commentList = sqlSessionTemplate.selectList("comment_mapper.findCommentListByPostId", postId);
 		
@@ -25,15 +32,18 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 
 	@Override
-	public int saveReviewDetail(int postId, String comment) {
+	public int saveReviewDetailCommentByPostId(int postId, String comment, String nickName, String userId) {
 		Map<String, Object> params = new HashMap<>();
         params.put("postId", postId);
         params.put("content", comment);
+        params.put("nickName", nickName);
+        params.put("userId", userId);
 		
-		int result = sqlSessionTemplate.insert("comment_mapper.saveReviewDetailcomment", params);
+		int result = sqlSessionTemplate.insert("comment_mapper.saveReviewDetailCommentByPostId", params);
 		
 		return result;
 	}
+
 
 	
 	

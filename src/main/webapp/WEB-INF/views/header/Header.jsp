@@ -94,7 +94,7 @@
 	        });
 	        // 후기 게시판 페이지 이동
 	        $(".reviewBoard").click(function() {
-	            window.location.href = "/reviewboard";
+	            window.location.href = "/reviewBoard";
 	        });
 	        // 질문 답변 게시판 페이지 이동
 	        $(".QnABoard").click(function() {

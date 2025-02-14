@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.dao.review.post.PostDAO;
 import com.app.dto.review.Post;
+import com.app.dto.review.ReviewImages;
 import com.app.service.review.post.PostService;
 
 @Service
@@ -45,6 +46,27 @@ public class PostServiceImpl implements PostService{
 	@Override
 	public int savePost(Post post) {
 		int result = postDAO.savePost(post);
+		
+		return result;
+	}
+
+	@Override
+	public int saveReviewImage(ReviewImages reviewImages) {
+		int result = postDAO.saveReviewImage(reviewImages);
+		
+		return result;
+	}
+
+	@Override
+	public List<ReviewImages> findReviewImages() {
+		List<ReviewImages> reviewImages = postDAO.findReviewImages();
+		
+		return reviewImages;
+	}
+	
+	@Override
+	public List<Post> findPostListByUserId(String userId){
+		List<Post> result = postDAO.findPostListByUserId(userId);
 		
 		return result;
 	}
