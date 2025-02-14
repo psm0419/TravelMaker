@@ -56,7 +56,7 @@
 					value="${postList.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
 				class="ms-3 text-muted">조회수 ${postList.postViews}</span>
 		</div>
-		<div style="width: 300px; height: 300px;"> <img src="/images/유채꽃축제.jpg" alt="usersReviewImage" style="width: 500px; height: 300px; margin-left: 150px;"> </div>
+		<div style="width: 300px; height: 300px;"> <img src="${reviewImages.urlFilePath}" alt="usersReviewImage" style="width: 500px; height: 300px; margin-left: 150px;"> </div>
 		<div class="mb-4">${postList.content}</div>
 
 		<button id="likeBtn" class="btn btn-outline-danger">

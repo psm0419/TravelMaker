@@ -77,4 +77,11 @@ public class PostServiceImpl implements PostService{
 		return result;
 	}
 
+	@Override
+	public ReviewImages findReviewImagesByPostId(int postId) {
+		ReviewImages reviewImages = postDAO.findReviewImagesByPostId(postId);
+		
+		return reviewImages;
+	}
+
 }

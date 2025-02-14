@@ -64,6 +64,10 @@ public class BoardController {
 		
 		model.addAttribute("commentList", commentList); //comment들 표시
 		
+		ReviewImages reviewImages = postService.findReviewImagesByPostId(postId);
+		
+		model.addAttribute("reviewImages",reviewImages);
+		
 		return "boardpage/ReviewDetail"; // JSP 파일명
 	}
 
