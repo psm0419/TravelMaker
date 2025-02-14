@@ -16,8 +16,10 @@
 			<h1 class="login_logo">로고 및 로그인</h1>
 
 			<div class="dvi_login_main">
+			
 				<!-- 아이디 입력창 -->
-				<div class="div_login_input_id">
+				<div class="div_login_input">
+				<span class="icon">👤</span> <!-- 로그인 아이콘 -->
 					<input type="text" class="login_input_id" value=""
 						placeholder="아이디" maxlength="20" autocapitalize="off"
 						id="login_id" name="userId" required> <br>
@@ -25,26 +27,25 @@
 
 
 				<!-- 비밀번호 입력창 -->
-				<div class="div_login_input_pw">
+				<div class="div_login_input">
+				<span class="icon">🔒</span><!-- 비밀번호 아이콘 -->
 					<input type="password" class="login_input_pw" value=""
 						placeholder="비밀번호" maxlength="20" id="login_pw" name="password" required>
+						<!-- 비밀번호 보기 버튼 -->
+				<button type="button" class="toggle-pw" onclick="togglePassword()">👁</button>
 					<br>
 				</div>
-
-				<br>
-
 			</div>
-			<div class="error_text" id="idMsg" style="display: none"></div>
-			<div class="error_text" id="pwMsg" style="display: none"></div>
 			<br>
-			
-			<button type="submit" id="btn_login_sumbmit">로그인</button>
-			
-			<button type="button">
+			<button type="submit" id="btn_login_sumbmit">로그인
+			</button>
+			<br>
+			<br>
+			<button type="button" class="btn_style">
 				<a href="SignUp">회원가입</a>
 			</button>
 			
-			<button type="button">
+			<button type="button" class="btn_style">
 				<a href="findIdPw">아이디/비밀번호찾기</a>
 			</button>
 		</div>
@@ -96,7 +97,12 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     });
 });
 	
-
+	//비밀번호 보이기 버튼
+function togglePassword() {
+	  let pwInput = document.getElementById("login_pw");
+	  pwInput.type = pwInput.type === "password" ? "text" : "password";
+	}
+	
 </script>
 
 

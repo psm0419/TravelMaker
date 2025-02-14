@@ -26,6 +26,10 @@ public class UserServiceImpl implements UserService {
 	public User getUser(String userId) { 
 		return userDAO.getUserById(userId);
 	}
+	
+	public User getUserForJumin(String userJumin) { 
+		return userDAO.getUserByJumin(userJumin);
+	}
 
 	@Override
 	public int modifyUser(User user) {
@@ -113,6 +117,11 @@ public class UserServiceImpl implements UserService {
 		} else {
 			return true;
 		}
+	}
+
+	@Override
+	public User getUserForEmain(String userEmail) {
+		return userDAO.getUserByEmail(userEmail);
 	}
 
 }

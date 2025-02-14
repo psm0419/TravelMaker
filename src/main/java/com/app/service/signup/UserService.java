@@ -10,6 +10,8 @@ public interface UserService {
 
 	int registerUser(User user);
     User getUser(String userId);
+    User getUserForJumin(String userJumin);
+    User getUserForEmain(String userEmail);
     int modifyUser(User user);
     int removeUser(String userId);
     List<User> getAllUsers();

@@ -23,4 +23,21 @@ public class MailService {
         message.setText("이메일 인증 코드: " + code + " (3분 이내 입력)");
         mailSender.send(message);
     }
+    
+    @Async
+    public void sendIdEmail(String email, String userId) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("즐거운 여행 Travel Maker!");
+        message.setText("회원님의 아이디는 "+ userId +" 입니다." );
+        mailSender.send(message);
+    }
+    
+    public void sendPwEmail(String email, String userPw) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("즐거운 여행 Travel Maker!");
+        message.setText("회원님의 비밀번호는 "+ userPw +" 입니다." );
+        mailSender.send(message);
+    }
 }
