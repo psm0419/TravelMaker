@@ -22,4 +22,6 @@ public interface PostDAO {
 	List<ReviewImages> findReviewImages();
 	
 	List<Post> findPostListByUserId(String userId);
+	
+	int getLastPostId();
 }

@@ -71,4 +71,10 @@ public class PostServiceImpl implements PostService{
 		return result;
 	}
 
+	@Override
+	public int getLastPostId() {
+		int result = postDAO.getLastPostId();
+		return result;
+	}
+
 }

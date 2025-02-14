@@ -5,29 +5,20 @@
 
 
 	<insert id="savePost" parameterType="Post">
-		<selectKey keyProperty="postId" resultType="int"
-			order="BEFORE">
-			SELECT post_id_seq.NEXTVAL FROM DUAL
-		</selectKey>
-
-		INSERT INTO posts (
-		post_id, title, content, user_id, created_at,
-		post_like, post_views, status,
-		report,nick_name
-		) VALUES (
-		#{postId}, #{title},
-		#{content}, #{userId}, #{createdAt}, #{postLike},
-		#{postViews},
-		#{status}, #{report}, #{nickName}
-		)
+		INSERT INTO posts (post_id, title, content, user_id, nick_name) 
+	    VALUES (post_id_seq.NEXTVAL, #{title}, #{content}, #{userId}, #{nickName})
 	</insert>
+	
+	<select id="getLastPostId" resultType="int">
+    	SELECT post_id_seq.CURRVAL FROM DUAL
+	</select>
 
 	<insert id="saveReviewImage" parameterType="ReviewImages">
 		INSERT INTO posts_images (
 		image_id, post_id, file_name, original_file_name, file_path, url_file_path,
 		file_extension, uploaded_at
 		) VALUES (
-		posts_images_id_seq.NEXTVAL, #{postId}, #{fileName}, #{originalFileName}, #{filePath}, NULL,
+		posts_images_id_seq.NEXTVAL, #{postId}, #{fileName}, #{originalFileName}, #{filePath}, #{urlFilePath},
 		#{fileExtension}, #{uploadedAt}
 		)
 	</insert>

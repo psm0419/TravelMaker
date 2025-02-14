@@ -70,6 +70,12 @@ public class PostDAOImpl implements PostDAO {
 		
 		return reviewImages;
 	}
+
+	@Override
+	public int getLastPostId() {
+		int result = sqlSessionTemplate.selectOne("post_mapper.getLastPostId");
+		return result;
+	}
 	
 	
 
