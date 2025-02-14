@@ -88,12 +88,16 @@ public class BoardController {
 									@RequestParam("nickName") String nickName,
 									@RequestParam("title") String title,
 									@RequestParam("content") String content,
-									@RequestParam("reviewImage") String reviewImage) {
+									@RequestParam(value = "reviewImage", required = false) String reviewImage) {
 		
-		
-		
-		
-		return "redirect:/reviewBoard/";
+	    if (reviewImage != null && !reviewImage.isEmpty()) {
+	        // 이미지가 있는 경우 처리
+	    	
+	    } else {
+	        // 이미지가 없는 경우 처리
+	    }
+
+	    return "redirect:/reviewBoard/";
 	}
 
 }
