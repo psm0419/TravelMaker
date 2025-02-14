@@ -31,6 +31,17 @@ public class UserDAOImpl implements UserDAO{
 		int result = sqlSessionTemplate.update("user_mapper.modifyUser",user);
 		return result;
 	}
+
+	@Override
+	public List<User> NotifyUserList() {
+		List<User> userList = sqlSessionTemplate.selectList("user_mapper.getNotifyUserList");
+		return userList;
+	}
+
+	@Override
+	public void resetReport(List<String> userIds) {
+	    sqlSessionTemplate.update("user_mapper.resetReport", userIds);
+	}
 	
 
 }

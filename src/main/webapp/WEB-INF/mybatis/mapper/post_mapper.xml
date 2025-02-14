@@ -8,9 +8,21 @@
 		nickname, user_id, board_id, created_at, post_like,
 		post_views, status,
 		authentication_status, authentication_admin,
-		authentication_time
+		authentication_time, report
 		FROM
 		posts
+	</select>
+	
+	<select id="NotifyPostList" resultType="Post">
+		select post_id, title,
+		nickname, user_id, board_id, created_at, post_like,
+		post_views, status,
+		authentication_status, authentication_admin,
+		authentication_time, report
+		FROM
+		posts
+		WHERE report > 0
+		ORDER BY report DESC
 	</select>
 
 	<delete id="removePosts">

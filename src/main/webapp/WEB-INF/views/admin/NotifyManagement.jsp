@@ -25,11 +25,11 @@
 			<div class="dashboard">
 			<div class="card">
 				<h3>신고된 게시글/댓글 관리</h3>
-				<a href="/admin/notifyBoard">더보기</a>
+				<a href="/admin/notifyPostList">더보기</a>
 			</div>
 			<div class="card">
-				<h3>신고된 유저 제재</h3>
-				<a href="/admin/notifyBoard">더보기</a>
+				<h3>신고된 유저 조회</h3>
+				<a href="/admin/notifyUserList">더보기</a>
 			</div>
 		</div>
 		</div>

@@ -1,5 +1,7 @@
 package com.app.dao.festival.impl;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,11 +15,30 @@ public class FestivalDAOImpl implements FestivalDAO{
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
+	public List<Festival> getFestivalList() {
+		List<Festival> festivalList = sqlSessionTemplate.selectList("festival_mapper.getFestivalList");
+		return festivalList;
+	}
+
+	@Override
 	public int saveFestival(Festival festival) {
 		
 		int result = sqlSessionTemplate.insert("festival_mapper.saveFestival", festival);
 		
 		return result;
 	}
+
+	@Override
+	public Festival getFestivalById(int festivalId) {
+		Festival festival = sqlSessionTemplate.selectOne("festival_mapper.getFestivalById", festivalId);
+		return festival;
+	}
+
+	@Override
+	public int removeFestival(int festivalId) {
+		int result = sqlSessionTemplate.delete("festival_mapper.removeFestival",festivalId);
+		return result;
+	}
+
 
 }

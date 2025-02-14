@@ -17,4 +17,5 @@ public class Posts {
 	  int authenticationStatus;
 	  String authenticationAdmin;
 	  String authenticationTime;
+	  String report;
 }

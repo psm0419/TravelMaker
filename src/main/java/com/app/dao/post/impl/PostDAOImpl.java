@@ -21,11 +21,18 @@ public class PostDAOImpl implements PostDAO{
 		List<Posts> postList = sqlSessionTemplate.selectList("post_mapper.findPostList");
 		return postList;
 	}
+	
+	@Override
+	public List<Posts> NotifyPostList() {
+		List<Posts> NotifyPostList = sqlSessionTemplate.selectList("post_mapper.NotifyPostList");
+		return NotifyPostList; 
+	}
 	@Override
 	public int removePosts(List<Integer> postIds) {
 		Map<String , Object> params = new HashMap<>();
 		params.put("postIds", postIds);
 	    return sqlSessionTemplate.delete("post_mapper.removePosts", params);
 	}
+
 
 }

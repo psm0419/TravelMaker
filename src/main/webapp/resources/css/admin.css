@@ -1,3 +1,4 @@
+/* 기본 설정 */
 * {
 	margin: 0;
 	padding: 0;
@@ -10,11 +11,29 @@ body {
 	display: flex;
 }
 
+h1, h2 {
+	margin-bottom: 15px;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	padding: 5px 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+/* 레이아웃 */
 .container {
 	display: flex;
 	width: 100%;
 }
 
+/* 사이드바 */
 .sidebar {
 	width: 250px;
 	background: #2c3e50;
@@ -43,7 +62,7 @@ body {
 	color: white;
 	text-decoration: none;
 	display: block;
-	padding: 5px;
+	padding: 8px;
 	border-radius: 5px;
 	font-weight: bold;
 }
@@ -52,6 +71,7 @@ body {
 	background: #34495e;
 }
 
+/* 메인 콘텐츠 */
 .main-content {
 	margin-left: 260px;
 	padding: 20px;
@@ -64,63 +84,85 @@ body {
 	gap: 20px;
 }
 
-.festivaldashboard {
-	display: flex;
-	justify-content: center;
-}
-
-.card {
+/* 카드 스타일 */
+.card, .festivalcard, .recent-activities, .admin-notice, .server-status,
+	.admin-logs, .table-container {
 	background: white;
-	padding: 30px;
+	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.festivalcard {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-}
-
-.recent-activities, .admin-notice, .server-status, .admin-logs {
+.user-detail {
 	margin-top: 30px;
 	padding: 20px;
 	background: white;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+.user-detail p {
+	margin-bottom: 10px;
+	font-size: 16px;
 }
 
-h1, h2 {
-	margin-bottom: 15px;
+.festivalcard {
+	max-width: 500px;
 }
 
-ul {
-	list-style: none;
-}
-
-li {
-	padding: 5px 0;
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-input[type="text"], input[type="email"], input[type="tel"], select {
+/* 테이블 스타일 */
+table {
 	width: 100%;
-	padding: 8px;
-	margin: 5px 0;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+th, td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background: #2c3e50;
+	color: white;
+	text-align: center;
+}
+
+tr:hover {
+	background: #f1f1f1;
+}
+
+.form-group {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 15px;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.form-group label {
+	font-weight: bold;
+	width: 120px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.input-field {
+	flex: 1;
+	min-width: 250px;
+	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	font-size: 14px;
+	font-size: 16px;
+	width: 100%;
 }
 
-select {
-	background: white;
+/* 입력 필드 내 텍스트 크기 조정 */
+.input-field::placeholder {
+	font-size: 14px;
+	color: #999;
 }
 
 .radio-group {
@@ -136,21 +178,33 @@ select {
 	font-size: 14px;
 }
 
-input[type="radio"]:disabled+label {
-	color: #aaa;
+.delete-container {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-top: 10px;
 }
-
+/* 버튼 스타일 */
 .btn {
 	display: inline-block;
-	margin-top: 10px;
 	padding: 8px 12px;
-	background: #2980b9;
-	color: white;
-	text-decoration: none;
 	border-radius: 5px;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 14px;
 }
 
-.btn:hover {
+.btn-submit {
+	width: 100%;
+	padding: 10px;
+	background: #2980b9;
+	border: none;
+	font-size: 16px;
+	margin-top: 15px;
+}
+
+.btn-submit:hover {
 	background: #1f6690;
 }
 
@@ -170,12 +224,6 @@ input[type="radio"]:disabled+label {
 	background: #a93226;
 }
 
-.btn-delete {
-	position: relative;
-	left: 850px;
-	cursor: pointer;
-}
-
 .btn-edit {
 	position: absolute;
 	top: 20px;
@@ -187,107 +235,14 @@ input[type="radio"]:disabled+label {
 	background: #1f6690;
 }
 
+/* 상태 표시 */
 .status {
 	font-weight: bold;
 	color: green;
 }
 
-.user-detail {
-	margin-top: 30px;
-	padding: 20px;
-	background: white;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	position: relative;
-}
-
-.user-detail p {
-	margin-bottom: 10px;
-	font-size: 16px;
-}
-
-.table-container {
-	background: white;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	overflow-x: auto;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 10px;
-}
-
-th, td {
-	padding: 12px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-}
-
-th {
-	background: #2c3e50;
-	color: white;
-	text-align: center;
-}
-
-*
-
-tr:hover {
-	background: #f1f1f1;
-}
-
-td a {
-	color: #2980b9;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-td a:hover {
-	text-decoration: underline;
-}
-
-.form-group {
-	display: flex;
-	align-items: center; /* 세로 중앙 정렬 */
-	margin-bottom: 10px;
-}
-
-.form-group label {
-	font-weight: bold;
-	width: 100px; /* 라벨의 고정 너비 설정 */
-	text-align: right;
-	margin-right: 10px;
-}
-
-.input-field {
-	flex: 0; /* 남은 공간을 모두 차지 */
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 14px;
-}
-
-.btn-submit {
-	display: block;
-	width: 100%;
-	padding: 10px;
-	background: #2980b9;
-	color: white;
-	font-size: 16px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	text-align: center;
-	margin-top: 15px;
-}
-
-.btn-submit:hover {
-	background: #1f6690;
-}
-
-	@media ( max-width : 768px) {
+/* 반응형 디자인 */
+@media ( max-width : 768px) {
 	.sidebar {
 		width: 200px;
 	}

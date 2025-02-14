@@ -48,7 +48,7 @@
 
 				<label>계정 정지 기간:</label>
                 <div class="radio-group">
-                    <input type="radio" name="banned" value="0" checked> <label>정상</label>
+                    <input type="radio" name="banned" value="0" checked disabled> <label>정상</label>
                     <input type="radio" name="banned" value="7" disabled> <label>7일</label>
                     <input type="radio" name="banned" value="30" disabled> <label>30일</label>
                     <input type="radio" name="banned" value="9999" disabled> <label>영구 정지</label>

@@ -6,9 +6,7 @@ import com.app.dto.post.Posts;
 
 public interface PostService {
 	List<Posts> postList();
+	List<Posts> NotifyPostList();
 	
-	/*
-	 * int removePost(int postId);
-	 */
 	int removePost(List<Integer> postIds);
 }

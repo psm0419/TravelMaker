@@ -34,15 +34,17 @@
                             <th>이메일</th>
                             <th>전화번호</th>
                             <th>회원 유형</th>
+                            <th>비고</th>
                         </tr>
                         <c:forEach var="user" items="${userList}">
                             <tr>
-                                <td><a href="/admin/user/${user.userId}">${user.userId}</a></td>
+                                <td>${user.userId}</td>
                                 <td>${user.userName}</td>
                                 <td>${user.nickName}</td>
                                 <td>${user.email}</td>
                                 <td>${user.tel}</td>
                                 <td>${user.userType == 'ADM' ? '관리자' : '고객'}</td>
+                                <td><div class="btn btn-admin"> <a href="/admin/user/${user.userId}">수정</a></div>
                             </tr>
                         </c:forEach>
                     </table>

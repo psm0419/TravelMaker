@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="festival_mapper">
+
+	<select id="getFestivalList" resultType="Festival">
+		select *
+		from festival
+	</select>
+
+	<select id="getFestivalById" resultType="Festival"
+		parameterType="int">
+		SELECT *
+		FROM festival
+		WHERE festival_id = #{festivalId}
+	</select>
+
+	<insert id="saveFestival" parameterType="Festival">
+		insert into festival (festival_id, festival_name, location, start_date,
+		end_date, entrance_fee, tel, festival_host, homepage_url)
+		values (festival_id_seq.nextval,
+		#{festivalName},
+		#{location},
+		#{startDate},
+		#{endDate},
+		#{entranceFee},
+		#{tel},
+		#{festivalHost},
+		#{homepageUrl})
+	</insert>
+	
+	<delete id="removeFestival" parameterType="int">
+		DELETE FROM festival
+		WHERE festival_id = #{festivalId}
+	</delete>
+
+</mapper>

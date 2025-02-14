@@ -19,11 +19,19 @@ public class PostServiceImpl implements PostService{
 		List<Posts> postList =postDAO.postList();
 		return postList;
 	}
-
+	
+	@Override
+	public List<Posts> NotifyPostList() {
+		List<Posts> notifyPostList = postDAO.NotifyPostList();
+		return notifyPostList;
+	}
 
 	@Override
 	public int removePost(List<Integer> postIds) {
 		int result = postDAO.removePosts(postIds);
 		return result;
 	}
+
+
+
 }

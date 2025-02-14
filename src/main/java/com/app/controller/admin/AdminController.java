@@ -1,5 +1,7 @@
 package com.app.controller.admin;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.dto.festival.Festival;
@@ -111,13 +115,68 @@ public class AdminController {
 		if(result >0) {
 			return"redirect:/admin/festival";
 		} else {
-		return "admin/festival/SaveFestival";
+			return "admin/festival/SaveFestival";
 		}
+	}
+	
+	@GetMapping("/admin/festival/festivalList")
+	public String ModifyFestivals(Model model) {
+		List<Festival> festivalList = festivalService.getFestivalList();
+		model.addAttribute("festivalList",festivalList);
+		return "admin/festival/ModifyFestival";
+	}
+	
+	@GetMapping("/admin/festival/festivalList/{festivalId}")
+	public String ModifyFestival(@PathVariable String festivalId, Model model) {
+		int festivalIdInt = Integer.parseInt(festivalId);
+		Festival festival = festivalService.getFestivalById(festivalIdInt);
+		model.addAttribute("festival",festival);
+		return "admin/festival/Festival";
+	}
+	
+	@GetMapping("/admin/festival/festivalList/removeFestival")
+	public String removeFestival(HttpServletRequest request) {
+		String festivalId = request.getParameter("festivalId");
+		int festivalIdInt = Integer.parseInt(festivalId);
+		int result = festivalService.removeFestival(festivalIdInt);
+		return "redirect:/admin/festival/festivalList";
 	}
 	
 	@GetMapping("/admin/notify")
 	public String NotifyManagement(Model model) {
 		return "admin/NotifyManagement";
+	}
+	
+	@GetMapping("/admin/notifyPostList")
+	public String Notify(Model model) {
+		List<Posts> postList = postService.NotifyPostList();
+		model.addAttribute("postList", postList);
+		return "admin/notify/NotifyBoard";
+	}
+	
+	@GetMapping("/admin/notifyUserList")
+	public String NotifyUser(Model model) {
+		List<User> userList = userService.NotifyUserList();
+		model.addAttribute("userList",userList);
+		return "admin/notify/NotifyUserBoard";
+	}
+	
+	@PostMapping("/admin/resetReport")
+	@ResponseBody
+	public Map<String, Object> resetUser(@RequestParam("userIds") String userIds) {
+	    Map<String, Object> response = new HashMap<>();
+
+	    try {
+	        List<String> userIdList = Arrays.asList(userIds.split(",")); // userIds를 리스트로 변환
+	        userService.resetReport(userIdList); // ✅ List<String> 전체를 넘김
+
+	        response.put("success", true);
+	    } catch (Exception e) {
+	        response.put("success", false);
+	        response.put("error", e.getMessage());
+	    }
+
+	    return response;
 	}
 	
 	@GetMapping("/admin/option")

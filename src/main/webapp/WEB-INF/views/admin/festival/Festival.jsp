@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>축제등록</title>
-<link rel="stylesheet" href="/css/admin.css">
+<title>축제수정</title>
+<link href="/css/admin.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
@@ -20,13 +20,11 @@
 				<li><a href="/admin/option">설정</a></li>
 			</ul>
 		</div>
-
 		<div class="main-content">
-			<h1>축제 등록</h1>
-			<br>
+			<h1>축제 목록 관리</h1>
 			<div class=dashboard">
 				<div class="festivalcard">
-					<form action="/admin/festival/saveFestival" method="post">
+					<form action="/admin/festival/ModifyFestival" method="post">
 						<div class="form-group">
 							<label for="festivalName">축제명:</label> <input type="text"
 								id="festivalName" name="festivalName" class="input-field"
@@ -52,6 +50,11 @@
 							<label for="organizer">개최자:</label> <input type="text"
 								id="organizer" name="festivalHost" class="input-field" required>
 						</div>
+						
+						<div class="form-group">
+							<label for="URL">홈페이지(URL):</label> <input type="text"
+								id="URL" name="homepageUrl" class="input-field" required>
+						</div>
 
 						<div class="form-group">
 							<label for="startDate">시작일:</label> <input type="date"
@@ -63,10 +66,12 @@
 								name="endDate" class="input-field" required>
 						</div>
 
-						<button type="submit" class="btn btn-submit">등록</button>
+						<button type="submit" class="btn btn-submit">수정</button>
 					</form>
 				</div>
 			</div>
 		</div>
+
+	</div>
 </body>
 </html>

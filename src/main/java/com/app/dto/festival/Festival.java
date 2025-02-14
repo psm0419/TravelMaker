@@ -1,5 +1,7 @@
 package com.app.dto.festival;
 
+import java.time.LocalDate;
+
 import lombok.Data;
 
 @Data
@@ -12,4 +14,5 @@ public class Festival {
 	    private String entranceFee;
 	    private String tel;
 	    private String festivalHost;
+	    private String homepageUrl;
 }

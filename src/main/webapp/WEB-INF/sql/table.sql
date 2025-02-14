@@ -6,7 +6,8 @@ create Table users (
   email varchar2(64) not null UNIQUE,
   tel varchar2(16) not null UNIQUE,
   jumin varchar2(16) not null UNIQUE,
-  user_type varchar2(16) not null
+  user_type varchar2(16) not null,
+  report varchar2(64)
 );
 
 create Table attraction_info (
@@ -61,7 +62,8 @@ create Table posts (
   status number,
   authentication_status number,
   authentication_admin varchar2(16),
-  authentication_time timestamp
+  authentication_time timestamp,
+  report varchar2(12) not null
 );
 CREATE SEQUENCE post_id_seq
 START WITH 1

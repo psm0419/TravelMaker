@@ -4,25 +4,53 @@
 <mapper namespace="user_mapper">
 
 	<select id="getUserList" resultType="User">
-		select * 
+		select *
 		from users
 	</select>
-	
-	<select id="getUserById" parameterType="String" resultType="User">
+
+	<select id="getNotifyUserList" resultType="User">
+		SELECT user_id AS
+		userId, username AS userName, nickname AS nickName,
+		email, tel,
+		user_type AS userType, report
+		FROM users
+		WHERE report IS NOT NULL
+		ORDER
+		BY report DESC
+	</select>
+
+
+	<select id="getUserById" parameterType="String"
+		resultType="User">
 		select user_id, username, nickname, email, tel, user_type
 		from users
 		where user_Id = #{userId}
 	</select>
-	
+
 	<update id="modifyUser" parameterType="User">
-	UPDATE users
-	SET
-	user_type = #{userType}
-	WHERE user_id = #{userId}
+		UPDATE users
+		SET
+		user_type =
+		#{userType}
+		WHERE user_id = #{userId}
 	</update>
 
-<!-- 	<delete id="deleteboardList">
-		delete from users
-		where user=#{userId}
-	</delete> -->
+<update id="resetReport" parameterType="java.util.List">
+    UPDATE users
+    SET result = NULL
+    WHERE user_id IN
+    <foreach item="id" collection="list" open="(" separator="," close=")">
+        #{id}
+    </foreach>
+</update>
+
+	<select id="getNotifyUserListFromReports" resultType="User">
+		SELECT
+		DISTINCT u.*
+		FROM users u
+		JOIN user_reports r ON u.user_id = r.user_id
+		ORDER BY r.report_date DESC;
+	</select>
+	<!-- <delete id="deleteboardList"> delete from users where user=#{userId} 
+		</delete> -->
 </mapper>
