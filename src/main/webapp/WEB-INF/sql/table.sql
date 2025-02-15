@@ -1,8 +1,8 @@
 create Table users (
   user_id varchar2(32) primary key,
-  username varchar2(32) not null,
-  nickname varchar2(36) not null UNIQUE,
-  pw varchar2(32) not null,
+  user_name varchar2(32) not null,
+  nick_name varchar2(36) not null UNIQUE,
+  pw varchar2(300) not null,
   email varchar2(64) not null UNIQUE,
   tel varchar2(16) not null UNIQUE,
   jumin varchar2(16) not null UNIQUE,
@@ -53,20 +53,33 @@ NOCYCLE;
 
 create Table posts (
   post_id number primary key,
-  title varchar2(64),
+  title varchar2(64) not null,
   content varchar2(3000),
-  user_id varchar2(32),
-  nickname varchar2(36),
-  board_id number,
-  created_at timestamp,
-  post_like number,
-  post_views number,
-  status number,
-  authentication_status number,
-  authentication_admin varchar2(16),
-  authentication_time timestamp
+  user_id varchar2(32) not null,
+  created_at timestamp DEFAULT systimestamp,
+  post_like number default 0,
+  post_views number default 0,
+  status number default 0 check (status in (0,1)),
+  report varchar2(12) default 'N' not null,
+  nick_name varchar2(36) not null
 );
 CREATE SEQUENCE post_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+create table posts_images(
+    image_id number primary key,
+    post_id number not null,
+    file_name VARCHAR2(255) NOT NULL,  -- 저장된 파일명
+    original_file_name VARCHAR2(255) NOT NULL,  -- 원본 파일명
+    file_path VARCHAR2(500) NOT NULL,  -- 파일 경로
+    url_file_path VARCHAR2(500) NOT NULL,       -- URL 경로 (웹에서 접근할 경우)
+    file_extension VARCHAR2(10), -- 확장자
+    uploaded_at TIMESTAMP DEFAULT SYSTIMESTAMP -- 업로드 시간
+);
+create sequence posts_images_id_seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE
@@ -76,8 +89,9 @@ create Table comments (
   comments_id number primary key,
   content varchar2(3000),
   post_id number,
-  user_id number,
-  created_at timestamp
+  user_id varchar2(32),
+  created_at timestamp,
+  nick_name varchar2(36)
 );
 CREATE SEQUENCE comments_id_seq
 START WITH 1
