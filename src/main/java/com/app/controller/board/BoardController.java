@@ -40,13 +40,13 @@ public class BoardController {
 	
 
 	@GetMapping("/reviewBoard") // 후기게시판 화면
-	public String board(Model model) {
-		List<Post> postList = postService.findPostList(); // 게시글리스트 전체호출
+	public String reviewBoard(@RequestParam("param") int boardId, Model model) {
+		List<Post> reviewPostList = postService.findPostListByBoardId(boardId); // 게시글리스트 전체호출
 		
 
-		System.out.println("포스트리스트:" + postList);
+		System.out.println("후기 리스트:" + reviewPostList);
 
-		model.addAttribute("postList", postList); // 화면에 표시
+		model.addAttribute("reviewPostList", reviewPostList); // 화면에 표시
 
 		return "boardpage/ReviewBoard";
 	}
@@ -95,16 +95,17 @@ public class BoardController {
 	
 
 	@PostMapping("/saveWriteReview")
-	public String saveWriteReview(@RequestParam("userId") String userId,
+	public String saveWriteReview(	@RequestParam("param") int boardId,	
+									@RequestParam("userId") String userId,
 									@RequestParam("nickName") String nickName,
 									@RequestParam("title") String title,
 									@RequestParam("content") String content,
 									@RequestParam(value = "reviewImage", required = false) MultipartFile reviewImage) {
-		
-		
+		System.out.println("게시글유형(1:후기 2:질문) : " + boardId);
 		try {
 		        // 1️⃣ 게시글 저장 (RETURNING INTO로 postId 자동 설정)
 		        Post post = new Post();
+		        post.setBoardId(boardId);
 		        post.setUserId(userId);
 		        post.setNickName(nickName);
 		        post.setTitle(title);
@@ -144,7 +145,79 @@ public class BoardController {
 		        e.printStackTrace();
 		    }
 
-	    return "redirect:/reviewBoard/";
+	    return "redirect:/reviewBoard?param=1";
 	}
+	
+	
+	
+	@GetMapping("/QnABoard") // 질문게시판 화면
+	public String QnABoard(@RequestParam("param") int boardId, Model model) {
+		List<Post> QnAPostList = postService.findPostListByBoardId(boardId); // 게시글리스트 전체호출
+		
+		System.out.println("질문글 리스트:" + QnAPostList);
+
+		model.addAttribute("QnAPostList", QnAPostList); // 화면에 표시
+
+		return "boardpage/QnABoard";
+	}
+	
+	@GetMapping("/writeQnA") // 질문글 작성 화면
+	public String WriteQnA(Model model) {
+		
+		return "boardpage/WriteQnA";
+	}
+	
+	@PostMapping("/saveWriteQnA")
+	public String saveWriteQnA(		@RequestParam("param") int boardId,	
+									@RequestParam("userId") String userId,
+									@RequestParam("nickName") String nickName,
+									@RequestParam("title") String title,
+									@RequestParam("content") String content,
+									@RequestParam(value = "reviewImage", required = false) MultipartFile reviewImage) {
+		System.out.println("게시글유형(1:후기 2:질문) : " + boardId);
+		Post post = new Post();
+        post.setBoardId(boardId);
+        post.setUserId(userId);
+        post.setNickName(nickName);
+        post.setTitle(title);
+        post.setContent(content);
+        
+        postService.savePost(post);
+
+	    return "redirect:/QnABoard?param=2";
+	}
+	
+	@GetMapping("/QnADetail/{postId}") // 후기게시판 후기글 페이지
+	public String getQnADetail(@PathVariable int postId, Model model) {
+		
+		postService.increasePostViews(postId); // 조회수 증가
+		
+		Post post = postService.findPostByPostId(postId); // postId에맞는 post객체 호출
+		
+		model.addAttribute("postList", post); // 호출된 post 표시
+		
+		List<Comment> commentList = commentService.findCommentListByPostId(postId); //postId에맞는 comment들 호출
+		
+		model.addAttribute("commentList", commentList); //comment들 표시
+		
+		return "boardpage/QnADetail"; // JSP 파일명
+	}
+
+	
+	@PostMapping("/QnADetail/{postId}/comment")
+	public String saveQnADetailComment(@PathVariable("postId") int postId,
+											@RequestParam("content") String content,
+											 @RequestParam("nickName") String nickName,
+											 @RequestParam("userId") String userId) {
+		
+		int result = commentService.saveQnADetailCommentByPostId(postId, content, nickName, userId);
+
+		System.out.println("결과값:" + result);
+
+		return "redirect:/QnADetail/" + postId;
+	}
+	
+	
+	
 
 }

@@ -67,7 +67,7 @@ button:hover {
 	<%@ include file="../header/Header.jsp"%>
 	
 	<div class="reviewDetailContainer">
-		<h4 class="fw-bold">게시글 작성</h4>
+		<h4 class="fw-bold">후기글 작성</h4>
 
 		<!-- 작성자 정보 -->
 		<div class="content-box">
@@ -80,6 +80,7 @@ button:hover {
 		<!-- 게시글 작성 폼 -->
 		<form action="/saveWriteReview" method="post"
 			enctype="multipart/form-data">
+			<input type="hidden" name="param" value="1">
 			<input type="hidden" name="userId" value="김유저아이디">
 			<input type="hidden" name="nickName" value="김유저">
 			<label for="title">제목</label>

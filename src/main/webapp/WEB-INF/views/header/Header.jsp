@@ -94,11 +94,11 @@
 	        });
 	        // 후기 게시판 페이지 이동
 	        $(".reviewBoard").click(function() {
-	            window.location.href = "/reviewBoard";
+	            window.location.href = "/reviewBoard?param=1";
 	        });
 	        // 질문 답변 게시판 페이지 이동
 	        $(".QnABoard").click(function() {
-	            window.location.href = "https://www.naver.com/";
+	            window.location.href = "/QnABoard?param=2";
 	        });
 	     	// 로그인,회원가입 페이지 이동
 	        $(".login").click(function() {

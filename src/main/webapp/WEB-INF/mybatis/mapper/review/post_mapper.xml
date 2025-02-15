@@ -5,8 +5,8 @@
 
 
 	<insert id="savePost" parameterType="Post">
-		INSERT INTO posts (post_id, title, content, user_id, nick_name) 
-	    VALUES (post_id_seq.NEXTVAL, #{title}, #{content}, #{userId}, #{nickName})
+		INSERT INTO posts (post_id, title, content, user_id, nick_name, board_id) 
+	    VALUES (post_id_seq.NEXTVAL, #{title}, #{content}, #{userId}, #{nickName}, #{boardId})
 	</insert>
 	
 	<select id="getLastPostId" resultType="int">
@@ -52,6 +52,11 @@
 		post_views = post_views + 1
 		WHERE post_id = #{postId}
 	</update>
+	
+	<select id="findPostListByBoardId" parameterType="int"
+		resultType="Post">
+		SELECT * FROM posts WHERE board_id = #{boardId}
+	</select>
 
 
 
