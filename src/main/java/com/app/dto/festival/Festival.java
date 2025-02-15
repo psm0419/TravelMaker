@@ -1,10 +1,9 @@
 package com.app.dto.festival;
 
-<<<<<<< HEAD
 import java.time.LocalDate;
-=======
+
 import java.util.List;
->>>>>>> 6695434250f6b8328319109c277eb09bf2af732b
+
 
 import lombok.Data;
 

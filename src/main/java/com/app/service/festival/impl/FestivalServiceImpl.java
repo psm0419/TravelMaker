@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 import com.app.dao.festival.FestivalDAO;
 import com.app.dto.festival.Festival;
 import com.app.service.festival.FestivalService;
-<<<<<<< HEAD
-=======
 
->>>>>>> 6695434250f6b8328319109c277eb09bf2af732b
 @Service
 public class FestivalServiceImpl implements FestivalService{
 

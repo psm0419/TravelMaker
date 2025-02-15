@@ -59,22 +59,24 @@
 		</div>
 	</div>
 	<script>
-		function resetUser(userId) {
-			fetch('/admin/resetReport', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				body: `userIds=${userId}`
-			})
-			.then(response => response.json())
-			.then(data => {
-				if (data.success) {
-					location.reload();
-				} else {
-					alert('삭제 실패: ' + data.error);
-				}
-			})
-			.catch(error => console.error('Error:', error));
-		}
+	function resetUser(userId) {
+	    console.log("📢 Sending userId to server:", userId); // 🔍 로그 추가
+
+	    fetch('/admin/resetReport', {
+	        method: 'POST',
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+	        body: `userIds=${userId}`
+	    })
+	    .then(response => response.json())
+	    .then(data => {
+	        console.log("📢 Server Response:", data); // 🔍 서버 응답 확인
+	        if (data.success) {
+	            document.querySelector(`input[value="${userId}"]`).closest('tr').remove();
+	        } else {
+	            alert('삭제 실패: ' + data.error);
+	        }
+	    })
+	    .catch(error => console.error('❌ Error:', error));
 
 		function deleteSelectedUsers() {
 			const selected = document.querySelectorAll('.postCheckbox:checked');
@@ -99,24 +101,6 @@
 				}
 			})
 			.catch(error => console.error('Error:', error));
-		}
-		function resetUser(userId) {
-		    console.log("Reset user:", userId);
-		    fetch('/admin/resetReport', {
-		        method: 'POST',
-		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-		        body: `userIds=${userId}`
-		    })
-		    .then(response => response.json())
-		    .then(data => {
-		        if (data.success) {
-		            console.log("Report reset successful for:", userId);
-		            location.reload();
-		        } else {
-		            alert('삭제 실패: ' + data.error);
-		        }
-		    })
-		    .catch(error => console.error('Error:', error));
 		}
 	</script>
 </body>

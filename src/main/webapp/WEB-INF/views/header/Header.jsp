@@ -86,7 +86,7 @@
 	        });
 			 // 축제정보 페이지 이동
 	        $(".festival").click(function() {
-	            window.location.href = "https://www.naver.com/";
+	            window.location.href = "/festivalpage/FestivalPage";
 	        });
 	        // 지역정보 페이지 이동
 	        $(".area").click(function() {

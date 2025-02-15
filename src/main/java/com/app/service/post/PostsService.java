@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.app.dto.post.Posts;
 
-public interface PostService {
+public interface PostsService {
 	List<Posts> postList();
 	List<Posts> NotifyPostList();
 	

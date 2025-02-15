@@ -8,17 +8,17 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.app.dao.post.PostDAO;
+import com.app.dao.post.PostsDAO;
 import com.app.dto.post.Posts;
 @Repository
-public class PostDAOImpl implements PostDAO{
+public class PostsDAOImpl implements PostsDAO{
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
 	public List<Posts> postList() {
-		List<Posts> postList = sqlSessionTemplate.selectList("post_mapper.findPostList");
+		List<Posts> postList = sqlSessionTemplate.selectList("post_mapper.findPostLists");
 		return postList;
 	}
 	

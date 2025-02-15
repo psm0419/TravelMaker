@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.dao.post.PostDAO;
+import com.app.dao.post.PostsDAO;
 import com.app.dto.post.Posts;
-import com.app.service.post.PostService;
+import com.app.service.post.PostsService;
 @Service
-public class PostServiceImpl implements PostService{
+public class PostsServiceImpl implements PostsService{
 
 	@Autowired
-	PostDAO postDAO;
+	PostsDAO postDAO;
 	
 	@Override
 	public List<Posts> postList() {
@@ -31,7 +31,4 @@ public class PostServiceImpl implements PostService{
 		int result = postDAO.removePosts(postIds);
 		return result;
 	}
-
-
-
 }

@@ -3,7 +3,7 @@
 
 <mapper namespace="post_mapper">
 
-	<select id="findPostList" resultType="Post">
+	<select id="findPostLists" resultType="Posts">
 		SELECT post_id, title,
 		nickname, user_id, board_id, created_at, post_like,
 		post_views, status,
@@ -13,7 +13,7 @@
 		posts
 	</select>
 	
-	<select id="NotifyPostList" resultType="Post">
+	<select id="NotifyPostList" resultType="Posts">
 		select post_id, title,
 		nickname, user_id, board_id, created_at, post_like,
 		post_views, status,

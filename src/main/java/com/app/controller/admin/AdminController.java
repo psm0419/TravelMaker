@@ -22,7 +22,7 @@ import com.app.dto.festival.Festival;
 import com.app.dto.post.Posts;
 import com.app.dto.user.User;
 import com.app.service.festival.FestivalService;
-import com.app.service.post.PostService;
+import com.app.service.post.PostsService;
 import com.app.service.user.UserService;
 
 @Controller
@@ -31,7 +31,7 @@ public class AdminController {
 	@Autowired
 	UserService userService;
 	@Autowired
-	PostService postService;
+	PostsService postService;
 	@Autowired
 	FestivalService festivalService;
 	
@@ -164,10 +164,18 @@ public class AdminController {
     @ResponseBody
     public Map<String, Object> resetUser(@RequestParam("userIds") String userIds) {
         Map<String, Object> response = new HashMap<>();
+        
         try {
-            userService.resetReport(Arrays.asList(userIds.split(",")));
+            System.out.println("Received userIds (raw string): " + userIds); // 🔍 원본 데이터 확인
+            List<String> userIdList = Arrays.asList(userIds.split(",")); 
+
+            // 🔍 변환된 userIdList 확인
+            System.out.println("Processed userIdList: " + userIdList);
+
+            userService.resetReport(userIdList);
             response.put("success", true);
         } catch (Exception e) {
+            e.printStackTrace();
             response.put("success", false);
             response.put("error", e.getMessage());
         }

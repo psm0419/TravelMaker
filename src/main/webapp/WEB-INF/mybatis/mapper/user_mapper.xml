@@ -3,7 +3,7 @@
 
 <mapper namespace="user_mapper">
 
-	<select id="getUserList" resultType="User">
+	<select id="getUserLists" resultType="User">
 		select *
 		from users
 	</select>
@@ -20,7 +20,7 @@
 	</select>
 
 
-	<select id="getUserById" parameterType="String"
+	<select id="getUserByIds" parameterType="String"
 		resultType="User">
 		select user_id, username, nickname, email, tel, user_type
 		from users

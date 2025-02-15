@@ -20,8 +20,6 @@ public class HomeController {
 	public String home(Model model) {
 		List<Festival> festivalList = festivalService.findFestivalList();
 
-		System.out.println(festivalList);
-
 		model.addAttribute("festivalList", festivalList);
 
 		return "mainpage/MainPage";
