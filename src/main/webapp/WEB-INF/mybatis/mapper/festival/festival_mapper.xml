@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="festival_mapper">
+	
+	<select id="getFestivalById" resultType="Festival" parameterType="int">
+		SELECT *
+		FROM festival
+		WHERE festival_id = #{festivalId}
+	</select>
+	
+	<select id="findFestivalList" resultType="Festival">
+		SELECT *
+		FROM festival
+		order by festival_id
+	</select>	
+	
+	<select id="findImagesByFestivalId" parameterType="int" resultType="FestivalImage">
+        SELECT 
+            image_id as imageId,
+            festival_id as festivalId,
+            file_path as filePath,
+            file_name as fileName,
+            mime_type as mimeType,
+            uploaded_at as uploadedAt
+        FROM festival_images
+        WHERE festival_id = #{festivalId}        
+    </select>
+	
+	<update id="incrementLikeCount" parameterType="int">
+        UPDATE festival
+        SET like_count = like_count + 1
+        WHERE festival_id = #{festivalId}
+    </update>
+    
+</mapper>
