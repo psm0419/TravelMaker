@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+/* 가운데 정렬 */
+.signup_container{ 
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+}
+
+/* 로고 */
+.signup_logo{
+    color: blue;
+    margin: 30px;
+}
+
+/* 아이디 비밀번호 닉네임 묶음 div
+위 아래 구분 용 */
+.div_signup_main{
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* 아이디 테두리 */
+.div_signup_input_id{
+    border: 2px solid grey;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width: 500px;
+}
+/* 비밀번호 테두리 */
+.div_signup_input_pw{
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    width: 500px;
+}
+/* 닉네임 테두리 */
+.div_signup_input_nickname{
+    border: 2px solid grey;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    width: 500px;
+}
+
+/* 아이디 입력창 */
+.signup_input_id{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* 아이디 중복확인 버튼 */
+.btn_signup_input_id_overlapping{
+    box-sizing: border-box;
+    line-height: 22px;
+}
+/* 비밀번호 입력창 */
+.signup_input_pw{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* 닉네임 입력창 */
+.signup_input_nickname{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* 닉네임 중복확인 버튼 */
+.btn_signup_input_nickname_overlapping{
+    box-sizing: border-box;
+    line-height: 22px;
+}
+
+/* 이름 전화번호 이메일 묶음 div */
+.div_signup_sup{
+    margin-top: 10px;
+    margin: 10px;
+}
+
+/* 이름 입력창 테두리 */
+.div_signup_input_name{
+    border: 2px solid grey;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width: 500px;
+}
+
+/* 주민등록번호 입력창 테두리 */
+.div_signup_input_jumin{
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    width: 500px;
+}
+
+/* 휴대폰 입력창 테두리 */
+.div_signup_input_tel{
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-top: 2px solid grey;
+    width: 500px;
+}
+
+/* 이메일 입력창 테두리 */
+.div_signup_input_email{
+    border: 2px solid grey;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    width: 500px;
+}
+
+/* 이름 입력창 */
+.signup_input_name{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* 주민등록번호 입력창 */
+.signup_input_jumin{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* 휴대폰번호 입력창 */
+.signup_input_tel{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* 이메일 입력창 */
+.signup_input_email{
+    box-sizing: border-box;
+    margin: 5px;
+    width: 75%;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* 휴대폰번호 인증버튼 */
+.btn_signup_input_tel_certifiel{
+    box-sizing: border-box;
+    line-height: 22px;
+}
+
+/* 이메일 인증버튼 */
+.btn_signup_input_email_certifiel{
+    box-sizing: border-box;
+    line-height: 22px;
+}

@@ -26,13 +26,15 @@
 		<!-- 메뉴 -->
 		<div class="headerMenu">
 			<div class="headerHome">홈</div>
-			<div>축제</div>			
+			<div>축제</div>
+			<div>지역</div>
 			<div>게시판</div>
 		</div>
 
 		<!-- 드롭다운 메뉴 (한 개만 존재) -->
 		<div class="dropdownMenu">
-			<div class="festival">축제정보</div>			
+			<div class="festival">축제정보</div>
+			<div class="area">지역정보</div>
 			<div class="board">
 				<div class="reviewBoard">후기게시판</div>
 				<div class="QnABoard">Q&A게시판</div>
@@ -84,7 +86,7 @@
 	        });
 			 // 축제정보 페이지 이동
 	        $(".festival").click(function() {
-	            window.location.href = "/festivalpage/FestivalPage";
+	            window.location.href = "https://www.naver.com/";
 	        });
 	        // 지역정보 페이지 이동
 	        $(".area").click(function() {
