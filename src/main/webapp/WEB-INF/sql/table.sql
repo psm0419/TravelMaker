@@ -1,12 +1,13 @@
 create Table users (
   user_id varchar2(32) primary key,
-  user_name varchar2(32) not null,
-  nick_name varchar2(36) not null UNIQUE,
-  pw varchar2(300) not null,
+  username varchar2(32) not null,
+  nickname varchar2(36) not null UNIQUE,
+  pw varchar2(32) not null,
   email varchar2(64) not null UNIQUE,
   tel varchar2(16) not null UNIQUE,
   jumin varchar2(16) not null UNIQUE,
-  user_type varchar2(16) not null
+  user_type varchar2(16) not null,
+  report varchar2(64)
 );
 
 create Table attraction_info (
@@ -61,7 +62,8 @@ create Table posts (
   post_views number default 0,
   status number default 0 check (status in (0,1)),
   report varchar2(12) default 'N' not null,
-  nick_name varchar2(36) not null
+  nick_name varchar2(36) not null,
+  report varchar2(12) not null
 );
 CREATE SEQUENCE post_id_seq
 START WITH 1
@@ -136,8 +138,8 @@ NOCACHE
 NOCYCLE;
 
 create Table festival_rating( 
- authentication_id varchar2(32),
- user_rating number
+  authentication_id varchar2(32),
+  user_rating number
 );
 
 CREATE TABLE festival_likes (

@@ -12,4 +12,7 @@ public interface UserDAO {
 	
 	int modifyUser(User user);
 	
+	List<User> NotifyUserList();
+	
+	void resetReport(List<String> userIds);
 }

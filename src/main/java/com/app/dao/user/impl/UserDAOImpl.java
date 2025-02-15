@@ -17,13 +17,13 @@ public class UserDAOImpl implements UserDAO{
 	
     @Override
     public List<User> getUserList() {
-        List<User> userList = sqlSessionTemplate.selectList("user_mapper.getUserList");
+        List<User> userList = sqlSessionTemplate.selectList("user_mapper.getUserLists");
         return userList;
     }
 
 	@Override
 	public User getUserById(String userId) {
-		return sqlSessionTemplate.selectOne("user_mapper.getUserById",userId);
+		return sqlSessionTemplate.selectOne("user_mapper.getUserByIds",userId);
 	}
 
 	@Override
@@ -31,6 +31,17 @@ public class UserDAOImpl implements UserDAO{
 		int result = sqlSessionTemplate.update("user_mapper.modifyUser",user);
 		return result;
 	}
-	
 
+	@Override
+	public List<User> NotifyUserList() {
+		List<User> userList = sqlSessionTemplate.selectList("user_mapper.getNotifyUserList");
+		return userList;
+	}
+
+	@Override
+	public void resetReport(List<String> userIds) {
+		System.out.println("Executing resetReport for users: " + userIds);
+	    sqlSessionTemplate.update("user_mapper.resetReport", userIds);
+	    System.out.println("Rows affected: ");
+	}
 }

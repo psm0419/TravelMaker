@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="post_mapper">
+
+	<select id="findPostLists" resultType="Posts">
+		SELECT post_id, title,
+		nickname, user_id, board_id, created_at, post_like,
+		post_views, status,
+		authentication_status, authentication_admin,
+		authentication_time, report
+		FROM
+		posts
+	</select>
+	
+	<select id="NotifyPostList" resultType="Posts">
+		select post_id, title,
+		nickname, user_id, board_id, created_at, post_like,
+		post_views, status,
+		authentication_status, authentication_admin,
+		authentication_time, report
+		FROM
+		posts
+		WHERE report > 0
+		ORDER BY report DESC
+	</select>
+
+	<delete id="removePosts">
+		DELETE FROM posts WHERE post_id IN
+		<foreach item="item" collection="postIds" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+</mapper>

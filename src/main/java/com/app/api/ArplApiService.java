@@ -18,7 +18,7 @@ import com.app.dto.api.Attraction;
 public class ArplApiService {
 
 	public static String attractionInfo(String areaCd, String signguCd) throws IOException {
-		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551011/TarRlteTarService/areaBasedList"); /*URL*/
+		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551011/LocgoHubTarService/areaBasedList"); /*URL*/
 		urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=6qMx95HkwBtugOGITKFbYuVdBUh88sIitPYUMcTWCgzYjVy9Hgd7fIwU2yGAby5HmUjk7Y8egOXgwC7cm5DVQQ%3D%3D"); /*Service Key*/
 		urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("50", "UTF-8")); /*한 페이지 결과 수*/
@@ -92,14 +92,14 @@ public class ArplApiService {
 		            ai.setAreaNm(convertValueToString(item.get("areaNm")));
 		            ai.setSignguCd(convertValueToString(item.get("signguCd")));
 		            ai.setSignguNm(convertValueToString(item.get("signguNm")));
-		            ai.setHubTatsNm(convertValueToString(item.get("rlteTatsNm")));
-//		            ai.setHubBsicAdres(convertValueToString(item.get("hubBsicAdres")));
-//		            ai.setHubCtgryLclsNm(convertValueToString(item.get("hubCtgryLclsNm")));
-//		            ai.setHubCtgryMclsNm(convertValueToString(item.get("hubCtgryMclsNm")));
-		            ai.setHubBsicAdres(convertValueToString(item.get("rlteBsicAdres")));
-		            ai.setHubCtgryLclsNm(convertValueToString(item.get("rlteCtgryLclsNm")));
-		            ai.setHubCtgryMclsNm(convertValueToString(item.get("rlteCtgryMclsNm")));
-		            ai.setHubRank(convertValueToString(item.get("rlteRank")));
+		            ai.setHubTatsNm(convertValueToString(item.get("hubTatsNm")));
+		            ai.setHubBsicAdres(convertValueToString(item.get("hubBsicAdres")));
+		            ai.setHubCtgryLclsNm(convertValueToString(item.get("hubCtgryLclsNm")));
+		            ai.setHubCtgryMclsNm(convertValueToString(item.get("hubCtgryMclsNm")));
+//		            ai.setHubBsicAdres(convertValueToString(item.get("rlteBsicAdres")));
+//		            ai.setHubCtgryLclsNm(convertValueToString(item.get("rlteCtgryLclsNm")));
+//		            ai.setHubCtgryMclsNm(convertValueToString(item.get("rlteCtgryMclsNm")));
+		            ai.setHubRank(convertValueToString(item.get("hubRank")));
 
 		            arplList.add(ai);
 		        }
