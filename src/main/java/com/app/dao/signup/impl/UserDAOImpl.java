@@ -50,7 +50,7 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public List<User> getAllUsers() {
 	
-	List<User> userList = sqlSessionTemplate.selectList("user_mapper.getAllUsers");
+	List<User> userList = sqlSessionTemplate.selectList("user_mapper.getUserList");
 			return userList;
 	}
 
@@ -82,6 +82,17 @@ public class UserDAOImpl implements UserDAO{
 	public User getUserByPw(String pw) {
 		User user = sqlSessionTemplate.selectOne("user_mapper.getUserByPw", pw);
 		return user;
+	}
+
+	@Override
+	public List<User> NotifyUserList() {
+		List<User> userList = sqlSessionTemplate.selectList("user_mapper.getNotifyUserList");
+		return userList;
+	}
+
+	@Override
+	public void resetReport(List<String> userIds) {
+	    sqlSessionTemplate.update("user_mapper.resetReport", userIds);
 	}
 	
 }

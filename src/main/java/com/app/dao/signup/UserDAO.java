@@ -16,5 +16,7 @@ public interface UserDAO {
     int updateUser(User user);   // 정보 수정
     int deleteUser(String userId);  // 회원 삭제
     List<User> getAllUsers();    // 전체 회원 조회
+    List<User> NotifyUserList();
+    void resetReport(List<String> userIds);
 	
 }

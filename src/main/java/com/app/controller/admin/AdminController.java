@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,10 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.dto.festival.Festival;
 import com.app.dto.post.Posts;
-import com.app.dto.user.User;
+import com.app.dto.signup.User;
 import com.app.service.festival.FestivalService;
 import com.app.service.post.PostsService;
-import com.app.service.user.UserService;
+import com.app.service.signup.UserService;
 
 @Controller
 public class AdminController {
@@ -50,7 +49,7 @@ public class AdminController {
 	
 	@GetMapping("/admin/user")
 	public String userManagement(Model model) {
-	    List<User> userList = userService.getUserList();
+	    List<User> userList = userService.getAllUsers();
 	    model.addAttribute("userList",userList);
 	    return "admin/UserManagement";
 	}

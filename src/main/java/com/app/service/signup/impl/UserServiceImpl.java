@@ -43,7 +43,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getAllUsers() {
-		return userDAO.getAllUsers();
+		 List<User> userList = userDAO.getAllUsers();
+		    return userList;
 	}
 
 	@Override
@@ -122,6 +123,25 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserForEmain(String userEmail) {
 		return userDAO.getUserByEmail(userEmail);
+	}
+
+	@Override
+	public User getUserById(String userId) {
+		
+		User user = userDAO.getUserById(userId);
+		
+		return user;
+	}
+
+	@Override
+	public List<User> NotifyUserList() {
+		List<User> userList = userDAO.NotifyUserList();
+		return userList;
+	}
+
+	@Override
+	public void resetReport(List<String> userIds) {
+	    userDAO.resetReport(userIds);
 	}
 
 }
