@@ -42,6 +42,4 @@ public class UserDAOImpl implements UserDAO{
 	public void resetReport(List<String> userIds) {
 	    sqlSessionTemplate.update("user_mapper.resetReport", userIds);
 	}
-	
-
 }

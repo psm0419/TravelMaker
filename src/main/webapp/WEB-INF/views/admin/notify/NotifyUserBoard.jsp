@@ -53,74 +53,71 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<!-- 일괄 삭제 버튼 추가 -->
-					<button id="deleteSelectedBtn" class="btn btn-danger">선택 삭제</button>
+					<button id="deleteSelectedBtn" class="btn btn-ban" onclick="deleteSelectedUsers()">선택 삭제</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<script>
-	// 개별 삭제 기능
-	function resetUser(userId) {
-	    if (confirm("신고 목록에서 삭제하시겠습니까?")) {
-	        fetch('/admin/resetReport', {
-	            method: 'POST',
-	            headers: {
-	                'Content-Type': 'application/x-www-form-urlencoded'
-	            },
-	            body: 'userIds=' + encodeURIComponent(userId)
-	        }).then(response => {
-	            if (response.ok) {
-	                alert("삭제가 완료되었습니다.");
-	                location.reload();
-	            } else {
-	                alert("삭제 중 오류가 발생했습니다.");
-	            }
-	        }).catch(error => {
-	            console.error("삭제 요청 오류:", error);
-	        });
-	    }
-	}
+		function resetUser(userId) {
+			fetch('/admin/resetReport', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: `userIds=${userId}`
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					location.reload();
+				} else {
+					alert('삭제 실패: ' + data.error);
+				}
+			})
+			.catch(error => console.error('Error:', error));
+		}
 
-	// 전체 선택 기능
-	document.getElementById('selectAll').addEventListener('change', function() {
-	    const checkboxes = document.querySelectorAll('.postCheckbox');
-	    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
-	});
+		function deleteSelectedUsers() {
+			const selected = document.querySelectorAll('.postCheckbox:checked');
+			const userIds = Array.from(selected).map(checkbox => checkbox.value).join(',');
 
-	// 선택 삭제 기능
-	document.getElementById('deleteSelectedBtn').addEventListener('click', function() {
-	    let selectedUsers = [];
-	    document.querySelectorAll('.postCheckbox:checked').forEach(checkbox => {
-	        selectedUsers.push(checkbox.value);
-	    });
+			if (!userIds) {
+				alert('선택된 유저가 없습니다.');
+				return;
+			}
 
-	    if (selectedUsers.length === 0) {
-	        alert("삭제할 항목을 선택하세요.");
-	        return;
-	    }
-
-	    if (confirm("선택한 사용자를 삭제하시겠습니까?")) {
-	        fetch('/admin/resetReport', {
-	            method: 'POST',
-	            headers: {
-	                'Content-Type': 'application/x-www-form-urlencoded'
-	            },
-	            body: 'userIds=' + selectedUsers.map(id => encodeURIComponent(id)).join(',')
-	        }).then(response => response.json())
-	        .then(data => {
-	            if (data.success) {
-	                alert("삭제가 완료되었습니다.");
-	                location.reload();
-	            } else {
-	                alert("삭제 중 오류가 발생했습니다.");
-	            }
-	        }).catch(error => {
-	            console.error("삭제 요청 오류:", error);
-	        });
-	    }
-	});
+			fetch('/admin/resetReport', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: `userIds=${userIds}`
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					location.reload();
+				} else {
+					alert('삭제 실패: ' + data.error);
+				}
+			})
+			.catch(error => console.error('Error:', error));
+		}
+		function resetUser(userId) {
+		    console.log("Reset user:", userId);
+		    fetch('/admin/resetReport', {
+		        method: 'POST',
+		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+		        body: `userIds=${userId}`
+		    })
+		    .then(response => response.json())
+		    .then(data => {
+		        if (data.success) {
+		            console.log("Report reset successful for:", userId);
+		            location.reload();
+		        } else {
+		            alert('삭제 실패: ' + data.error);
+		        }
+		    })
+		    .catch(error => console.error('Error:', error));
+		}
 	</script>
 </body>
 </html>

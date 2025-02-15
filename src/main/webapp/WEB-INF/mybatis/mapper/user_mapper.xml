@@ -37,20 +37,12 @@
 
 <update id="resetReport" parameterType="java.util.List">
     UPDATE users
-    SET result = NULL
+    SET report = NULL
     WHERE user_id IN
     <foreach item="id" collection="list" open="(" separator="," close=")">
         #{id}
     </foreach>
 </update>
 
-	<select id="getNotifyUserListFromReports" resultType="User">
-		SELECT
-		DISTINCT u.*
-		FROM users u
-		JOIN user_reports r ON u.user_id = r.user_id
-		ORDER BY r.report_date DESC;
-	</select>
-	<!-- <delete id="deleteboardList"> delete from users where user=#{userId} 
-		</delete> -->
+
 </mapper>

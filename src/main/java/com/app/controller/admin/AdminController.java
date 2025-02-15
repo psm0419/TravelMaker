@@ -154,30 +154,26 @@ public class AdminController {
 		return "admin/notify/NotifyBoard";
 	}
 	
-	@GetMapping("/admin/notifyUserList")
-	public String NotifyUser(Model model) {
-		List<User> userList = userService.NotifyUserList();
-		model.addAttribute("userList",userList);
-		return "admin/notify/NotifyUserBoard";
-	}
-	
-	@PostMapping("/admin/resetReport")
-	@ResponseBody
-	public Map<String, Object> resetUser(@RequestParam("userIds") String userIds) {
-	    Map<String, Object> response = new HashMap<>();
+    @GetMapping("/admin/notifyUserList")
+    public String NotifyUser(Model model) {
+        model.addAttribute("userList", userService.NotifyUserList());
+        return "admin/notify/NotifyUserBoard";
+    }
 
-	    try {
-	        List<String> userIdList = Arrays.asList(userIds.split(",")); // userIds를 리스트로 변환
-	        userService.resetReport(userIdList); // ✅ List<String> 전체를 넘김
+    @PostMapping("/admin/resetReport")
+    @ResponseBody
+    public Map<String, Object> resetUser(@RequestParam("userIds") String userIds) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            userService.resetReport(Arrays.asList(userIds.split(",")));
+            response.put("success", true);
+        } catch (Exception e) {
+            response.put("success", false);
+            response.put("error", e.getMessage());
+        }
+        return response;
+    }
 
-	        response.put("success", true);
-	    } catch (Exception e) {
-	        response.put("success", false);
-	        response.put("error", e.getMessage());
-	    }
-
-	    return response;
-	}
 	
 	@GetMapping("/admin/option")
 	public String option(Model model) {
