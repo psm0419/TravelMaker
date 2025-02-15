@@ -41,6 +41,6 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public void resetReport(List<String> userIds) {
-	    userDAO.resetReport(userIds); // 여러 개의 userId를 DAO로 전달
+	    userDAO.resetReport(userIds);
 	}
 }

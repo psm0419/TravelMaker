@@ -17,7 +17,7 @@
 				<li><a href="/admin/content">콘텐츠 관리</a></li>
 				<li><a href="/admin/festival">축제 정보 관리</a></li>
 				<li><a href="/admin/notify">신고 관리</a></li>
-				<li><a href="/admin/option">설정</a></li>
+
 			</ul>
 		</div>
 

@@ -10,6 +10,7 @@
 </head>
 <body>
 <body>
+<%@include file="../../header/Header.jsp"%>
 	<div class="container">
 		<div class="sidebar">
 			<h2>관리자 페이지</h2>
@@ -19,7 +20,6 @@
 				<li><a href="/admin/content">콘텐츠 관리</a></li>
 				<li><a href="/admin/festival">축제 정보 관리</a></li>
 				<li><a href="/admin/notify">신고 관리</a></li>
-				<li><a href="/admin/option">설정</a></li>
 			</ul>
 		</div>
 		<div class="main-content">
@@ -60,7 +60,7 @@
 	</div>
 	<script>
 	function resetUser(userId) {
-	    console.log("📢 Sending userId to server:", userId); // 🔍 로그 추가
+	    console.log("Deleting userId:", userId);
 
 	    fetch('/admin/resetReport', {
 	        method: 'POST',
@@ -69,15 +69,28 @@
 	    })
 	    .then(response => response.json())
 	    .then(data => {
-	        console.log("📢 Server Response:", data); // 🔍 서버 응답 확인
+	        console.log("Server Response:", data);
+
 	        if (data.success) {
-	            document.querySelector(`input[value="${userId}"]`).closest('tr').remove();
+	            const checkboxes = document.querySelectorAll('.postCheckbox');
+	            let found = false;
+	            
+	            checkboxes.forEach(checkbox => {
+	                if (checkbox.value === userId) {
+	                    checkbox.closest('tr').remove();
+	                    found = true;
+	                }
+	            });
+
+	            if (!found) {
+	                console.error("❌ Error: User row not found in DOM.");
+	            }
 	        } else {
 	            alert('삭제 실패: ' + data.error);
 	        }
 	    })
 	    .catch(error => console.error('❌ Error:', error));
-
+	}
 		function deleteSelectedUsers() {
 			const selected = document.querySelectorAll('.postCheckbox:checked');
 			const userIds = Array.from(selected).map(checkbox => checkbox.value).join(',');

@@ -40,8 +40,6 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public void resetReport(List<String> userIds) {
-		System.out.println("Executing resetReport for users: " + userIds);
 	    sqlSessionTemplate.update("user_mapper.resetReport", userIds);
-	    System.out.println("Rows affected: ");
 	}
 }

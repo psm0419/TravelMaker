@@ -85,10 +85,18 @@ a {
 }
 
 /* 카드 스타일 */
-.card, .festivalcard, .recent-activities, .admin-notice, .server-status,
-	.admin-logs, .table-container {
+.card, .festivalcard, .server-status,
+	 .table-container {
 	background: white;
 	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+.recent-activities, .admin-notice,.admin-logs{
+	margin-top: 30px;
+	padding: 20px;
+	background: white;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -63,7 +63,8 @@ create Table posts (
   status number default 0 check (status in (0,1)),
   report varchar2(12) default 'N' not null,
   nick_name varchar2(36) not null,
-  report varchar2(12) not null
+  report varchar2(12) not null,
+  board_id number not null
 );
 CREATE SEQUENCE post_id_seq
 START WITH 1

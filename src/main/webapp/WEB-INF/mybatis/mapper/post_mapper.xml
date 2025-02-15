@@ -4,21 +4,13 @@
 <mapper namespace="post_mapper">
 
 	<select id="findPostLists" resultType="Posts">
-		SELECT post_id, title,
-		nickname, user_id, board_id, created_at, post_like,
-		post_views, status,
-		authentication_status, authentication_admin,
-		authentication_time, report
+		SELECT *
 		FROM
 		posts
 	</select>
 	
 	<select id="NotifyPostList" resultType="Posts">
-		select post_id, title,
-		nickname, user_id, board_id, created_at, post_like,
-		post_views, status,
-		authentication_status, authentication_admin,
-		authentication_time, report
+		select *
 		FROM
 		posts
 		WHERE report > 0
