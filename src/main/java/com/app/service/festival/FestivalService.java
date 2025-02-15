@@ -12,4 +12,11 @@ public interface FestivalService {
 	Festival getFestivalById(int festivalId);
 	
 	int removeFestival(int festivalId);
+
+	Festival getFestivalById(int festivalId);
+	
+	List<Festival> findFestivalList();
+	
+	int incrementLikeCount(int festivalId);
+	
 }

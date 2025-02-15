@@ -35,10 +35,25 @@ public class FestivalDAOImpl implements FestivalDAO{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int removeFestival(int festivalId) {
 		int result = sqlSessionTemplate.delete("festival_mapper.removeFestival",festivalId);
 		return result;
 	}
 
 
+=======
+	public List<Festival> findFestivalList() {
+		
+		List<Festival> festivalList = sqlSessionTemplate.selectList("festival_mapper.findFestivalList");
+		
+		return festivalList;
+	}
+
+	@Override
+	public int incrementLikeCount(int festivalId) {
+		return sqlSessionTemplate.update("festival_mapper.incrementLikeCount", festivalId);
+	}
+	
+>>>>>>> 6695434250f6b8328319109c277eb09bf2af732b
 }
