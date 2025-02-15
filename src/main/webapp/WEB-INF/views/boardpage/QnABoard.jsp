@@ -69,7 +69,7 @@
 	}
 	
 	.QnAListBox {
-		height: 300px;
+		height: 150px;
 		width: 300px;
 		border: 1px solid lightgray;
 		border-radius: 12px;
@@ -98,18 +98,21 @@
 	}
 	
 	.QnAList {
+		padding: 20px;
 		width: 100%;
-		height: 30%;
+		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		font-weight: bold;
 	}
-	.QnAList p:nth-child(2), .QnAList p:nth-child(3) {
+	
+	.QnAList p:nth-child(3), .QnAList p:nth-child(4) {
 		font-size: 12px;
 		color: gray;
 	}
+	
 </style>
 
 </head>
@@ -131,7 +134,7 @@
 			<c:forEach var="QnAPostList" items="${QnAPostList}">
 				<div class = "QnAListBox" onclick="location.href='${pageContext.request.contextPath}/QnADetail/${QnAPostList.postId}'">
 					<div class="QnAList">
-						<p>제목 : ${QnAPostList.title}</p>
+						<p>제목 : ${QnAPostList.title}</p> <br>
 						<p>작성자 : ${QnAPostList.nickName}</p>
 						<p>조회수 : ${QnAPostList.postViews}</p>
 					</div>

@@ -83,7 +83,7 @@ button:hover {
 			<input type="hidden" name="userId" value="김유저아이디">
 			<input type="hidden" name="nickName" value="김유저">
 			<label for="title">제목</label>
-			<input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
+			<input type="text" id="title" name="title" required placeholder="제목을 입력하세요" maxlength="50">
 			<label for="content">내용</label>
 			<textarea id="content" name="content" rows="5" required
 				placeholder="내용을 입력하세요"></textarea>
