@@ -47,6 +47,9 @@
 	
 	<select id="getUserByPw" resultType="User">
 		SELECT * FROM users WHERE pw = #{pw}
+		
+	</select>
+	
 	<select id="getUserList" resultType="User">
 		select * 
 		from users

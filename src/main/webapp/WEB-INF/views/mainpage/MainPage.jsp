@@ -135,8 +135,6 @@
 	</div>
 	
 	
-	<%@include file="MainList.jsp" %>
-	
 	
 	<%@include file="MainTravelNews.jsp" %>
 	
