@@ -42,6 +42,7 @@ public class BoardController {
 	@GetMapping("/reviewBoard") // 후기게시판 화면
 	public String board(Model model) {
 		List<Post> postList = postService.findPostList(); // 게시글리스트 전체호출
+		
 
 		System.out.println("포스트리스트:" + postList);
 

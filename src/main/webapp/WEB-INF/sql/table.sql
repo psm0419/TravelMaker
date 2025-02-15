@@ -61,8 +61,14 @@ create Table posts (
   post_views number default 0,
   status number default 0 check (status in (0,1)),
   report varchar2(12) default 'N' not null,
-  nick_name varchar2(36) not null
+  nick_name varchar2(36) not null,
+  board_id number(3)
 );
+
+create Table board(
+  board_id number primary key
+);
+
 CREATE SEQUENCE post_id_seq
 START WITH 1
 INCREMENT BY 1
@@ -183,6 +189,12 @@ CREATE TABLE festival_images (
     uploaded_at DATE DEFAULT SYSDATE,
     CONSTRAINT fk_festival FOREIGN KEY (festival_id) REFERENCES festival(festival_id)
 );
+
+CREATE SEQUENCE image_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 create table file_info(
     file_name varchar2(256),

@@ -16,9 +16,9 @@ public class ArplDAO {
 	public int saveArplInfo(Attraction attractionInfo) {
 		conn = DBConnectionManager.connectDB();
 		int result = 0;
-		if (attractionInfo.getHubCtgryLclsNm() != null && 
-		        "음식".equals(attractionInfo.getHubCtgryLclsNm().trim())){
-									
+//		if (attractionInfo.getHubCtgryLclsNm() != null && 
+//		        "관광지".equals(attractionInfo.getHubCtgryLclsNm().trim()) && "숙박".equals(attractionInfo.getHubCtgryLclsNm().trim())){
+//									
 			// 쿼리 준비 괄호는 모든컬럼 넣을때는 생략가능
 			String sqlQuery = "INSERT INTO attraction_info (attraction_id, baseYm, mapX, mapY, areaCd, areaNm, signguCd, signguNm, " +
 	                "hubTatsNm, hubBsicAdres, hubCtgryLclsNm, hubCtgryMclsNm, hubRank) " +
@@ -51,9 +51,9 @@ public class ArplDAO {
 				// DB 연결 종료
 				DBConnectionManager.disconnectDB(conn, psmt, rs);
 			}
-		} else {
-			System.out.println("음식 카테고리가 아닌 데이터는 저장되지 않았습니다.");
-		}
+//		} else {
+//			System.out.println("음식 카테고리가 아닌 데이터는 저장되지 않았습니다.");
+//		}
 		return result;
 	}
 }

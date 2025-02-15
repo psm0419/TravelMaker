@@ -105,20 +105,7 @@
 		<div class="titleBar">축제 리스트</div>
 
 		<div class="mainList">
-			<c:forEach var="festival" items="${festivalList}">
-				<div class="festival-card"
-					onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'">
-					<img
-						src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"
-						alt="${festival.festivalName}">
-					<div class="festival-content">
-						<h3>${festival.festivalName}</h3>
-						<p class="date">📅 ${festival.startDate} ~ ${festival.endDate}</p>
-						<p class="location">📍 ${festival.location}</p>
-						<p class="fee">💰 ${festival.entranceFee}</p>
-					</div>
-				</div>
-			</c:forEach>
+			
 		</div>
 
 	</div>
