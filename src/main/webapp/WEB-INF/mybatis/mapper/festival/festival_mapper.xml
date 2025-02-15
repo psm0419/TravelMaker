@@ -27,4 +27,10 @@
         WHERE festival_id = #{festivalId}        
     </select>
 	
+	 <update id="incrementLikeCount" parameterType="int">
+        UPDATE festival
+        SET like_count = like_count + 1
+        WHERE festival_id = #{festivalId}
+    </update>
+    
 </mapper>

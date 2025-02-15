@@ -7,47 +7,22 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=07d2faa0d2999cbe5c196e0b7f2d35bf&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<style>
-.info-window {
-	padding: 15px;
-	font-size: 14px;
-	max-width: 300px;
-	border-radius: 5px;
-}
-
-.info-window h3 {
-	margin: 0 0 10px 0;
-	font-size: 16px;
-	color: #333;
-}
-
-.info-window p {
-	margin: 5px 0;
-	color: #666;
-}
-
-.info-category {
-	color: #2196F3;
-	font-size: 13px;
-}
-
-.info-rank {
-	color: #FF5722;
-	font-weight: bold;
-}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="/css/attractionmap/AttractionMap.css">
 </head>
 <body>
-	<h1 style="text-align: center;">📍 축제 주변 관광지, 숙소, 음식점</h1>
+	<h1 style="text-align: center;">📍 축제 주변 관광지, 음식점, 숙소 </h1>
 	
 	<!-- 카테고리 버튼 추가 -->
-	<div style="text-align: center; margin-bottom: 20px;">
-    <button id="show-attractions" onclick="toggleMarkers('관광지')">관광지</button>
-    <button id="show-restaurants" onclick="toggleMarkers('음식점')">음식점</button>
-    <button id="show-accommodation" onclick="toggleMarkers('숙소')">숙소</button>
-</div>
 
-<div id="map" style="width: 900px; height: 600px; margin: 0 auto; display: block;"></div>
+
+<div id="map">
+	<div class="map-marker">
+	    <button id="show-attractions" onclick="toggleMarkers('관광지')"><i class="fas fa-map-marker-alt"></i></button>
+	    <button id="show-restaurants" onclick="toggleMarkers('음식점')"><i class="fas fa-utensils"></i></button>
+	    <button id="show-accommodation" onclick="toggleMarkers('숙소')"><i class="fas fa-bed"></i></button>
+	</div>
+</div>
 
 <script>
     var mapContainer = document.getElementById('map');

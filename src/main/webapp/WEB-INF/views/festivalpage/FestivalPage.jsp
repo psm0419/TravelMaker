@@ -8,6 +8,7 @@
 <title>FestivalInfo</title>
 <link rel="stylesheet" type="text/css"
 	href="/css/festivalpage/FestivalPage.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="festival-main">
 	<%@include file="../header/Header.jsp"%>
@@ -34,15 +35,18 @@
 		<!-- 		DB에서 축제정보 가져올때 반복으로 만들기 -->
 		<div class="festival-list">
 			<c:forEach var="festival" items="${festivalList}">
-				<div class="festival-card"
-					onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'">
-					<c:if test="${not empty festival.images}">
-						<c:forEach var="image" items="${festival.images}">
-							<div class="image-container">
+				<div class="festival-card" onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'" data-popularity="${festival.likeCount}">
+					<div class="image-container">
+						<button class="like-button"
+							onclick="likeFestival(event, ${festival.festivalId})">
+							<i class="far fa-heart"></i>
+						</button>
+						<c:if test="${not empty festival.images}">
+							<c:forEach var="image" items="${festival.images}">
 								<img src="${image.filePath}" alt="${image.fileName}">
-							</div>
-						</c:forEach>
-					</c:if>
+							</c:forEach>
+						</c:if>
+					</div>
 					<div class="festival-content">
 						<h3>${festival.festivalName}</h3>
 						<p class="date">📅 ${festival.startDate} ~ ${festival.endDate}</p>
@@ -104,6 +108,53 @@ document.querySelector(".search_btn").addEventListener("click", function () {
         }
     });
 });
+
+function likeFestival(event, festivalId) {
+	 event.preventDefault();
+	    event.stopPropagation();
+	    
+	    const button = event.currentTarget;
+	    const icon = button.querySelector('i');
+	    const isCurrentlyLiked = icon.classList.contains('fas');  // 현재 좋아요 상태 확인
+	    
+	    if (isCurrentlyLiked) {
+	        // 좋아요 취소
+	        icon.classList.remove('fas');
+	        icon.classList.add('far');
+	        button.classList.remove('active');
+	    } else {
+	        // 좋아요 설정
+	        icon.classList.remove('far');
+	        icon.classList.add('fas');
+	        button.classList.add('active');
+	    }
+    
+    // 여기에 서버로 좋아요 상태를 전송하는 API 호출 추가
+    fetch(`/api/festivals/${festivalId}/like`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ like: !isLiked })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.success) {
+            // API 호출이 실패하면 상태를 되돌림
+            button.classList.toggle('active');
+            icon.classList.toggle('fas');
+            icon.classList.toggle('far');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // 에러 발생 시 상태를 되돌림
+        button.classList.toggle('active');
+        icon.classList.toggle('fas');
+        icon.classList.toggle('far');
+    });
+}
+
 </script>
 
 </html>

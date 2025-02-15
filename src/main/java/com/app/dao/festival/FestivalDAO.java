@@ -10,4 +10,6 @@ public interface FestivalDAO {
 	
 	List<Festival> findFestivalList();	
 	
+	int incrementLikeCount(int festivalId);
+	
 }

@@ -18,4 +18,5 @@ public class Festival {
 	List<FestivalImage> images;
 	String homepageUrl;
 	String content;
+	int likeCount;
 }

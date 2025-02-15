@@ -35,11 +35,11 @@
 			<img src="/image/${festival.festivalId}.jpg">			
 		</div>
 		<section class="festival-info">
-			<p>📅 기간: ${festival.startDate} ~ ${festival.endDate}</p>
-			<p>📍 위치: ${festival.location}</p>
-			<p>💰 입장료: ${festival.entranceFee}</p>
-			<p>🏢 주최: ${festival.festivalHost}</p>
-			<p>📞 전화번호: ${festival.tel}</p>
+			<p>• 기간: ${festival.startDate} ~ ${festival.endDate}</p>
+			<p>• 위치: ${festival.location}</p>
+			<p>• 입장료: ${festival.entranceFee}</p>
+			<p>• 주최: ${festival.festivalHost}</p>
+			<p>• 전화번호: ${festival.tel}</p>
 			<button onclick="goToHomepage('${festival.homepageUrl}')" class="homepage-btn">
             <i class="fas fa-globe"></i> 공식 홈페이지 방문하기
         	</button>
@@ -71,9 +71,9 @@
         })
         .catch(error => console.error('음식점 데이터를 불러오는 중 오류 발생:', error));
 </script>
-
+	<br>
 	<a href="/festivalpage/FestivalPage" class="back-btn">목록으로 돌아가기</a>
-	<script>
+<script>
 	function goToHomepage(url) {
     if (url) {
         window.open(url, '_blank');

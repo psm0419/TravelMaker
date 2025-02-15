@@ -42,27 +42,75 @@
 }
 
 .festival-card {
-	width: calc(33% - 80px);
-	background: white;
-	border-radius: 12px;
-	overflow: hidden;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease-in-out;
-	cursor: pointer;	
+	position: relative;
+    width: calc(33% - 80px);
+    background: white;
+    border-radius: 12px;
+    overflow: visible;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .festival-card:hover {
-	transform: translateY(-5px);
+	transform: none;
 }
 
-.festival-card img {
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
+.like-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #FF4081;
+    cursor: pointer;
+    z-index: 2;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.like-button:hover i {
+    transform: scale(1.1);
+}
+
+.like-button i.far.fa-heart {
+    color: #ddd !important;
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.like-button.active i.fas.fa-heart {
+    color: #FF4081 !important;
+}
+
+.popularity {
+    font-size: 14px;
+    color: #555;
+}
+
+.image-container{
+	position: relative;
+    width: 100%;
+    height: 200px;
+}
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .festival-content {
 	padding: 15px;
+	z-index: 2;
 }
 
 .festival-content h3 {

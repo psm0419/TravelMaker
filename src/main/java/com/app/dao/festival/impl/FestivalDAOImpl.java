@@ -30,5 +30,10 @@ public class FestivalDAOImpl implements FestivalDAO{
 		
 		return festivalList;
 	}
+
+	@Override
+	public int incrementLikeCount(int festivalId) {
+		return sqlSessionTemplate.update("festival_mapper.incrementLikeCount", festivalId);
+	}
 	
 }

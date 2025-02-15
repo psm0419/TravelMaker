@@ -40,7 +40,9 @@ create Table festival (
   entrance_fee varchar2(64),
   tel varchar2(32),
   festival_host varchar2(128),
-  homepage_url varchar2(512)
+  homepage_url varchar2(512),
+  content varchar2(4000),
+  like_count NUMBER
 );
 
 CREATE SEQUENCE festival_id_seq
@@ -124,9 +126,13 @@ create Table festival_rating(
  user_rating number
 );
 
-create Table user_festival_like(
-  user_id number,
-  festival_id number
+CREATE TABLE festival_likes (
+    like_id NUMBER PRIMARY KEY,             
+    user_id varchar2(32),                    
+    festival_id NUMBER,                      
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+    FOREIGN KEY (user_id) REFERENCES users(user_id),  
+    FOREIGN KEY (festival_id) REFERENCES festival(festival_id)
 );
 
 create Table postlike (

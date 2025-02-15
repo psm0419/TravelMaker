@@ -29,4 +29,9 @@ public class FestivalServiceImpl implements FestivalService{
 		return festivalList;
 	}
 
+	@Override
+	public int incrementLikeCount(int festivalId) {
+		return festivalDAO.incrementLikeCount(festivalId);
+	}
+
 }

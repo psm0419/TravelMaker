@@ -10,4 +10,6 @@ public interface FestivalService {
 	
 	List<Festival> findFestivalList();
 	
+	int incrementLikeCount(int festivalId);
+	
 }
