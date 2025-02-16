@@ -8,7 +8,11 @@
     <link href="/css/admin.css" rel="stylesheet">
 </head>
 <body>
+	
     <div class="container">
+     <div class=mainHeaderContainer>
+		<%@include file="../header/Header.jsp" %>
+	</div>
         <div class="sidebar">
             <h2>관리자 페이지</h2>
             <ul>
@@ -80,6 +84,7 @@
             </div>
         </div>
     </div>
-
+    <script>
+    </script>
 </body>
 </html>
