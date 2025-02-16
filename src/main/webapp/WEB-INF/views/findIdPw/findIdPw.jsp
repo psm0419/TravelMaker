@@ -6,16 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 비밀번호 찾기</title>
+<link rel="stylesheet" type="text/css" href="/css/findidpw/findIdPw.css">
 </head>
 <body>
 
-	<form action="/user/findIdPw" method="post" id="findForm">
-
-	<button><a href="findId">아이디 찾기</a></button>
-	<button><a href="findPw">비밀번호 찾기</a></button>
-
-
-	</form>
+	<div class="container">
+		<form action="/user/findIdPw" method="post" id="findForm">
+			<button type="button" class="find-btn" onclick="location.href='findId'">아이디 찾기</button>
+			<button type="button" class="find-btn" onclick="location.href='findPw'">비밀번호 찾기</button>
+		</form>
+	</div>
 
 </body>
 </html>
