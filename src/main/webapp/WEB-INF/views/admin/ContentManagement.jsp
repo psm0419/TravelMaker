@@ -18,18 +18,15 @@
 				<li><a href="/admin/content">콘텐츠 관리</a></li>
 				<li><a href="/admin/festival">축제 정보 관리</a></li>
 				<li><a href="/admin/notify">신고 관리</a></li>
-				<li><a href="/admin/option">설정</a></li>
 			</ul>
 		</div>
 
 		<div class="main-content">
 			<h1>콘텐츠 관리</h1>
-			<div class="dashboard2">
+			<div class="dashboard">
 				<div class="card">
 					<h3><a href="/admin/content/questionBoard">질문 게시판 관리</a></h3>
 				</div>
-			</div>
-			<div class="dashboard2">
 				<div class="card">
 				<h3><a href="/admin/content/reviewBoard">후기게시판 관리</a></h3>
 				</div>

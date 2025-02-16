@@ -18,7 +18,6 @@
 				<li><a href="/admin/content">콘텐츠 관리</a></li>
 				<li><a href="/admin/festival">축제 정보 관리</a></li>
 				<li><a href="/admin/notify">신고 관리</a></li>
-				<li><a href="/admin/option">설정</a></li>
 			</ul>
 		</div>
 		<div class="main-content">
@@ -42,7 +41,7 @@
 								<td><input type="checkbox" class="postCheckbox"
 									name="postIds[]" value="${post.postId}"></td>
 								<td><a href="/admin/content/questionBoard/${post.postId}">${post.title}</a></td>
-								<td>${post.nickname}(${post.userId})</td>
+								<td>${post.nickName}(${post.userId})</td>
 							</tr>
 						</c:forEach>
 					</table>

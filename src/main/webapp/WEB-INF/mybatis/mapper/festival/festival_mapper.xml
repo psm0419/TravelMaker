@@ -35,7 +35,7 @@
     
     <insert id="saveFestival" parameterType="Festival">
 		insert into festival (festival_id, festival_name, location, start_date,
-		end_date, entrance_fee, tel, festival_host, homepage_url)
+		end_date, entrance_fee, tel, festival_host, homepage_url,content)
 		values (festival_id_seq.nextval,
 		#{festivalName},
 		#{location},
@@ -44,12 +44,20 @@
 		#{entranceFee},
 		#{tel},
 		#{festivalHost},
-		#{homepageUrl})
+		#{homepageUrl},
+		#{content})
 	</insert>
 	
 	<delete id="removeFestival" parameterType="int">
 		DELETE FROM festival
 		WHERE festival_id = #{festivalId}
 	</delete>
+    
+    <select id="searchFestivals" resultType="Festival">
+        SELECT *
+        FROM festival
+        WHERE festival_name LIKE #{searchQuery} or location LIKE #{searchQuery} or entrance_fee LIKE #{searchQuery}
+        ORDER BY festival_id
+    </select>
     
 </mapper>

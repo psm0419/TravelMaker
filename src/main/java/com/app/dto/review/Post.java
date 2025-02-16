@@ -17,5 +17,7 @@ public class Post {
 	int postViews; // 조회수
 	int status; // 글 상태(일반글,비밀글)
 	String report; // 신고 상태 N:기본 Y:신고당함
+	int boardId;
+	String imageUrlFilePath;
 
 }

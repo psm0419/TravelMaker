@@ -49,4 +49,10 @@ public class FestivalServiceImpl implements FestivalService{
 		return festivalDAO.incrementLikeCount(festivalId);
 	}
 
+	@Override
+	public List<Festival> searchFestivals(String searchQuery) {
+		// DAO에서 검색어를 바탕으로 축제 리스트를 가져옴
+        return festivalDAO.findFestivalsBySearchQuery(searchQuery);
+	}
+
 }

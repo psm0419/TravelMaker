@@ -36,6 +36,13 @@ public class CommentServiceImpl implements CommentService {
 		return result;
 	}
 
+	@Override
+	public int saveQnADetailCommentByPostId(int postId, String comment, String nickName, String userId) {
+		int result = commentDAO.saveQnADetailCommentByPostId(postId, comment, nickName, userId);
+		
+		return result;
+	}
+
 	
 	
 

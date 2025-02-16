@@ -64,4 +64,14 @@ public class FestivalPageController {
 
 	    return ResponseEntity.ok(response);
 	}
+	
+	@GetMapping("/searchFestival")
+    public String searchFestival(@RequestParam("searchQuery") String searchQuery, Model model) {
+        // 서비스 호출: 검색어를 바탕으로 축제를 찾음
+        List<Festival> festivals = festivalService.searchFestivals(searchQuery);
+        
+        // 결과를 뷰에 전달
+        model.addAttribute("festivals", festivals);
+        return "search/Search";  // 검색 결과를 보여줄 뷰 페이지
+    }
 }

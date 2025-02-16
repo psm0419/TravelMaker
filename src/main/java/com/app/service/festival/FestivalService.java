@@ -17,4 +17,5 @@ public interface FestivalService {
 	
 	int incrementLikeCount(int festivalId);
 	
+	List<Festival> searchFestivals(String searchQuery);
 }
