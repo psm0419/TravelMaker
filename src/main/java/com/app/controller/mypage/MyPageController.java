@@ -31,7 +31,7 @@ public class MyPageController {
 		return "mypage/Review";
 	}
 	
-	@GetMapping("/correction")
+	@GetMapping("/mypage/correction")
 	public String correction() {
 		return "mypage/Correction";
 	}

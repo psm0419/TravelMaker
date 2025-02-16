@@ -10,6 +10,11 @@ body {
 	background-color: #f4f4f4;
 	display: flex;
 }
+textarea {
+    width: 330px; 
+    height: 100px; 
+    resize: none; 
+}
 
 h1, h2 {
 	margin-bottom: 15px;
