@@ -13,5 +13,5 @@ public class User {
     private String tel;		// 	유저 전화번호
     private String jumin;	// 	유저 주민등록번호
     private String userType;// 	유저 타입
-	
+	private String report;	// 	신고
 }
