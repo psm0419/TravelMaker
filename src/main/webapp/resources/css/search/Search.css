@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/* 기본 페이지 스타일 */
+.search-main body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.search-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 검색 결과 목록 스타일 */
+.festival-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.festival-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.festival-item:hover {
+    background-color: #f0f8ff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.festival-link {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.festival-link:hover {
+    text-decoration: underline;
+}
+
+.festival-location {
+    font-size: 1em;
+    color: #555;
+    margin-top: 5px;
+    display: block;
+}
+
+/* 검색 결과가 없을 때의 스타일 */
+.no-results {
+    text-align: center;
+    font-size: 1.2em;
+    color: #888;
+    margin-top: 20px;
+}

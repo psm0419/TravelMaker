@@ -18,4 +18,5 @@ public interface FestivalDAO {
 	
 	int incrementLikeCount(int festivalId);
 	
+	List<Festival> findFestivalsBySearchQuery(String searchQuery);
 }

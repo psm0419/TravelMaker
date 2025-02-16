@@ -53,4 +53,9 @@ public class FestivalDAOImpl implements FestivalDAO{
 		return sqlSessionTemplate.update("festival_mapper.incrementLikeCount", festivalId);
 	}
 
+	@Override
+	public List<Festival> findFestivalsBySearchQuery(String searchQuery) {
+		return sqlSessionTemplate.selectList("festival_mapper.searchFestivals", "%" + searchQuery + "%");
+	}
+
 }

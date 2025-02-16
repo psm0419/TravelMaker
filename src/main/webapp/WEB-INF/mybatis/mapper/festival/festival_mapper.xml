@@ -52,4 +52,11 @@
 		WHERE festival_id = #{festivalId}
 	</delete>
     
+    <select id="searchFestivals" resultType="Festival">
+        SELECT *
+        FROM festival
+        WHERE festival_name LIKE #{searchQuery} or location LIKE #{searchQuery} or entrance_fee LIKE #{searchQuery}
+        ORDER BY festival_id
+    </select>
+    
 </mapper>
