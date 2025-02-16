@@ -18,6 +18,11 @@
 	    VALUES (comments_id_seq.NEXTVAL, #{content}, #{postId}, #{userId}, SYSDATE, #{nickName})
 	</insert>
 	
+	<insert id="saveQnADetailCommentByPostId" parameterType="map">
+	    INSERT INTO COMMENTS (comments_id, content, post_id, user_id, created_at, nick_name)
+	    VALUES (comments_id_seq.NEXTVAL, #{content}, #{postId}, #{userId}, SYSDATE, #{nickName})
+	</insert>
+	
 	
 	
 <!-- 	<insert id="savePostInfo" parameterType="Post"> -->

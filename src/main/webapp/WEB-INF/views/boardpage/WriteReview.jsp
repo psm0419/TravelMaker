@@ -67,11 +67,21 @@ button:hover {
 	<%@ include file="../header/Header.jsp"%>
 	
 	<div class="reviewDetailContainer">
-		<h4 class="fw-bold">게시글 작성</h4>
+		<h4 class="fw-bold">후기글 작성</h4>
 
 		<!-- 작성자 정보 -->
 		<div class="content-box">
-			<img src="/images/TravelMakerLogo.jpg" alt="작성자 이미지"> <span>작성자: 홍길동 ${users.nickName}</span>
+			<img src="/images/TravelMakerLogo.jpg" alt="작성자 이미지">
+			<span>작성자: 
+				<c:choose>
+		            <c:when test="${not empty sessionScope.loggedInUser}">
+		                ${sessionScope.loggedInUser.nickName}
+		            </c:when>
+		            <c:otherwise>
+		                익명
+		            </c:otherwise>
+	       	 	</c:choose>
+			</span>
 			<span class="ms-3 text-muted"> 현재시간: <fmt:formatDate
 					value="<%=new java.util.Date()%>" pattern="yyyy-MM-dd HH:mm" />
 			</span>
@@ -80,8 +90,9 @@ button:hover {
 		<!-- 게시글 작성 폼 -->
 		<form action="/saveWriteReview" method="post"
 			enctype="multipart/form-data">
-			<input type="hidden" name="userId" value="김유저아이디">
-			<input type="hidden" name="nickName" value="김유저">
+			<input type="hidden" name="param" value="1">
+			<input type="hidden" name="userId" value="${sessionScope.loggedInUser.userId}">
+			<input type="hidden" name="nickName" value="${sessionScope.loggedInUser.nickName}">
 			<label for="title">제목</label>
 			<input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
 			<label for="content">내용</label>

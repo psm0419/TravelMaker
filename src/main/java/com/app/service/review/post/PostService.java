@@ -26,4 +26,6 @@ public interface PostService {
 	int getLastPostId();
 	
 	ReviewImages findReviewImagesByPostId(int postId);
+	
+	List<Post> findPostListByBoardId(int boardId);
 }

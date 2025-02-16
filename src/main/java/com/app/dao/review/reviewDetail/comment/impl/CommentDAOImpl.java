@@ -44,6 +44,19 @@ public class CommentDAOImpl implements CommentDAO {
 		return result;
 	}
 
+	@Override
+	public int saveQnADetailCommentByPostId(int postId, String comment, String nickName, String userId) {
+		Map<String, Object> params = new HashMap<>();
+        params.put("postId", postId);
+        params.put("content", comment);
+        params.put("nickName", nickName);
+        params.put("userId", userId);
+		
+		int result = sqlSessionTemplate.insert("comment_mapper.saveQnADetailCommentByPostId", params);
+		
+		return result;
+	}
+
 
 	
 	

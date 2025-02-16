@@ -15,7 +15,7 @@
 	box-sizing: border-box;
 }
 
-.boardContainer {
+.reviewBoardContainer {
 	margin: auto;
 	display: flex;
 	flex-direction: column;
@@ -23,7 +23,7 @@
 	margin-bottom: 100px;
 }
 
-.boardTitle {
+.reviewBoardTitle {
 	margin-top: 60px;
 	padding: 20px;
 	margin-bottom: 70px;
@@ -56,7 +56,7 @@
 	color: black;
 }
 
-.boardListBox {
+.reviewBoardListBox {
 	width: 85%;
 	height: auto;
 	display: flex;
@@ -98,18 +98,18 @@
 	transform: none;
 }
 
-.boardListThumbnail {
+.reviewBoardListThumbnail {
 	height: 70%;
 	width: 100%;
 	overflow: hidden;
 }
 
-.boardListThumbnail img {
+.reviewBoardListThumbnail img {
 	height: 100%;
 	width: 100%;
 }
 
-.boardList {
+.reviewBoardList {
 	width: 100%;
 	height: 30%;
 	display: flex;
@@ -118,7 +118,7 @@
 	flex-direction: column;
 	font-weight: bold;
 }
-.boardList p:nth-child(2), .boardList p:nth-child(3) {
+.reviewBoardList p:nth-child(2), .reviewBoardList p:nth-child(3) {
 	font-size: 12px;
 	color: gray;
 }
@@ -129,21 +129,23 @@
 
 	<%@ include file="../header/Header.jsp"%>
 
-	<div class="boardContainer">
-		<div class="boardTitle">
+	<div class="reviewBoardContainer">
+		<div class="reviewBoardTitle">
 			<h1>후기 게시판</h1>
 		</div>
 		<div class = "goWriteReviewContainer">
-			<div class="goWriteReview" onclick="location.href='/writeReview'">후기 작성하기</div>
+			<div class="goWriteReview" onclick="location.href='/writeReview?param=1'">후기 작성하기</div>
 		</div>
-		<div class="boardListBox">
-			<c:forEach var="postList" items="${postList}">
-				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewDetail/${postList.postId}'">
-					<div class="boardListThumbnail"><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"></div>
-					<div class="boardList">
-						<p>제목 : ${postList.title}</p>
-						<p>작성자 : ${postList.nickName}</p>
-						<p>조회수 : ${postList.postViews}</p>
+		<div class="reviewBoardListBox">
+			<c:forEach var="reviewPostList" items="${reviewPostList}">
+				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewDetail/${reviewPostList.postId}'">
+					<div class="reviewBoardListThumbnail">
+						<img src="">
+					</div>
+					<div class="reviewBoardList">
+						<p>제목 : ${reviewPostList.title}</p>
+						<p>작성자 : ${reviewPostList.nickName}</p>
+						<p>조회수 : ${reviewPostList.postViews}</p>
 					</div>
 				</div>
 			</c:forEach>

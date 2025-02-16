@@ -83,6 +83,13 @@ public class PostDAOImpl implements PostDAO {
 		ReviewImages reviewImages = sqlSessionTemplate.selectOne("findReviewImagesByPostId",postId);
 		return reviewImages;
 	}
+
+	@Override
+	public List<Post> findPostListByBoardId(int boardId) {
+		List<Post> result = sqlSessionTemplate.selectList("findPostListByBoardId", boardId);
+		
+		return result;
+	}
 	
 	
 
