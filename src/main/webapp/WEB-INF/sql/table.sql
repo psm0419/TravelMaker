@@ -60,12 +60,12 @@ create Table posts (
   created_at timestamp DEFAULT systimestamp,
   post_like number default 0,
   post_views number default 0,
-  status number default 0 check (status in (0,1)),
-  report varchar2(12) default 'N' not null,
+  status number default 0 check (status in (0,1)),  
   nick_name varchar2(36) not null,
-  report varchar2(12) not null,
+  report varchar2(12) default 'N' not null,
   board_id number not null
-);
+ );
+ 
 CREATE SEQUENCE post_id_seq
 START WITH 1
 INCREMENT BY 1
@@ -197,4 +197,12 @@ create table file_info(
 create table user_profile_image(
     id varchar2(32),
     file_name varchar2(256)   
+);
+
+CREATE TABLE user_reports (
+    report_id NUMBER PRIMARY KEY,
+    user_id VARCHAR2(32) NOT NULL,
+    report_reason VARCHAR2(255) NOT NULL,
+    report_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    --FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

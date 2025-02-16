@@ -16,7 +16,7 @@ public class FestivalDAOImpl implements FestivalDAO{
 	
 	@Override
 	public List<Festival> getFestivalList() {
-		List<Festival> festivalList = sqlSessionTemplate.selectList("festival_mapper.getFestivalLists");
+		List<Festival> festivalList = sqlSessionTemplate.selectList("festival_mapper.findFestivalList");
 		return festivalList;
 	}
 
@@ -30,7 +30,7 @@ public class FestivalDAOImpl implements FestivalDAO{
 
 	@Override
 	public Festival getFestivalById(int festivalId) {
-		Festival festival = sqlSessionTemplate.selectOne("festival_mapper.getFestivalByIds", festivalId);
+		Festival festival = sqlSessionTemplate.selectOne("festival_mapper.getFestivalById", festivalId);
 		return festival;
 	}
 

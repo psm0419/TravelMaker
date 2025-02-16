@@ -1,6 +1,7 @@
 package com.app.controller.board;
 
 import java.io.File;
+
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -20,7 +21,7 @@ import com.app.dto.review.ReviewImages;
 import com.app.service.file.FileService;
 import com.app.service.review.post.PostService;
 import com.app.service.review.reviewDetail.comment.CommentService;
-import com.app.service.user.UserService;
+import com.app.service.signup.UserService;
 
 
 @Controller
@@ -37,6 +38,8 @@ public class BoardController {
 	
 	@Autowired
 	UserService userService;
+	
+//	UserService userService;
 	
 
 	@GetMapping("/reviewBoard") // 후기게시판 화면
