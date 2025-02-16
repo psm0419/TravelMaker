@@ -49,7 +49,6 @@ public class BoardController {
 	@GetMapping("/reviewBoard") // 후기게시판 화면
 	public String reviewBoard(@RequestParam("param") int boardId, Model model) {
 		List<Post> reviewPostList = postService.findPostListByBoardId(boardId); // 게시글리스트 전체호출
-		
 
 		System.out.println("후기 리스트:" + reviewPostList);
 
@@ -84,7 +83,13 @@ public class BoardController {
 	public String saveReviewDetailComment(@PathVariable("postId") int postId,
 											@RequestParam("content") String content,
 											 @RequestParam("nickName") String nickName,
-											 @RequestParam("userId") String userId) {
+											 @RequestParam("userId") String userId,
+											 @SessionAttribute(name = "loggedInUser", required = false) User loggedInUser) {
+		
+		if (loggedInUser == null) {
+	        // 로그인되지 않으면 로그인 페이지로 리다이렉트
+	        return "redirect:/user/login";
+	    }
 		
 		int result = commentService.saveReviewDetailCommentByPostId(postId, content, nickName, userId);
 
@@ -177,7 +182,16 @@ public class BoardController {
 	}
 	
 	@GetMapping("/writeQnA") // 질문글 작성 화면
-	public String WriteQnA(Model model) {
+	public String WriteQnA(HttpSession session, Model model) {
+		Object loggedInUserObj = session.getAttribute("loggedInUser");
+		
+		if (loggedInUserObj instanceof User) { // ✅ 안전한 타입 체크
+	        User loggedInUser = (User) loggedInUserObj;
+	        System.out.println("현재 로그인된 사용자: " + loggedInUser.getNickName());
+	        model.addAttribute("loggedInUser", loggedInUser);
+	    } else {
+	        System.out.println("현재 로그인된 사용자가 없습니다.");
+	    }
 		
 		return "boardpage/WriteQnA";
 	}

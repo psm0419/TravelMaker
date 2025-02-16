@@ -139,7 +139,9 @@
 		<div class="reviewBoardListBox">
 			<c:forEach var="reviewPostList" items="${reviewPostList}">
 				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewDetail/${reviewPostList.postId}'">
-					<div class="reviewBoardListThumbnail"><img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/300_c05ca1ee-a8ff-41a6-a5c5-9e78bfd913db_1.png"></div>
+					<div class="reviewBoardListThumbnail">
+						<img src="">
+					</div>
 					<div class="reviewBoardList">
 						<p>제목 : ${reviewPostList.title}</p>
 						<p>작성자 : ${reviewPostList.nickName}</p>
