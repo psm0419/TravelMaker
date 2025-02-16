@@ -8,7 +8,7 @@
 		(user_id, username, nickname, pw, email, tel, jumin,
 		user_type)
 		VALUES
-		(#{userId}, #{username}, #{nickname}, #{pw}, #{email}, #{tel},
+		(#{userId}, #{userName}, #{nickName}, #{pw}, #{email}, #{tel},
 		#{jumin}, #{userType})
 	</insert>
 
@@ -17,7 +17,7 @@
 	<update id="updateUser" parameterType="User">
 		UPDATE users
 		SET username=
-		#{userName}, nickname=#{nickname}, pw=#{pw},
+		#{userName}, nickname=#{nickName}, pw=#{pw},
 		email= #{email}, tel=
 		#{tel}, jumin=#{jumin}, user_type=#{userType}
 		WHERE user_id = #{userId}
@@ -34,7 +34,7 @@
 
 	<select id="getUserByNickname" resultType="User">
 		SELECT * FROM users
-		WHERE nickname = #{nickname}
+		WHERE nickname = #{nickName}
 	</select>
 
 	<select id="getUserByJumin" resultType="User">

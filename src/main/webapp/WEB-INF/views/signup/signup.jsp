@@ -52,7 +52,7 @@
 
 				<!-- 닉네임 입력창 -->
 				<div class="div_signup_input_nickname">
-					<input type="text" class="signup_input_nickname" placeholder="닉네임" name="nickname" id="signup_nickname">
+					<input type="text" class="signup_input_nickname" placeholder="닉네임" name="nickName" id="signup_nickname">
 				</div>
 			</div>
 			<p id="userIdCheckResult"></p>
@@ -64,7 +64,7 @@
 
 				<!-- 이름 입력창 -->
 				<div class="div_signup_input_name">
-					<input type="text" class="signup_input_name" placeholder="이름을 입력해주세요" name="username">
+					<input type="text" class="signup_input_name" placeholder="이름을 입력해주세요" name="userName">
 				</div>
 
 				<!-- 주민등록번호 입력창 -->

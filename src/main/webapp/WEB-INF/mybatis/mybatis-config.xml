@@ -7,8 +7,7 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
-	<typeAliases>
-		<typeAlias type="com.app.dto.post.Posts" alias="Posts"/> 	
+	<typeAliases>	 	
 		<typeAlias type="com.app.dto.signup.User" alias="user" />
 		<typeAlias type="com.app.dto.festival.Festival" alias="Festival"/>
 		<typeAlias type="com.app.dto.festival.FestivalImage" alias="FestivalImage"/>

@@ -6,8 +6,8 @@ import lombok.Data;
 public class User {
 
 	private String userId; //   유저 아이디 pk
-    private String username; // 유저 이름
-    private String nickname; // 유저 닉네임
+    private String userName; // 유저 이름
+    private String nickName; // 유저 닉네임
     private String pw;		//  유저 비밀번호
     private String email;	//  유저 이메일 
     private String tel;		// 	유저 전화번호

@@ -33,7 +33,7 @@ public class SignupController {
 		user.setUserType("CUS");
 
 		int result = userService.registerUser(user);
-
+		
 		System.out.println("회원가입 처리 결과 " + result);
 
 		if (result > 0) {

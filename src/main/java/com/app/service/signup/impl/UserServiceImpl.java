@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int registerUser(User user) { // 유저 등록
+		
 		return userDAO.insertUser(user);
 	}
 
