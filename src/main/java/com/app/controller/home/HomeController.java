@@ -24,8 +24,6 @@ public class HomeController {
 	@GetMapping("/") // 홈 화면
 	public String home(Model model) {
 		List<Festival> festivalList = festivalService.findFestivalList();
-		
-		System.out.println(festivalList);
 
 		model.addAttribute("festivalList", festivalList);
 

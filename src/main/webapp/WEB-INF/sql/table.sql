@@ -1,12 +1,13 @@
 create Table users (
   user_id varchar2(32) primary key,
-  user_name varchar2(32) not null,
-  nick_name varchar2(36) not null UNIQUE,
-  pw varchar2(300) not null,
+  username varchar2(32) not null,
+  nickname varchar2(36) not null UNIQUE,
+  pw varchar2(32) not null,
   email varchar2(64) not null UNIQUE,
   tel varchar2(16) not null UNIQUE,
   jumin varchar2(16) not null UNIQUE,
-  user_type varchar2(16) not null
+  user_type varchar2(16) not null,
+  report varchar2(64)
 );
 
 create Table attraction_info (
@@ -59,7 +60,8 @@ create Table posts (
   created_at timestamp DEFAULT systimestamp,
   post_like number default 0,
   post_views number default 0,
-  status number default 0 check (status in (0,1)),
+  status number default 0 check (status in (0,1)),  
+  nick_name varchar2(36) not null,
   report varchar2(12) default 'N' not null,
   nick_name varchar2(36) not null,
   board_id number(3)
@@ -142,8 +144,8 @@ NOCACHE
 NOCYCLE;
 
 create Table festival_rating( 
- authentication_id varchar2(32),
- user_rating number
+  authentication_id varchar2(32),
+  user_rating number
 );
 
 CREATE TABLE festival_likes (
@@ -206,4 +208,12 @@ create table file_info(
 create table user_profile_image(
     id varchar2(32),
     file_name varchar2(256)   
+);
+
+CREATE TABLE user_reports (
+    report_id NUMBER PRIMARY KEY,
+    user_id VARCHAR2(32) NOT NULL,
+    report_reason VARCHAR2(255) NOT NULL,
+    report_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    --FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

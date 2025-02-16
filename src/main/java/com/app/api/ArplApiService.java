@@ -92,7 +92,7 @@ public class ArplApiService {
 		            ai.setAreaNm(convertValueToString(item.get("areaNm")));
 		            ai.setSignguCd(convertValueToString(item.get("signguCd")));
 		            ai.setSignguNm(convertValueToString(item.get("signguNm")));
-		            ai.setHubTatsNm(convertValueToString(item.get("hubtatsnm")));
+		            ai.setHubTatsNm(convertValueToString(item.get("hubTatsNm")));
 		            ai.setHubBsicAdres(convertValueToString(item.get("hubBsicAdres")));
 		            ai.setHubCtgryLclsNm(convertValueToString(item.get("hubCtgryLclsNm")));
 		            ai.setHubCtgryMclsNm(convertValueToString(item.get("hubCtgryMclsNm")));

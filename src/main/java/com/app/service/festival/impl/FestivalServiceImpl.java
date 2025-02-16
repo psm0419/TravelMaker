@@ -16,13 +16,28 @@ public class FestivalServiceImpl implements FestivalService{
 	FestivalDAO festivalDAO;
 	
 	@Override
+	public List<Festival> getFestivalList() {
+		List<Festival> festivalList = festivalDAO.getFestivalList();
+		return festivalList;
+	}
+	
+	@Override
+	public int saveFestival(Festival festival) {
+		int result = festivalDAO.saveFestival(festival);
+		return result;
+	}
+
+	@Override
 	public Festival getFestivalById(int festivalId) {
-		Festival festival = festivalDAO.getFestivalById(festivalId);
-				
+		Festival festival=festivalDAO.getFestivalById(festivalId);
 		return festival;
 	}
 
 	@Override
+	public int removeFestival(int festivalId) {
+		int result = festivalDAO.removeFestival(festivalId);
+		return result;
+	}
 	public List<Festival> findFestivalList() {
 		List<Festival> festivalList	= festivalDAO.findFestivalList();
 				

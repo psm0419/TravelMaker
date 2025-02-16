@@ -42,21 +42,19 @@
 		</div>
 
 		<!-- 오른쪽 메뉴 로그인 했을때 마이페이지 표시 / 안했을때 로그인 회원가입 표시 -->
-		<div class="headerRightMenu">
+		<div class="headerRightMenu login">
 			<!-- 로그인 상태 확인 -->
-			<c:if test="${empty sessionScope.user}">
+			<c:if test="${empty sessionScope.loggedInUser}">
 				<div>로그인/회원가입</div> <!-- 로그인 안 한 상태 -->
 			</c:if>
-			<c:if test="${not empty sessionScope.user}">
+			<c:if test="${not empty sessionScope.loggedInUser}">
 			
-				<c:if test="${sessionScope.user.userType}.equals('CUS')">
+				<c:if test="${sessionScope.loggedInUserType}.equals('CUS')">
 					<div>마이페이지</div> <!-- 로그인 한 상태 -->
 				</c:if>
-				<c:if test="${sessionScope.user.userType}.equals('ADM')">
+				<c:if test="${sessionScope.loggedInUserType}.equals('ADM')">
 					<div>관리자페이지</div> <!-- 로그인 한 상태 -->
 				</c:if>
-				
-				
 			</c:if>
 		</div>
 	</div>
@@ -86,7 +84,7 @@
 	        });
 			 // 축제정보 페이지 이동
 	        $(".festival").click(function() {
-	            window.location.href = "https://www.naver.com/";
+	            window.location.href = "/festivalpage/FestivalPage";
 	        });
 	        // 지역정보 페이지 이동
 	        $(".area").click(function() {
@@ -102,7 +100,7 @@
 	        });
 	     	// 로그인,회원가입 페이지 이동
 	        $(".login").click(function() {
-	            window.location.href = "https://www.naver.com/";
+	            window.location.href = "/user/login";
 	        });
 	     	
 		});

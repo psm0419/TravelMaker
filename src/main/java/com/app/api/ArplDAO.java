@@ -17,8 +17,8 @@ public class ArplDAO {
 		conn = DBConnectionManager.connectDB();
 		int result = 0;
 //		if (attractionInfo.getHubCtgryLclsNm() != null && 
-//		        "관광지".equals(attractionInfo.getHubCtgryLclsNm().trim()) && "숙박".equals(attractionInfo.getHubCtgryLclsNm().trim())){
-//									
+//		        "음식".equals(attractionInfo.getHubCtgryLclsNm().trim())){
+									
 			// 쿼리 준비 괄호는 모든컬럼 넣을때는 생략가능
 			String sqlQuery = "INSERT INTO attraction_info (attraction_id, baseYm, mapX, mapY, areaCd, areaNm, signguCd, signguNm, " +
 	                "hubTatsNm, hubBsicAdres, hubCtgryLclsNm, hubCtgryMclsNm, hubRank) " +

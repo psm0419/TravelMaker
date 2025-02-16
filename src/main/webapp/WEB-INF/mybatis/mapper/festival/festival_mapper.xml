@@ -33,4 +33,23 @@
         WHERE festival_id = #{festivalId}
     </update>
     
+    <insert id="saveFestival" parameterType="Festival">
+		insert into festival (festival_id, festival_name, location, start_date,
+		end_date, entrance_fee, tel, festival_host, homepage_url)
+		values (festival_id_seq.nextval,
+		#{festivalName},
+		#{location},
+		#{startDate},
+		#{endDate},
+		#{entranceFee},
+		#{tel},
+		#{festivalHost},
+		#{homepageUrl})
+	</insert>
+	
+	<delete id="removeFestival" parameterType="int">
+		DELETE FROM festival
+		WHERE festival_id = #{festivalId}
+	</delete>
+    
 </mapper>
