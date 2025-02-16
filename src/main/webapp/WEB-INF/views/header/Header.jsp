@@ -58,11 +58,11 @@
 					</c:when>
 					<c:otherwise>
 						<c:choose>
-							<c:when test="${sessionScope.loggedInUserType == 'CUS'}">
+							<c:when test="${sessionScope.loggedInUser.userType == 'CUS'}">
 								<div>마이페이지</div>
 								<!-- 고객 로그인 -->
 							</c:when>
-							<c:when test="${sessionScope.loggedInUserType == 'ADM'}">
+							<c:when test="${sessionScope.loggedInUser.userType == 'ADM'}">
 								<div>관리자페이지</div>
 								<!-- 관리자 로그인 -->
 							</c:when>
@@ -107,11 +107,16 @@
 
 					// 후기 게시판 페이지 이동
 					$(".reviewBoard").click(function() {
-						window.location.href = "/reviewBoard";
+						window.location.href = "/reviewBoard?param=1";
+					});
+					
+					// 후기 게시판 페이지 이동
+					$(".QnABoard").click(function() {
+						window.location.href = "/QnABoard?param=2";
 					});
 
 					$(".login").off('click').on('click', function() {
-						var userType = "${sessionScope.loggedInUserType}";
+						var userType = "${sessionScope.loggedInUser.userType}";
 						if (userType === "CUS") {
 							window.location.href = "/mypage";
 						} else if (userType === "ADM") {
@@ -133,8 +138,7 @@
 									$.ajaxSetup({
 										cache : false
 									});
-
-									// 로그아웃 후 강제로 브라우저 캐시를 비우고 로그인 페이지로 리다이렉션
+									
 									window.location.replace("/");
 								},
 								error : function(xhr, status, error) {
