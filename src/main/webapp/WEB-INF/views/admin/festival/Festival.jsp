@@ -26,51 +26,59 @@
 					<form action="/admin/festival/ModifyFestival" method="post">
 						<div class="form-group">
 							<label for="festivalName">축제명:</label> <input type="text"
-								id="festivalName" name="festivalName" class="input-field"
-								required>
+								id="festivalName" name="festivalName"
+								value="${festival.festivalName}" class="input-field" required>
 						</div>
 
 						<div class="form-group">
 							<label for="location">장소:</label> <input type="text"
-								id="location" name="location" class="input-field" required>
+								id="location" name="location" value="${festival.location}"
+								class="input-field" required>
 						</div>
 
 						<div class="form-group">
 							<label for="entryFee">입장료:</label> <input type="text"
-								id="entryFee" name="entranceFee" class="input-field" required>
+								id="entryFee" name="entranceFee" value="${festival.entranceFee}"
+								class="input-field" required>
 						</div>
 
 						<div class="form-group">
 							<label for="contact">연락처:</label> <input type="tel" id="contact"
-								name="tel" class="input-field" required>
+								name="tel" value="${festival.tel}" class="input-field" required>
 						</div>
 
 						<div class="form-group">
 							<label for="organizer">개최자:</label> <input type="text"
-								id="organizer" name="festivalHost" class="input-field" required>
+								id="organizer" name="festivalHost"
+								value="${festival.festivalHost}" class="input-field" required>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="URL">홈페이지(URL):</label> <input type="text"
-								id="URL" name="homepageUrl" class="input-field" required>
+							<label for="URL">홈페이지(URL):</label> <input type="text" id="URL"
+								name="homepageUrl" value="${festival.homepageUrl}"
+								class="input-field" required>
 						</div>
 
 						<div class="form-group">
 							<label for="startDate">시작일:</label> <input type="date"
-								id="startDate" name="startDate" class="input-field" required>
+								id="startDate" name="startDate" value="${festival.startDate}"
+								class="input-field" required>
 						</div>
 
 						<div class="form-group">
 							<label for="endDate">마감일:</label> <input type="date" id="endDate"
-								name="endDate" class="input-field" required>
+								name="endDate" value="${festival.endDate}" class="input-field"
+								required>
 						</div>
-
+						<div class="form-group">
+							<label for="content">내용:</label>
+							<textarea value="${festival.content}"></textarea>
+						</div>
 						<button type="submit" class="btn btn-submit">수정</button>
 					</form>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </body>
 </html>

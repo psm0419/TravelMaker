@@ -61,8 +61,26 @@ public class AdminController {
 		return "admin/Users";
 	}
 	
+	@GetMapping("/admin/modifyUser")
+	public String userUpdate(HttpServletRequest request) {
+		String userId = request.getParameter("userId");
+		int userIdInt =Integer.parseInt(userId);
+		User user = userService.getUserById(userId);
+		request.setAttribute("user", user);
+		return "admin/modifyUser";
+	}
+	@PostMapping("/admin/user/update")
+	public String userUpdateAction(User user) {
+		int result = userService.modifyUser(user);
+		if(result >0) {
+			return "redirect:/admin/user";
+		} else {
+			return "redirect:/admin/user/{userId}";
+		}
+	}
+	
 	@PostMapping("/admin/user/{userId}")
-	public String bannedUser() {
+	public String bannedUser() {	
 		return "redirect:/admin/user/{userId}";
 	}
 	
@@ -165,10 +183,10 @@ public class AdminController {
         Map<String, Object> response = new HashMap<>();
         
         try {
-            System.out.println("Received userIds (raw string): " + userIds); // 🔍 원본 데이터 확인
+            System.out.println("Received userIds (raw string): " + userIds); 
             List<String> userIdList = Arrays.asList(userIds.split(",")); 
 
-            // 🔍 변환된 userIdList 확인
+            
             System.out.println("Processed userIdList: " + userIdList);
 
             userService.resetReport(userIdList);
