@@ -41,7 +41,7 @@
 								<td><input type="checkbox" class="postCheckbox"
 									name="postIds[]" value="${post.postId}"></td>
 								<td><a href="/admin/content/questionBoard/${post.postId}">${post.title}</a></td>
-								<td>${post.nickname}(${post.userId})</td>
+								<td>${post.nickName}(${post.userId})</td>
 							</tr>
 						</c:forEach>
 					</table>
