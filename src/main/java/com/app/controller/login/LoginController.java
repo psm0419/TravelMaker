@@ -6,12 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.dto.signup.User;
@@ -59,11 +58,11 @@ public class LoginController {
 		
 	}
 	
-	 @ResponseBody
-	 @PostMapping("user/logout")
-	    public String logout(HttpSession session) {
-	        session.invalidate();
-	        return "로그아웃 되었습니다.";
-	    }
+	 
+	@PostMapping("user/logout")
+	public ResponseEntity<String> logout(HttpSession session) {
+	    session.invalidate();
+	    return ResponseEntity.ok().body("로그아웃 성공");
+	}
 	
 }
