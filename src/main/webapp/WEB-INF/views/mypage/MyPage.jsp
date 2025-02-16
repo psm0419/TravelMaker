@@ -4,39 +4,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지</title>
-    <link rel="stylesheet" href="../css/mypage.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마이페이지</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="../css/mypage.css">
 </head>
 <body>
-    <div>
-        <h1>마이페이지</h1>
-        <div class="mypageContainer">
-            <div class="achievements">
-                <h3>업적 배지</h3>
-                <p>유저명: 홍길동</p>
-                <p>달성 업적: 10개</p>
-            </div>
-            <div class="icons">
-                <div class="icon"><i class="fa-regular fa-heart"></i></div>
-                <div class="icon"><i class="fa-regular fa-pen-nib"></i></div>
-                <div class="icon"><i class="fa-solid fa-chess-rook"></i></div>
-                <div class="icon"><i class="fa-brands fa-quora"></i></div>
-                <div class="icon"><i class="fa-solid fa-star"></i></div>
-                <div class="icon"><i class="fa-solid fa-trophy"></i></div>
-            </div>
-            <div class="calendar">
-                <h3>달력</h3>
-                <p>이곳에 달력이 표시됩니다.</p>
-            </div>
-            <div class="recent-visits">
-                <h3>최근 방문한 축제/관광지</h3>
-                <p>1. 서울 불꽃축제</p>
-                <p>2. 제주 올레길</p>
-                <p>3. 부산 국제영화제</p>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class=mainHeaderContainer>
+			<%@include file="../header/Header.jsp"%>
+			<div class="container">
+				<div class="sidebar">
+					<div class="profile">
+						<h2>사진 들어올곳</h2>
+						<p>
+							반가워요!<br><%=request.getAttribute("nickname")%>
+							님
+						</p>
+						<button
+							style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px;">프로필
+							이미지 설정</button>
+					</div>
+				</div>
+				<div class="main-content">
+					<div class="activities">
+						<h3>나의 활동</h3>
+						<div class="activities-icons">
+							<div class="activity">
+								<a href="mypage/bookmark"><i class="fa-regular fa-bookmark"></i>
+								<p>즐겨찾기</p></a>
+							</div>
+							<div class="activity">
+								<a href="mypage/talk"><i class="fa-solid fa-comments"></i>
+								<p>여행톡</p></a>
+							</div>
+							<div class="activity">
+								<a href="mypage/achievement"><i class="fa-solid fa-paw"></i>
+								<p>업적</p></a>
+							</div>
+							<div class="activity">
+								<a href="mypage/review"><i class="fa-solid fa-map"></i>
+								<p>후기</p></a>
+							</div>
+							<div class="activity">
+								<a href="mypage/correction"><i class="fa-solid fa-pen"></i>
+								<p>관광정보 수정요청</p></a>
+							</div>
+							<div class="activity">
+								<a href="mypage/qna"><i class="fa-solid fa-question"></i>
+								<p>Q&A</p></a>
+							</div>
+						</div>
+					</div>
+					<div class="recent-festivals">
+						<h3>최근 본 축제</h3>
+						<c:forEach var="post" items="${recentFestivals}">
+							<p>${post}</p>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
 </body>
 </html>
+

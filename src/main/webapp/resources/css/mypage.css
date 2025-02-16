@@ -1,66 +1,77 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-        
-        .mypageContainer {
-            width: 500px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            grid-template-rows: auto auto;
-            gap: 10px;
-        }
-        
-        .achievements, .calendar, .recent-visits, .icons {
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-        }
-        
-        .achievements, .icons {
-            background: #4A90E2;
-        }
-        
-        .calendar, .recent-visits {
-            background: #3498db;
-        }
-        
-        .icons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            background: white;
-            border-radius: 5px;
-            color: #4A90E2;
-        }
-        
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f9f9f9;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container {
+	display: flex;
+	gap: 20px;
+	max-width: 800px;
+	width: 100%;
+}
+
+.sidebar {
+	width: 250px;
+	background: #0D47A1;
+	color: white;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+/* .profile {
+	
+} */
+
+
+.main-content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.activities {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.activities-icons {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+	margin-top: 10px;
+}
+
+.activity {
+	text-align: center;
+}
+
+.activity i {
+	font-size: 24px;
+	color: #0D47A1;
+}
+
+.recent-festivals {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
