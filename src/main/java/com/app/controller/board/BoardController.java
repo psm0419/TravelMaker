@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +15,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dto.review.Comment;
 import com.app.dto.review.Post;
 import com.app.dto.review.ReviewImages;
+import com.app.dto.signup.User;
 import com.app.service.file.FileService;
 import com.app.service.review.post.PostService;
 import com.app.service.review.reviewDetail.comment.CommentService;
@@ -91,8 +95,16 @@ public class BoardController {
 	
 
 	@GetMapping("/writeReview")
-	public String writeReview(Model model) {
-		
+	public String writeReview(HttpSession session, Model model) {
+		Object loggedInUserObj = session.getAttribute("loggedInUser");
+
+	    if (loggedInUserObj instanceof User) { // ✅ 안전한 타입 체크
+	        User loggedInUser = (User) loggedInUserObj;
+	        System.out.println("현재 로그인된 사용자: " + loggedInUser.getNickName());
+	        model.addAttribute("loggedInUser", loggedInUser);
+	    } else {
+	        System.out.println("현재 로그인된 사용자가 없습니다.");
+	    }
 		return "boardpage/WriteReview";
 	}
 	

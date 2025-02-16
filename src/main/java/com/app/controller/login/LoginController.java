@@ -40,6 +40,7 @@ public class LoginController {
         
         System.out.println(userId);
         System.out.println(userPw);
+      
         
         User user = userService.getUser(userId);
 
@@ -53,8 +54,10 @@ public class LoginController {
         }
 
         // 로그인 성공 → 세션 저장
-        session.setAttribute("loggedInUser", user.getUserId());
-        session.setAttribute("loggedInUserType", user.getUserType());
+//        session.setAttribute("loggedInUser", user.getUserId());
+//        session.setAttribute("loggedInUserType", user.getUserType());
+//        session.setAttribute("loggedInNickName", user.getNickName());
+          session.setAttribute("loggedInUser", user);
         return "로그인 성공!";
 		
 	}
