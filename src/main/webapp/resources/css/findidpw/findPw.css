@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+
+body {
+	background: linear-gradient(to right, #74ebd5, #acb6e5);
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+/* 폼을 감싸는 컨테이너 스타일 */
+.findPw_container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 28px; /* 글자 크기를 조금 더 크게 설정 */
+    font-weight: 600; /* 더 두꺼운 글씨체 */
+    color: #333; /* 다크 그레이 색상으로 설정 */
+    text-align: center; /* 제목 가운데 정렬 */
+    margin-bottom: 30px; /* 아래 여백을 추가 */
+    letter-spacing: 1px; /* 글자 간격을 살짝 넓혀서 더 깔끔하게 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 현대적인 글꼴 사용 */
+}
+
+/* 아이디, 주민등록번호, 이메일 입력창 스타일 */
+.div_findPw_input_id, .div_findpw_input_pw {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* 입력창 스타일 */
+.findPw_input_id, .findId_input_jumin, .signup_input_email {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 포커스 시 스타일 */
+.findPw_input_id:focus, .findId_input_jumin:focus, .signup_input_email:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* 버튼 스타일 */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 버튼 호버 시 스타일 */
+button:hover {
+    background-color: #2980b9;
+}

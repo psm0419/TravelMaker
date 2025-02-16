@@ -4,14 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기</title>
+<link rel="stylesheet" type="text/css" href="/css/findidpw/findId.css">
 </head>
 <body>
 
 	<form action="/user/findId" method="post" id="findidForm">
-		<h1>아이디 찾기</h1>
+
 
 		<div class="findId_container">
+			<h1>아이디 찾기</h1>
 
 			<div class="dvi_findId_main">
 
