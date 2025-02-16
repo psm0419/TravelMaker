@@ -90,6 +90,13 @@ public class PostDAOImpl implements PostDAO {
 		
 		return result;
 	}
+
+	@Override
+	public String getUrlFilePathByPostId(int postId) {
+		String result = sqlSessionTemplate.selectOne("getUrlFilePathByPostId",postId);
+				
+		return result;
+	}
 	
 	
 

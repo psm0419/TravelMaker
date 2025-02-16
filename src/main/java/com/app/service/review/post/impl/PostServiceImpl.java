@@ -90,5 +90,19 @@ public class PostServiceImpl implements PostService{
 		
 		return result;
 	}
+	
+	@Override
+    public void setImageUrlForPost(Post post) {
+        // 해당 게시글의 이미지 URL을 설정
+        String urlFilePath = postDAO.getUrlFilePathByPostId(post.getPostId());
+        post.setUrlFilePath(urlFilePath);  // Post 객체의 urlFilePath 필드에 이미지 URL 할당
+    }
+
+	@Override
+	public String getUrlFilePathByPostId(int postId) {
+		String result = postDAO.getUrlFilePathByPostId(postId);
+		
+		return result;
+	}
 
 }

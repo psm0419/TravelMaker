@@ -8,7 +8,7 @@ public class Posts {
 	  String title;
 	  String content;
 	  int userId;
-	  String nickname;
+	  String nickName;
 	  int boardId;
 	  String createdAt;
 	  int postLike;

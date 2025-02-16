@@ -50,6 +50,15 @@ public class BoardController {
 	public String reviewBoard(@RequestParam("param") int boardId, Model model) {
 		List<Post> reviewPostList = postService.findPostListByBoardId(boardId); // 게시글리스트 전체호출
 
+//		for (Post post : reviewPostList) {
+//	        String urlFilePath = postService.getUrlFilePathByPostId(post.getPostId()); // 이미지 URL 가져오기
+//	        post.setUrlFilePath(urlFilePath); // 이미지 URL 설정
+//	    }
+		
+		for (Post post : reviewPostList) {
+	        postService.setImageUrlForPost(post);  // 각 포스트에 이미지 URL을 설정
+	    }
+		
 		System.out.println("후기 리스트:" + reviewPostList);
 
 		model.addAttribute("reviewPostList", reviewPostList); // 화면에 표시
@@ -131,6 +140,7 @@ public class BoardController {
 		        post.setTitle(title);
 		        post.setContent(content);
 		        
+		        
 		        postService.savePost(post); // postId 자동 저장됨
 		        int postId = postService.getLastPostId();
 		        
@@ -160,6 +170,8 @@ public class BoardController {
 
 		            // 이미지 정보 DB 저장
 		            postService.saveReviewImage(reviewImages); // images 테이블에 저장
+		            
+		            post.setUrlFilePath(urlFilePath);  //이미지 urlfilepath 따온 후 post객체에 저장
 		        }
 		    } catch (Exception e) {
 		        e.printStackTrace();

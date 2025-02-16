@@ -28,4 +28,8 @@ public interface PostService {
 	ReviewImages findReviewImagesByPostId(int postId);
 	
 	List<Post> findPostListByBoardId(int boardId);
+	
+	String getUrlFilePathByPostId(int postId);
+
+	void setImageUrlForPost(Post post);
 }
