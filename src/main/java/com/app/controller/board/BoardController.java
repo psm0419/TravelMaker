@@ -107,6 +107,16 @@ public class BoardController {
 		return "redirect:/reviewDetail/" + postId;
 	}
 	
+	@PostMapping("/reviewDetail/{postId}/comment/delete")
+	public String deleteReviewDetailComment(@PathVariable("postId") int postId,
+											@RequestParam("commentId") int commentId ) {
+		int result = commentService.deleteReviewDetailCommentByPostIdAndCommentId(postId, commentId);
+		System.out.println(postId);
+		System.out.println(commentId);
+		System.out.println(result);
+		return "redirect:/reviewDetail/" + postId;
+	}
+	
 
 	@GetMapping("/writeReview")
 	public String writeReview(HttpSession session, Model model) {

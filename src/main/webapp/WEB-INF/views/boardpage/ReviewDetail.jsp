@@ -73,15 +73,25 @@
 		<!-- 댓글 -->
 		<h5>댓글</h5>
 		<c:forEach var="comment" items="${commentList}">
-			<div class="mb-2">
+			<div class="mb-2 d-flex align-items-center">
 				<strong style="color: gray">
 					${comment.nickName}
 				</strong>
 				<small class="text-muted">
 					<fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" />
 				</small>
-				<p>${comment.content}</p>
+				
+				<c:if test="${not empty sessionScope.loggedInUser and sessionScope.loggedInUser.userId eq comment.userId}">
+	            	<form action="${pageContext.request.contextPath}/reviewDetail/${postList.postId}/comment/delete" method="post" style="display: inline; margin-left: 8px;">
+		                <input type="hidden" name="commentId" value="${comment.commentId}">
+		                <button type="submit" class="btn btn-sm text-danger p-0 d-flex align-items-center justify-content-center"
+		                    style="border: 1px solid red; border-radius: 3px; width: 35px; height: 20px; line-height: 1; background: white;">
+		                    삭제
+		                </button>
+		            </form>
+		        </c:if>
 			</div>
+			<p>${comment.content}</p>
 		</c:forEach>
 
 		<!-- 댓글 입력 -->

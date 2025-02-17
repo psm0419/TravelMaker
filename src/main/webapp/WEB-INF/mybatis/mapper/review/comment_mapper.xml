@@ -18,6 +18,11 @@
 	    VALUES (comments_id_seq.NEXTVAL, #{content}, #{postId}, #{userId}, SYSDATE, #{nickName})
 	</insert>
 	
+	<delete id="deleteReviewDetailCommentByPostIdAndCommentId" parameterType="map">
+	    DELETE FROM comments
+	    WHERE post_id = #{postId} AND comments_id = #{commentId}
+	</delete>
+	
 	<insert id="saveQnADetailCommentByPostId" parameterType="map">
 	    INSERT INTO COMMENTS (comments_id, content, post_id, user_id, created_at, nick_name)
 	    VALUES (comments_id_seq.NEXTVAL, #{content}, #{postId}, #{userId}, SYSDATE, #{nickName})
