@@ -23,6 +23,20 @@
 	margin-bottom: 50px;
 }
 
+.contentBox {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+}
+
+.contentBox img{
+	 width: auto;
+	 height: auto;
+	 margin: auto;
+	 display: block;
+}
+
 .content-box {
 	border-bottom: 1px solid #ddd;
 	padding-bottom: 15px;
@@ -41,6 +55,8 @@
 .like-button.active {
 	color: red;
 }
+
+
 </style>
 </head>
 <body>
@@ -56,13 +72,16 @@
 					value="${postList.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
 				class="ms-3 text-muted">조회수 ${postList.postViews}</span>
 		</div>
-		<c:if test="${reviewImages.urlFilePath != null}">
-			<div style="width: 300px; height: 300px;">
-				<img src="${reviewImages.urlFilePath}" alt="usersReviewImage" style="width: 500px; height: 300px; margin-left: 150px;">
-			</div>
-		</c:if>
-		<div class="mb-4">${postList.content}</div>
-
+		
+		<div class = "contentBox">
+			<c:if test="${reviewImages.urlFilePath != null}">
+				<div class = "contentImgBox">
+					<img src="${reviewImages.urlFilePath}" alt="usersReviewImage">
+				</div>
+			</c:if>
+			<div class="mb-4">${postList.content}</div>
+		</div>
+		
 		<button id="likeBtn" class="btn btn-outline-danger">
 			<i class="like-button ${postList.postLike}">&#x2665;</i>
 			${postList.postLike}

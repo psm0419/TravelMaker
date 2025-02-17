@@ -70,23 +70,33 @@
 		<!-- 댓글 -->
 		<h5>댓글</h5>
 		<c:forEach var="comment" items="${commentList}">
-			<div class="mb-2">
+			<div class="mb-2 d-flex align-items-center">
 				<strong style="color: gray">
 					${comment.nickName}
 				</strong>
 				<small class="text-muted">
 					<fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" />
 				</small>
-				<p>${comment.content}</p>
+				
+				<c:if test="${not empty sessionScope.loggedInUser and sessionScope.loggedInUser.userId eq comment.userId}">
+	            	<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/comment/delete" method="post" style="display: inline; margin-left: 8px;">
+		                <input type="hidden" name="commentId" value="${comment.commentId}">
+		                <button type="submit" class="btn btn-sm text-danger p-0 d-flex align-items-center justify-content-center"
+		                    style="border: 1px solid red; border-radius: 3px; width: 35px; height: 20px; line-height: 1; background: white;">
+		                    삭제
+		                </button>
+		            </form>
+		        </c:if>
 			</div>
+			<p>${comment.content}</p>
 		</c:forEach>
 
 		<!-- 댓글 입력 -->
 		<c:if test="${not empty sessionScope.loggedInUser}">
 			<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/comment" method="post">
 				<!-- 필요시 인풋 히든으로 유저닉 등 필요한정보 넘기기 -->
-				<input type="hidden" name="userId" value="현재로그인한아이디">
-				<input type="hidden" name="nickName" value="현재로그인한닉네임">
+				<input type="hidden" name="userId" value="${sessionScope.loggedInUser.userId}">
+				<input type="hidden" name="nickName" value="${sessionScope.loggedInUser.nickName}">
 				<textarea name="content" class="form-control mb-2"
 					placeholder="댓글을 입력해주세요." required></textarea>
 				<button type="submit" class="btn btn-primary">등록</button>

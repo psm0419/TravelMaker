@@ -94,7 +94,7 @@ NOCACHE
 NOCYCLE;
 
 create Table comments (
-  comments_id number primary key,
+  comment_id number primary key,
   content varchar2(3000),
   post_id number,
   user_id varchar2(32),
