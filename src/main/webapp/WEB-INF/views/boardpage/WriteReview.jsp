@@ -72,15 +72,8 @@ button:hover {
 		<!-- 작성자 정보 -->
 		<div class="content-box">
 			<img src="/images/TravelMakerLogo.jpg" alt="작성자 이미지">
-			<span>작성자: 
-				<c:choose>
-		            <c:when test="${not empty sessionScope.loggedInUser}">
-		                ${sessionScope.loggedInUser.nickName}
-		            </c:when>
-		            <c:otherwise>
-		                익명
-		            </c:otherwise>
-	       	 	</c:choose>
+			<span>작성자:
+				${sessionScope.loggedInUser.nickName}
 			</span>
 			<span class="ms-3 text-muted"> 현재시간: <fmt:formatDate
 					value="<%=new java.util.Date()%>" pattern="yyyy-MM-dd HH:mm" />
@@ -88,23 +81,43 @@ button:hover {
 		</div>
 
 		<!-- 게시글 작성 폼 -->
-		<form action="/saveWriteReview" method="post"
-			enctype="multipart/form-data">
-			<input type="hidden" name="param" value="1">
-			<input type="hidden" name="userId" value="${sessionScope.loggedInUser.userId}">
-			<input type="hidden" name="nickName" value="${sessionScope.loggedInUser.nickName}">
-			<label for="title">제목</label>
-			<input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
-			<label for="content">내용</label>
-			<textarea id="content" name="content" rows="5" required
-				placeholder="내용을 입력하세요"></textarea>
-
-			<label for="reviewImage">사진 업로드</label>
-			<input type="file" id="reviewImage" name="reviewImage">
-
-			<button type="submit">게시글 등록</button>
+		<form action="/saveWriteReview" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit()">
+		    <input type="hidden" name="boardId" value="1">
+		    <c:choose>
+		        <c:when test="${not empty sessionScope.loggedInUser}">
+		            <input type="hidden" name="userId" value="${sessionScope.loggedInUser.userId}">
+		            <input type="hidden" name="nickName" value="${sessionScope.loggedInUser.nickName}">
+		        </c:when>
+		    </c:choose>
+		
+		    <label for="title">제목</label>
+		    <input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
+		    
+		    <label for="content">내용</label>
+		    <textarea id="content" name="content" rows="5" required placeholder="내용을 입력하세요"></textarea>
+		
+		    <label for="reviewImage">사진 업로드</label>
+		    <input type="file" id="reviewImage" name="reviewImage">
+		
+		    <button type="submit">게시글 등록</button>
 		</form>
 	</div>
+
+
+
+<script>
+	function checkSubmit() {
+	    var isLoggedIn = ${not empty sessionScope.loggedInUser ? 'true' : 'false'};
+	    
+	    if (!isLoggedIn) {
+	        if (confirm("로그인 후 작성 가능합니다. 로그인 하시겠습니까?")) {
+	            window.location.href = "/user/login"; // 로그인 페이지로 이동
+	        }
+	        return false; // 폼 제출 방지
+	    }
+	    return true; // 로그인 상태면 폼 제출 허용
+	}
+</script>
 
 </body>
 </html>

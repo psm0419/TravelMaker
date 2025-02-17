@@ -57,6 +57,16 @@ public class CommentDAOImpl implements CommentDAO {
 		return result;
 	}
 
+	@Override
+	public int deleteReviewDetailCommentByPostIdAndCommentId(int postId, int commentId) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("postId", postId);
+		params.put("commentId", commentId);
+		int result = sqlSessionTemplate.delete("comment_mapper.deleteReviewDetailCommentByPostIdAndCommentId", params);
+		
+		return result;
+	}
+
 
 	
 	

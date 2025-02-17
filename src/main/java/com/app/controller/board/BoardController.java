@@ -47,8 +47,8 @@ public class BoardController {
 	
 
 	@GetMapping("/reviewBoard") // 후기게시판 화면
-	public String reviewBoard(@RequestParam("param") int boardId, Model model) {
-		List<Post> reviewPostList = postService.findPostListByBoardId(boardId); // 게시글리스트 전체호출
+	public String reviewBoard(@RequestParam("boardId") int boardId, Model model) {
+		List<Post> reviewPostList = postService.findPostListByBoardId(boardId); // boardId가 1인 후기게시글리스트 전체호출
 
 //		for (Post post : reviewPostList) {
 //	        String urlFilePath = postService.getUrlFilePathByPostId(post.getPostId()); // 이미지 URL 가져오기
@@ -107,6 +107,16 @@ public class BoardController {
 		return "redirect:/reviewDetail/" + postId;
 	}
 	
+	@PostMapping("/reviewDetail/{postId}/comment/delete")
+	public String deleteReviewDetailComment(@PathVariable("postId") int postId,
+											@RequestParam("commentId") int commentId ) {
+		int result = commentService.deleteReviewDetailCommentByPostIdAndCommentId(postId, commentId);
+		System.out.println(postId);
+		System.out.println(commentId);
+		System.out.println(result);
+		return "redirect:/reviewDetail/" + postId;
+	}
+	
 
 	@GetMapping("/writeReview")
 	public String writeReview(HttpSession session, Model model) {
@@ -124,7 +134,7 @@ public class BoardController {
 	
 
 	@PostMapping("/saveWriteReview")
-	public String saveWriteReview(	@RequestParam("param") int boardId,	
+	public String saveWriteReview(	@RequestParam("boardId") int boardId,	
 									@RequestParam("userId") String userId,
 									@RequestParam("nickName") String nickName,
 									@RequestParam("title") String title,
@@ -177,14 +187,14 @@ public class BoardController {
 		        e.printStackTrace();
 		    }
 
-	    return "redirect:/reviewBoard?param=1";
+	    return "redirect:/reviewBoard?boardId=1";
 	}
 	
 	
 	
 	@GetMapping("/QnABoard") // 질문게시판 화면
-	public String QnABoard(@RequestParam("param") int boardId, Model model) {
-		List<Post> QnAPostList = postService.findPostListByBoardId(boardId); // 게시글리스트 전체호출
+	public String QnABoard(@RequestParam("boardId") int boardId, Model model) {
+		List<Post> QnAPostList = postService.findPostListByBoardId(boardId); // boardId가 2인 질문게시글리스트 전체호출
 		
 		System.out.println("질문글 리스트:" + QnAPostList);
 
@@ -209,12 +219,12 @@ public class BoardController {
 	}
 	
 	@PostMapping("/saveWriteQnA")
-	public String saveWriteQnA(		@RequestParam("param") int boardId,	
+	public String saveWriteQnA(		@RequestParam("boardId") int boardId,	
 									@RequestParam("userId") String userId,
 									@RequestParam("nickName") String nickName,
 									@RequestParam("title") String title,
-									@RequestParam("content") String content,
-									@RequestParam(value = "reviewImage", required = false) MultipartFile reviewImage) {
+									@RequestParam("content") String content
+									) {
 		System.out.println("게시글유형(1:후기 2:질문) : " + boardId);
 		Post post = new Post();
         post.setBoardId(boardId);
@@ -225,7 +235,7 @@ public class BoardController {
         
         postService.savePost(post);
 
-	    return "redirect:/QnABoard?param=2";
+	    return "redirect:/QnABoard?boardId=2";
 	}
 	
 	@GetMapping("/QnADetail/{postId}") // 후기게시판 후기글 페이지
@@ -235,13 +245,13 @@ public class BoardController {
 		
 		Post post = postService.findPostByPostId(postId); // postId에맞는 post객체 호출
 		
-		model.addAttribute("postList", post); // 호출된 post 표시
+		model.addAttribute("post", post); // 호출된 post 표시
 		
 		List<Comment> commentList = commentService.findCommentListByPostId(postId); //postId에맞는 comment들 호출
 		
 		model.addAttribute("commentList", commentList); //comment들 표시
 		
-		return "boardpage/QnADetail"; // JSP 파일명
+		return "boardpage/QnADetail";
 	}
 
 	
@@ -249,7 +259,13 @@ public class BoardController {
 	public String saveQnADetailComment(@PathVariable("postId") int postId,
 											@RequestParam("content") String content,
 											 @RequestParam("nickName") String nickName,
-											 @RequestParam("userId") String userId) {
+											 @RequestParam("userId") String userId,
+											 @SessionAttribute(name = "loggedInUser", required = false) User loggedInUser) {
+		
+		if (loggedInUser == null) {
+	        // 로그인되지 않으면 로그인 페이지로 리다이렉트
+	        return "redirect:/user/login";
+	    }
 		
 		int result = commentService.saveQnADetailCommentByPostId(postId, content, nickName, userId);
 

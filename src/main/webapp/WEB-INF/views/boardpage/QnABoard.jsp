@@ -127,7 +127,12 @@
 			<h1>질문 게시판</h1>
 		</div>
 		<div class = "goWriteQnAContainer">
-			<div class="goWriteQnA" onclick="location.href='/writeQnA?param=2'">질문 작성하기</div>
+			<c:if test="${not empty sessionScope.loggedInUser}">
+				<div class="goWriteQnA" onclick="goWriteQnA()">후기 작성하기</div>
+			</c:if>
+			<c:if test="${empty sessionScope.loggedInUser}">
+				<div class="goWriteQnA" onclick="checkLogin()">후기 작성하기</div>
+			</c:if>
 		</div>
 		
 		<div class="QnABoardListBox">
@@ -149,5 +154,20 @@
 	
 	<%@ include file="../footer/Footer.jsp"%>
 
+
+<script>
+
+	//로그인 유무에 따른 질문작성이동
+	function goWriteQnA() {
+	    window.location.href = "/writeQnA?param=2"; // 후기 작성 페이지로 이동
+	}
+	
+	function checkLogin() {
+	    if (confirm("로그인 후 작성 가능합니다. 로그인 하시겠습니까?")) {
+	        window.location.href = "/user/login"; // 로그인 페이지로 이동
+	    }
+	}
+
+</script>
 </body>
 </html>

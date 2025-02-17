@@ -13,4 +13,7 @@ public interface CommentDAO {
 	int saveReviewDetailCommentByPostId(int postId, String comment, String nickName, String userId);
 
 	int saveQnADetailCommentByPostId(int postId, String comment, String nickName, String userId);
+
+	int deleteReviewDetailCommentByPostIdAndCommentId(int postId, int commentId);
+	
 }
