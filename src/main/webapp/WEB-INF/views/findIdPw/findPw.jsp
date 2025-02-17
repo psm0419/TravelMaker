@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기</title>
+<link rel="stylesheet" type="text/css" href="/css/findidpw/findPw.css">
 </head>
 <body>
 
 	<form action="/user/findPw" method="post" id="findpwForm">
 
 		<div class="findPw_container">
-
+			<h1>비밀번호 찾기</h1>
 			<!-- 비밀번호 찾기 아이디 입력창 -->
 			<div class="div_findPw_input_id">
 				<input type="text" class="findPw_input_id" value=""
@@ -32,6 +33,7 @@
 					placeholder="ex.abcd@abc.com" id="findPw_email" name="email">
 				<br>
 			</div>
+			<br>
 
 			<button type="submit">비밀번호 찾기</button>
 

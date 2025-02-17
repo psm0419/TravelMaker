@@ -42,59 +42,96 @@
 			<div class="div_signup_main">
 				<!-- 아이디 입력창 -->
 				<div class="div_signup_input_id">
-					<input type="text" class="signup_input_id" value=""	placeholder="아이디" maxlength="20" autocapitalize="off" id="signup_id" name="userId">
-					</div> 
-					
+					<input type="text" class="signup_input_id" value=""
+						placeholder="아이디" maxlength="20" autocapitalize="off"
+						id="signup_id" name="userId"> <br>
+					<p id="userIdCheckResult"></p>
+				</div>
+
 				<!-- 비밀번호 입력창 -->
 				<div class="div_signup_input_pw">
-					<input type="password" class="signup_input_pw" value="" placeholder="비밀번호" maxlength="20" id="signup_pw" name="pw">
+					<input type="password" class="signup_input_pw" value=""
+						placeholder="비밀번호" maxlength="20" id="signup_pw" name="pw">
+					<br>
+					<p id="pwMsg"></p>
+				</div>
+
+				<!-- 비밀번호 확인 입력창 -->
+				<div class="div_signup_input_pw_check">
+					<input type="password" class="signup_input_pw_check" value=""
+						placeholder="비밀번호 확인" maxlength="20" id="signup_pw_check"
+						name="pw_check"> <br>
+					<p id="pwCheckMsg"></p>
 				</div>
 
 				<!-- 닉네임 입력창 -->
 				<div class="div_signup_input_nickname">
-					<input type="text" class="signup_input_nickname" placeholder="닉네임" name="nickName" id="signup_nickname">
+					<input type="text" class="signup_input_nickname" placeholder="닉네임"
+						name="nickName" id="signup_nickname"> <br>
+					<p id="userNickNameCheckResult"></p>
 				</div>
 			</div>
-			<p id="userIdCheckResult"></p>
-			<p id="pwMsg"></p>
-			<p id="userNickNameCheckResult"></p>
 
 			<!-- 이름 전화번호 이메일 입력창 -->
 			<div class="div_signup_sup">
 
 				<!-- 이름 입력창 -->
 				<div class="div_signup_input_name">
-					<input type="text" class="signup_input_name" placeholder="이름을 입력해주세요" name="userName">
+					<input type="text" class="signup_input_name"
+						placeholder="이름을 입력해주세요" name="userName"> <br>
 				</div>
 
 				<!-- 주민등록번호 입력창 -->
 				<div class="div_signup_input_jumin">
-					<input type="text" class="signup_input_jumin" placeholder="주민등록번호를 입력해주세요 (- 제외)" name="jumin" id="signup_jumin">
+					<input type="text" class="signup_input_jumin"
+						placeholder="주민등록번호를 입력해주세요 (- 제외)" name="jumin" id="signup_jumin">
+					<br>
+					<p id="userJuminCheckResult"></p>
 				</div>
 
 				<!-- 휴대폰 번호 입력창 -->
 				<div class="div_signup_input_tel">
-					<input type="tel" class="signup_input_tel"	placeholder="ex.01012341234" name="tel" id="signup_tel">
+					<input type="tel" class="signup_input_tel"
+						placeholder="ex.01012341234" name="tel" id="signup_tel">
 					<button type="button" class="btn_signup_input_tel_certifiel">인증하기</button>
+					<br>
+					<p id="userTelCheckResult"></p>
 				</div>
 
 
 				<!-- 이메일 입력창 -->
 				<div class="div_signup_input_email">
-					<input type="email" class="signup_input_email"	placeholder="ex.abcd@abc.com" id="sign_email" name="email">
+					<input type="email" class="signup_input_email"
+						placeholder="ex.abcd@abc.com" id="sign_email" name="email">
 
 					<!-- 이메일 인증하기 버튼 -->
-					<button type="button" class="btn_signup_input_email_certifiel" id="emailapprove">인증하기</button>
+					<button type="button" class="btn_signup_input_email_certifiel"
+						id="emailapprove">인증하기</button>
+					<p id="useremailapproveResult"></p>
+					<p id="userEmailCheckResult"></p>
+					
+					
+					<div class="signup_code" id="signup_code_container">
+						<!-- 인증 코드 입력 form 태그 안에 있을 시 새로고침이 되므로 빼어놓음 -->
+						<div id="verificationSection"
+							class="${showVerificationSection ? '' : 'hidden'}">
+							<input type="text" id="verification_code" name="code"
+								placeholder="인증 코드 입력" required>
+							<button type="button" onclick="verifyEmail()">인증 확인</button>
+							<!-- 			인증코드 유효성 메세지 -->
+							<p id="codeMsg"></p>
+							<!-- 인증 결과 표시 -->
+							<p id="verificationResult"
+								class="${success ? 'success' : 'error'}">${verificationMessage}</p>
+						</div>
+					</div>
 				</div>
-				
-				<p id="useremailapproveResult"></p>
-				<p id="userJuminCheckResult"></p>
-				<p id="userTelCheckResult"></p>
-				<p id="userEmailCheckResult"></p>
+
 
 				<div>약관 동의 공간 클래스 지정 해야함</div>
-				<br> <input type="checkbox" id="termsAgreement">동의 <br>
-				<br>
+				<!-- 약관 동의 버튼 처음 비활성화 -->
+				<br> <input type="checkbox" id="termsAgreement" disabled>동의
+				<br> <br>
 
 				<button type="button" id="cancelBtn">
 					<a href="login">취소</a>
@@ -105,23 +142,6 @@
 			</div>
 		</div>
 	</form>
-
-
-
-
-	<div class="signup_container">
-		<!-- 인증 코드 입력 form 태그 안에 있을 시 새로고침이 되므로 빼어놓음 -->
-		<div id="verificationSection"
-			class="${showVerificationSection ? '' : 'hidden'}">
-			<input type="text" id="verification_code" name="code"
-				placeholder="인증 코드 입력" required>
-			<button type="button" onclick="verifyEmail()">인증 확인</button>
-			<!-- 			인증코드 유효성 메세지 -->
-			<p id="codeMsg"></p>
-			<!-- 인증 결과 표시 -->
-			<p id="verificationResult" class="${success ? 'success' : 'error'}">${verificationMessage}</p>
-		</div>
-	</div>
 
 
 
@@ -165,7 +185,7 @@
      // 인증 코드 입력 칸 활성화
         document.getElementById("verificationSection").classList.remove("hidden");
         document.getElementById("emailapprove").disabled = true; // 인증 후 이메일 수정 불가
-        
+        document.getElementById("verificationSection").style.display = "block"; // 인증 코드 입력창 표시
     })
     .catch(error => {
         console.error("Error:", error);
@@ -206,6 +226,7 @@
 	            resultMessage.textContent = "✅ 인증되었습니다!";
 	            resultMessage.className = "success";
 	            emailVreifile = true; //인증 활성화
+	            document.getElementById("termsAgreement").disabled = false;
 	        } else {
 	            resultMessage.textContent = "❌ " + data;
 	            resultMessage.className = "error";
@@ -316,7 +337,7 @@
 				console.log(result);
 				
 				if(!nickRegex.test(NickInput)){
-					span_checkDupNicknameMsg.textContent = '닉네임은 2~10자의 한글, 영문, 숫자로 입력해야 합니다.';
+					span_checkDupNicknameMsg.textContent = '닉네임은 2~10자로 한글, 영문, 숫자로 입력하세요.';
 					span_checkDupNicknameMsg.style.color = 'red';
 				}else {
 					
@@ -422,7 +443,7 @@
 			console.log(result);
 			
 			if(!telRegex.test(TelInput)){
-				span_checkDupTelMsg.textContent = '전화번호는 010으로 시작하는 11자리 숫자여야 합니다.';
+				span_checkDupTelMsg.textContent = '전화번호는 010으로 시작하는 11자리 숫자 입니다.';
 				span_checkDupTelMsg.style.color = 'red';
 			}else {
 				
@@ -520,7 +541,7 @@
             pwMsg.style.display = "block"; // 입력 중이면 메시지 표시
 
             if (!pwRegex.test(pw)) {
-                pwMsg.textContent = "비밀번호는 8~20자, 숫자 + 특수문자 포함해야 합니다.";
+                pwMsg.textContent = "비밀번호는 8~20자 문자+숫자+특수문자 입니다.";
                 pwMsg.style.color = "red";
                 isValid = false;
             } else {
@@ -531,6 +552,43 @@
         }
     });
 });
+	   
+	   
+//// 비밀번호 확인 유효성 검사
+ document.addEventListener("DOMContentLoaded", function () {
+	 
+	 let Signup_pwInput = document.getElementById("signup_pw"); // 비밀번호 입력창
+	 let pwCheckInput = document.getElementById("signup_pw_check"); // 비밀번호 확인 입력창
+	 let pwCheckMsg = document.getElementById("pwCheckMsg"); // 비밀번호 확인 메시지창
+
+    let pwCheckRegex = /^(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,20}$/; 
+    // 최소 8자리 이상, 숫자 및 특수문자가 각각 1개 이상
+
+    pwCheckInput.addEventListener("input", function () {
+    	
+        let pwCheck = pwCheckInput.value.trim(); // 입력값 가져오기
+        let password = Signup_pwInput.value.trim();
+        
+        if (pwCheck === "") { // 입력값이 없으면 메시지 숨김
+        	pwCheckMsg.textContent = "";
+        	pwCheckMsg.style.display = "none";
+        } else {
+        	pwCheckMsg.style.display = "block"; // 입력 중이면 메시지 표시
+
+            if (pwCheck !== password) {
+            	pwCheckMsg.textContent = "비밀번호가 일치하지 않습니다..";
+            	pwCheckMsg.style.color = "red";
+            	emailVerified = false;
+            } else {
+            	pwCheckMsg.textContent = "비밀번호가 일치합니다.";
+            	pwCheckMsg.style.color = "green";
+            	emailVerified = true;
+            }
+        }
+    });
+});
+	   
+	   
 	   
 	   
 	// 인증 코드 유효성 검사 (6자리 숫자)
@@ -550,7 +608,6 @@
          	codeMsg.textContent = "인증코드는 숫자 6자리 입니다.";
          	codeMsg.style.color = "red";
          	emailVerified = false;
-         	
          } else {
          	codeMsg.style.display = "none";
          	emailVerified = true;
@@ -561,7 +618,11 @@
 	//약관 동의 체크
  	termsCheckbox.addEventListener("change", function () {
      termsChecked = termsCheckbox.checked;
-     checkFormValidity();
+     if(termsChecked){
+    	 checkFormValidity();
+     } else{
+    	 !termsCheckbox.checked;
+     }
  });
 	
 	//전부 체크 했을 시에 확인버튼 활성화

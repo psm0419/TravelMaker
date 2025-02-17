@@ -17,7 +17,7 @@
 				<li><a href="/admin/content">콘텐츠 관리</a></li>
 				<li><a href="/admin/festival">축제 정보 관리</a></li>
 				<li><a href="/admin/notify">신고 관리</a></li>
-				<li><a href="/admin/option">설정</a></li>
+
 			</ul>
 		</div>
 
@@ -52,6 +52,11 @@
 							<label for="organizer">개최자:</label> <input type="text"
 								id="organizer" name="festivalHost" class="input-field" required>
 						</div>
+						
+						<div class="form-group">
+							<label for="URL">홈페이지(URL):</label> <input type="text"
+								id="URL" name="homepageUrl" class="input-field" required>
+						</div>
 
 						<div class="form-group">
 							<label for="startDate">시작일:</label> <input type="date"
@@ -61,6 +66,10 @@
 						<div class="form-group">
 							<label for="endDate">마감일:</label> <input type="date" id="endDate"
 								name="endDate" class="input-field" required>
+						</div>
+						
+						<div class="form-group">
+							<label for="content">내용:</label><textarea></textarea>
 						</div>
 
 						<button type="submit" class="btn btn-submit">등록</button>

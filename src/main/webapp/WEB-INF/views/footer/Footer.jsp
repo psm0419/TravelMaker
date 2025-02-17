@@ -14,7 +14,7 @@
 
 .tempFooter {
 	width: 100%;
-    height: 250px;
+    height: 200px;
     background-color: lightblue;
     display: flex;
     justify-content: center;

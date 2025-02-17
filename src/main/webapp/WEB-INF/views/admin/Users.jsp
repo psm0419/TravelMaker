@@ -16,7 +16,6 @@
                 <li><a href="/admin/content">콘텐츠 관리</a></li>
                 <li><a href="/admin/festival">축제 정보 관리</a></li>
                 <li><a href="/admin/notify">신고 관리</a></li>
-                <li><a href="/admin/option">설정</a></li>
             </ul>
         </div>
         <div class="main-content user-detail">
@@ -55,8 +54,8 @@
                 </div>
 
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-save" style="display: none;" id="saveBtn">저장</button>
-                    <a href="/admin/user" class="btn btn-back">목록으로</a>
+                    <button type="submit" class="btn btn-admin" style="display: none;" id="saveBtn">저장</button>
+                    <a href="/admin/user" class="btn btn-admin">목록으로</a>
                 </div>
             </form>
         </div>

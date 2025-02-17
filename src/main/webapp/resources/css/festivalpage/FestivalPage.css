@@ -20,10 +20,20 @@
 }
 
 .search_btn {
-	padding: 10px;
-	font-size: 16px;
-	margin-right: 100px;
-	border-radius: 6px;
+	background: #007BFF;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-right: 100px;
+}
+
+.search_btn button:hover {
+    background: #0056b3;
 }
 .select_box {
 	width: 200px;
