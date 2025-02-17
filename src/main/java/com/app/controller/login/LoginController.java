@@ -57,6 +57,7 @@ public class LoginController {
 //        session.setAttribute("loggedInUserType", user.getUserType());
 //        session.setAttribute("loggedInNickName", user.getNickName());
           session.setAttribute("loggedInUser", user);
+          System.out.println(session.getAttribute("loggedInUser")); //디버깅용
         return "로그인 성공!";
 		
 	}

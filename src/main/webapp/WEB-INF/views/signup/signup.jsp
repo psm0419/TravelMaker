@@ -637,5 +637,10 @@
  document.querySelector(".headerLogo").addEventListener("click", function () {
 	    window.location.href = "/"; // 홈 페이지로 이동
 	});
+	
+//휴대폰 인증
+ document.querySelector(".btn_signup_input_tel_certifiel").addEventListener("click", function () {
+	 alert("휴대폰 인증 추후 예정 입니다.");
+	});
 </script>
 </html>
