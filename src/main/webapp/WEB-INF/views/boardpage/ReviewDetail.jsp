@@ -47,15 +47,6 @@
 	font-size: 12px;
 }
 
-.like-button {
-	cursor: pointer;
-	color: gray;
-}
-
-.like-button.active {
-	color: red;
-}
-
 
 </style>
 </head>
@@ -81,11 +72,6 @@
 			</c:if>
 			<div class="mb-4">${postList.content}</div>
 		</div>
-		
-		<button id="likeBtn" class="btn btn-outline-danger">
-			<i class="like-button ${postList.postLike}">&#x2665;</i>
-			${postList.postLike}
-		</button>
 
 		<hr>
 
@@ -139,14 +125,6 @@
 	<%@ include file="../footer/Footer.jsp"%>
 
 <script>
-    document.getElementById('likeBtn').addEventListener('click', function() { //좋아요 버튼
-        fetch('${pageContext.request.contextPath}/reviews/${postList.userId}/like', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                document.querySelector('.like-button').classList.toggle('active');
-                document.getElementById('likeBtn').innerHTML = `<i class="like-button ${data.liked ? 'active' : ''}">&#x2665;</i> ${data.likes}`;
-            });
-    });
     
     function handleCommentSubmit(event) { //로그인 안했을때 로그인페이지로 이동?
         event.preventDefault();  // 기본 폼 제출 동작을 막음
