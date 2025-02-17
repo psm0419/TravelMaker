@@ -104,7 +104,7 @@
 		</c:if>
 
 		<hr>
-		<a href="/reviewBoard" class="btn btn-secondary">목록</a>
+		<a href="/reviewBoard?boardId=1" class="btn btn-secondary">목록</a>
 	</div>
 
 	<%@ include file="../footer/Footer.jsp"%>

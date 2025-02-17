@@ -134,13 +134,25 @@
 			<h1>후기 게시판</h1>
 		</div>
 		<div class = "goWriteReviewContainer">
-			<div class="goWriteReview" onclick="location.href='/writeReview?param=1'">후기 작성하기</div>
+			<c:if test="${not empty sessionScope.loggedInUser}">
+				<div class="goWriteReview" onclick="goWriteReview()">후기 작성하기</div>
+			</c:if>
+			<c:if test="${empty sessionScope.loggedInUser}">
+				<div class="goWriteReview" onclick="checkLogin()">후기 작성하기</div>
+			</c:if>
 		</div>
 		<div class="reviewBoardListBox">
 			<c:forEach var="reviewPostList" items="${reviewPostList}">
 				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewDetail/${reviewPostList.postId}'">
 					<div class="reviewBoardListThumbnail">
-						<img src="${reviewPostList.urlFilePath}">
+						<c:choose>
+						    <c:when test="${not empty reviewPostList.urlFilePath}">
+						        <img src="${reviewPostList.urlFilePath}">
+						    </c:when>
+						    <c:otherwise>
+						        <img src="/images/TravelMakerLogo.jpg">
+						    </c:otherwise>
+						</c:choose>
 					</div>
 					<div class="reviewBoardList">
 						<p>제목 : ${reviewPostList.title}</p>
@@ -172,6 +184,18 @@
 	
 		window.addEventListener('load', saFunc);
 		window.addEventListener('scroll', saFunc);
+		
+		//로그인 유무에 따른 후기작성이동
+		function goWriteReview() {
+		    window.location.href = "/writeReview?param=1"; // 후기 작성 페이지로 이동
+		}
+
+		function checkLogin() {
+		    if (confirm("로그인 후 작성 가능합니다. 로그인 하시겠습니까?")) {
+		        window.location.href = "/user/login"; // 로그인 페이지로 이동
+		    }
+		}
+		
 	</script>
 </body>
 </html>

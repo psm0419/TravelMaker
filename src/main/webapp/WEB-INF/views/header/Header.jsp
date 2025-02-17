@@ -107,12 +107,12 @@
 
 					// 후기 게시판 페이지 이동
 					$(".reviewBoard").click(function() {
-						window.location.href = "/reviewBoard?param=1";
+						window.location.href = "/reviewBoard?boardId=1";
 					});
 					
 					// 후기 게시판 페이지 이동
 					$(".QnABoard").click(function() {
-						window.location.href = "/QnABoard?param=2";
+						window.location.href = "/QnABoard?boardId=2";
 					});
 
 					$(".login").off('click').on('click', function() {
