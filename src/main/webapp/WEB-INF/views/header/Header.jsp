@@ -59,11 +59,11 @@
 					<c:otherwise>
 						<c:choose>
 							<c:when test="${sessionScope.loggedInUser.userType == 'CUS'}">
-								<div>마이페이지</div>
+								<div class="page-link">마이페이지</div>
 								<!-- 고객 로그인 -->
 							</c:when>
 							<c:when test="${sessionScope.loggedInUser.userType == 'ADM'}">
-								<div>관리자페이지</div>
+								<div class="page-link">관리자페이지</div>
 								<!-- 관리자 로그인 -->
 							</c:when>
 						</c:choose>

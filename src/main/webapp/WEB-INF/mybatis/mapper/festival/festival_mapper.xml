@@ -30,6 +30,13 @@
 		#{festivalId}
 	</select>
 
+	<select id="getRandomFestivalImages" parameterType="int"
+		resultType="FestivalImage">
+		SELECT *
+		FROM festival_images
+		FETCH FIRST #{count} ROWS ONLY
+	</select>
+
 	<insert id="saveFestival" parameterType="Festival">
 		insert into festival
 		(festival_id, festival_name, location, start_date,
@@ -73,8 +80,10 @@
 
 	<!-- 좋아요 추가 -->
 	<insert id="addLike" parameterType="map">
-		INSERT INTO festival_likes (like_id, user_id, festival_id, liked_at)
-		VALUES (festival_likes_seq.nextval, #{userId}, #{festivalId}, SYSDATE)
+		INSERT INTO festival_likes
+		(like_id, user_id, festival_id, liked_at)
+		VALUES
+		(festival_likes_seq.nextval, #{userId}, #{festivalId}, SYSDATE)
 	</insert>
 
 	<delete id="removeLike" parameterType="map">

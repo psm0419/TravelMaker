@@ -62,8 +62,7 @@ create Table posts (
   post_views number default 0,
   status number default 0 check (status in (0,1)),  
   nick_name varchar2(36) not null,
-  report varchar2(12) default 'N' not null,
-  nick_name varchar2(36) not null,
+  report varchar2(12) default 'N' not null,  
   board_id number(3)
 );
 
@@ -94,14 +93,14 @@ NOCACHE
 NOCYCLE;
 
 create Table comments (
-  comments_id number primary key,
+  comment_id number primary key,
   content varchar2(3000),
   post_id number,
   user_id varchar2(32),
   created_at timestamp,
   nick_name varchar2(36)
 );
-CREATE SEQUENCE comments_id_seq
+CREATE SEQUENCE comment_id_seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE

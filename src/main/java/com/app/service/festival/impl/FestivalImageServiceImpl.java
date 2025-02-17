@@ -20,4 +20,9 @@ public class FestivalImageServiceImpl implements FestivalImageService{
 		return festivalImageDAO.findImagesByFestivalId(festivalId);
 	}
 
+	 @Override
+	    public List<FestivalImage> getRandomFestivalImages(int count) {
+	        return festivalImageDAO.getRandomFestivalImages(count);  // 랜덤으로 이미지를 가져오는 DAO 호출
+	    }
+
 }
