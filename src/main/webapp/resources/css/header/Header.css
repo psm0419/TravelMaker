@@ -147,3 +147,46 @@
 .search-box2 button:hover {
     background: #0056b3;
 }
+.logout {
+    display: inline-block;
+    padding: 7px 15px;
+    margin-left: 10px;
+    background-color: #ff4d4d; /* 밝은 빨강 */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px; /* 모서리 둥글게 */
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.logout:hover {
+    background-color: #cc0000; /* 어두운 빨강 */
+    transform: scale(1.05); /* 살짝 확대 */
+}
+
+.logout:active {
+    background-color: #a30000; /* 더 어두운 빨강 */
+    transform: scale(0.95); /* 클릭 시 살짝 축소 */
+}
+
+.page-link {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: #4d94ff; /* 파란색 */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px; /* 모서리 둥글게 */
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.page-link:hover {
+    background-color: #005fcc; /* 어두운 파랑 */
+    transform: scale(1.05);
+}
+
+.page-link:active {
+    background-color: #004699; /* 더 어두운 파랑 */
+    transform: scale(0.95);
+}
