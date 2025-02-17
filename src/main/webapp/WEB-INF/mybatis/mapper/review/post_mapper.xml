@@ -31,6 +31,11 @@
 		select * from
 		posts_images order by post_id
 	</select>
+	
+	<select id="getUrlFilePathByPostId" parameterType="int"
+		resultType="String">
+		select url_file_path from posts_images where post_id = #{postId} order by post_id
+	</select>
 
 	<select id="findReviewImagesByPostId" parameterType="int"
 		resultType="ReviewImages">

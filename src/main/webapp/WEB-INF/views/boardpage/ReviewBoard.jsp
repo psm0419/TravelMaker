@@ -140,7 +140,7 @@
 			<c:forEach var="reviewPostList" items="${reviewPostList}">
 				<div class = "listBox motion motionUp" onclick="location.href='${pageContext.request.contextPath}/reviewDetail/${reviewPostList.postId}'">
 					<div class="reviewBoardListThumbnail">
-						<img src="">
+						<img src="${reviewPostList.urlFilePath}">
 					</div>
 					<div class="reviewBoardList">
 						<p>제목 : ${reviewPostList.title}</p>
