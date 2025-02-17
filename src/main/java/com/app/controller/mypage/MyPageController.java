@@ -1,8 +1,12 @@
 package com.app.controller.mypage;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 public class MyPageController {
@@ -13,9 +17,12 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/mypage/bookmark")
-	public String bookmark() {
+	public String bookmark(Model model) {
+//		List<FestivalLike> bookMarkList = FestivalLikeService.bookMarkList();
+//		model.addAttribute("bookMarkList",bookMarkList);
 		return "mypage/BookMark";
 	}
+	
 	@GetMapping("/mypage/talk")
 	public String talk() {
 		return "mypage/Talk";

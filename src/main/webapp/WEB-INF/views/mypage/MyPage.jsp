@@ -33,15 +33,15 @@
 						<h3>나의 활동</h3>
 						<div class="activities-icons">
 							<div class="activity">
-								<a href="mypage/bookmark"><i class="fa-regular fa-bookmark"></i>
+								<a href="/mypage/bookmark"><i class="fa-regular fa-bookmark"></i>
 								<p>즐겨찾기</p></a>
 							</div>
 							<div class="activity">
-								<a href="mypage/talk"><i class="fa-solid fa-comments"></i>
+								<a href="/mypage/talk"><i class="fa-solid fa-comments"></i>
 								<p>여행톡</p></a>
 							</div>
 							<div class="activity">
-								<a href="mypage/achievement"><i class="fa-solid fa-paw"></i>
+								<a href="/mypage/achievement"><i class="fa-solid fa-paw"></i>
 								<p>업적</p></a>
 							</div>
 							<div class="activity">
@@ -49,11 +49,11 @@
 								<p>후기</p></a>
 							</div>
 							<div class="activity">
-								<a href="mypage/correction"><i class="fa-solid fa-pen"></i>
+								<a href="/mypage/correction"><i class="fa-solid fa-pen"></i>
 								<p>관광정보 수정요청</p></a>
 							</div>
 							<div class="activity">
-								<a href="mypage/qna"><i class="fa-solid fa-question"></i>
+								<a href="/mypage/qna"><i class="fa-solid fa-question"></i>
 								<p>Q&A</p></a>
 							</div>
 						</div>
