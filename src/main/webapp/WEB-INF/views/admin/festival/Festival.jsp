@@ -19,6 +19,11 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
+		<div class="mainHeaderContainer">
+			<header>
+				<%@include file="../../header/Header.jsp"%>
+			</header>
+		</div>
 		<div class="main-content">
 			<h1>축제 목록 관리</h1>
 			<div class=dashboard">
@@ -72,7 +77,8 @@
 						</div>
 						<div class="form-group">
 							<label for="content">내용:</label>
-							<textarea value="${festival.content}"></textarea>
+							<textarea id="content" name="content" class="input-field"
+								required>${festival.content}</textarea>
 						</div>
 						<button type="submit" class="btn btn-submit">수정</button>
 					</form>

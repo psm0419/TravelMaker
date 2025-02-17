@@ -20,15 +20,23 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
-
+		<div class="mainHeaderContainer">
+			<header>
+				<%@include file="../header/Header.jsp"%>
+			</header>
+		</div>
 		<div class="main-content">
 			<h1>콘텐츠 관리</h1>
 			<div class="dashboard">
 				<div class="card">
-					<h3><a href="/admin/content/questionBoard">질문 게시판 관리</a></h3>
+					<h3>
+						<a href="/admin/content/questionBoard">질문 게시판 관리</a>
+					</h3>
 				</div>
 				<div class="card">
-				<h3><a href="/admin/content/reviewBoard">후기게시판 관리</a></h3>
+					<h3>
+						<a href="/admin/content/reviewBoard">후기게시판 관리</a>
+					</h3>
 				</div>
 			</div>
 		</div>
