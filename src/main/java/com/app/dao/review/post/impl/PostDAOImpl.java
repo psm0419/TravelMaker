@@ -80,21 +80,28 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public ReviewImages findReviewImagesByPostId(int postId) {
-		ReviewImages reviewImages = sqlSessionTemplate.selectOne("findReviewImagesByPostId",postId);
+		ReviewImages reviewImages = sqlSessionTemplate.selectOne("post_mapper.findReviewImagesByPostId",postId);
 		return reviewImages;
 	}
 
 	@Override
 	public List<Post> findPostListByBoardId(int boardId) {
-		List<Post> result = sqlSessionTemplate.selectList("findPostListByBoardId", boardId);
+		List<Post> result = sqlSessionTemplate.selectList("post_mapper.findPostListByBoardId", boardId);
 		
 		return result;
 	}
 
 	@Override
 	public String getUrlFilePathByPostId(int postId) {
-		String result = sqlSessionTemplate.selectOne("getUrlFilePathByPostId",postId);
+		String result = sqlSessionTemplate.selectOne("post_mapper.getUrlFilePathByPostId", postId);
 				
+		return result;
+	}
+
+	@Override
+	public int deletePostByPostId(int postId) {
+		int result = sqlSessionTemplate.delete("post_mapper.deletePostByPostId", postId);
+		
 		return result;
 	}
 	

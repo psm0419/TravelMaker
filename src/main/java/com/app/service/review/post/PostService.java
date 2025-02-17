@@ -32,4 +32,6 @@ public interface PostService {
 	String getUrlFilePathByPostId(int postId);
 
 	void setImageUrlForPost(Post post);
+	
+	int deletePostByPostId(int postId);
 }

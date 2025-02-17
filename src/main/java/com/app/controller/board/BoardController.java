@@ -120,6 +120,15 @@ public class BoardController {
 		return "redirect:/reviewDetail/" + postId;
 	}
 	
+	@PostMapping("/reviewDetail/{postId}/post/delete")
+	public String deleteReviewPostByPostId(@PathVariable("postId") int postId) {
+		int deletePost = postService.deletePostByPostId(postId);
+		
+		System.out.println("게시글 삭제결과 : " + deletePost);
+		
+		return "redirect:/reviewBoard?boardId=1";
+	}
+	
 
 	@GetMapping("/writeReview")
 	public String writeReview(HttpSession session, Model model) {
@@ -289,6 +298,17 @@ public class BoardController {
 		System.out.println(result);
 		return "redirect:/QnADetail/" + postId;
 	}
+	
+	@PostMapping("/QnADetail/{postId}/post/delete")
+	public String deleteQnAPostByPostId(@PathVariable("postId") int postId) {
+		int deletePost = postService.deletePostByPostId(postId);
+		
+		System.out.println("게시글 삭제결과 : " + deletePost);
+		
+		return "redirect:/QnABoard?boardId=2";
+	}
+	
+	
 	
 
 }
