@@ -36,7 +36,9 @@
 		<div class="signup_container">
 
 			<!-- 회원가입 로고 -->
-			<h1 class="signup_logo">signup 로고 및 회원가입</h1>
+			<div class="headerLogo">
+				<img src="/images/TravelMakerLogo.jpg" alt="logo"> 회원가입
+			</div>
 
 			<!-- 회원가입 아이디 비밀번호 닉네임 박스 -->
 			<div class="div_signup_main">
@@ -132,10 +134,7 @@
 				<!-- 약관 동의 버튼 처음 비활성화 -->
 				<br> <input type="checkbox" id="termsAgreement" disabled>동의
 				<br> <br>
-
-				<button type="button" id="cancelBtn">
-					<a href="login">취소</a>
-				</button>
+				<button type="button" class="cancelBtn" onclick="location.href='login'">취소</button>
 
 				<!-- 확인 버튼은 처음에 비활성화 -->
 				<button type="submit" id="submitBtn" disabled>확인</button>
@@ -633,5 +632,15 @@
          submitBtn.disabled = true; // 하나라도 충족되지 않으면 버튼 비활성화
      }
  }
+	
+	//로고버튼 홈화면
+ document.querySelector(".headerLogo").addEventListener("click", function () {
+	    window.location.href = "/"; // 홈 페이지로 이동
+	});
+	
+//휴대폰 인증
+ document.querySelector(".btn_signup_input_tel_certifiel").addEventListener("click", function () {
+	 alert("휴대폰 인증 추후 예정 입니다.");
+	});
 </script>
 </html>

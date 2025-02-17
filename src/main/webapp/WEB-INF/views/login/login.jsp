@@ -12,14 +12,17 @@
 	<form action="/user/login" method="post" id="loginForm">
 		<div class="login_container">
 
-		
-			<h1 class="login_logo">로고 및 로그인</h1>
+
+			<div class="headerLogo">
+				<img src="/images/TravelMakerLogo.jpg" alt="logo"> 로그인
+			</div>
 
 			<div class="dvi_login_main">
-			
+
 				<!-- 아이디 입력창 -->
 				<div class="div_login_input">
-				<span class="icon">👤</span> <!-- 로그인 아이콘 -->
+					<span class="icon">👤</span>
+					<!-- 로그인 아이콘 -->
 					<input type="text" class="login_input_id" value=""
 						placeholder="아이디" maxlength="20" autocapitalize="off"
 						id="login_id" name="userId" required> <br>
@@ -28,23 +31,23 @@
 
 				<!-- 비밀번호 입력창 -->
 				<div class="div_login_input">
-				<span class="icon">🔒</span><!-- 비밀번호 아이콘 -->
+					<span class="icon">🔒</span>
+					<!-- 비밀번호 아이콘 -->
 					<input type="password" class="login_input_pw" value=""
-						placeholder="비밀번호" maxlength="20" id="login_pw" name="password" required>
-						<!-- 비밀번호 보기 버튼 -->
-				<button type="button" class="toggle-pw" onclick="togglePassword()">👁</button>
+						placeholder="비밀번호" maxlength="20" id="login_pw" name="password"
+						required>
+					<!-- 비밀번호 보기 버튼 -->
+					<button type="button" class="toggle-pw" onclick="togglePassword()">👁</button>
 					<br>
 				</div>
 			</div>
 			<br>
-			<button type="submit" id="btn_login_sumbmit">로그인
-			</button>
-			<br>
-			<br>
+			<button type="submit" id="btn_login_sumbmit">로그인</button>
+			<br> <br>
 			<button type="button" class="btn_style">
 				<a href="SignUp">회원가입</a>
 			</button>
-			
+
 			<button type="button" class="btn_style">
 				<a href="findIdPw">아이디/비밀번호찾기</a>
 			</button>
@@ -102,6 +105,12 @@ function togglePassword() {
 	  let pwInput = document.getElementById("login_pw");
 	  pwInput.type = pwInput.type === "password" ? "text" : "password";
 	}
+	
+// 로고버튼 클릭 시 메인화면으로 페이지 이동
+document.querySelector(".headerLogo").addEventListener("click", function () {
+    window.location.href = "/"; // 홈 페이지로 이동
+});
+
 	
 </script>
 

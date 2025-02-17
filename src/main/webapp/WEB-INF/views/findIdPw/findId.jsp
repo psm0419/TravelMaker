@@ -13,7 +13,9 @@
 
 
 		<div class="findId_container">
-			<h1>아이디 찾기</h1>
+			<div class="headerLogo">
+				<img src="/images/TravelMakerLogo.jpg" alt="logo"> 아이디 찾기
+			</div>
 
 			<div class="dvi_findId_main">
 
@@ -32,6 +34,9 @@
 				<br>
 			</div>
 			<button type="submit">아이디 찾기</button>
+			<br>
+			<button type="button" class="cancelBtn"
+				onclick="location.href='login'">취소</button>
 		</div>
 	</form>
 
@@ -68,7 +73,10 @@ document.getElementById("findidForm").addEventListener("submit", function (event
         })
     });
 	
-	
+//로고버튼 홈화면
+document.querySelector(".headerLogo").addEventListener("click", function () {
+	    window.location.href = "/"; // 홈 페이지로 이동
+	});
 	
 </script>
 </html>

@@ -70,9 +70,29 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin : 5px;
 }
 
 /* 버튼 호버 시 스타일 */
 button:hover {
     background-color: #2980b9;
+}
+
+/* 헤더 로고  */
+
+.headerLogo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin: 10px;
+}
+
+.headerLogo img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-right: 7px;
 }
