@@ -8,7 +8,8 @@
 <title>FestivalInfo</title>
 <link rel="stylesheet" type="text/css"
 	href="/css/festivalpage/FestivalPage.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="festival-main">
 	<%@include file="../header/Header.jsp"%>
@@ -35,12 +36,16 @@
 		<!-- 		DB에서 축제정보 가져올때 반복으로 만들기 -->
 		<div class="festival-list">
 			<c:forEach var="festival" items="${festivalList}">
-				<div class="festival-card" onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'" data-popularity="${festival.likeCount}">
+				<div class="festival-card" data-festival-id="${festival.festivalId}"
+					data-popularity="${festival.likeCount}"
+					onclick="location.href='/festivalpage/FestivalDetail/${festival.festivalId}'">
 					<div class="image-container">
 						<button class="like-button"
 							onclick="likeFestival(event, ${festival.festivalId})">
-							<i class="far fa-heart"></i>
+							<i class="${festival.liked ? 'fas' : 'far'} fa-heart"
+								style="color: ${festival.liked ? 'red' : 'black'};"></i>
 						</button>
+						<p class="like-count">${festival.likeCount}좋아요</p>
 						<c:if test="${not empty festival.images}">
 							<c:forEach var="image" items="${festival.images}">
 								<img src="${image.filePath}" alt="${image.fileName}">
@@ -48,7 +53,11 @@
 						</c:if>
 					</div>
 					<div class="festival-content">
-						<h3>${festival.festivalName}</h3>
+						<div class="title-like-container">
+							<h3>${festival.festivalName}
+								<span class="like-count">(${festival.likeCount})</span>
+							</h3>
+						</div>
 						<p class="date">📅 ${festival.startDate} ~ ${festival.endDate}</p>
 						<p class="location">📍 ${festival.location}</p>
 						<p class="fee">💰 ${festival.entranceFee}</p>
@@ -110,51 +119,57 @@ document.querySelector(".search_btn").addEventListener("click", function () {
 });
 
 function likeFestival(event, festivalId) {
-	 event.preventDefault();
-	    event.stopPropagation();
-	    
-	    const button = event.currentTarget;
-	    const icon = button.querySelector('i');
-	    const isCurrentlyLiked = icon.classList.contains('fas');  // 현재 좋아요 상태 확인
-	    
-	    if (isCurrentlyLiked) {
-	        // 좋아요 취소
-	        icon.classList.remove('fas');
-	        icon.classList.add('far');
-	        button.classList.remove('active');
-	    } else {
-	        // 좋아요 설정
-	        icon.classList.remove('far');
-	        icon.classList.add('fas');
-	        button.classList.add('active');
-	    }
-    
-    // 여기에 서버로 좋아요 상태를 전송하는 API 호출 추가
-    fetch(`/api/festivals/${festivalId}/like`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
+    event.stopPropagation(); // 이벤트 버블링 중지
+    event.preventDefault(); // 기본 이벤트 방지
+
+    let loggedInUser = '${loggedInUser}';
+
+    if (!loggedInUser) {
+        alert("로그인 후 좋아요를 눌러주세요.");
+        window.location.href = "/user/login";
+        return;
+    }
+
+    // 좋아요 버튼 요소 가져오기
+    const likeButton = event.currentTarget;
+    const festivalCard = likeButton.closest('.festival-card');
+    const heartIcon = likeButton.querySelector('i');
+    const titleElement = festivalCard.querySelector('.title-like-container .like-count');
+    let currentCount = parseInt(titleElement.textContent.replace(/[()]/g, ''));  // 현재 좋아요 수
+    const isLiked = heartIcon.classList.contains('fas'); // 현재 좋아요 상태 확인
+
+    // AJAX로 좋아요 처리
+    $.ajax({
+        url: "/festival/like",
+        type: "POST",
+        data: {
+            userId: loggedInUser,
+            festivalId: festivalId
         },
-        body: JSON.stringify({ like: !isLiked })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (!data.success) {
-            // API 호출이 실패하면 상태를 되돌림
-            button.classList.toggle('active');
-            icon.classList.toggle('fas');
-            icon.classList.toggle('far');
+        success: function(response) {
+            const newLikeCount = parseInt(response);  // 서버에서 반환된 새로운 좋아요 수
+
+            // 좋아요 상태에 따른 하트 아이콘 변경
+            if (!isLiked) {  // 좋아요 추가
+                heartIcon.classList.remove('far');
+                heartIcon.classList.add('fas');
+                heartIcon.style.color = "red";
+            } else {  // 좋아요 취소
+                heartIcon.classList.remove('fas');
+                heartIcon.classList.add('far');
+                heartIcon.style.color = "black";
+            }
+
+            // 좋아요 수 갱신
+            titleElement.textContent = `(${newLikeCount})`;  // 새로운 좋아요 수
+            festivalCard.dataset.popularity = newLikeCount; // data-popularity 업데이트
+        },
+        error: function(error) {
+            console.error("좋아요 처리 중 오류 발생:", error);
+            alert("좋아요 처리 중 오류가 발생했습니다.");
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // 에러 발생 시 상태를 되돌림
-        button.classList.toggle('active');
-        icon.classList.toggle('fas');
-        icon.classList.toggle('far');
     });
 }
-
 </script>
 
 </html>

@@ -15,7 +15,10 @@ public interface FestivalService {
 	
 	List<Festival> findFestivalList();
 	
-	int incrementLikeCount(int festivalId);
-	
 	List<Festival> searchFestivals(String searchQuery);
+	
+	int toggleLike(String userId, int festivalId);
+    int getLikeCount(int festivalId);
+    boolean isUserLikedFestival(String userId, int festivalId);
+    
 }

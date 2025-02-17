@@ -42,17 +42,41 @@ public class FestivalServiceImpl implements FestivalService{
 		List<Festival> festivalList	= festivalDAO.findFestivalList();
 				
 		return festivalList;
-	}
-
-	@Override
-	public int incrementLikeCount(int festivalId) {
-		return festivalDAO.incrementLikeCount(festivalId);
-	}
+	}	
 
 	@Override
 	public List<Festival> searchFestivals(String searchQuery) {
 		// DAO에서 검색어를 바탕으로 축제 리스트를 가져옴
         return festivalDAO.findFestivalsBySearchQuery(searchQuery);
 	}
+
+	@Override
+	public int toggleLike(String userId, int festivalId) {
+	    // 기존 로직으로 좋아요 추가/취소 처리
+	    boolean isLiked = isUserLikedFestival(userId, festivalId);
+
+	    if (isLiked) {
+	        // 좋아요 취소
+	        festivalDAO.removeLike(userId, festivalId);
+	    } else {
+	        // 좋아요 추가
+	        festivalDAO.addLike(userId, festivalId);
+	    }
+
+	    // 변경된 후, 새로운 좋아요 수 반환
+	    int newLikeCount = festivalDAO.getLikeCount(festivalId);
+	    return newLikeCount;
+	}
+ 
+	@Override
+    public int getLikeCount(int festivalId) {
+        return festivalDAO.getLikeCount(festivalId);
+    }
+
+	@Override
+	public boolean isUserLikedFestival(String userId, int festivalId) {
+        // FestivalDAO에서 해당 사용자와 축제에 대한 좋아요 상태를 확인
+        return festivalDAO.isUserLikedFestival(userId, festivalId);
+    }
 
 }

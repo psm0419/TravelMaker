@@ -16,7 +16,12 @@ public interface FestivalDAO {
 	
 	List<Festival> findFestivalList();	
 	
-	int incrementLikeCount(int festivalId);
 	
 	List<Festival> findFestivalsBySearchQuery(String searchQuery);
+	
+	boolean isUserLikedFestival(String userId, int festivalId);
+    void addLike(String userId, int festivalId);
+    void removeLike(String userId, int festivalId);
+    int getLikeCount(int festivalId);
+    void updateLikeCount(int festivalId, int likeCount);
 }
