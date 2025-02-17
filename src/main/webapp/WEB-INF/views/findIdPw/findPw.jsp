@@ -12,7 +12,9 @@
 	<form action="/user/findPw" method="post" id="findpwForm">
 
 		<div class="findPw_container">
-			<h1>비밀번호 찾기</h1>
+			<div class="headerLogo">
+				<img src="/images/TravelMakerLogo.jpg" alt="logo"> 비밀번호 찾기
+			</div>
 			<!-- 비밀번호 찾기 아이디 입력창 -->
 			<div class="div_findPw_input_id">
 				<input type="text" class="findPw_input_id" value=""
@@ -36,8 +38,10 @@
 			<br>
 
 			<button type="submit">비밀번호 찾기</button>
+			<br>
+			<button type="button" class="cancelBtn"
+				onclick="location.href='login'">취소</button>
 
-		</div>
 	</form>
 
 </body>
@@ -73,6 +77,10 @@ document.getElementById("findpwForm").addEventListener("submit", function (event
         })
 	});
 	
+//로고버튼 홈화면
+document.querySelector(".headerLogo").addEventListener("click", function () {
+	    window.location.href = "/"; // 홈 페이지로 이동
+	});
 	
 </script>
 </html>
