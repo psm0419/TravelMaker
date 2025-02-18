@@ -80,15 +80,14 @@ public class FestivalServiceImpl implements FestivalService{
     }
 
 	@Override
-	public int updateFestival(Festival festival) {
-		int result = festivalDAO.updateFestival(festival);
-		return result;
-	}
-
-
 	public List<Festival> getRandomFestivalList(int count) {
 		
 		return festivalDAO.getRandomFestivalList(count);
+	}
+
+	public int updateFestival(Festival festival) {
+		int result = festivalDAO.updateFestival(festival);
+		return result;
 	}
 
 }

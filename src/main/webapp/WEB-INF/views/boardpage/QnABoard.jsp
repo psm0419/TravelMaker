@@ -13,7 +13,7 @@
 		padding: 0;
 		box-sizing: border-box;
 	}
-	
+
 	.QnABoardContainer {
 		margin: auto;
 		display: flex;
@@ -111,7 +111,7 @@
 
 </head>
 <body>
-
+<div class="page-wrapper">
 	<%@ include file="../header/Header.jsp"%>
 
 
@@ -149,7 +149,7 @@
 	
 	
 	<%@ include file="../footer/Footer.jsp"%>
-
+</div>
 
 <script>
 

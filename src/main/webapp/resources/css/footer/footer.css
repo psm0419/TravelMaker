@@ -4,16 +4,16 @@
 .footer {
     background: lightblue; /* 배경 색상 */
     color: rgb(0, 0, 0);
-    padding: 40px 0;
+    padding: 20px 0;
     text-align: center;
+    margin-top: auto;
 }
 
 .footer-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1200px;    
 }
 
 /* 푸터 각 섹션 */
@@ -70,7 +70,7 @@
 .footer-bottom {
     margin-top: 20px;
     font-size: 14px;
-    color: #bbb;
+    color: black;
 }
 
 /* 반응형 (태블릿 & 모바일) */

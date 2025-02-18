@@ -87,12 +87,12 @@ public class FestivalDAOImpl implements FestivalDAO {
 	}
 
 	@Override
+	public List<Festival> getRandomFestivalList(int count) {
+		return sqlSessionTemplate.selectList("festival_mapper.getRandomFestivalList", count);
+	}
 	public int updateFestival(Festival festival) {
 		int result = sqlSessionTemplate.update("festival_mapper.updatefestival",festival);
 		return result;
-	}
-	public List<Festival> getRandomFestivalList(int count) {
-		 return sqlSessionTemplate.selectList("festival_mapper.getRandomFestivalList", count);
 	}
 
 }
