@@ -30,4 +30,6 @@ public interface PostDAO {
 	List<Post> findPostListByBoardId(int boardId);
 	
 	String getUrlFilePathByPostId(int postId);
+	
+	int deletePostByPostId(int postId);
 }

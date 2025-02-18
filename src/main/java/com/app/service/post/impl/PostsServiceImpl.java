@@ -21,6 +21,12 @@ public class PostsServiceImpl implements PostsService{
 	}
 	
 	@Override
+	public List<Posts> findPostByBoardId(int boardId) {
+		List<Posts> boardIdList = postDAO.findPostByBoardId(boardId);
+		return boardIdList;
+	}
+	
+	@Override
 	public List<Posts> NotifyPostList() {
 		List<Posts> notifyPostList = postDAO.NotifyPostList();
 		return notifyPostList;
@@ -31,4 +37,6 @@ public class PostsServiceImpl implements PostsService{
 		int result = postDAO.removePosts(postIds);
 		return result;
 	}
+
+
 }

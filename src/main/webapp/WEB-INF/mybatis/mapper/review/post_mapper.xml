@@ -45,6 +45,10 @@
 	<select id="findPostList" resultType="Post">
 		select * from posts order by post_id
 	</select>
+	
+	<select id="findPostByBoardId" parameterType="int" resultType="Post">
+		select * from posts where board_id = #{boardId}
+	</select>
 
 	<select id="findPostByUserId" parameterType="String"
 		resultType="Post">
@@ -84,6 +88,10 @@
 			separator="," close=")">
 			#{item}
 		</foreach>
+	</delete>
+	
+	<delete id="deletePostByPostId" parameterType="int">
+		DELETE FROM posts WHERE post_id = #{postId}
 	</delete>
 
 

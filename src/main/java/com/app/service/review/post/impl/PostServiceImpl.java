@@ -105,4 +105,10 @@ public class PostServiceImpl implements PostService{
 		return result;
 	}
 
+	@Override
+	public int deletePostByPostId(int postId) {
+		int result = postDAO.deletePostByPostId(postId);
+		return result;
+	}
+
 }

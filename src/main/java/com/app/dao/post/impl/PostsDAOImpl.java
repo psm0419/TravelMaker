@@ -21,6 +21,12 @@ public class PostsDAOImpl implements PostsDAO{
 		List<Posts> postList = sqlSessionTemplate.selectList("post_mapper.findPostList");
 		return postList;
 	}
+
+	@Override
+	public List<Posts> findPostByBoardId(int boardId) {
+		List<Posts> boardIdList = sqlSessionTemplate.selectList("post_mapper.findPostByBoardId",boardId); 
+		return boardIdList;
+	}
 	
 	@Override
 	public List<Posts> NotifyPostList() {

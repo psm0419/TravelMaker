@@ -128,10 +128,10 @@
 		</div>
 		<div class = "goWriteQnAContainer">
 			<c:if test="${not empty sessionScope.loggedInUser}">
-				<div class="goWriteQnA" onclick="goWriteQnA()">후기 작성하기</div>
+				<div class="goWriteQnA" onclick="goWriteQnA()">질문 작성하기</div>
 			</c:if>
 			<c:if test="${empty sessionScope.loggedInUser}">
-				<div class="goWriteQnA" onclick="checkLogin()">후기 작성하기</div>
+				<div class="goWriteQnA" onclick="checkLogin()">질문 작성하기</div>
 			</c:if>
 		</div>
 		

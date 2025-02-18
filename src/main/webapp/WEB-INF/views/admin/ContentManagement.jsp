@@ -30,12 +30,12 @@
 			<div class="dashboard">
 				<div class="card">
 					<h3>
-						<a href="/admin/content/questionBoard">질문 게시판 관리</a>
+						<a href="/admin/content/questionBoard?boardId=1">질문 게시판 관리</a>
 					</h3>
 				</div>
 				<div class="card">
 					<h3>
-						<a href="/admin/content/reviewBoard">후기게시판 관리</a>
+						<a href="/admin/content/reviewBoard?boardId=2">후기게시판 관리</a>
 					</h3>
 				</div>
 			</div>
