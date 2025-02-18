@@ -147,7 +147,7 @@ to {
 			</div>
 			</div>
 			<div class="newsText">
-				<div class="newsHeader">오늘의 여행 소식</div>
+				<div class="newsHeader">오늘의 축제 추천</div>
 				<br>
 				<c:forEach var="festival" items="${festivalList}">
 					<div class="newsList">

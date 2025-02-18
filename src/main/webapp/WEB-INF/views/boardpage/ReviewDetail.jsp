@@ -156,7 +156,7 @@
     
     function confirmDelete() {  // 게시글 및 댓글 삭제 시 확인창
         if (confirm('삭제하시겠습니까?')) {
-            alert('게시글이 삭제 되었습니다');
+            alert('글이 삭제 되었습니다');
             return true;  // 폼 제출 진행
         } 
         return false;  // 폼 제출 중단

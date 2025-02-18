@@ -134,10 +134,12 @@
 				<!-- 약관 동의 버튼 처음 비활성화 -->
 				<br> <input type="checkbox" id="termsAgreement" disabled>동의
 				<br> <br>
-				<button type="button" class="cancelBtn" onclick="location.href='login'">취소</button>
-
 				<!-- 확인 버튼은 처음에 비활성화 -->
 				<button type="submit" id="submitBtn" disabled>확인</button>
+				<button type="button" class="cancelBtn" onclick="location.href='login'">취소</button>
+
+				
+				
 			</div>
 		</div>
 	</form>

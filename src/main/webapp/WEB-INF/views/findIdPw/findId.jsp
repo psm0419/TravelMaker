@@ -66,6 +66,7 @@ document.getElementById("findidForm").addEventListener("submit", function (event
     	.then(response => response.text())
         .then(data => {
             alert(data); // "이메일로 아이디가 발송 되었습니다" 메시지 확인
+            window.location.href = "/user/login";
         })
         .catch(error => {
             console.error("Error:", error);
