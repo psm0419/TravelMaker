@@ -18,13 +18,13 @@
 				<div class="sidebar">
 					<div class="profile">
 						<h2>사진 들어올곳</h2>
-						<p>
-							반가워요!<br><%=request.getAttribute("nickname")%>
-							님
-						</p>
+        <p>
+            반가워요!<br>
+            <p th:text="${user != null ? user.nickName : 'Guest'}"></p>님
+        </p>
 						<button
-							style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px;">프로필
-							이미지 설정</button>
+							style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px;">
+							프로필 이미지 설정</button>
 					</div>
 				</div>
 				<div class="main-content">
