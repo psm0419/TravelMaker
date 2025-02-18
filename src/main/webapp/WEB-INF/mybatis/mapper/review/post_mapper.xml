@@ -89,6 +89,10 @@
 			#{item}
 		</foreach>
 	</delete>
+	
+	<delete id="deletePostByPostId" parameterType="int">
+		DELETE FROM posts WHERE post_id = #{postId}
+	</delete>
 
 
 </mapper>
