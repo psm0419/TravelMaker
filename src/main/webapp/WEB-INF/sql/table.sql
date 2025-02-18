@@ -111,7 +111,7 @@ CREATE TABLE festival_likes (
   like_id NUMBER PRIMARY KEY,
   user_id varchar2(32) NOT NULL,
   festival_id NUMBER NOT NULL,
-  liked_at DATE DEFAULT SYSDATE
+  liked_at DATE DEFAULT SYSDATE  
 );
 
 UPDATE festival f
@@ -132,7 +132,7 @@ CREATE TABLE festival_images (
     file_path VARCHAR2(500),
     file_name VARCHAR2(255),
     mime_type VARCHAR2(100),
-    uploaded_at DATE DEFAULT SYSDATE
+    uploaded_at DATE DEFAULT SYSDATE    
 );
 
 CREATE SEQUENCE image_id_seq

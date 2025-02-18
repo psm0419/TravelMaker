@@ -21,6 +21,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin-bottom: 100px;
+	min-height: 50vh;
 }
 
 .reviewBoardTitle {

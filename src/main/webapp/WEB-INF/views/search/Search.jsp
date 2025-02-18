@@ -10,6 +10,7 @@
 	href="/css/search/Search.css">
 </head>
 <body class="search-main">
+]<%@ include file="../header/Header.jsp"%>
     <h2 class="search-title">검색 결과</h2>
 
     <c:if test="${not empty festivals}">

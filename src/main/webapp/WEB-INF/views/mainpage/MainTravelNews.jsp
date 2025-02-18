@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,23 +79,22 @@
 <body>
 
 	<div class="travelNewsContainer">
-		<div class = "newsBox">
-			<div class="newsImage">
-				<img src="/images/여행소식.jpg">
-			</div>
-			<div class="newsText">
-				<div class="newsHeader">오늘의 여행 소식</div>
-				<hr>
-				<div class="newsList">소식 1 이다</div>
-				<hr>
-				<div class="newsList">소식 2 이다</div>
-				<hr>
-				<div class="newsList">소식 3 이다</div>
-				<hr>
-				<div class="newsList">소식 4 이다</div>
-			</div>
-		</div>
-	</div>
+    <div class="newsBox">
+        <div class="newsImage">
+            <img src="/images/여행소식.jpg" alt="여행 소식">
+        </div>
+        <div class="newsText">
+            <div class="newsHeader">오늘의 여행 소식</div>
+            <br>
+            <c:forEach var="festival" items="${festivalList}">
+                <div class="newsList">
+                    <p> "${festival.festivalName}"</p> 
+                </div>
+                <br>
+            </c:forEach>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

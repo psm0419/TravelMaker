@@ -23,6 +23,11 @@
 	    WHERE post_id = #{postId} AND comment_id = #{commentId}
 	</delete>
 	
+	<delete id="deleteBoardDetailCommentByPostId" parameterType="int">
+	    DELETE FROM comments
+	    WHERE post_id = #{postId}
+	</delete>
+	
 	<insert id="saveQnADetailCommentByPostId" parameterType="map">
 	    INSERT INTO COMMENTS (comment_id, content, post_id, user_id, created_at, nick_name)
 	    VALUES (comment_id_seq.NEXTVAL, #{content}, #{postId}, #{userId}, SYSDATE, #{nickName})

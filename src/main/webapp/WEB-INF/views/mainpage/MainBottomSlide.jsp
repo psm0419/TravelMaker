@@ -15,11 +15,19 @@
 	
 	.bottomSlideContainer {
 		width: 75%;
-		height: 200px;
+		height: 400px;
 		margin: auto;
-		margin-top: 200px;
-		margin-bottom: 200px;
+		margin-top: 100px;
+		margin-bottom: 100px;
 		padding-left: 15px;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.bottomSlideTitle {
+		text-align: center;
+		font-size: xx-large;
+		font-weight: bold;
 	}
 	
 	.innerBottomSlideContainer {
@@ -72,7 +80,7 @@
 	.bottomSlideButtons {
 		position: relative;
 		z-index: 1;
-		bottom: 50%;
+		bottom: 35%;
 		left: 49%;
 		transform: translate(-50%);
 		display: flex;
@@ -93,46 +101,51 @@
 		background-color: lightgreen;
 	}
 	
+
+	
 </style>
 
 </head>
 <body>
 
 	<div class = "bottomSlideContainer">
+	
+		<div class = "bottomSlideTitle"> 꼭 가봐야 하는 축제들 리스트! </div>
+	
 		<div class="innerBottomSlideContainer">
 		
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/2">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/c34e66ec-0b3d-48be-96eb-c0ffbb6436ec_3.jpg">
 				</a>
 			</div>
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/7">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/d2f258a8-33c2-4cd9-8736-41be5c9407d7_3.jpg">
 				</a>
 			</div>
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/9">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/f1083d7d-3abb-4f3e-a27b-67f8ecd01a22_3.jpg">
 				</a>
 			</div>
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/11">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/3252dcb7-7b01-4e9d-84c0-bccfd010bffb_3.jpg">
 				</a>
 			</div>
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/13">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/a212b550-67bf-422e-a110-7bb742e84672_3.jpg">
 				</a>
 			</div>
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/15">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/b8b518b6-19c8-40b7-8da6-7dbd9f44d489_3.jpg">
 				</a>
 			</div>
 			<div class='bottomSlide'>
-				<a href="https://www.naver.com">
+				<a href="/festivalpage/FestivalDetail/14">
 					<img src="https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/7d5710ef-ecff-4b71-92f7-e9a404a1f1cc_3.jpg">
 				</a>
 			</div>
@@ -149,8 +162,8 @@
 	<script>
 		
 		const container = document.querySelector('.innerBottomSlideContainer');
-		const prev = document.querySelector('.bottomSlidePrev')
-		const next = document.querySelector('.bottomSlideNext')
+		const prev = document.querySelector('.bottomSlideNext')
+		const next = document.querySelector('.bottomSlidePrev')
 	
 		prev.addEventListener('click',()=>{
 		  const slides = document.querySelectorAll('.bottomSlide')

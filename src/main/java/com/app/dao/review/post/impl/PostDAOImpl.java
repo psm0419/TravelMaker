@@ -105,6 +105,19 @@ public class PostDAOImpl implements PostDAO {
 		return result;
 	}
 	
-	
+	@Override
+	public int deletePostImagesByPostId(int postId) {
+		int result = sqlSessionTemplate.delete("post_mapper.deletePostImagesByPostId", postId);
+		
+		return result;
+	}
+
+	@Override
+	public int reportPostByPostId(int postId) {
+		int result = sqlSessionTemplate.update("post_mapper.reportPostByPostId", postId);
+				
+		return result;
+	}
+
 
 }

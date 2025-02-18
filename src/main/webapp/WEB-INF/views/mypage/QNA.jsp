@@ -22,7 +22,7 @@
 				<li><a href="/mypage/talk">댓글</a></li>
 				<li><a href="/mypage/achievement">업적</a></li>
 				<li><a href="/mypage/review">후기</a></li>
-				<li><a href="/mypage/correction">관광정보 수정/신규 요청</a></li>
+				<li><a href="/mypage/correction">관광정보 수정 <br>신규 요청</a></li>
 				<li class="selected"><a href="/mypage/qna">Q&A</a></li>
 			</ul>
 		</div>

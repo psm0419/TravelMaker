@@ -86,4 +86,9 @@ public class FestivalServiceImpl implements FestivalService{
 	}
 
 
+	public List<Festival> getRandomFestivalList(int count) {
+		
+		return festivalDAO.getRandomFestivalList(count);
+	}
+
 }

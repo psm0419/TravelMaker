@@ -69,6 +69,13 @@
 		WHERE post_id = #{postId}
 	</update>
 	
+	<update id="reportPostByPostId" parameterType="int">
+		UPDATE posts
+		SET
+		report = 'Y'
+		WHERE post_id = #{postId}
+	</update>
+	
 	<select id="findPostListByBoardId" parameterType="int"
 		resultType="Post">
 		SELECT * FROM posts WHERE board_id = #{boardId} order by post_id
@@ -92,6 +99,10 @@
 	
 	<delete id="deletePostByPostId" parameterType="int">
 		DELETE FROM posts WHERE post_id = #{postId}
+	</delete>
+
+	<delete id="deletePostImagesByPostId" parameterType="int">
+		DELETE FROM posts_images WHERE post_id = #{postId}
 	</delete>
 
 
