@@ -91,10 +91,10 @@ button:hover {
 		    </c:choose>
 		
 		    <label for="title">제목</label>
-		    <input type="text" id="title" name="title" required placeholder="제목을 입력하세요">
+		    <input type="text" id="title" name="title" required placeholder="제목을 입력하세요(21글자 까지 입력가능.)" maxlength="21">
 		    
 		    <label for="content">내용</label>
-		    <textarea id="content" name="content" rows="5" required placeholder="내용을 입력하세요"></textarea>
+		    <textarea id="content" name="content" rows="5" required placeholder="내용을 입력하세요(980글자 까지 입력가능.)" maxlength="980"></textarea>
 		
 		    <label for="reviewImage">사진 업로드</label>
 		    <input type="file" id="reviewImage" name="reviewImage">
