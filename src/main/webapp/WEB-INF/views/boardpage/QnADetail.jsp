@@ -42,6 +42,12 @@
 .like-button.active {
 	color: red;
 }
+
+.QnABoardTitle{
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 20px;
+}
 </style>
 
 </head>
@@ -50,7 +56,8 @@
 	<%@ include file="../header/Header.jsp"%>
 
 	<div class="QnADetailContainer mt-4">
-		<h4 class="fw-bold">${post.title}</h4>
+		<div class = "QnABoardTitle">질문과답변 게시판</div>
+		<h4 class="fw-bold">제목 : ${post.title}</h4>
 		
 		<div class="content-box d-flex align-items-center">
 			<img src="/images/유저이미지.jpg" alt="작성자 이미지" class="rounded-circle"
