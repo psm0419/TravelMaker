@@ -29,6 +29,7 @@
 			<div class=dashboard">
 				<div class="festivalcard">
 					<form action="/admin/festival/ModifyFestival" method="post">
+					<input type="hidden" name="festivalId" value="${festival.festivalId}">
 						<div class="form-group">
 							<label for="festivalName">축제명:</label> <input type="text"
 								id="festivalName" name="festivalName"

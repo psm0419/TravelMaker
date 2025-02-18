@@ -2,6 +2,7 @@ package com.app.service.festival.impl;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -78,5 +79,12 @@ public class FestivalServiceImpl implements FestivalService{
         // FestivalDAO에서 해당 사용자와 축제에 대한 좋아요 상태를 확인
         return festivalDAO.isUserLikedFestival(userId, festivalId);
     }
+
+	@Override
+	public int updateFestival(Festival festival) {
+		int result = festivalDAO.updateFestival(festival);
+		return result;
+	}
+
 
 }

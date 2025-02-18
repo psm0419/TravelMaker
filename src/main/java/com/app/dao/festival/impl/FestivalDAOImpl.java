@@ -86,4 +86,10 @@ public class FestivalDAOImpl implements FestivalDAO {
 				Map.of("festivalId", festivalId, "likeCount", likeCount));
 	}
 
+	@Override
+	public int updateFestival(Festival festival) {
+		int result = sqlSessionTemplate.update("festival_mapper.updatefestival",festival);
+		return result;
+	}
+
 }

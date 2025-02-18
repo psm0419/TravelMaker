@@ -2,7 +2,7 @@
 
 /* 푸터 기본 스타일 */
 .footer {
-    background: #13ddc275; /* 배경 색상 */
+    background: lightblue; /* 배경 색상 */
     color: rgb(0, 0, 0);
     padding: 40px 0;
     text-align: center;
@@ -27,7 +27,7 @@
 .footer-section h3 {
     font-size: 18px;
     margin-bottom: 15px;
-    border-bottom: 2px solid #74ebd5; /* 포인트 색상 */
+    border-bottom: 2px solid white; /* 포인트 색상 */
     display: inline-block;
     padding-bottom: 5px;
 }

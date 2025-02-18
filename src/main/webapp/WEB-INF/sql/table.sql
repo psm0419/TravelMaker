@@ -111,10 +111,7 @@ CREATE TABLE festival_likes (
   like_id NUMBER PRIMARY KEY,
   user_id varchar2(32) NOT NULL,
   festival_id NUMBER NOT NULL,
-  liked_at DATE DEFAULT SYSDATE,
-  CONSTRAINT fk_festival2 FOREIGN KEY (festival_id) REFERENCES festival(festival_id),
-  CONSTRAINT fk_user2 FOREIGN KEY (user_id) REFERENCES users(user_id),
-  CONSTRAINT uk_festival_likes UNIQUE (user_id, festival_id) -- 기존 제약 조건 이름 변경
+  liked_at DATE DEFAULT SYSDATE
 );
 
 UPDATE festival f
@@ -135,8 +132,7 @@ CREATE TABLE festival_images (
     file_path VARCHAR2(500),
     file_name VARCHAR2(255),
     mime_type VARCHAR2(100),
-    uploaded_at DATE DEFAULT SYSDATE,
-    CONSTRAINT fk_festival FOREIGN KEY (festival_id) REFERENCES festival(festival_id)
+    uploaded_at DATE DEFAULT SYSDATE
 );
 
 CREATE SEQUENCE image_id_seq

@@ -12,7 +12,7 @@ public interface FestivalService {
 	Festival getFestivalById(int festivalId);
 	
 	int removeFestival(int festivalId);
-	
+	int updateFestival(Festival festival);
 	List<Festival> findFestivalList();
 	
 	List<Festival> searchFestivals(String searchQuery);
