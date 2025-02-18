@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 /* 푸터 기본 스타일 */
-.footer {
+.festivalFooter {
     background: #13ddc275; /* 배경 색상 */
     color: rgb(0, 0, 0);
     padding: 40px 0;
     text-align: center;
 }
 
-.footer-container {
+.festivalFooter-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -17,14 +17,14 @@
 }
 
 /* 푸터 각 섹션 */
-.footer-section {
+.festivalFooter-section {
     flex: 1;
     min-width: 250px;
     margin: 10px;
 }
 
 /* 제목 스타일 */
-.footer-section h3 {
+.festivalFooter-section h3 {
     font-size: 18px;
     margin-bottom: 15px;
     border-bottom: 2px solid #74ebd5; /* 포인트 색상 */
@@ -33,27 +33,27 @@
 }
 
 /* 리스트 스타일 */
-.footer-section ul {
+.festivalFooter-section ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-section ul li {
+.festivalFooter-section ul li {
     margin: 8px 0;
 }
 
-.footer-section ul li a {
+.festivalFooter-section ul li a {
     color: #000000;
     text-decoration: none;
     transition: 0.3s;
 }
 
-.footer-section ul li a:hover {
+.festivalFooter-section ul li a:hover {
     color: #74ebd5;
 }
 
 /* 소셜 미디어 스타일 */
-.footer-social a {
+.festivalFooter-social a {
     display: inline-block;
     margin: 0 10px;
     color: white;
@@ -61,18 +61,12 @@
     transition: 0.3s;
 }
 
-.footer-social a:hover {
+.festivalFooter-social a:hover {
     color: #74ebd5;
 }
 
-/* 결제 정보 */
-.footer-payment img {
-    width: 150px;
-    margin-top: 10px;
-}
-
 /* 푸터 하단 카피라이트 */
-.footer-bottom {
+.festivalFooter-bottom {
     margin-top: 20px;
     font-size: 14px;
     color: #bbb;
@@ -80,29 +74,12 @@
 
 /* 반응형 (태블릿 & 모바일) */
 @media (max-width: 768px) {
-    .footer-container {
+    .festivalFooter-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-section {
+    .festivalFooter-section {
         margin-bottom: 20px;
     }
-}
-
-/* 헤더 로고  */
-.headerLogo {
-	font-size: 24px;
-	font-weight: bold;
-	color: #333333;
-	display: flex;
-	align-items: center;
-	cursor: pointer;
-}
-
-.headerLogo img {
-	width: 60px;
-	height: 60px;
-	border-radius: 50%;
-	margin-right: 7px;
 }

@@ -107,5 +107,12 @@
 		WHERE festival_id = #{festivalId}
 	</update>
 
+	<!-- 좋아요 개수 조회 -->
+	<select id="getRandomFestivalList" resultType="Festival">
+		SELECT *
+		FROM festival
+		FETCH FIRST #{count} ROWS ONLY
+	</select>
+
 
 </mapper>

@@ -3,6 +3,7 @@ package com.app.dao.festival;
 import java.util.List;
 
 import com.app.dto.festival.Festival;
+import com.app.dto.festival.FestivalImage;
 
 public interface FestivalDAO {
 
@@ -24,4 +25,5 @@ public interface FestivalDAO {
     void removeLike(String userId, int festivalId);
     int getLikeCount(int festivalId);
     void updateLikeCount(int festivalId, int likeCount);
+    List<Festival> getRandomFestivalList(int count); //랜덤함수
 }

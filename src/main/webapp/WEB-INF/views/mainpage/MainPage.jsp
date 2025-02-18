@@ -121,7 +121,7 @@
 	
 	
 	
-	<%@include file="MainTravelNews.jsp" %>
+	<jsp:include page="MainTravelNews.jsp" />
 	
 		
 	<%@include file="MainBottomSlide.jsp" %>
