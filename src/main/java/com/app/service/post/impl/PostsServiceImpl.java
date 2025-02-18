@@ -21,9 +21,9 @@ public class PostsServiceImpl implements PostsService{
 	}
 	
 	@Override
-	public List<Posts> findPostById(int postId) {
-		List<Posts> postIdList = postDAO.findPostById(postId);
-		return postIdList;
+	public List<Posts> findPostByBoardId(int boardId) {
+		List<Posts> boardIdList = postDAO.findPostByBoardId(boardId);
+		return boardIdList;
 	}
 	
 	@Override

@@ -91,14 +91,14 @@ public class AdminController {
 	
 	@GetMapping("/admin/content/questionBoard")
 	public String questionBoardManagement(Model model) {
-		List<Posts> postList = postService.findPostById(1);
+		List<Posts> postList = postService.findPostByBoardId(1);
 		model.addAttribute("postList", postList);
 		return "admin/content/questionBoard";
 	}
 	
 	@GetMapping("/admin/content/reviewBoard")
 	public String reviewBoardManagement(Model model) {
-		List<Posts> postList = postService.findPostById(2);
+		List<Posts> postList = postService.findPostByBoardId(2);
 		model.addAttribute("postList", postList);
 		return "admin/content/reviewBoard";
 	}

@@ -18,8 +18,7 @@ public class MyPageController {
 	
 	@GetMapping("/mypage/bookmark")
 	public String bookmark(Model model) {
-//		List<FestivalLike> bookMarkList = FestivalLikeService.bookMarkList();
-//		model.addAttribute("bookMarkList",bookMarkList);
+		
 		return "mypage/BookMark";
 	}
 	

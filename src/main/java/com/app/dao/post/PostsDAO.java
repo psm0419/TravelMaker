@@ -7,7 +7,7 @@ import com.app.dto.post.Posts;
 public interface PostsDAO {
 	
 	List<Posts> postList();
-	List<Posts> findPostById(int postId);
+	List<Posts> findPostByBoardId(int boardId);
 	List<Posts> NotifyPostList();
 	 int removePosts(List<Integer> postIds);
 }
