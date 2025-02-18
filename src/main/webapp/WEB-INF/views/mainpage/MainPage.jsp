@@ -13,16 +13,16 @@
 	box-sizing: border-box;
 }
 
-.mainHeaderContainer{
+.mainHeaderContainer {
 	margin-bottom: -100px;
 }
 
-.slideContainer{
+.slideContainer {
 	margin: auto;
 	padding-top: 150px;
 	width: 69%;
 	height: 100%;
-	overflow:hidden;
+	overflow: hidden;
 }
 
 /* Slideshow container */
@@ -54,14 +54,25 @@
 	animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
-    from { opacity: .4; }
-    to { opacity: 1; }
+@
+-webkit-keyframes fade {from { opacity:.4;
+	
 }
 
-@keyframes fade {
-    from { opacity: .4; }
-    to { opacity: 1; }
+to {
+	opacity: 1;
+}
+
+}
+@
+keyframes fade {from { opacity:.4;
+	
+}
+
+to {
+	opacity: 1;
+}
+
 }
 
 /* Next & previous buttons */
@@ -72,7 +83,7 @@
 	width: auto;
 	padding: 16px;
 	margin-top: -22px;
-	color: black;	
+	color: black;
 	font-weight: bold;
 	font-size: 28px;
 	transition: 0.6s ease;
@@ -90,45 +101,70 @@
 	background-color: rgba(0, 0, 0, 0.8);
 }
 </style>
-
+<link rel="stylesheet" type="text/css"
+	href="/css/travelNewsContainer/travelNewsContainer.css">
 </head>
 <body>
 	<div class=mainHeaderContainer>
-		<%@include file="../header/Header.jsp" %>
+		<%@include file="../header/Header.jsp"%>
 	</div>
-	
+
 	<div class="slideContainer">
-		<div class="slideshow-container">			<!-- 이미지크기 940x527 -->
-			<div class="mySlideDiv fade active">				
-					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=e0423c22-ed8c-494b-83fd-871aaf6957b0&mode=raw">
+		<div class="slideshow-container">
+			<!-- 이미지크기 940x527 -->
+			<div class="mySlideDiv fade active">
+				<img
+					src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=e0423c22-ed8c-494b-83fd-871aaf6957b0&mode=raw">
 			</div>
-			<div class="mySlideDiv fade">				
-					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=f0b64486-59e3-469b-a3b9-f5150d19e653&mode=raw">
+			<div class="mySlideDiv fade">
+				<img
+					src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=f0b64486-59e3-469b-a3b9-f5150d19e653&mode=raw">
 			</div>
-			<div class="mySlideDiv fade">				
-					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=ffe260f9-2a29-4865-892b-75a9bb43d921&mode=raw" >
+			<div class="mySlideDiv fade">
+				<img
+					src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=ffe260f9-2a29-4865-892b-75a9bb43d921&mode=raw">
 			</div>
-			<div class="mySlideDiv fade">				
-					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=48304ca9-7f0e-4710-bc7d-7f4c3918f402&mode=raw" >	
+			<div class="mySlideDiv fade">
+				<img
+					src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=48304ca9-7f0e-4710-bc7d-7f4c3918f402&mode=raw">
 			</div>
-			<div class="mySlideDiv fade">				
-					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=780d41aa-9cc7-4719-9ce2-a3d4f45e0f55&mode=raw">
+			<div class="mySlideDiv fade">
+				<img
+					src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=780d41aa-9cc7-4719-9ce2-a3d4f45e0f55&mode=raw">
 			</div>
-			<a class="prev" onclick="prevSlide()">&#10094;</a>
-			<a class="next" onclick="nextSlide()">&#10095;</a>
+			<a class="prev" onclick="prevSlide()">&#10094;</a> <a class="next"
+				onclick="nextSlide()">&#10095;</a>
 		</div>
 	</div>
-	
-	
-	
-	<jsp:include page="MainTravelNews.jsp" />
-	
-		
-	<%@include file="MainBottomSlide.jsp" %>
-	
-	
+
+
+
+	<div class="travelNewsContainer">
+		<div class="newsBox">
+		<div class="imgBox">
+			<div class="newsImage">
+				<img src="/images/여행소식.jpg" alt="여행 소식">
+			</div>
+			</div>
+			<div class="newsText">
+				<div class="newsHeader">오늘의 여행 소식</div>
+				<br>
+				<c:forEach var="festival" items="${festivalList}">
+					<div class="newsList">
+						<p>"${festival.festivalName}"</p>
+					</div>
+					<br>
+				</c:forEach>
+			</div>
+		</div>
+	</div>
+
+
+	<%@include file="MainBottomSlide.jsp"%>
+
+
 	<%@ include file="../footer/Footer.jsp"%>
-	
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".mySlideDiv").not(".active").hide(); // 첫번째 슬라이드만 보이게 설정하고 나머지는 숨김

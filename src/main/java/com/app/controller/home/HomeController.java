@@ -28,19 +28,26 @@ public class HomeController {
 		List<FestivalImage> randomImages = festivalImageService.getRandomFestivalImages(5);
 	    model.addAttribute("randomImages", randomImages);
 
-        return "mainpage/MainPage";
-    }
-	
-	@GetMapping("/MainTravelNews") // 오늘의 여행 소식
-    public String TrevalNews(Model model) {
-       
-		List<Festival> festivalList = festivalService.getRandomFestivalList(4);
+	    List<Festival> festivalList = festivalService.getRandomFestivalList(4);
 	    model.addAttribute("festivalList", festivalList); // 이미지 정보만 전달
 
 	    for (Festival festival : festivalList) {
 	        System.out.println("축제 이름: " + festival.getFestivalName());
 	    }
 	    
-	    return "mainpage/MainTravelNews"; // JSP 페이지로 이동
+        return "mainpage/MainPage";
     }
+	
+	/*
+	 * @GetMapping("/MainTravelNews") // 오늘의 여행 소식 public String TrevalNews(Model
+	 * model) {
+	 * 
+	 * List<Festival> festivalList = festivalService.getRandomFestivalList(4);
+	 * model.addAttribute("festivalList", festivalList); // 이미지 정보만 전달
+	 * 
+	 * for (Festival festival : festivalList) { System.out.println("축제 이름: " +
+	 * festival.getFestivalName()); }
+	 * 
+	 * return "mainpage/MainTravelNews"; // JSP 페이지로 이동 }
+	 */
 }

@@ -88,7 +88,7 @@
             <br>
             <c:forEach var="festival" items="${festivalList}">
                 <div class="newsList">
-                    <p> "${festival.festivalName}"</p> <!-- 이미지 출력 -->
+                    <p> "${festival.festivalName}"</p> 
                 </div>
                 <br>
             </c:forEach>
