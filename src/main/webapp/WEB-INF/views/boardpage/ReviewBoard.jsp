@@ -14,13 +14,13 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
 .reviewBoardContainer {
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin-bottom: 100px;
+	min-height: 50vh;
 }
 
 .reviewBoardTitle {
@@ -128,7 +128,7 @@
 <body>
 
 	<%@ include file="../header/Header.jsp"%>
-
+<div class="asdf">
 	<div class="reviewBoardContainer">
 		<div class="reviewBoardTitle">
 			<h1>후기 게시판</h1>
@@ -164,7 +164,7 @@
 		</div>
 	</div>
 	
-	
+	</div>
 	
 	<%@ include file="../footer/Footer.jsp"%>
 	

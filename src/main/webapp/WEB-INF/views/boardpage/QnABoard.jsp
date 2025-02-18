@@ -13,13 +13,14 @@
 		padding: 0;
 		box-sizing: border-box;
 	}
-	
+
 	.QnABoardContainer {
 		margin: auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-bottom: 100px;
+		margin-bottom: 100px;	
+		min-height: 50vh;	
 	}
 	
 	.QnABoardTitle {
@@ -110,7 +111,7 @@
 
 </head>
 <body>
-
+<div class="page-wrapper">
 	<%@ include file="../header/Header.jsp"%>
 
 
@@ -148,7 +149,7 @@
 	
 	
 	<%@ include file="../footer/Footer.jsp"%>
-
+</div>
 
 <script>
 
