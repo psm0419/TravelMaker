@@ -23,6 +23,20 @@
 	margin-bottom: 50px;
 }
 
+.contentBox {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+}
+
+.contentBox img{
+	 width: 80%;
+	 height: auto;
+	 margin: auto;
+	 display: block;
+}
+
 .content-box {
 	border-bottom: 1px solid #ddd;
 	padding-bottom: 15px;
@@ -33,14 +47,7 @@
 	font-size: 12px;
 }
 
-.like-button {
-	cursor: pointer;
-	color: gray;
-}
 
-.like-button.active {
-	color: red;
-}
 </style>
 </head>
 <body>
@@ -55,18 +62,25 @@
 				class="ms-3 text-muted"><fmt:formatDate
 					value="${postList.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
 				class="ms-3 text-muted">조회수 ${postList.postViews}</span>
+				
+			<c:if test="${not empty sessionScope.loggedInUser and sessionScope.loggedInUser.userId eq postList.userId}">	
+				<form action="${pageContext.request.contextPath}/reviewDetail/${postList.postId}/post/delete" method="post" style="display: inline; margin-left: 8px;">
+					<button type="submit" class="btn btn-outline-danger ms-3">글 삭제하기</button>
+				</form>
+			</c:if>
+			
 		</div>
-		<c:if test="${reviewImages.urlFilePath != null}">
-			<div style="width: 300px; height: 300px;">
-				<img src="${reviewImages.urlFilePath}" alt="usersReviewImage" style="width: 500px; height: 300px; margin-left: 150px;">
-			</div>
-		</c:if>
-		<div class="mb-4">${postList.content}</div>
-
-		<button id="likeBtn" class="btn btn-outline-danger">
-			<i class="like-button ${postList.postLike}">&#x2665;</i>
-			${postList.postLike}
-		</button>
+		
+		<div class = "contentBox">
+			<c:if test="${reviewImages.urlFilePath != null}">
+				<div class = "contentImgBox">
+					<img src="${reviewImages.urlFilePath}" alt="usersReviewImage">
+				</div>
+			</c:if>
+			<br>
+			<div class="mb-4">${postList.content}</div>
+			<br>
+		</div>
 
 		<hr>
 
@@ -75,8 +89,9 @@
 		<c:forEach var="comment" items="${commentList}">
 			<div class="mb-2 d-flex align-items-center">
 				<strong style="color: gray">
-					${comment.nickName}
+					${comment.nickName} 
 				</strong>
+				<span>&nbsp;</span> <!-- 닉네임과 시간 사이 공백 주는 용도 -->
 				<small class="text-muted">
 					<fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" />
 				</small>
@@ -120,14 +135,6 @@
 	<%@ include file="../footer/Footer.jsp"%>
 
 <script>
-    document.getElementById('likeBtn').addEventListener('click', function() { //좋아요 버튼
-        fetch('${pageContext.request.contextPath}/reviews/${postList.userId}/like', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                document.querySelector('.like-button').classList.toggle('active');
-                document.getElementById('likeBtn').innerHTML = `<i class="like-button ${data.liked ? 'active' : ''}">&#x2665;</i> ${data.likes}`;
-            });
-    });
     
     function handleCommentSubmit(event) { //로그인 안했을때 로그인페이지로 이동?
         event.preventDefault();  // 기본 폼 제출 동작을 막음

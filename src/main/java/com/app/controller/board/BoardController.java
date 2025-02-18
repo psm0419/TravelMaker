@@ -110,11 +110,23 @@ public class BoardController {
 	@PostMapping("/reviewDetail/{postId}/comment/delete")
 	public String deleteReviewDetailComment(@PathVariable("postId") int postId,
 											@RequestParam("commentId") int commentId ) {
+		
+		
+		
 		int result = commentService.deleteReviewDetailCommentByPostIdAndCommentId(postId, commentId);
 		System.out.println(postId);
 		System.out.println(commentId);
 		System.out.println(result);
 		return "redirect:/reviewDetail/" + postId;
+	}
+	
+	@PostMapping("/reviewDetail/{postId}/post/delete")
+	public String deleteReviewPostByPostId(@PathVariable("postId") int postId) {
+		int deletePost = postService.deletePostByPostId(postId);
+		
+		System.out.println("게시글 삭제결과 : " + deletePost);
+		
+		return "redirect:/reviewBoard?boardId=1";
 	}
 	
 
@@ -272,6 +284,28 @@ public class BoardController {
 		System.out.println("결과값:" + result);
 
 		return "redirect:/QnADetail/" + postId;
+	}
+	
+	@PostMapping("/QnADetail/{postId}/comment/delete")
+	public String deleteQnADetailComment(@PathVariable("postId") int postId,
+											@RequestParam("commentId") int commentId ) {
+		
+		
+		
+		int result = commentService.deleteReviewDetailCommentByPostIdAndCommentId(postId, commentId);
+		System.out.println(postId);
+		System.out.println(commentId);
+		System.out.println(result);
+		return "redirect:/QnADetail/" + postId;
+	}
+	
+	@PostMapping("/QnADetail/{postId}/post/delete")
+	public String deleteQnAPostByPostId(@PathVariable("postId") int postId) {
+		int deletePost = postService.deletePostByPostId(postId);
+		
+		System.out.println("게시글 삭제결과 : " + deletePost);
+		
+		return "redirect:/QnABoard?boardId=2";
 	}
 	
 	
