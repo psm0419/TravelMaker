@@ -49,6 +49,13 @@ public class CommentServiceImpl implements CommentService {
 		return result;
 	}
 
+	@Override
+	public int deleteReviewDetailCommentByPostId(int postId) {
+		int result = commentDAO.deleteReviewDetailCommentByPostId(postId);
+		
+		return result;
+	}
+
 	
 	
 

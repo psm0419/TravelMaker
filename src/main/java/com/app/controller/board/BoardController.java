@@ -123,7 +123,7 @@ public class BoardController {
 	@PostMapping("/reviewDetail/{postId}/post/delete")
 	public String deleteReviewPostByPostId(@PathVariable("postId") int postId) {
 		int deletePost = postService.deletePostByPostId(postId);
-		
+		int deleteComment = commentService.deleteReviewDetailCommentByPostId(postId);
 		System.out.println("게시글 삭제결과 : " + deletePost);
 		
 		return "redirect:/reviewBoard?boardId=1";
