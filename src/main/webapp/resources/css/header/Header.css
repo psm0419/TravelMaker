@@ -152,7 +152,7 @@
     padding: 7px 15px;
     margin-left: 10px;
     background-color: #ff4d4d; /* 밝은 빨강 */
-    color: white;
+    color: white !important;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px; /* 모서리 둥글게 */

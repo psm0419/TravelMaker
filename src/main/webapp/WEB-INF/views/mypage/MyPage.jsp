@@ -19,7 +19,7 @@
 					<div class="profile">
 						<h2>사진 들어올곳</h2>
 						<p>
-							반가워요!<br><%=request.getAttribute("nickname")%>
+							반가워요!<br>고객
 							님
 						</p>
 						<button
@@ -37,7 +37,7 @@
 							</div>
 							<div class="activity">
 								<a href="/mypage/talk"><i class="fa-solid fa-comments"></i>
-									<p>여행톡</p></a>
+									<p>댓글</p></a>
 							</div>
 							<div class="activity">
 								<a href="/mypage/achievement"><i class="fa-solid fa-paw"></i>
