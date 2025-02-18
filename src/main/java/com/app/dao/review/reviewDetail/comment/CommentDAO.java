@@ -16,4 +16,6 @@ public interface CommentDAO {
 
 	int deleteReviewDetailCommentByPostIdAndCommentId(int postId, int commentId);
 	
+	int deleteBoardDetailCommentByPostId(int postId);
+	
 }

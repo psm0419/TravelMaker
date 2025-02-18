@@ -15,4 +15,6 @@ public interface CommentService {
 	int saveQnADetailCommentByPostId(int postId, String comment, String nickName, String userId);
 	
 	int deleteReviewDetailCommentByPostIdAndCommentId(int postId, int commentId);
+	
+	int deleteBoardDetailCommentByPostId(int postId);
 }
