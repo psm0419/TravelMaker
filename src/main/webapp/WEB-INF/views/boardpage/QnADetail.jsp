@@ -56,7 +56,7 @@
 	<%@ include file="../header/Header.jsp"%>
 
 	<div class="QnADetailContainer mt-4">
-		<div class = "QnABoardTitle">질문과답변 게시판</div>
+		<div class = "QnABoardTitle">Q&A 게시판</div>
 		<h4 class="fw-bold">제목 : ${post.title}</h4>
 		
 		<div class="content-box d-flex align-items-center">
