@@ -19,8 +19,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-bottom: 100px;	
-		min-height: 50vh;	
+		margin-bottom: 100px;
+		min-height: 50vh;
 	}
 	
 	.QnABoardTitle {
