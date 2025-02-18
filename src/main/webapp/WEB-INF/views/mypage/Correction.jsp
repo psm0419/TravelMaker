@@ -14,14 +14,14 @@
 		</header>
 	</div>
 
-	<!-- 메인 콘텐츠 & 사이드바 (가로 정렬) -->
+<h1 class="betweenHeader">마이페이지</h1>
+
 	<div class="main-container">
-		
-		<!-- 사이드바 -->
+
 		<div class="sidebar">
 			<ul>
 				<li><a href="/mypage/bookmark">즐겨찾기</a></li>
-				<li><a href="/mypage/talk">여행톡</a></li>
+				<li><a href="/mypage/talk">댓글</a></li>
 				<li><a href="/mypage/achievement">업적</a></li>
 				<li><a href="/mypage/review">후기</a></li>
 				<li class="selected"><a href="/mypage/correction">관광정보수정/신규요청</a></li>
@@ -29,7 +29,6 @@
 			</ul>
 		</div>
 
-		<!-- 메인 콘텐츠 -->
 		<div class="container">
 			<h1 class="title">관광정보 수정요청</h1>
 			<p class="subtitle">
@@ -37,11 +36,10 @@
 			</p>
 
 			<div class="content">
-				<!-- 즐겨찾기 목록이 없을 때 표시 -->
 				<div class="no-content">요청한 항목이 없습니다.</div>
 			</div>
 		</div>
 	</div>
-
+<%@include file="../footer/Footer.jsp"%>
 </body>
 </html>

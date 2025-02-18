@@ -17,14 +17,14 @@ public class MyPageDAOImpl implements MyPageDAO{
 	
 	@Override
 	public int getBookMarkCount(String userId) {
-		
-		return 0;
+		int result = sqlSessionTemplate.selectOne("festival_mapper.getBookMarkCount",userId);
+		return result;
 	}
 
 	@Override
 	public List<Festival> getBookmarkedFestivals(String userId) {
-		List<Festival> bookmarkdList = sqlSessionTemplate.selectList("festival_mapper.")
-		return ;
+		List<Festival> bookmarkedList = sqlSessionTemplate.selectList("festival_mapper.getBookmarkedFestivals", userId);
+	    return bookmarkedList;
 	}
 
 }
