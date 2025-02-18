@@ -19,15 +19,20 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
+		<div class="mainHeaderContainer">
+			<header>
+				<%@include file="../header/Header.jsp"%>
+			</header>
+		</div>
 		<div class="main-content">
 			<h1>축제 정보 관리</h1>
 			<div class="dashboard">
 				<div class="card">
-				<h3>축제 등록</h3>
+					<h3>축제 등록</h3>
 					<a href="/admin/festival/saveFestival"><p>더보기</p></a>
 				</div>
 				<div class="card">
-				<h3>축제 상세 수정</h3>
+					<h3>축제 상세 수정</h3>
 					<a href="/admin/festival/festivalList"><p>더보기</p></a>
 				</div>
 			</div>

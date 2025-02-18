@@ -22,4 +22,5 @@ public class Festival {
 	String homepageUrl;
 	String content;
 	int likeCount;
+	boolean liked;
 }

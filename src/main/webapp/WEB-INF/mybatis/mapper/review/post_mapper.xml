@@ -74,7 +74,7 @@
 		select *
 		from
 		posts
-		WHERE report > 0
+		WHERE report = 'Y'
 		ORDER BY report DESC
 	</select>
 

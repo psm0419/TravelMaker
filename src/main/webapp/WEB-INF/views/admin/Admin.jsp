@@ -19,11 +19,13 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
-
-		<div class="main-content">
-			<div class=mainHeaderContainer>
+		<div class="mainHeaderContainer">
+			<header>
 				<%@include file="../header/Header.jsp"%>
-			</div>
+			</header>
+		</div>
+		<div class="main-content">
+
 			<h1>대시보드</h1>
 
 			<div class="dashboard">
@@ -57,10 +59,11 @@
 			<div class="admin-notice">
 				<h2>공지사항</h2>
 				<ul>
-					<c:forEach var="notice" items="${notices}">
+					<li>새로운 사이트 입니다. 공지사항을 작성해 주세요.</li>
+<%-- 					<c:forEach var="notice" items="${notices}">
 						<li><a href="/admin/notice/${notice.id}">${notice.title}</a>
 							- ${notice.date}</li>
-					</c:forEach>
+					</c:forEach> --%>
 				</ul>
 				<a href="/admin/notice" class="btn">더보기</a>
 			</div>
@@ -68,17 +71,18 @@
 			<div class="server-status">
 				<h2>시스템 상태</h2>
 				<ul>
-					<li>서버 상태: <span class="status">${serverStatus}</span></li>
-					<li>DB 연결: <span class="status">${dbStatus}</span></li>
-					<li>최근 백업 날짜: ${lastBackupDate}</li>
+					<li>서버 상태: <span class="status">${serverStatus} 정상</span></li>
+					<li>DB 연결: <span class="status">${dbStatus} 정상</span></li>
+					<li>최근 백업 날짜: ${lastBackupDate} 2025-02-17</li>
 				</ul>
 			</div>
 
 			<div class="admin-logs">
 				<h2>관리자 활동 로그</h2>
 				<ul>
+				<li>최근 활동한 내역이 없습니다.</li>
 					<c:forEach var="log" items="${adminLogs}">
-						<li>${log.timestamp}- ${log.adminName} 님이 ${log.action} 수행</li>
+						<li>${log.timestamp}-${log.adminName}님이 ${log.action} 수행</li>
 					</c:forEach>
 				</ul>
 			</div>

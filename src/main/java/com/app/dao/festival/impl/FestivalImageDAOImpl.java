@@ -19,4 +19,9 @@ public class FestivalImageDAOImpl implements FestivalImageDAO{
     public List<FestivalImage> findImagesByFestivalId(int festivalId) {
         return sqlSessionTemplate.selectList("festival_mapper.findImagesByFestivalId", festivalId);
     }
+
+	@Override
+	public List<FestivalImage> getRandomFestivalImages(int count) {
+        return sqlSessionTemplate.selectList("festival_mapper.getRandomFestivalImages", count);  // 랜덤 쿼리 호출
+    }
 }

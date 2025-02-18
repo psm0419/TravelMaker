@@ -20,6 +20,11 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
+		<div class="mainHeaderContainer">
+			<header>
+				<%@include file="../../header/Header.jsp"%>
+			</header>
+		</div>
 		<div class="main-content">
 			<h1>신고된 게시글 목록</h1>
 			<div class="dashboard">

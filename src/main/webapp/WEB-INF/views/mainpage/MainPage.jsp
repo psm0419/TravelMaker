@@ -72,9 +72,9 @@
 	width: auto;
 	padding: 16px;
 	margin-top: -22px;
-	color: white;
+	color: black;	
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 28px;
 	transition: 0.6s ease;
 	border-radius: 0 3px 3px 0;
 }
@@ -99,36 +99,21 @@
 	
 	<div class="slideContainer">
 		<div class="slideshow-container">			<!-- 이미지크기 940x527 -->
-			<div class="mySlideDiv fade active">
-				<a href="https://www.naver.com">
-					<img src="/images/유채꽃축제.jpg">
-				</a>
+			<div class="mySlideDiv fade active">				
+					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=e0423c22-ed8c-494b-83fd-871aaf6957b0&mode=raw">
 			</div>
-	
-			<div class="mySlideDiv fade">
-				<a href="https://www.naver.com">
-					<img src="/images/유채꽃축제2.jpg">
-				</a>
+			<div class="mySlideDiv fade">				
+					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=f0b64486-59e3-469b-a3b9-f5150d19e653&mode=raw">
 			</div>
-	
-			<div class="mySlideDiv fade">
-				<a href="https://www.naver.com">
-					<img src="/images/유채꽃축제.jpg">
-				</a>
+			<div class="mySlideDiv fade">				
+					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=ffe260f9-2a29-4865-892b-75a9bb43d921&mode=raw" >
 			</div>
-			
-			<div class="mySlideDiv fade">
-				<a href="https://www.naver.com">
-					<img src="/images/유채꽃축제2.jpg">
-				</a>
+			<div class="mySlideDiv fade">				
+					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=48304ca9-7f0e-4710-bc7d-7f4c3918f402&mode=raw" >	
 			</div>
-			
-			<div class="mySlideDiv fade">
-				<a href="https://www.naver.com">
-					<img src="/images/유채꽃축제3.jpg">
-				</a>
+			<div class="mySlideDiv fade">				
+					<img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=780d41aa-9cc7-4719-9ce2-a3d4f45e0f55&mode=raw">
 			</div>
-	
 			<a class="prev" onclick="prevSlide()">&#10094;</a>
 			<a class="next" onclick="nextSlide()">&#10095;</a>
 		</div>

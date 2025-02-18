@@ -20,14 +20,15 @@ public class HomeController {
 	
 	@Autowired
 	FestivalImageService festivalImageService;
-
+	
 	@GetMapping("/") // 홈 화면
-	public String home(Model model) {
-		List<Festival> festivalList = festivalService.findFestivalList();
+    public String home(Model model) {
+       
+        
+		List<FestivalImage> randomImages = festivalImageService.getRandomFestivalImages(5);
+	    model.addAttribute("randomImages", randomImages);
 
-		model.addAttribute("festivalList", festivalList);
-
-		return "mainpage/MainPage";
-	}
+        return "mainpage/MainPage";
+    }
 	
 }

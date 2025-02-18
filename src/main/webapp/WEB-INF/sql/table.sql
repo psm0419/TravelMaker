@@ -62,7 +62,7 @@ create Table posts (
   post_views number default 0,
   status number default 0 check (status in (0,1)),  
   nick_name varchar2(36) not null,
-  report varchar2(12) default 'N' not null,
+  report varchar2(12) default 'N' not null,  
   board_id number(3)
 );
 
@@ -100,86 +100,34 @@ create Table comments (
   created_at timestamp,
   nick_name varchar2(36)
 );
-CREATE SEQUENCE comments_id_seq
+CREATE SEQUENCE comment_id_seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE
 NOCYCLE;
 
-create Table authentication_page(
-  authentication_id varchar2(16),
-  festival_id number,
-  user_id number,
-  authentication_image BLOB,
-  authentication_status varchar2(32)
-);
-CREATE SEQUENCE authentication_id_seq
-START WITH 1
-INCREMENT BY 1
-NOCACHE
-NOCYCLE;
-
-create Table search_record(
-  search_id number primary key,
-  user_id number,
-  search_word varchar2(32),
-  created_at timestamp
-);
-CREATE SEQUENCE search_id_seq
-START WITH 1
-INCREMENT BY 1
-NOCACHE
-NOCYCLE;
-
-create Table badge(
-  badge_id number primary key,
-  badge_title varchar2(32) unique,
-  count number
-);
-CREATE SEQUENCE badge_id_seq
-START WITH 1
-INCREMENT BY 1
-NOCACHE
-NOCYCLE;
-
-create Table festival_rating( 
-  authentication_id varchar2(32),
-  user_rating number
-);
 
 CREATE TABLE festival_likes (
-    like_id NUMBER PRIMARY KEY,             
-    user_id varchar2(32),                    
-    festival_id NUMBER,                      
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
-    FOREIGN KEY (user_id) REFERENCES users(user_id),  
-    FOREIGN KEY (festival_id) REFERENCES festival(festival_id)
+  like_id NUMBER PRIMARY KEY,
+  user_id varchar2(32) NOT NULL,
+  festival_id NUMBER NOT NULL,
+  liked_at DATE DEFAULT SYSDATE,
+  CONSTRAINT fk_festival2 FOREIGN KEY (festival_id) REFERENCES festival(festival_id),
+  CONSTRAINT fk_user2 FOREIGN KEY (user_id) REFERENCES users(user_id),
+  CONSTRAINT uk_festival_likes UNIQUE (user_id, festival_id) -- 기존 제약 조건 이름 변경
 );
 
-create Table postlike (
-  post_id number,
-  user_id number  
+UPDATE festival f
+SET f.like_count = (
+    SELECT COUNT(*) 
+    FROM festival_likes fl 
+    WHERE fl.festival_id = f.festival_id
 );
 
-create Table commentlike (
-  post_id number,
-  user_id number  
-);
-
-create Table user_festival_badge(
-  festival_id number,
-  user_id number
-);
-
-create Table board(
-  board_id number primary key
-);
-
-CREATE SEQUENCE comments_id_seq
+CREATE SEQUENCE festival_likes_seq
 START WITH 1
 INCREMENT BY 1
-NOCACHE
-NOCYCLE;
+NOCACHE;
 
 CREATE TABLE festival_images (
     image_id NUMBER PRIMARY KEY,
@@ -206,7 +154,7 @@ create table file_info(
 
 create table user_profile_image(
     id varchar2(32),
-    file_name varchar2(256)   
+    file_name varchar2(256)
 );
 
 CREATE TABLE user_reports (

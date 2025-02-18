@@ -125,9 +125,18 @@
 
 .festival-content h3 {
 	margin: 5px 0;
-	font-size: 18px;	
+	font-size: 18px;
+	display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
-
+.like-count {
+    font-size: 0.8em;
+    color: #666;
+    font-weight: normal;
+    display: none;
+}
 .festival-content .date, .location, .fee{
 	font-size: 14px;
 	color: #666;

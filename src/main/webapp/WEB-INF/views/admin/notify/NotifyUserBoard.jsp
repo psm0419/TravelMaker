@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
 </head>
 <body>
 <body>
-<%@include file="../../header/Header.jsp"%>
+	<%@include file="../../header/Header.jsp"%>
 	<div class="container">
 		<div class="sidebar">
 			<h2>관리자 페이지</h2>
@@ -22,10 +22,15 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
+		<div class="mainHeaderContainer">
+			<header>
+				<%@include file="../../header/Header.jsp"%>
+			</header>
+		</div>
 		<div class="main-content">
 			<h1>신고된 유저 목록</h1>
 			<div class="dashboard">
-			<div class=card>
+				<div class=card>
 					<table>
 						<colgroup>
 							<col style="width: 5%;">
@@ -41,8 +46,9 @@
 						</tr>
 						<c:forEach var="user" items="${userList}">
 							<tr>
-								<td><input type="checkbox" class="postCheckbox" value="${user.userId}"></td>
-								<td>${user.nickName} (${user.userId})</td>
+								<td><input type="checkbox" class="postCheckbox"
+									value="${user.userId}"></td>
+								<td>${user.nickName}(${user.userId})</td>
 								<td>${user.report}</td>
 								<td>
 									<div class="btn btn-admin">
@@ -53,7 +59,8 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<button id="deleteSelectedBtn" class="btn btn-ban" onclick="deleteSelectedUsers()">선택 삭제</button>
+					<button id="deleteSelectedBtn" class="btn btn-ban"
+						onclick="deleteSelectedUsers()">선택 삭제</button>
 				</div>
 			</div>
 		</div>

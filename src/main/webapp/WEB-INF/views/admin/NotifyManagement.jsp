@@ -19,19 +19,23 @@
 				<li><a href="/admin/notify">신고 관리</a></li>
 			</ul>
 		</div>
+		<div class="mainHeaderContainer">
+			<header>
+				<%@include file="../header/Header.jsp"%>
+			</header>
+		</div>
 		<div class="main-content">
 			<h1>신고 관리</h1>
 			<div class="dashboard">
-			<div class="card">
-				<h3>신고된 게시글/댓글 관리</h3>
-				<a href="/admin/notifyPostList">더보기</a>
-			</div>
-			<div class="card">
-				<h3>신고된 유저 조회</h3>
-				<a href="/admin/notifyUserList">더보기</a>
+				<div class="card">
+					<h3>신고된 게시글/댓글 관리</h3>
+					<a href="/admin/notifyPostList">더보기</a>
+				</div>
+				<div class="card">
+					<h3>신고된 유저 조회</h3>
+					<a href="/admin/notifyUserList">더보기</a>
+				</div>
 			</div>
 		</div>
-		</div>
-		
 </body>
 </html>
