@@ -34,4 +34,6 @@ public interface PostService {
 	void setImageUrlForPost(Post post);
 	
 	int deletePostByPostId(int postId);
+	
+	int reportPostByPostId(int postId);
 }

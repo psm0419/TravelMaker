@@ -32,4 +32,6 @@ public interface PostDAO {
 	String getUrlFilePathByPostId(int postId);
 	
 	int deletePostByPostId(int postId);
+	
+	int reportPostByPostId(int postId);
 }

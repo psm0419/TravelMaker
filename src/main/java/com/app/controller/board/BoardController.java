@@ -129,6 +129,14 @@ public class BoardController {
 		return "redirect:/reviewBoard?boardId=1";
 	}
 	
+	@PostMapping("reviewDetail/{postId}/post/report")
+	public String reportReviewPostByPostId(@PathVariable("postId") int postId) {
+		int reportPost = postService.reportPostByPostId(postId);
+		
+		System.out.println("게시글 신고결과 : " + reportPost);
+		
+		return "redirect:/reviewDetail/" + postId;
+	}
 
 	@GetMapping("/writeReview")
 	public String writeReview(HttpSession session, Model model) {
@@ -306,6 +314,15 @@ public class BoardController {
 		System.out.println("게시글 삭제결과 : " + deletePost);
 		
 		return "redirect:/QnABoard?boardId=2";
+	}
+	
+	@PostMapping("QnADetail/{postId}/post/report")
+	public String reportQnAPostByPostId(@PathVariable("postId") int postId) {
+		int reportPost = postService.reportPostByPostId(postId);
+		
+		System.out.println("게시글 신고결과 : " + reportPost);
+		
+		return "redirect:/QnADetail/" + postId;
 	}
 	
 	

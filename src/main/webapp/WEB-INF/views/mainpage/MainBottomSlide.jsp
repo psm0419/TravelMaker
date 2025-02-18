@@ -162,8 +162,8 @@
 	<script>
 		
 		const container = document.querySelector('.innerBottomSlideContainer');
-		const prev = document.querySelector('.bottomSlidePrev')
-		const next = document.querySelector('.bottomSlideNext')
+		const prev = document.querySelector('.bottomSlideNext')
+		const next = document.querySelector('.bottomSlidePrev')
 	
 		prev.addEventListener('click',()=>{
 		  const slides = document.querySelectorAll('.bottomSlide')
