@@ -62,7 +62,7 @@ create Table posts (
   post_views number default 0,
   status number default 0 check (status in (0,1)),  
   nick_name varchar2(36) not null,
-  report varchar2(12) default 'N' not null,  
+  report varchar2(12) default 'N' not null,
   board_id number(3)
 );
 
