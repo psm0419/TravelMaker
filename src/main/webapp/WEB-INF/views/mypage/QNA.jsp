@@ -13,13 +13,13 @@
 			<%@include file="../header/Header.jsp"%>
 		</header>
 	</div>
-
+<h1 class="betweenHeader">마이페이지</h1>
 	<div class="main-container">
 		
 		<div class="sidebar">
 			<ul>
 				<li><a href="/mypage/bookmark">즐겨찾기</a></li>
-				<li><a href="/mypage/talk">여행톡</a></li>
+				<li><a href="/mypage/talk">댓글</a></li>
 				<li><a href="/mypage/achievement">업적</a></li>
 				<li><a href="/mypage/review">후기</a></li>
 				<li><a href="/mypage/correction">관광정보 수정/신규 요청</a></li>
@@ -27,7 +27,6 @@
 			</ul>
 		</div>
 
-		<!-- 메인 콘텐츠 -->
 		<div class="container">
 			<h1 class="title">Q&A</h1>
 			<p class="subtitle">
@@ -39,5 +38,6 @@
 			</div>
 		</div>
 	</div>
+	<%@include file="../footer/Footer.jsp"%>
 </body>
 </html>

@@ -60,10 +60,6 @@
 				<h2>공지사항</h2>
 				<ul>
 					<li>새로운 사이트 입니다. 공지사항을 작성해 주세요.</li>
-<%-- 					<c:forEach var="notice" items="${notices}">
-						<li><a href="/admin/notice/${notice.id}">${notice.title}</a>
-							- ${notice.date}</li>
-					</c:forEach> --%>
 				</ul>
 				<a href="/admin/notice" class="btn">더보기</a>
 			</div>
@@ -80,9 +76,9 @@
 			<div class="admin-logs">
 				<h2>관리자 활동 로그</h2>
 				<ul>
-				<li>최근 활동한 내역이 없습니다.</li>
+					<li>최근 활동한 내역이 없습니다.</li>
 					<c:forEach var="log" items="${adminLogs}">
-						<li>${log.timestamp}-${log.adminName}님이 ${log.action} 수행</li>
+						<li>${log.timestamp}-${log.adminName}님이${log.action} 수행</li>
 					</c:forEach>
 				</ul>
 			</div>

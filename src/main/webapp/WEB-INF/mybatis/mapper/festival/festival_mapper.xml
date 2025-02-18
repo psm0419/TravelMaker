@@ -106,6 +106,23 @@
 		like_count = #{likeCount}
 		WHERE festival_id = #{festivalId}
 	</update>
+	
+	<!-- 사용자가 즐겨찾기한 축제 목록 조회 -->
+	<select id="getBookmarkedFestivals" parameterType="String"
+		resultType="Festival">
+		SELECT f.*
+		FROM festival f
+		JOIN festival_likes fl ON f.festival_id = fl.festival_id
+		WHERE fl.user_id = #{userId}
+		ORDER BY fl.liked_at DESC
+	</select>
 
+	<!-- 사용자의 즐겨찾기 개수 조회 -->
+	<select id="getBookMarkCount" parameterType="String"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM festival_likes
+		WHERE user_id = #{userId}
+	</select>
 
 </mapper>
