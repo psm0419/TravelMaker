@@ -48,6 +48,12 @@
 	font-size: 12px;
 }
 
+.reviewBoardTitle{
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
 
 </style>
 </head>
@@ -56,7 +62,8 @@
 	<%@ include file="../header/Header.jsp"%>
 
 	<div class="reviewDetailContainer mt-4">
-		<h4 class="fw-bold">${postList.title}</h4>
+		<div class = "reviewBoardTitle">후기 게시판</div>
+		<h4 class="fw-bold">제목 : ${postList.title}</h4>
 		<div class="content-box d-flex align-items-center">
 			<img src="/images/유저이미지.jpg" alt="작성자 이미지" class="rounded-circle"
 				width="40"> <span class="ms-2">${postList.nickName}</span> <span
