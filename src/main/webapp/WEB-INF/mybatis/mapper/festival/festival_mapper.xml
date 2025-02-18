@@ -16,6 +16,22 @@
 		order by festival_id
 	</select>
 
+	<update id="updatefestival" parameterType="Festival">
+		update festival
+		set
+		festival_name = #{festivalName},
+		location = #{location},
+		start_date = #{startDate},
+		end_date = #{endDate},
+		entrance_fee = #{entranceFee},
+		tel = #{tel},
+		festival_host = #{festivalHost},
+		homepage_url = #{homepageUrl},
+		content = #{content},
+		like_count = #{likeCount}
+		WHERE festival_id = #{festivalId}
+	</update>
+
 	<select id="findImagesByFestivalId" parameterType="int"
 		resultType="FestivalImage">
 		SELECT
@@ -106,15 +122,17 @@
 		like_count = #{likeCount}
 		WHERE festival_id = #{festivalId}
 	</update>
-	
+
 	<!-- 사용자가 즐겨찾기한 축제 목록 조회 -->
 	<select id="getBookmarkedFestivals" parameterType="String"
 		resultType="Festival">
 		SELECT f.*
 		FROM festival f
-		JOIN festival_likes fl ON f.festival_id = fl.festival_id
+		JOIN festival_likes fl ON
+		f.festival_id = fl.festival_id
 		WHERE fl.user_id = #{userId}
-		ORDER BY fl.liked_at DESC
+		ORDER BY
+		fl.liked_at DESC
 	</select>
 
 	<!-- 사용자의 즐겨찾기 개수 조회 -->

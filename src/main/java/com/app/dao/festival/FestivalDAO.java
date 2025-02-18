@@ -14,7 +14,7 @@ public interface FestivalDAO {
 	Festival getFestivalById(int festivalId);
 	
 	int removeFestival(int festivalId);
-	
+	int updateFestival(Festival festival);
 	List<Festival> findFestivalList();	
 	
 	

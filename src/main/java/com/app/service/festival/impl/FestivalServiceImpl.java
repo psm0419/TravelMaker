@@ -2,6 +2,7 @@ package com.app.service.festival.impl;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -84,5 +85,11 @@ public class FestivalServiceImpl implements FestivalService{
 		
 		return festivalDAO.getRandomFestivalList(count);
 	}
+
+	public int updateFestival(Festival festival) {
+		int result = festivalDAO.updateFestival(festival);
+		return result;
+	}
+
 
 }
