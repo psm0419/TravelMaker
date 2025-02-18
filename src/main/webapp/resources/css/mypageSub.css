@@ -34,6 +34,9 @@ body {
     color: #666;
     margin-bottom: 20px;
 }
+.betweenHeader{
+	margin-left:120px;
+}
 
 /* 사이드바 */
 .sidebar ul {
@@ -76,7 +79,7 @@ body {
 
 /* 마우스 호버 시 선택된 메뉴처럼 보이도록 */
 .sidebar ul li:hover {
-    background-color: #80ffff;
+    background-color: #ADD8E6;
     cursor: pointer;
 }
 

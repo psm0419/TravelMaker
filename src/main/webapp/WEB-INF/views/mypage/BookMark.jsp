@@ -12,11 +12,11 @@
 			<%@include file="../header/Header.jsp"%>
 		</header>
 	</div>
-
-	<!-- 메인 콘텐츠 & 사이드바 (가로 정렬) -->
+	
+	<h1 class="betweenHeader">마이페이지</h1>
+	
 	<div class="main-container">
-		
-		<!-- 사이드바 -->
+
 		<div class="sidebar">
 			<ul>
 				<li class="selected"><a href="/mypage/bookmark">즐겨찾기</a></li>
@@ -28,7 +28,6 @@
 			</ul>
 		</div>
 
-		<!-- 메인 콘텐츠 -->
 		<div class="container">
 			<h1 class="title">즐겨찾기</h1>
 			<p class="subtitle">
@@ -36,7 +35,6 @@
 			</p>
 
 			<div class="content">
-				<!-- 즐겨찾기 목록이 없을 때 표시 -->
 				<div class="no-content">즐겨찾기한 항목이 없습니다.</div>
 			</div>
 		</div>

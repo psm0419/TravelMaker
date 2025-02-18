@@ -14,10 +14,8 @@
 		</header>
 	</div>
 
-	<!-- 메인 콘텐츠 & 사이드바 (가로 정렬) -->
 	<div class="main-container">
 		
-		<!-- 사이드바 -->
 		<div class="sidebar">
 			<ul>
 				<li><a href="/mypage/bookmark">즐겨찾기</a></li>
@@ -37,11 +35,9 @@
 			</p>
 
 			<div class="content">
-				<!-- 즐겨찾기 목록이 없을 때 표시 -->
 				<div class="no-content">Q&A 항목이 없습니다.</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
