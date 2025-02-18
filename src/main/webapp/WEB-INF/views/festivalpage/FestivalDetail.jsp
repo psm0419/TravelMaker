@@ -53,6 +53,10 @@
 	</div>	
 	
 		<%@include file="../attraction/AttractionMap.jsp"%>	
+		<br>
+	<a href="/festivalpage/FestivalPage" class="back-btn">목록으로 돌아가기</a>
+		
+		<%@include file="../footer/Footer.jsp"%>
 
 <script>
     // 서버에서 JSON 데이터 가져오기
@@ -71,8 +75,7 @@
         })
         .catch(error => console.error('음식점 데이터를 불러오는 중 오류 발생:', error));
 </script>
-	<br>
-	<a href="/festivalpage/FestivalPage" class="back-btn">목록으로 돌아가기</a>
+	
 <script>
 	function goToHomepage(url) {
     if (url) {

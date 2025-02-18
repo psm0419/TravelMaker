@@ -11,11 +11,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <link rel="stylesheet" href="../css/mypage.css">
 </head>
-<body>
-	<div class="container">
-		<div class=mainHeaderContainer>
+<body class="mypage-body">
+	
 			<%@include file="../header/Header.jsp"%>
-			<div class="container">
+			<div class="mypage-container">
 				<div class="sidebar">
 					<div class="profile">
 						<h2>사진 들어올곳</h2>
@@ -34,27 +33,27 @@
 						<div class="activities-icons">
 							<div class="activity">
 								<a href="/mypage/bookmark"><i class="fa-regular fa-bookmark"></i>
-								<p>즐겨찾기</p></a>
+									<p>즐겨찾기</p></a>
 							</div>
 							<div class="activity">
 								<a href="/mypage/talk"><i class="fa-solid fa-comments"></i>
-								<p>여행톡</p></a>
+									<p>여행톡</p></a>
 							</div>
 							<div class="activity">
 								<a href="/mypage/achievement"><i class="fa-solid fa-paw"></i>
-								<p>업적</p></a>
+									<p>업적</p></a>
 							</div>
 							<div class="activity">
 								<a href="mypage/review"><i class="fa-solid fa-map"></i>
-								<p>후기</p></a>
+									<p>후기</p></a>
 							</div>
 							<div class="activity">
 								<a href="/mypage/correction"><i class="fa-solid fa-pen"></i>
-								<p>관광정보 수정요청</p></a>
+									<p>관광정보 수정요청</p></a>
 							</div>
 							<div class="activity">
 								<a href="/mypage/qna"><i class="fa-solid fa-question"></i>
-								<p>Q&A</p></a>
+									<p>Q&A</p></a>
 							</div>
 						</div>
 					</div>
@@ -65,12 +64,11 @@
 						</c:forEach>
 					</div>
 				</div>
+				
 			</div>
-			</div>
-			</div>
-<%-- 			<div class="footerContainer">
-			<%@ include file="../footer/Footer.jsp"%>
-			</div> --%>
+			
+		
+	<%@include file="../footer/Footer.jsp"%>
 </body>
 </html>
 

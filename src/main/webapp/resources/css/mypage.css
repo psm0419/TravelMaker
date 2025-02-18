@@ -4,27 +4,35 @@
 	box-sizing: border-box;
 }
 
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f9f9f9;
-	padding: 20px;
+.mypage-body body {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 높이를 기준으로 최소 크기 설정 */
+    align-items: center;
+    background-color: #f9f9f9;
 }
 
-a {
+.mypage-body a {
 	text-decoration: none;
 	color: inherit;
 }
 
-.container {
+.mypage-container {
 	display: flex;
-	gap: 20px;
-	max-width: 800px;
-	width: 100%;
+    flex: 1;
+    max-width: 900px; /* 너비 제한 */
+    width: 100%;
+    margin: 20px auto; /* 중앙 정렬 */
 }
-
+.footer {
+    position: fixed; /* 화면 하단에 고정 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #80deea; /* 기존 푸터 배경색 */
+    padding: 15px 0;
+    text-align: center;
+}
 .sidebar {
 	width: 250px;
 	background: #0D47A1;
