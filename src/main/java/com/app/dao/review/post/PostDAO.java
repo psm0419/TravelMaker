@@ -33,5 +33,9 @@ public interface PostDAO {
 	
 	int deletePostByPostId(int postId);
 	
+	int deletePostImagesByPostId(int postId);
+	
 	int reportPostByPostId(int postId);
+	
+	
 }

@@ -111,6 +111,13 @@ public class PostServiceImpl implements PostService{
 		
 		return result;
 	}
+	
+	@Override
+	public int deletePostImagesByPostId(int postId) {
+		int result = postDAO.deletePostImagesByPostId(postId);
+		
+		return result;
+	}
 
 	@Override
 	public int reportPostByPostId(int postId) {
@@ -118,5 +125,7 @@ public class PostServiceImpl implements PostService{
 		
 		return result;
 	}
+
+	
 
 }

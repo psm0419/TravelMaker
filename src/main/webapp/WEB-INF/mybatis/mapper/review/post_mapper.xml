@@ -101,6 +101,10 @@
 		DELETE FROM posts WHERE post_id = #{postId}
 	</delete>
 
+	<delete id="deletePostImagesByPostId" parameterType="int">
+		DELETE FROM posts_images WHERE post_id = #{postId}
+	</delete>
+
 
 </mapper>
 

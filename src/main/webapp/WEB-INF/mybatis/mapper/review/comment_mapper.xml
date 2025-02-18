@@ -23,7 +23,7 @@
 	    WHERE post_id = #{postId} AND comment_id = #{commentId}
 	</delete>
 	
-	<delete id="deleteReviewDetailCommentByPostId" parameterType="int">
+	<delete id="deleteBoardDetailCommentByPostId" parameterType="int">
 	    DELETE FROM comments
 	    WHERE post_id = #{postId}
 	</delete>

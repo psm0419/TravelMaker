@@ -122,10 +122,13 @@ public class BoardController {
 	
 	@PostMapping("/reviewDetail/{postId}/post/delete")
 	public String deleteReviewPostByPostId(@PathVariable("postId") int postId) {
+		int deleteComment = commentService.deleteBoardDetailCommentByPostId(postId);
+		int deletePostImage = postService.deletePostImagesByPostId(postId);
 		int deletePost = postService.deletePostByPostId(postId);
-		int deleteComment = commentService.deleteReviewDetailCommentByPostId(postId);
-		System.out.println("게시글 삭제결과 : " + deletePost);
 		
+		System.out.println("게시글 삭제결과 : " + deletePost);
+		System.out.println("게시글 삭제 시 게시글속 댓글 삭제 결과 : " + deleteComment);
+		System.out.println("게시글 삭제 시 게시글속 사진 삭제 결과 : " + deletePostImage);
 		return "redirect:/reviewBoard?boardId=1";
 	}
 	
@@ -309,9 +312,11 @@ public class BoardController {
 	
 	@PostMapping("/QnADetail/{postId}/post/delete")
 	public String deleteQnAPostByPostId(@PathVariable("postId") int postId) {
+		int deleteComment = commentService.deleteBoardDetailCommentByPostId(postId);
 		int deletePost = postService.deletePostByPostId(postId);
 		
 		System.out.println("게시글 삭제결과 : " + deletePost);
+		System.out.println("게시글 삭제 시 게시글속 댓글 삭제 결과 : " + deleteComment);
 		
 		return "redirect:/QnABoard?boardId=2";
 	}

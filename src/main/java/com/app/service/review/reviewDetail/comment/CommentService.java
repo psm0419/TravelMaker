@@ -16,5 +16,5 @@ public interface CommentService {
 	
 	int deleteReviewDetailCommentByPostIdAndCommentId(int postId, int commentId);
 	
-	int deleteReviewDetailCommentByPostId(int postId);
+	int deleteBoardDetailCommentByPostId(int postId);
 }

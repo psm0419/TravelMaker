@@ -36,4 +36,6 @@ public interface PostService {
 	int deletePostByPostId(int postId);
 	
 	int reportPostByPostId(int postId);
+	
+	int deletePostImagesByPostId(int postId);
 }
