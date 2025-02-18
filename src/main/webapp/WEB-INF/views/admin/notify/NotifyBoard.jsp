@@ -42,13 +42,14 @@
 							<th><input type="checkbox" id="selectAll"></th>
 							<th>제목</th>
 							<th>닉네임(아이디)</th>
-							<th>신고 수</th>
+							<th>신고 상태</th>
 							<th>비고</th>
 						</tr>
 						<c:forEach var="post" items="${postList}">
 							<tr>
+								<td><input type="checkbox"> </td>
 								<td>${post.title}</td>
-								<td>${post.nickname}(${post.postid})</td>
+								<td>${post.nickName}(${post.postId})</td>
 								<td>${post.report}</td>
 								<td>
 									<div class="btn btn-admin">
