@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>관광정보수정요청</title>
-<link rel="stylesheet" href="../css/mypage2.css">
+<link rel="stylesheet" href="../css/mypageSub.css">
 </head>
 <body>
 	<div class="mainHeaderContainer">
@@ -24,7 +24,7 @@
 				<li><a href="/mypage/talk">여행톡</a></li>
 				<li><a href="/mypage/achievement">업적</a></li>
 				<li><a href="/mypage/review">후기</a></li>
-				<li class="selected"><a href="/mypage/correction">관광정보 수정/신규 요청</a></li>
+				<li class="selected"><a href="/mypage/correction">관광정보수정/신규요청</a></li>
 				<li><a href="/mypage/qna">Q&A</a></li>
 			</ul>
 		</div>

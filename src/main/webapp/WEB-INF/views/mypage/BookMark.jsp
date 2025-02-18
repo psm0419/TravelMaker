@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>마이페이지 즐겨찾기</title>
-<link rel="stylesheet" href="../css/mypage2.css">
+<link rel="stylesheet" href="../css/mypageSub.css">
 </head>
 <body>
 	<div class="mainHeaderContainer">

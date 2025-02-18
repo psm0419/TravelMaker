@@ -45,6 +45,10 @@
 	<select id="findPostList" resultType="Post">
 		select * from posts order by post_id
 	</select>
+	
+	<select id="findPostById" parameterType="int" resultType="Post">
+		select * from posts where post_id = #{postId}
+	</select>
 
 	<select id="findPostByUserId" parameterType="String"
 		resultType="Post">

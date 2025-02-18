@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>후기</title>
-<link rel="stylesheet" href="../css/mypage2.css">
+<link rel="stylesheet" href="../css/mypageSub.css">
 </head>
 <body>
 	<div class="mainHeaderContainer">
