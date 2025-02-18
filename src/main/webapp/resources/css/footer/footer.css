@@ -2,7 +2,7 @@
 
 /* 푸터 기본 스타일 */
 .footer {
-    background: #13ddc275; /* 배경 색상 */
+    background: lightblue; /* 배경 색상 */
     color: rgb(0, 0, 0);
     padding: 40px 0;
     text-align: center;
