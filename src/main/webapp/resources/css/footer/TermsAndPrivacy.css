@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-body {
+.pt-body body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     padding: 0;
     background: #f5f5f5;
 }
 
-.container {
+.pt-container {
     max-width: 800px;
     margin: 50px auto;
     padding: 30px;
@@ -16,25 +16,25 @@ body {
     border-radius: 10px;
 }
 
-h1 {
+pt-container h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
-h2 {
+pt-container h2 {
     color: #555;
     border-bottom: 2px solid #74ebd5;
     padding-bottom: 5px;
     margin-top: 20px;
 }
 
-p {
+pt-container p {
     line-height: 1.6;
     color: #666;
 }
 
-ul {
+pt-container ul {
     list-style: disc;
     margin-left: 20px;
     color: #666;
@@ -47,7 +47,7 @@ ul {
     color: #999;
 }
 
-button {
+pt-container button {
     background-color: #3498db; /* 파란색 */
     color: white;
     border: none;
@@ -60,6 +60,6 @@ button {
 }
 
 /* 버튼에 마우스를 올렸을 때 효과 */
-button:hover {
+pt-container button:hover {
     background-color: #2980b9;
 }

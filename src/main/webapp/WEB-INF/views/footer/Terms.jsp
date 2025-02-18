@@ -7,8 +7,8 @@
     <title>이용약관</title>
     <link rel="stylesheet" type="text/css" href="/css/footer/TermsAndPrivacy.css">
 </head>
-<body>
-    <div class="container">
+<body class="pt-body">
+    <div class="pt-container">
         <h1>이용약관</h1>
         <p>본 이용약관은 Travel Maker(이하 ‘회사’)가 제공하는 서비스의 이용과 관련하여 회원과 회사 간의 권리, 의무 및 책임사항을 규정합니다.</p>
 

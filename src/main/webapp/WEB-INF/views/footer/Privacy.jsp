@@ -7,8 +7,8 @@
     <title>개인정보처리방침</title>
     <link rel="stylesheet" type="text/css" href="/css/footer/TermsAndPrivacy.css">
 </head>
-<body>
-    <div class="container">
+<body class="pt-body">
+    <div class="pt-container">
         <h1>개인정보처리방침</h1>
         <p>Travel Maker(이하 ‘회사’)는 이용자의 개인정보를 중요시하며, 개인정보보호법을 준수하고 있습니다.</p>
 
