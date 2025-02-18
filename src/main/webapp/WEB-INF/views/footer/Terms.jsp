@@ -7,8 +7,8 @@
     <title>이용약관</title>
     <link rel="stylesheet" type="text/css" href="/css/footer/TermsAndPrivacy.css">
 </head>
-<body class="pt-body">
-    <div class="pt-container">
+<body>
+    <div class="footer_container">
         <h1>이용약관</h1>
         <p>본 이용약관은 Travel Maker(이하 ‘회사’)가 제공하는 서비스의 이용과 관련하여 회원과 회사 간의 권리, 의무 및 책임사항을 규정합니다.</p>
 
@@ -32,8 +32,8 @@
         <h2>제5조 (책임의 한계)</h2>
         <p>회사는 천재지변 및 불가항력적인 사유로 발생한 손해에 대해 책임을 지지 않습니다.</p>
 
-        <p class="last-update">최종 업데이트: 2025년 2월 17일</p>
-        <button type="button" class="cancelBtn" onclick="location.href='/'">취소</button>
+        <p class="footer-last-update">최종 업데이트: 2025년 2월 18일</p>
+        <button type="button" class="footer_back_Btn" onclick="location.href='/'">메인화면으로</button>
     </div>
 </body>
 </html>

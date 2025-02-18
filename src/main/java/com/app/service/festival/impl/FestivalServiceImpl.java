@@ -79,4 +79,10 @@ public class FestivalServiceImpl implements FestivalService{
         return festivalDAO.isUserLikedFestival(userId, festivalId);
     }
 
+	@Override
+	public List<Festival> getRandomFestivalList(int count) {
+		
+		return festivalDAO.getRandomFestivalList(count);
+	}
+
 }

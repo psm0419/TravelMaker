@@ -1,13 +1,6 @@
 @charset "UTF-8";
 
-.pt-body body {
-    font-family: 'Noto Sans KR', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
-}
-
-.pt-container {
+.footer_container {
     max-width: 800px;
     margin: 50px auto;
     padding: 30px;
@@ -16,38 +9,38 @@
     border-radius: 10px;
 }
 
-pt-container h1 {
+.footer_container h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
-pt-container h2 {
+.footer_container h2 {
     color: #555;
     border-bottom: 2px solid #74ebd5;
     padding-bottom: 5px;
     margin-top: 20px;
 }
 
-pt-container p {
+.footer_container p {
     line-height: 1.6;
     color: #666;
 }
 
-pt-container ul {
+.footer_container ul {
     list-style: disc;
     margin-left: 20px;
     color: #666;
 }
 
-.last-update {
+.footer-last-update {
     margin-top: 30px;
     font-size: 14px;
     text-align: right;
     color: #999;
 }
 
-pt-container button {
+.footer_back_Btn {
     background-color: #3498db; /* 파란색 */
     color: white;
     border: none;
@@ -60,6 +53,6 @@ pt-container button {
 }
 
 /* 버튼에 마우스를 올렸을 때 효과 */
-pt-container button:hover {
+.footer_back_Btn:hover {
     background-color: #2980b9;
 }

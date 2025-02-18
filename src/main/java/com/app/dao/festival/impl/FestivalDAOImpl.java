@@ -86,4 +86,9 @@ public class FestivalDAOImpl implements FestivalDAO {
 				Map.of("festivalId", festivalId, "likeCount", likeCount));
 	}
 
+	@Override
+	public List<Festival> getRandomFestivalList(int count) {
+		 return sqlSessionTemplate.selectList("festival_mapper.getRandomFestivalList", count);
+	}
+
 }
