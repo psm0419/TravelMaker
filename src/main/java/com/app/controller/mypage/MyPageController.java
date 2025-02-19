@@ -16,18 +16,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.dto.festival.Festival;
+import com.app.dto.signup.User;
 import com.app.service.mypage.MyPageService;
+import com.app.service.signup.UserService;
 
 @Controller
 public class MyPageController {
 
 	@Autowired
 	MyPageService myPageService;
+	@Autowired
+	UserService userService;
 
 	@GetMapping("/mypage")
-	public String mypage() {
+	public String mypage(Model model,HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUserById(userId);
+		model.addAttribute("user",user);
 		return "mypage/MyPage";
 	}
+	
 
 	@GetMapping("/mypage/bookmark")
 	public String bookmark(Model model, HttpSession session) {
