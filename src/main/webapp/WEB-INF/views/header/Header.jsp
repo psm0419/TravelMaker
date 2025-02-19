@@ -126,33 +126,29 @@
 						}
 					});
 
-					$(".logout").click(function(e) {
-						e.preventDefault(); // 기본 이벤트 중단
+					$(".logout").click(function (e) {
+					    e.preventDefault(); // 기본 이벤트 중단
+					    console.log("로그아웃 버튼 클릭됨"); // 디버깅 로그 추가
 
-						if (confirm("정말 로그아웃 하시겠습니까?")) {
-							$.ajax({
-								url : "/user/logout",
-								type : "POST",
-								success : function(response) {
-									// 현재 페이지의 캐시를 방지하기 위한 헤더 설정
-									$.ajaxSetup({
-										cache : false
-									});
-									
-									window.location.replace("/");
-								},
-								error : function(xhr, status, error) {
-									alert("로그아웃 처리 중 오류가 발생했습니다.");
-									console.error("Logout error:", error);
-								},
-								complete : function() {
-									// Ajax 요청 완료 후 캐시 설정 복구
-									$.ajaxSetup({
-										cache : true
-									});
-								}
-							});
-						}
+					    if (confirm("정말 로그아웃 하시겠습니까?")) {
+					        console.log("사용자가 로그아웃 확인 클릭");
+
+					        $.ajax({
+					            url: "/user/logout",
+					            type: "POST",
+					            success: function (response) {
+					                console.log("로그아웃 성공, 메인 페이지로 이동");
+					                window.location.replace("/");
+					            },
+					            error: function (xhr, status, error) {
+					                console.error("로그아웃 중 오류 발생:", error);
+					                alert("로그아웃 처리 중 오류가 발생했습니다.");
+					            }
+					        });
+					    } else {
+					        console.log("사용자가 로그아웃 취소 클릭 - 아무 동작 없음");
+					        return false; // 추가: 취소 시 명확하게 아무 동작도 하지 않도록 방지
+					    }
 					});
 
 					// 헤더 메뉴 클릭 이벤트 바인딩
