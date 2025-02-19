@@ -66,9 +66,7 @@
 					value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
 				class="ms-3 text-muted">조회수 ${post.postViews}</span>
 			
-			<c:if test="${not empty sessionScope.loggedInUser 
-             				and (sessionScope.loggedInUser.userId eq postList.userId 
-                  			or sessionScope.loggedInUser.userType eq 'ADM')}">	
+			<c:if test="${not empty sessionScope.loggedInUser and (sessionScope.loggedInUser.userId eq post.userId or sessionScope.loggedInUser.userType eq 'ADM')}">	
 				<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/post/delete" method="post" style="display: inline; margin-left: 8px;" onsubmit="return confirmDelete();">
 					<button type="submit" class="btn btn-outline-danger btn-sm ms-3" style="font-size: 12px; margin-right:-15px;">❌ 삭제하기</button>
 				</form>
