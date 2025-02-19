@@ -47,16 +47,22 @@
 						</tr>
 						<c:forEach var="post" items="${postList}">
 							<tr>
-								<td><input type="checkbox"> </td>
+								<td><input type="checkbox" class="postCheckbox"
+									value="${post.postId}"></td>
 								<td>${post.title}</td>
-								<td>${post.nickName}(${post.postId})</td>
+								<td>${post.nickName}(${post.userId})</td>
 								<td>${post.report}</td>
 								<td>
 									<div class="btn btn-admin">
-										<a href="/admin/content/{$postId}">확인</a>
+										<c:choose>
+											<c:when test="${post.boardId==2}">
+												<a href="/QnADetail/${post.postId}">확인</a>
+											</c:when>
+											<c:otherwise>
+												<a href="/reviewDetail/${post.postId}">확인</a>
+											</c:otherwise>
+										</c:choose>
 									</div>
-									<div class="btn btn-ban" onClick="removeContent"
-										(${post.postId})>삭제</div>
 								</td>
 							</tr>
 						</c:forEach>
