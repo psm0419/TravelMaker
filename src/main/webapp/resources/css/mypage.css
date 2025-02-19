@@ -1,0 +1,85 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.mypage-body body {
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 높이를 기준으로 최소 크기 설정 */
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.mypage-body a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.mypage-container {
+	display: flex;
+    flex: 1;
+    max-width: 900px; /* 너비 제한 */
+    width: 100%;
+    margin: 20px auto; /* 중앙 정렬 */
+}
+.footer {
+    position: fixed; /* 화면 하단에 고정 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #80deea; /* 기존 푸터 배경색 */
+    padding: 15px 0;
+    text-align: center;
+}
+.sidebar {
+	width: 250px;
+	background: #0D47A1;
+	color: white;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+/* .profile {
+	
+} */
+
+
+.main-content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.activities {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.activities-icons {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+	margin-top: 10px;
+}
+
+.activity {
+	text-align: center;
+}
+
+.activity i {
+	font-size: 24px;
+	color: #0D47A1;
+}
+
+.recent-festivals {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

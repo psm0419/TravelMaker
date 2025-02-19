@@ -1,0 +1,95 @@
+/* 기본 body 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+}
+
+/* 폼을 감싸는 컨테이너 스타일 */
+.findId_container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 32px; /* 크기를 조금 더 크게 설정 */
+    font-weight: 700; /* 좀 더 두꺼운 글씨체 */
+    color: #2c3e50; /* 좀 더 부드럽고 깔끔한 색상 */
+    text-align: center; /* 제목 가운데 정렬 */
+    margin-bottom: 30px; /* 아래 여백 추가 */
+    letter-spacing: 1px; /* 글자 간격을 적당히 넓혀서 깔끔하게 */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 부드럽고 자연스러운 그림자 효과 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 현대적이고 깔끔한 글꼴 */
+    text-transform: uppercase; /* 글자를 모두 대문자로 변환하여 강조 */
+}
+
+/* 아이디 찾기 입력창 스타일 */
+.div_Find_input_jumin, .div_FindId_input_email {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* 주민등록번호 입력창 스타일 */
+.findId_input_jumin, .findId_input_email {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 포커스 시 스타일 */
+.findId_input_jumin:focus, .findId_input_email:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* 버튼 스타일 */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin : 5px;
+}
+
+/* 버튼 호버 시 스타일 */
+button:hover {
+    background-color: #2980b9;
+}
+
+/* 헤더 로고  */
+
+.headerLogo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin: 10px;
+}
+
+.headerLogo img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-right: 7px;
+}

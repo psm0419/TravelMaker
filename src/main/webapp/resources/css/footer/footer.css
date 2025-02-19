@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/* 푸터 기본 스타일 */
+.footer {
+    background: lightblue; /* 배경 색상 */
+    color: rgb(0, 0, 0);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;    
+}
+
+/* 푸터 각 섹션 */
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+/* 제목 스타일 */
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid white; /* 포인트 색상 */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* 리스트 스타일 */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: #000000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #74ebd5;
+}
+
+/* 소셜 미디어 스타일 */
+.footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: #74ebd5;
+}
+
+
+/* 푸터 하단 카피라이트 */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+}
+
+/* 반응형 (태블릿 & 모바일) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}

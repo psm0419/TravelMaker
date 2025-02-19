@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+/* 기본 스타일 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+P {
+	font-size: 14px;
+}
+
+body {
+	background: linear-gradient(to right, #74ebd5, #acb6e5);
+	display: block;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+/* 전체 컨테이너 */
+.signup_container {
+	background: white;
+	width: 400px;
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	height: auto;
+	margin: 30px auto;
+}
+
+/* 회원가입 로고 */
+.signup_logo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+/* 입력 필드 공통 스타일 */
+input {
+	width: 100%;
+	padding: 12px;
+	margin-top: 10px;
+	border: 2px solid #ddd;
+	border-radius: 6px;
+	font-size: 16px;
+	transition: 0.3s;
+}
+
+/* 입력 필드 포커스 효과 */
+input:focus {
+	border-color: #74ebd5;
+	outline: none;
+}
+
+/* 버튼 스타일 */
+button {
+	width: 100%;
+	padding: 12px;
+	margin-top: 15px;
+	border: none;
+	border-radius: 6px;
+	font-size: 18px;
+	color: white;
+	background: #74ebd5;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#cancelBtn {
+	text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 버튼 호버 효과 */
+button:hover {
+	background: #4ac2af;
+}
+
+/* 버튼 비활성화 */
+button:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+/* 에러 & 성공 메시지 */
+.success {
+	color: green;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+.error {
+	color: red;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+/* 약관 동의 체크박스 */
+#termsAgreement {
+	margin-top: 10px;
+	transform: scale(1.2);
+}
+
+.signup_code_container {
+	display: none; /* 기본적으로 숨김 */
+	text-align: center;
+	margin-top: 20px;
+	padding: 15px;
+	background: #f9f9f9;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+}
+
+/* 미디어 쿼리 (반응형 디자인) */
+@media ( max-width : 500px) {
+	.signup_container {
+		width: 90%;
+		padding: 20px;
+	}
+}
+
+/* 헤더 로고  */
+.headerLogo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.headerLogo img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-right: 7px;
+}

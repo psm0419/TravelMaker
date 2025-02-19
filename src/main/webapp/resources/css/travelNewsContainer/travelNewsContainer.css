@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+/* travelNewsContainer를 가운데로 배치 */
+.travelNewsContainer {
+    display: flex;              /* flexbox 사용 */
+    justify-content: center;    /* 가로 가운데 정렬 */
+    align-items: center;        /* 세로 가운데 정렬 */
+    height: 70vh;              /* 화면 높이에 맞게 설정 */
+}
+
+/* newsBox는 가로로 나열되도록 */
+.newsBox {
+    display: flex;              /* flexbox 사용 */
+    align-items: center;        /* 세로 정렬 */
+    justify-content: space-around; /* 왼쪽과 오른쪽으로 공간 분배 */
+    width: 80%;                 /* 적당한 너비로 설정 */
+    max-width: 1200px;          /* 최대 너비 제한 */
+    padding: 20px;              /* 내부 여백 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    border-radius: 10px;        /* 모서리 둥글게 */
+}
+
+/* imgBox: 이미지를 감싸는 박스 */
+.imgBox {
+    flex: 1;                    /* 이미지 크기를 자동으로 설정 */
+    max-width: 500px;           /* 이미지 크기 제한 */
+    max-height: 300px;
+    margin-right: 20px;         /* 오른쪽 여백 */
+}
+
+/* newsImage는 왼쪽에 위치 */
+.newsImage {
+    width: 100%;                /* 이미지 크기 맞추기 */
+    height: 100%;
+    border-radius: 10px;        /* 이미지 모서리 둥글게 */
+    object-fit: cover;          /* 이미지 비율을 유지하며 채움 */
+}
+
+/* newsText는 오른쪽에 위치 */
+.newsText {
+    flex: 1;                    /* 너비를 자동으로 조정 */
+    display: flex;
+    flex-direction: column;     /* 세로로 배치 */
+    justify-content: center;    /* 세로 가운데 정렬 */
+    text-align: center;         /* 텍스트 수평 가운데 정렬 */
+}
+
+.newsHeader {
+    font-size: 24px;            /* 글씨 크기 */
+    font-weight: bold;          /* 글씨 두껍게 */
+    margin-bottom: 10px;        /* 아래 여백 */
+}
+
+.newsList {
+    font-size: 18px;            /* 글씨 크기 */
+    color: #555;                /* 글씨 색상 */
+    margin-bottom: 10px;        /* 아래 여백 */
+}
+
+.newsList p {
+    margin: 0;                  /* 패딩 없애기 */
+}
+
+/* 추가로, 이미지를 좀 더 예쁘게 만들기 위한 효과 */
+.newsImage img {
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
+}
+
+/* 화면 크기가 작은 경우, 이미지와 텍스트가 위아래로 배치되도록 설정 */
+@media (max-width: 768px) {
+    .newsBox {
+        flex-direction: column;  /* 세로로 배치 */
+        align-items: center;     /* 가운데 정렬 */
+    }
+
+    .imgBox {
+        margin-right: 0;
+        margin-bottom: 20px;     /* 이미지와 텍스트 간 간격 */
+    }
+
+    .newsText {
+        text-align: center;      /* 텍스트 중앙 정렬 */
+    }
+}
+

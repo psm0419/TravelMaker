@@ -1,0 +1,96 @@
+/* 기본 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.main-container {
+    display: flex; /* 가로 정렬 */
+    width: 80%;
+    margin: 20px auto;
+    gap: 20px; /* 콘텐츠와 사이드바 사이 간격 */
+}
+/* 메인 콘텐츠 */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 즐겨찾기 페이지 스타일 */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 20px;
+}
+.betweenHeader{
+	margin-left:120px;
+}
+
+/* 사이드바 */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* 기본 메뉴 스타일 */
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+}
+
+/* 선택된 메뉴 스타일 (예: 첫 번째 메뉴 선택 상태 가정) */
+.sidebar ul li.selected {
+    background-color: #e0f0ff;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 선택된 메뉴 왼쪽 세로줄 효과 */
+.sidebar ul li.selected::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #005bb5;
+    border-radius: 5px 0 0 5px;
+}
+
+/* 마우스 호버 시 선택된 메뉴처럼 보이도록 */
+.sidebar ul li:hover {
+    background-color: #ADD8E6;
+    cursor: pointer;
+}
+
+/* 호버 시에도 세로줄 효과 */
+.sidebar ul li:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #0073e6;
+    border-radius: 5px 0 0 5px;
+}
