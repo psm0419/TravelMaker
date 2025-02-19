@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="festival-detail">
+<%@include file="../header/Header.jsp"%>
 	<!-- 오늘 날짜를 문자열로 저장 -->
 <c:set var="today"><%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %></c:set>
 
