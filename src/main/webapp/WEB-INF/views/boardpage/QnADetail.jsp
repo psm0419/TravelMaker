@@ -66,7 +66,9 @@
 					value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm" /></span> <span
 				class="ms-3 text-muted">조회수 ${post.postViews}</span>
 			
-			<c:if test="${not empty sessionScope.loggedInUser and sessionScope.loggedInUser.userId eq post.userId}">	
+			<c:if test="${not empty sessionScope.loggedInUser 
+             				and (sessionScope.loggedInUser.userId eq postList.userId 
+                  			or sessionScope.loggedInUser.userType eq 'ADM')}">	
 				<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/post/delete" method="post" style="display: inline; margin-left: 8px;" onsubmit="return confirmDelete();">
 					<button type="submit" class="btn btn-outline-danger btn-sm ms-3" style="font-size: 12px; margin-right:-15px;">❌ 삭제하기</button>
 				</form>
@@ -96,7 +98,9 @@
 					<fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" />
 				</small>
 				
-				<c:if test="${not empty sessionScope.loggedInUser and sessionScope.loggedInUser.userId eq comment.userId}">
+				<c:if test="${not empty sessionScope.loggedInUser 
+             					and (sessionScope.loggedInUser.userId eq postList.userId 
+                  				or sessionScope.loggedInUser.userType eq 'ADM')}">
 	            	<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/comment/delete" method="post" style="display: inline; margin-left: 8px;" onsubmit="return confirmDelete();">
 		                <input type="hidden" name="commentId" value="${comment.commentId}">
 		                <button type="submit" class="btn btn-sm text-danger p-0 d-flex align-items-center justify-content-center"
