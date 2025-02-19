@@ -68,12 +68,12 @@
 			
 			<c:if test="${not empty sessionScope.loggedInUser and sessionScope.loggedInUser.userId eq post.userId}">	
 				<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/post/delete" method="post" style="display: inline; margin-left: 8px;" onsubmit="return confirmDelete();">
-					<button type="submit" class="btn btn-outline-danger ms-3">글 삭제하기</button>
+					<button type="submit" class="btn btn-outline-danger btn-sm ms-3" style="font-size: 12px; margin-right:-15px;">❌ 삭제하기</button>
 				</form>
 			</c:if>
 			<c:if test="${not empty sessionScope.loggedInUser}">	
 				<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/post/report" method="post" style="display: inline; margin-left: 8px;" onsubmit="return confirmReport();">
-					<button type="submit" class="btn btn-outline-danger ms-3">글 신고하기</button>
+					<button type="submit" class="btn btn-outline-danger btn-sm ms-3" style="font-size: 12px;">🚨신고하기</button>
 				</form>
 			</c:if>
 
@@ -123,7 +123,7 @@
 		<c:if test="${empty sessionScope.loggedInUser}">
 			<form onsubmit="handleCommentSubmit(event)">
 				<textarea name="content" class="form-control mb-2"
-					placeholder="댓글을 입력해주세요." required></textarea>
+					placeholder="댓글을 입력해주세요." required style="resize: none;"></textarea>
 				<button type="submit" class="btn btn-primary">등록</button>
 			</form>
 		</c:if>
