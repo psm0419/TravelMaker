@@ -17,14 +17,16 @@
 			<div class="mypage-container">
 				<div class="sidebar">
 					<div class="profile">
-						<h2>사진 들어올곳</h2>
+						<img src="/images/유저이미지.jpg" alt="작성자 이미지" class="rounded-circle" style="border-radius: 5px; width: 120px;">
+						<br>
 						<p>
-							반가워요!<br>고객
+							반가워요!<br>${sessionScope.loggedInUser.nickName}
 							님
 						</p>
-						<button
-							style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px;">
-							프로필 이미지 설정</button>
+						<br>
+						<button style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px; cursor:pointer;"> 프로필
+							이미지 설정</button>
+
 					</div>
 				</div>
 				<div class="main-content">
