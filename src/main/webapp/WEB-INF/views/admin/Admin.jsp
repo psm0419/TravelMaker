@@ -50,9 +50,9 @@
 			<div class="recent-activities">
 				<h2>최근 활동</h2>
 				<ul>
-					<li>신규 사용자: ${latestUser}님 가입</li>
-					<li>신고 접수: <a href="/admin/reports/${latestReportedPost.id}">${latestReportedPost.title}</a></li>
-					<li>새 콘텐츠 추가됨: <a href="/admin/content/${latestContent.id}">${latestContent.title}</a></li>
+					<li>신규 사용자: 바위기린님 가입</li>
+					<li>신고 접수: 3건 접수됨</a></li>
+					<li>새 콘텐츠 추가됨 <a href="/admin/content/${Content.id}">${Content.title}</a></li>
 				</ul>
 			</div>
 
