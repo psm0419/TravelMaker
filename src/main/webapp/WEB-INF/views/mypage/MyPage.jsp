@@ -24,9 +24,9 @@
 							님
 						</p>
 						<br>
-						<button
-							style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px; cursor:pointer;">프로필
+						<button style="background: white; color: #0D47A1; border: none; padding: 5px 10px; border-radius: 5px; cursor:pointer;"> 프로필
 							이미지 설정</button>
+
 					</div>
 				</div>
 				<div class="main-content">
