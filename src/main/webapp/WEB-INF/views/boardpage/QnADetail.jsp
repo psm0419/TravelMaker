@@ -98,9 +98,7 @@
 					<fmt:formatDate value="${comment.createdAt}" pattern="yyyy-MM-dd HH:mm" />
 				</small>
 				
-				<c:if test="${not empty sessionScope.loggedInUser 
-             					and (sessionScope.loggedInUser.userId eq postList.userId 
-                  				or sessionScope.loggedInUser.userType eq 'ADM')}">
+				<c:if test="${not empty sessionScope.loggedInUser and (sessionScope.loggedInUser.userId eq comment.userId or sessionScope.loggedInUser.userType eq 'ADM')}">
 	            	<form action="${pageContext.request.contextPath}/QnADetail/${post.postId}/comment/delete" method="post" style="display: inline; margin-left: 8px;" onsubmit="return confirmDelete();">
 		                <input type="hidden" name="commentId" value="${comment.commentId}">
 		                <button type="submit" class="btn btn-sm text-danger p-0 d-flex align-items-center justify-content-center"
