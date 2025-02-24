@@ -66,7 +66,7 @@
 			</c:forEach>
 		</div>
 	</div>
-	<%@include file="../footer/Footer.jsp"%>
+	<%@include file="../footer/Footer.jsp"%> 
 </body>
 
 <script>
