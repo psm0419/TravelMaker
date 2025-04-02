@@ -2,7 +2,7 @@
 <Configuration status="INFO">	
     	
     <Properties>	
-        <Property name="logNm">web_study_Log4j2</Property>	
+        <Property name="logNm">TravelMaker_Log4j2</Property>	
         <Property name="layoutPattern">[%d{yyyy/MM/dd HH:mm:ss,SSS}] [%t] [%-5level] [%logger{36}] %m%n</Property>	
     </Properties>	
     	
@@ -10,7 +10,7 @@
         <Console name="Console_Appender" target="SYSTEM_OUT">	
             <PatternLayout pattern="${layoutPattern}"/>	
         </Console>	
-        <RollingFile name="File_Appender" fileName="e:/logs/${logNm}.log" filePattern="logs/${logNm}_%d{yyyy-MM-dd}_%i.log.gz">	
+        <RollingFile name="File_Appender" fileName="d:/logs/${logNm}.log" filePattern="logs/${logNm}_%d{yyyy-MM-dd}_%i.log.gz">	
             <PatternLayout pattern="${layoutPattern}"/>	
             <Policies>	
                 <SizeBasedTriggeringPolicy size="1000KB"/>	

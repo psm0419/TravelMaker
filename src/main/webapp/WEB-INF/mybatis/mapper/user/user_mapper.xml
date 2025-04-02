@@ -4,7 +4,7 @@
 <mapper namespace="user_mapper">
 
 	<insert id="insertUser" parameterType="User">
-		INSERT INTO users
+		INSERT INTO users2
 		(user_id, username, nickname, pw, email, tel, jumin,
 		user_type)
 		VALUES
@@ -15,7 +15,7 @@
 	
 
 	<update id="updateUser" parameterType="User">
-		UPDATE users
+		UPDATE users2
 		SET username=
 		#{userName}, nickname=#{nickName},<!--  pw=#{pw}, -->
 		email= #{email}, tel=
@@ -24,48 +24,48 @@
 	</update>
 
 	<delete id="deleteUser" parameterType="User">
-		DELETE FROM users WHERE
+		DELETE FROM users2 WHERE
 		user_id = #{userId}
 	</delete>
 
 	<select id="getAllUsers" resultType="User">
-		SELECT * FROM users
+		SELECT * FROM users2
 	</select>
 
 	<select id="getUserByNickname" resultType="User">
-		SELECT * FROM users
+		SELECT * FROM users2
 		WHERE nickname = #{nickName}
 	</select>
 
 	<select id="getUserByJumin" resultType="User">
-		SELECT * FROM users WHERE
+		SELECT * FROM users2 WHERE
 		jumin = #{jumin}
 	</select>
 
 	<select id="getUserByTel" resultType="User">
-		SELECT * FROM users WHERE
+		SELECT * FROM users2 WHERE
 		tel = #{tel}
 	</select>
 
 	<select id="getUserByEmail" resultType="User">
-		SELECT * FROM users WHERE
+		SELECT * FROM users2 WHERE
 		email = #{email}
 	</select>
 
 	<select id="getUserByPw" resultType="User">
-		SELECT * FROM users WHERE pw
+		SELECT * FROM users2 WHERE pw
 		= #{pw}
 
 	</select>
 
 	<select id="getUserList" resultType="User">
 		select *
-		from users
+		from users2
 	</select>
 
 	<select id="getUserLists" resultType="User">
 		select *
-		from users
+		from users2
 	</select>
 
 	<select id="getNotifyUserList" resultType="User">
@@ -73,20 +73,20 @@
 		userId, username AS userName, nickname AS nickName,
 		email, tel,
 		user_type AS userType, report
-		FROM users
+		FROM users2
 		WHERE report IS NOT NULL
 		ORDER
 		BY report DESC
 	</select>
 
 	<select id="getUserById" resultType="User">
-		SELECT * FROM users WHERE
+		SELECT * FROM users2 WHERE
 		user_id = #{userId}
 	</select>
 	
 
 	<update id="modifyUser" parameterType="User">
-		UPDATE users
+		UPDATE users2
 		SET
 		user_type =
 		#{userType}
@@ -94,7 +94,7 @@
 	</update>
 
 <update id="resetReport" parameterType="java.util.List">
-    UPDATE users
+    UPDATE users2
     SET report = NULL
     WHERE user_id IN
     <foreach item="id" collection="list" open="(" separator="," close=")">
